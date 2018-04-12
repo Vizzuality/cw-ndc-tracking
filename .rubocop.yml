@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
@@ -8,6 +8,10 @@ AllCops:
     - 'config/initializers/*'
     - 'config/*'
     - 'node_modules/**/*'
+
+Layout/EmptyLines:
+  Exclude:
+    - 'Gemfile'
 
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -33,6 +37,10 @@ Style/PercentLiteralDelimiters:
 Style/Documentation:
   Enabled: false
 
+Style/ExpandPathArguments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 Style/AndOr:
   Enabled: false
 
@@ -47,6 +55,12 @@ Style/BlockDelimiters:
 Style/RegexpLiteral:
   EnforcedStyle: slashes
   AllowInnerSlashes: true
+
+Style/StringLiterals:
+  Exclude:
+    - 'Gemfile'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 
 Metrics/LineLength:
   Max: 100
