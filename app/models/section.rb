@@ -17,10 +17,29 @@ class Section
     {'title' => nil, 'slug' => nil}
   end
 
-  # @params includes [Array<String>]
+  # @param includes [Array<String>]
   def self.all(includes = [])
+    Configuration.instance.sections.map do |section|
+      section.serializable_hash(
+        serialization_options(includes)
+      )
+    end
+  end
+
+  # @param slug [String]
+  def self.find_by_slug(slug, includes = [])
+    result = Configuration.instance.sections.find do |section|
+      section.slug == slug
+    end
+    return nil unless result
+    result.serializable_hash(
+      serialization_options(includes)
+    )
+  end
+
+  def self.serialization_options(includes)
     default_serialization_options = {methods: [:title, :slug]}
-    serialization_options =
+    custom_serialization_options =
       if includes.include?(:targets)
         {include: {categories: {include: :targets}}}
       elsif includes.include?(:categories)
@@ -28,11 +47,6 @@ class Section
       else
         {}
       end
-
-    Configuration.instance.sections.map do |section|
-      section.serializable_hash(
-        default_serialization_options.merge(serialization_options)
-      )
-    end
+    default_serialization_options.merge(custom_serialization_options)
   end
 end

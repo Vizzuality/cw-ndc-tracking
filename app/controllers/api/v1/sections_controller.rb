@@ -6,6 +6,11 @@ module Api
         render json: @sections
       end
 
+      def show
+        @section = Section.find_by_slug(params[:slug], section_includes)
+        render json: @section
+      end
+
       private
 
       def section_includes

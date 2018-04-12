@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :sections, only: [:index]
+      resources :sections, param: :slug, only: [:index, :show]
 
       get 'auth/login', to: 'auth#login'
       get 'auth/logout', to: 'auth#logout'

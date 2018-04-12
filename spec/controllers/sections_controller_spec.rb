@@ -17,4 +17,21 @@ RSpec.describe Api::V1::SectionsController, type: :controller do
       expect(@response).to match_response_schema('sections_with_targets')
     end
   end
+
+  describe 'GET show' do
+    it 'renders title and slug for section' do
+      get :show, params: {slug: 'planning'}
+      expect(@response).to match_response_schema('section')
+    end
+
+    it 'includes categories' do
+      get :show, params: {slug: 'planning', includes: [:categories]}
+      expect(@response).to match_response_schema('section_with_categories')
+    end
+
+    it 'includes targets' do
+      get :show, params: {slug: 'planning', includes: [:targets]}
+      expect(@response).to match_response_schema('section_with_targets')
+    end
+  end
 end
