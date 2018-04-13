@@ -88,6 +88,8 @@ mark {
 
 body,
 html {
+  font-family: $font-family-1;
+  font-size: $font-size;
   font-weight: $font-weight;
   margin: 0;
   padding: 0;
@@ -116,6 +118,10 @@ html {
 
   img {
     max-width: 100%;
+  }
+
+  input {
+    font-family: $font-family-1;
   }
 }
 
