@@ -20,7 +20,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 Finally run:
 
 ```text
-rvm install ruby-2.3.1
+rvm install ruby-2.5.1
 ```
 
 it will takes a while...
@@ -28,7 +28,7 @@ it will takes a while...
 ## Installing dependencies
 
 ```text
-npm install
+yarn install
 ```
 
 and then
@@ -42,17 +42,16 @@ These will satisfy both the frontend and backend's dependency requirements.
 
 ### Setting up the Rails environment
 
-Copy the sample `.env.sample` file to `.env` and modify it as needed to fit the project's settings. At the very least you'll need to have the `DATABASE_URL` env variable.
+Copy the sample `.env.sample` file to `.env` and modify it as needed to fit the project's settings. At the very least you'll need to have the `POSTGRES_URL` env variable.
 
 ```text
-DATABASE_URL=postgresql://postgres@localhost/cw-ndc-tracker_development
+POSTGRES_URL=postgresql://postgres@localhost/cw-ndc-tracker_development
 ```
 
 ### Setting up the database
 
 ```text
-rails db create
-rails db migrate
+rails db:create db:migrate
 ```
 
 These will create the development database and then run the database migration tasks.
@@ -62,13 +61,13 @@ These will create the development database and then run the database migration t
 You'll need to run both the rails server and the webpack server, which will be used internally by rails. Run, separately:
 
 ```text
-yarn run rails:server
+rails server
 ```
 
 and
 
 ```text
-yarn run js:server
+yarn start
 ```
 
 Point your browser to `http://localhost:3000/`. Ta-da!
