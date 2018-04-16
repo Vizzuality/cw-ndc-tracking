@@ -3,6 +3,7 @@
 * [Icon](#icon)
 * [Search](#search)
 * [Button](#button)
+* [Input](#input)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -125,3 +126,63 @@ The components used in the page are documented here with some basic information 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 - [Icon](#icon)
+
+## Input
+
+> ![](/.gitbook/assets/components/input.png)
+
+```
+  <Input
+    label="Label for CO2"
+    unit="CO2"
+    inputType="text"
+    placeholder="Input some text"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+> ![](/.gitbook/assets/components/input-number.png)
+
+```
+  <Input
+    label="Label for number"
+    unit="%"
+    inputType="number"
+    placeholder="Input some number"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+> ![](/.gitbook/assets/components/input-text-area.png)
+
+```
+  <Input
+    label="Label for text area"
+    unit="CO2"
+    inputType="textarea"
+    placeholder="Text Area"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
+#### Props
+
+- value: string,
+- placeholder: string,
+- autofocus: bool,
+- onChange: func,
+- onBlur: func,
+- className: string,
+- theme: object,
+- handleKeyUp: func,
+- inputType: oneOf(['textarea', 'number', 'text']),
+- disabled: bool,
+- label: string, // optional
+- unit: string  // optional
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [lodash/debounce](https://www.npmjs.com/package/lodash.debounce)
+- [classnames](https://www.npmjs.com/package/classnames)

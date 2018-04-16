@@ -9,4 +9,5 @@
     * [Icon](tracking-tool-for-climate-watch/components.md#icon)
     * [Search](tracking-tool-for-climate-watch/components.md#search)
     * [Button](tracking-tool-for-climate-watch/components.md#button)
+    * [Input](tracking-tool-for-climate-watch/components.md#input)
 
