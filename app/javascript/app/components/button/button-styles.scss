@@ -1,0 +1,49 @@
+@import '~styles/settings';
+
+.button {
+  height: 45px;
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-family: $font-family-1;
+  font-size: $font-size;
+  text-transform: capitalize;
+  color: $theme-color;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  transition: box-shadow 150ms ease-out;
+
+  &:hover {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  a {
+    color: $theme-color;
+  }
+}
+
+.disabled {
+  background-color: transparent;
+  color: $gray;
+  border: solid 1px $border-color;
+  cursor: not-allowed;
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+  }
+
+  svg {
+    fill: $border-color;
+  }
+}

@@ -33,4 +33,73 @@ Props = {
   disabled: PropTypes.bool
 };
 
-No dependencies
+Dependencies:
+
+- 'react-css-themr';
+
+## Button
+
+> ![](.gitbook/assets/components/button.png)
+
+```
+<Button
+  onClick={handleClick}
+>
+  Click me
+</Button>
+```
+> ![](.gitbook/assets/components/button-disabled.png)
+
+```
+<Button>I don't have an action</Button>
+<Button disabled >
+  I wish you could click me
+</Button>
+```
+
+> ![](.gitbook/assets/components/button-yellow.png)
+
+```
+<Button
+  onClick={handleClick}
+  theme={yellowButtonTheme}
+>
+  Click me
+</Button>
+```
+
+> ![](.gitbook/assets/components/button-square.png)
+
+```
+  <Button
+    theme={squareButtonTheme}
+    onClick={() => true}
+  >
+    <Icon theme={blueIconTheme} icon={deleteIcon} />
+  </Button>
+```
+> ![](.gitbook/assets/components/button-back.png)
+
+```
+  <Button
+    theme={squareButtonTheme}
+    onClick={() => true}
+  >
+    <Icon theme={blueIconTheme} icon={backIcon} />
+  </Button>
+```
+
+Props = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  link: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  theme: PropTypes.object
+};
+
+Dependencies:
+
+- 'redux-first-router-link'
+- 'react-css-themr';

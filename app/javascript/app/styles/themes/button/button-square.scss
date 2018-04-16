@@ -1,0 +1,8 @@
+@import '~styles/settings.scss';
+
+.button {
+  width: 45px !important;
+  padding: 0;
+  border: solid 1px $border-color;
+  background-color: $light-gray;
+}
