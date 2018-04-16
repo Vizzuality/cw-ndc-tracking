@@ -1,5 +1,9 @@
 # Components
 
+* [Icon](#icon)
+* [Search](#search)
+* [Button](#button)
+
 The components used in the page are documented here with some basic information about them:
 
 - Snapshot
@@ -7,9 +11,27 @@ The components used in the page are documented here with some basic information 
 - Props
 - Dependencies
 
+## Icon
+
+> ![Icon component](/.gitbook/assets/components/icon.png)
+
+```
+  <Icon icon={searchIcon} />
+```
+
+#### Props
+
+- icon: object,
+- className: string,
+- theme: object
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
 ## Search
 
-> ![](/.gitbook/assets/components/search.png)
+> ![Search component](/.gitbook/assets/components/search.png)
 
 ```
 <Search
@@ -34,7 +56,7 @@ The components used in the page are documented here with some basic information 
 
 #### Dependencies
 
-- 'react-css-themr';
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 ## Button
 
@@ -99,5 +121,7 @@ The components used in the page are documented here with some basic information 
 
 #### Dependencies
 
-- 'redux-first-router-link'
-- 'react-css-themr';
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+- [Icon](#icon)
