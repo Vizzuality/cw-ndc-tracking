@@ -9,37 +9,36 @@ The components used in the page are documented here with some basic information 
 
 ## Search
 
-> ![](.gitbook/assets/components/search.png)
+> ![](/.gitbook/assets/components/search.png)
 
 ```
 <Search
   placeholder="Search something"
   value={searchValue}
-  onChange={handleOnChante}
+  onChange={handleOnChange}
   className={styles.search}
   theme={searchTheme}
   autofocus
-/>
-```
+/>```
 
-Props = {
-  value: PropTypes.string, // value of the search input
-  placeholder: PropTypes.string,
-  autofocus: PropTypes.bool, // focus on load
-  onChange: PropTypes.func,
-  className: PropTypes.string,
-  theme: PropTypes.object,
-  handleKeyUp: PropTypes.func,
-  disabled: PropTypes.bool
-};
+#### Props
 
-Dependencies:
+- value: string, // value of the search input
+- placeholder: string,
+- autofocus: bool, // focus on load
+- onChange: func,
+- className: string,
+- theme: object,
+- handleKeyUp: func,
+- disabled: bool
+
+#### Dependencies
 
 - 'react-css-themr';
 
 ## Button
 
-> ![](.gitbook/assets/components/button.png)
+> ![](/.gitbook/assets/components/button.png)
 
 ```
 <Button
@@ -48,7 +47,7 @@ Dependencies:
   Click me
 </Button>
 ```
-> ![](.gitbook/assets/components/button-disabled.png)
+> ![](/.gitbook/assets/components/button-disabled.png)
 
 ```
 <Button>I don't have an action</Button>
@@ -57,7 +56,7 @@ Dependencies:
 </Button>
 ```
 
-> ![](.gitbook/assets/components/button-yellow.png)
+> ![](/.gitbook/assets/components/button-yellow.png)
 
 ```
 <Button
@@ -68,7 +67,7 @@ Dependencies:
 </Button>
 ```
 
-> ![](.gitbook/assets/components/button-square.png)
+> ![](/.gitbook/assets/components/button-square.png)
 
 ```
   <Button
@@ -78,7 +77,7 @@ Dependencies:
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](.gitbook/assets/components/button-back.png)
+> ![](/.gitbook/assets/components/button-back.png)
 
 ```
   <Button
@@ -89,17 +88,16 @@ Dependencies:
   </Button>
 ```
 
-Props = {
-  children: PropTypes.node,
-  href: PropTypes.string,
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  link: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  theme: PropTypes.object
-};
+#### Props
+- children: node,
+- href: string,
+- className: oneOfType([string, array]),
+- link: string,
+- disabled: bool,
+- onClick: func,
+- theme: object
 
-Dependencies:
+#### Dependencies
 
 - 'redux-first-router-link'
 - 'react-css-themr';

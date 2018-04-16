@@ -6,6 +6,8 @@ We recommend managing your Ruby installation through [rvm](https://github.com/rv
 
 Install first the dependencies neccesaries:
 
+With RVM:
+
 ```text
 brew install curl gpg2
 ```
@@ -23,7 +25,14 @@ Finally run:
 rvm install ruby-2.5.1
 ```
 
-it will takes a while...
+With RBENV:
+
+```text
+rbenv install 2.5.1
+rbenv local 2.5.1
+```
+
+it will take a while...
 
 ## Installing dependencies
 
@@ -78,3 +87,29 @@ Point your browser to `http://localhost:3000/`. Ta-da!
 
 Ta-da!
 
+## Running gitbook locally
+
+First install gitbook (via npm).
+
+```text
+npm install -g gitbook
+npm install -g gitbook-cli
+```
+
+Thereafter, from the root of the repo you're working on, you run...
+
+```text
+gitbook build .
+```
+
+And it will generate a subfolder called "_book" which contains "index.html" and all the other html of the finished book.
+(You may want to add _book to your .gitignore)
+
+You can view that _book\index.html file directly in a browser, or serve the content locally from a mini webserver by running:
+
+```text
+gitbook serve .
+```
+
+And then browse to
+http://localhost:4000/
