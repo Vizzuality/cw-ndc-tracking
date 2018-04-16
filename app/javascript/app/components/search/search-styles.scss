@@ -19,8 +19,8 @@
   transition: box-shadow 150ms ease-out;
 
   &::placeholder {
-    color: rgba($theme-color, 0.5);
-    font-style: italic;
+    color: $theme-color;
+    opacity: 0.5;
   }
 
   &:focus {
