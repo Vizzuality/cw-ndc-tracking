@@ -1,7 +1,5 @@
 # Climate Watch - Tracking tool
 
-> Delivering real-time data to frontline forest guardians.
->
 > ![](.gitbook/assets/cw-logo%20%281%29.svg)
 
 * [Documentation](https://vizzuality.gitbook.io/cw-ndc-tracking)

@@ -1,5 +1,9 @@
-@import '~styles/settings.scss';
+@import '~styles/layout.scss';
 
 .page {
+  @include row(4);
+}
 
+.search {
+  margin-bottom: 30px;
 }
