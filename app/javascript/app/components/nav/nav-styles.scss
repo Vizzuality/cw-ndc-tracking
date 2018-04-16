@@ -6,4 +6,5 @@
 }
 
 .navbar {
+  @include row();
 }

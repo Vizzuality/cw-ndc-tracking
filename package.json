@@ -20,7 +20,7 @@
     "lodash-es": "4.17.4",
     "query-string": "6.0.0",
     "react": "16.3.0",
-    "react-css-themr": "2.1.2",
+    "react-css-themr": "^2.1.2",
     "react-dom": "16.3.0",
     "react-redux": "5.0.5",
     "recompose": "0.25.1",
