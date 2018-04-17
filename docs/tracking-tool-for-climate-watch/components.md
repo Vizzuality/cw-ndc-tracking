@@ -132,7 +132,9 @@ The components used in the page are documented here with some basic information 
 
 > ![](/.gitbook/assets/components/dropdown.png)
 
-> ![](/.gitbook/assets/components/dropdown_open.png)
+> ![](/.gitbook/assets/components/dropdown-open.png)
+
+> ![](/.gitbook/assets/components/dropdown-disabled.png)
 
 ```
 <Dropdown
@@ -142,6 +144,7 @@ The components used in the page are documented here with some basic information 
     { label: 'dos', value: 'dos' }
   ]}
   label="select some stuff"
+  disabled
 />
 
 ```
@@ -150,16 +153,10 @@ The components used in the page are documented here with some basic information 
 - label: string
 - wrapperClassName: string
 - className: string
-- transparent: bool
-- white: bool
-- plain: bool
-- dark: bool
 - theme: object
 - hasSearch: bool
 - disabled: bool
-- blueBorder: bool
 - selectorRef: func
-- colorDot: string
 
 #### Dependencies
 

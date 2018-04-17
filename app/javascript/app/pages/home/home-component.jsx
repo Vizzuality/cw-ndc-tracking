@@ -23,6 +23,7 @@ class Home extends PureComponent {
             { label: 'value 2', value: 'value 2' }
           ]}
           label="select some stuff"
+          disabled
         />
       </div>
     );

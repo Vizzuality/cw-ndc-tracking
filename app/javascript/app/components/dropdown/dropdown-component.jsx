@@ -15,45 +15,16 @@ class Dropdown extends PureComponent {
     this.selectorElement.highlightFirstSelectableOption();
   }
   render() {
-    const {
-      label,
-      white,
-      transparent,
-      plain,
-      dark,
-      blueBorder,
-      wrapperClassName,
-      className,
-      disabled,
-      colorDot
-    } = this.props;
+    const { label, wrapperClassName, className, disabled } = this.props;
     return (
-      <div
-        className={cx(
-          styles.dropdownWrapper,
-          { [styles.flex]: colorDot },
-          wrapperClassName
-        )}
-      >
-        {colorDot && (
-          <span className={styles.dot} style={{ backgroundColor: colorDot }} />
-        )}
+      <div className={cx(styles.dropdownWrapper, wrapperClassName)}>
         {label && <span className={styles.label}>{label}</span>}
-        <div
-          className={cx(
-            theme.dropdown,
-            transparent ? theme.transparent : '',
-            white ? theme.white : '',
-            plain ? theme.plain : '',
-            dark ? theme.dark : '',
-            blueBorder ? theme.blueBorder : ''
-          )}
-        >
+        <div className={theme.dropdown}>
           <SimpleSelect
             ref={el => {
               this.selectorElement = el;
             }}
-            className={cx(className, disabled, { [styles.withDot]: colorDot })}
+            className={cx(className, disabled)}
             renderToggleButton={() => <Icon icon={arrow} />}
             {...this.props}
           />
@@ -67,16 +38,10 @@ Dropdown.propTypes = {
   label: PropTypes.string,
   wrapperClassName: PropTypes.string,
   className: PropTypes.string,
-  transparent: PropTypes.bool,
-  white: PropTypes.bool,
-  plain: PropTypes.bool,
-  dark: PropTypes.bool,
   theme: PropTypes.object,
   hasSearch: PropTypes.bool,
   disabled: PropTypes.bool,
-  blueBorder: PropTypes.bool,
-  selectorRef: PropTypes.func,
-  colorDot: PropTypes.string
+  selectorRef: PropTypes.func
 };
 
 export default themr('Dropdown', styles)(Dropdown);
