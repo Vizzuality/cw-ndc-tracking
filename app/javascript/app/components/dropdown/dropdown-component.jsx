@@ -5,8 +5,7 @@ import Icon from 'components/icon';
 import { themr } from 'react-css-themr';
 import cx from 'classnames';
 
-import dropdownArrow from 'assets/icons/dropdown-arrow.svg';
-import dropdownArrowWhite from 'assets/icons/dropdown-arrow-white.svg';
+import arrow from 'assets/icons/dropdown-arrow.svg';
 
 import theme from 'styles/themes/dropdown/react-selectize.scss';
 import styles from './dropdown-styles.scss';
@@ -28,7 +27,6 @@ class Dropdown extends PureComponent {
       disabled,
       colorDot
     } = this.props;
-    const arrow = this.props.white ? dropdownArrowWhite : dropdownArrow;
     return (
       <div
         className={cx(
