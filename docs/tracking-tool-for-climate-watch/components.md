@@ -141,6 +141,21 @@ The components used in the page are documented here with some basic information 
     onBlur={(value) => console.log('Out of input - this is the' + value)}
   />
 ```
+
+> ![](/.gitbook/assets/components/input-disabled.png)
+
+```
+  <Input
+    disabled
+    label="Label for CO2"
+    unit="CO2"
+    inputType="text"
+    placeholder="Input some text"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
 > ![](/.gitbook/assets/components/input-number.png)
 
 ```

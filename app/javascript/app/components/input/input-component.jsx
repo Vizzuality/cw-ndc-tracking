@@ -64,11 +64,12 @@ class Input extends Component {
       },
       type: inputType === 'number' ? 'number' : 'text',
       className: cx(styles.input, className, theme.input, {
-        [theme.textArea]: inputType === 'textarea'
+        [theme.textArea]: inputType === 'textarea',
+        [theme.disabled]: disabled
       }),
       onChange: e => this.handleChange(e.target.value),
       onBlur: () => onBlur(value),
-      value: disabled ? 'n/a' : value,
+      value,
       onKeyUp: handleKeyUp,
       placeholder,
       disabled

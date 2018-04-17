@@ -29,6 +29,12 @@
     min-height: 8em;
     padding-top: 0.8em;
   }
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: $light-gray;
+  }
 }
 
 .label {
