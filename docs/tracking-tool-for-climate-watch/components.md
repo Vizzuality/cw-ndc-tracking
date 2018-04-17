@@ -1,9 +1,11 @@
 # Components
 
 * [Icon](#icon)
+* [Progress Bar](#progress-bar)
 * [Search](#search)
 * [Button](#button)
 * [Input](#input)
+* [Dropdown](#dropdown)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -30,6 +32,23 @@ The components used in the page are documented here with some basic information 
 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
+## Progress Bar
+
+> ![Progress Bar component](/.gitbook/assets/components/progress-bar.png)
+> ![Progress Bar component](/.gitbook/assets/components/progress-bar-full.png)
+
+```
+  <ProgressBar progress={50} />
+```
+
+#### Props
+
+- progress: number
+
+#### Dependencies
+
+None
+
 ## Search
 
 > ![Search component](/.gitbook/assets/components/search.png)
@@ -42,7 +61,8 @@ The components used in the page are documented here with some basic information 
   className={styles.search}
   theme={searchTheme}
   autofocus
-/>```
+/>
+```
 
 #### Props
 
@@ -212,3 +232,49 @@ The components used in the page are documented here with some basic information 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 - [lodash/debounce](https://www.npmjs.com/package/lodash.debounce)
 - [classnames](https://www.npmjs.com/package/classnames)
+
+## Dropdown
+
+> ![](/.gitbook/assets/components/dropdown.png)
+
+> ![](/.gitbook/assets/components/dropdown-open.png)
+
+> ![](/.gitbook/assets/components/dropdown-disabled.png)
+
+```
+<Dropdown
+  placeholder="selection"
+  options={[
+    { label: 'uno', value: 'uno' },
+    { label: 'dos', value: 'dos' }
+  ]}
+  label="select some stuff"
+  disabled
+/>
+
+```
+
+#### Props
+- label: string
+- wrapperClassName: string
+- className: string
+- theme: object
+- hasSearch: bool
+- disabled: bool
+- selectorRef: func
+
+#### Dependencies
+
+- [react-selectize](https://github.com/furqanZafar/react-selectize)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [Icon](#icon)
+- [recompose](https://github.com/acdlite/recompose)
+- [lodash](https://lodash.com/docs/4.17.5)/sortBy
+
+##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
+- react-dom 16.2.0
+`npm install react-dom@16.2.0`
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
+- react-dom-factories 1.0.2
+`npm install react-dom-factories@1.0.2`
+
