@@ -16,7 +16,7 @@ The components used in the page are documented here with some basic information 
 
 ## Icon
 
-> ![Icon component](/.gitbook/assets/components/icon.png)
+> ![Icon component](/assets/components/icon.png)
 
 ```
   <Icon icon={searchIcon} />
@@ -34,8 +34,8 @@ The components used in the page are documented here with some basic information 
 
 ## Progress Bar
 
-> ![Progress Bar component](/.gitbook/assets/components/progress-bar.png)
-> ![Progress Bar component](/.gitbook/assets/components/progress-bar-full.png)
+> ![Progress Bar component](/assets/components/progress-bar.png)
+> ![Progress Bar component](/assets/components/progress-bar-full.png)
 
 ```
   <ProgressBar progress={50} />
@@ -51,7 +51,7 @@ None
 
 ## Search
 
-> ![Search component](/.gitbook/assets/components/search.png)
+> ![Search component](/assets/components/search.png)
 
 ```
 <Search
@@ -81,7 +81,7 @@ None
 
 ## Button
 
-> ![](/.gitbook/assets/components/button.png)
+> ![](/assets/components/button.png)
 
 ```
 <Button
@@ -90,7 +90,7 @@ None
   Click me
 </Button>
 ```
-> ![](/.gitbook/assets/components/button-disabled.png)
+> ![](/assets/components/button-disabled.png)
 
 ```
 <Button>I don't have an action</Button>
@@ -99,7 +99,7 @@ None
 </Button>
 ```
 
-> ![](/.gitbook/assets/components/button-yellow.png)
+> ![](/assets/components/button-yellow.png)
 
 ```
 <Button
@@ -110,7 +110,7 @@ None
 </Button>
 ```
 
-> ![](/.gitbook/assets/components/button-square.png)
+> ![](/assets/components/button-square.png)
 
 ```
   <Button
@@ -120,7 +120,7 @@ None
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](/.gitbook/assets/components/button-back.png)
+> ![](/assets/components/button-back.png)
 
 ```
   <Button
@@ -149,7 +149,7 @@ None
 
 ## Input
 
-> ![](/.gitbook/assets/components/input.png)
+> ![](/assets/components/input.png)
 
 ```
   <Input
@@ -162,7 +162,7 @@ None
   />
 ```
 
-> ![](/.gitbook/assets/components/input-disabled.png)
+> ![](/assets/components/input-disabled.png)
 
 ```
   <Input
@@ -176,7 +176,7 @@ None
   />
 ```
 
-> ![](/.gitbook/assets/components/input-not-applicable.png)
+> ![](/assets/components/input-not-applicable.png)
 
 ```
   <Input
@@ -186,7 +186,7 @@ None
   />
 ```
 
-> ![](/.gitbook/assets/components/input-number.png)
+> ![](/assets/components/input-number.png)
 
 ```
   <Input
@@ -198,7 +198,7 @@ None
     onBlur={(value) => console.log('Out of input - this is the' + value)}
   />
 ```
-> ![](/.gitbook/assets/components/input-text-area.png)
+> ![](/assets/components/input-text-area.png)
 
 ```
   <Input
@@ -235,11 +235,11 @@ None
 
 ## Dropdown
 
-> ![](/.gitbook/assets/components/dropdown.png)
+> ![](/assets/components/dropdown.png)
 
-> ![](/.gitbook/assets/components/dropdown-open.png)
+> ![](/assets/components/dropdown-open.png)
 
-> ![](/.gitbook/assets/components/dropdown-disabled.png)
+> ![](/assets/components/dropdown-disabled.png)
 
 ```
 <Dropdown
