@@ -203,6 +203,7 @@ The components used in the page are documented here with some basic information 
 - handleKeyUp: func,
 - inputType: oneOf(['textarea', 'number', 'text']),
 - disabled: bool,
+- notApplicable: bool, // Grey by default and updates to normal when filled
 - label: string, // optional
 - unit: string  // optional
 
