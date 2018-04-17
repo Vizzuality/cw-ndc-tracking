@@ -1,9 +1,9 @@
 @import '~styles/layout.scss';
 
 .progress {
-	overflow: hidden;
-	height: 8px;
-	background-color: $light-gray;
+  overflow: hidden;
+  height: 8px;
+  background-color: $light-gray;
   box-shadow: inset 0 -1px 2px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px $border-color;
   border-radius: 4px;
@@ -11,9 +11,9 @@
 }
 
 .progressBar {
-	width: 0;
-	height: 4px;
-	margin: 1px;
+  width: 0;
+  height: 4px;
+  margin: 1px;
   background-color: $theme-color;
   border-radius: 2px;
 }
