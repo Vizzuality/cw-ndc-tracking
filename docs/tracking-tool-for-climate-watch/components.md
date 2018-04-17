@@ -172,7 +172,7 @@ The components used in the page are documented here with some basic information 
 ##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
 - react-dom 16.2.0   
 `npm install react-dom@16.2.0`  
-(16.0.3 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
 - react-dom-factories 1.0.2   
 `npm install react-dom-factories@1.0.2`  
 
