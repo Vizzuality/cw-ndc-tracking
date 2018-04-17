@@ -7,6 +7,7 @@
   * [Release](tracking-tool-for-climate-watch/release.md)
   * [Components](tracking-tool-for-climate-watch/components.md)
     * [Icon](tracking-tool-for-climate-watch/components.md#icon)
+    * [Progress Bar](tracking-tool-for-climate-watch/components.md#progress-bar)
     * [Search](tracking-tool-for-climate-watch/components.md#search)
     * [Button](tracking-tool-for-climate-watch/components.md#button)
 

@@ -1,6 +1,7 @@
 # Components
 
 * [Icon](#icon)
+* [Progress Bar](#progress-bar)
 * [Search](#search)
 * [Button](#button)
 
@@ -28,6 +29,23 @@ The components used in the page are documented here with some basic information 
 #### Dependencies
 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Progress Bar
+
+> ![Progress Bar component](/.gitbook/assets/components/progress-bar.png)
+> ![Progress Bar component](/.gitbook/assets/components/progress-bar-full.png)
+
+```
+  <ProgressBar progress={50} />
+```
+
+#### Props
+
+- progress: number
+
+#### Dependencies
+
+None
 
 ## Search
 
