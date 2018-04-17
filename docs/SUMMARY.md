@@ -10,4 +10,5 @@
     * [Progress Bar](tracking-tool-for-climate-watch/components.md#progress-bar)
     * [Search](tracking-tool-for-climate-watch/components.md#search)
     * [Button](tracking-tool-for-climate-watch/components.md#button)
+    * [Dropdown](tracking-tool-for-climate-watch/components.md#dropdown)
 
