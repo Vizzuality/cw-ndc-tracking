@@ -19,8 +19,8 @@ class Home extends PureComponent {
         <Dropdown
           placeholder="selection"
           options={[
-            { label: 'uno', value: 'uno' },
-            { label: 'unosss', value: 'unoss' }
+            { label: 'value 1', value: 'value 1' },
+            { label: 'value 2', value: 'value 2' }
           ]}
           label="select some stuff"
         />

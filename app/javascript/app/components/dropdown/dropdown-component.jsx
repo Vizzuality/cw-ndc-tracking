@@ -16,8 +16,8 @@ class Dropdown extends PureComponent {
   }
   render() {
     const {
-      white,
       label,
+      white,
       transparent,
       plain,
       dark,
@@ -65,7 +65,6 @@ class Dropdown extends PureComponent {
 
 Dropdown.propTypes = {
   label: PropTypes.string,
-  openUp: PropTypes.bool,
   wrapperClassName: PropTypes.string,
   className: PropTypes.string,
   transparent: PropTypes.bool,

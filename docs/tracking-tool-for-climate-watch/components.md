@@ -3,6 +3,7 @@
 * [Icon](#icon)
 * [Search](#search)
 * [Button](#button)
+* [Dropdown](#dropdown)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -41,7 +42,8 @@ The components used in the page are documented here with some basic information 
   className={styles.search}
   theme={searchTheme}
   autofocus
-/>```
+/>
+```
 
 #### Props
 
@@ -125,3 +127,52 @@ The components used in the page are documented here with some basic information 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 - [Icon](#icon)
+
+## Dropdown
+
+> ![](/.gitbook/assets/components/dropdown.png)
+
+> ![](/.gitbook/assets/components/dropdown_open.png)
+
+```
+<Dropdown
+  placeholder="selection"
+  options={[
+    { label: 'uno', value: 'uno' },
+    { label: 'dos', value: 'dos' }
+  ]}
+  label="select some stuff"
+/>
+
+```
+
+#### Props
+- label: string
+- wrapperClassName: string
+- className: string
+- transparent: bool
+- white: bool
+- plain: bool
+- dark: bool
+- theme: object
+- hasSearch: bool
+- disabled: bool
+- blueBorder: bool
+- selectorRef: func
+- colorDot: string
+
+#### Dependencies
+
+- [react-selectize](https://github.com/furqanZafar/react-selectize)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [Icon](#icon)
+- [recompose](https://github.com/acdlite/recompose)
+- [lodash](https://lodash.com/docs/4.17.5)/sortBy
+
+##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
+- react-dom 16.2.0   
+`npm install react-dom@16.2.0`  
+(16.0.3 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
+- react-dom-factories 1.0.2   
+`npm install react-dom-factories@1.0.2`  
+
