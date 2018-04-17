@@ -51,6 +51,7 @@ class Input extends Component {
       theme,
       className,
       handleKeyUp,
+      notApplicable,
       disabled,
       inputType,
       placeholder,
@@ -65,13 +66,14 @@ class Input extends Component {
       type: inputType === 'number' ? 'number' : 'text',
       className: cx(styles.input, className, theme.input, {
         [theme.textArea]: inputType === 'textarea',
+        [theme.notApplicable]: notApplicable && value === '',
         [theme.disabled]: disabled
       }),
       onChange: e => this.handleChange(e.target.value),
       onBlur: () => onBlur(value),
       value,
       onKeyUp: handleKeyUp,
-      placeholder,
+      placeholder: notApplicable ? 'n/a' : placeholder,
       disabled
     };
     const labelProp = label ? { id: label } : {};
@@ -109,6 +111,7 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   inputType: PropTypes.oneOf(['textarea', 'number', 'text']),
   disabled: PropTypes.bool,
+  notApplicable: PropTypes.bool,
   label: PropTypes.string,
   unit: PropTypes.string
 };

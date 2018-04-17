@@ -156,6 +156,16 @@ The components used in the page are documented here with some basic information 
   />
 ```
 
+> ![](/.gitbook/assets/components/input-not-applicable.png)
+
+```
+  <Input
+    notApplicable
+    inputType="text"
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
 > ![](/.gitbook/assets/components/input-number.png)
 
 ```

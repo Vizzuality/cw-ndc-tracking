@@ -35,6 +35,10 @@
     cursor: not-allowed;
     background-color: $light-gray;
   }
+
+  &.notApplicable {
+    background-color: $light-gray;
+  }
 }
 
 .label {
