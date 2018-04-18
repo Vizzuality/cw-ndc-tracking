@@ -1,0 +1,54 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "properties": {
+    "title": {
+      "$id": "/properties/title",
+      "type": "string",
+      "title": "The Title Schema ",
+      "default": "",
+      "examples": [
+        "NDC Targets"
+      ]
+    },
+    "slug": {
+      "$id": "/properties/slug",
+      "type": "string",
+      "title": "The Slug Schema ",
+      "default": "",
+      "examples": [
+        "ndc_targets"
+      ]
+    },
+    "targets": {
+      "$id": "/properties/targets",
+      "type": "array",
+      "items": {
+        "$id": "/properties/targets/items",
+        "type": "object",
+        "properties": {
+          "title": {
+            "$id": "/properties/targets/items/properties/title",
+            "type": "string",
+            "title": "The Title Schema ",
+            "default": "",
+            "examples": [
+              "GHG Target"
+            ]
+          },
+          "slug": {
+            "$id": "/properties/targets/items/properties/slug",
+            "type": "string",
+            "title": "The Slug Schema ",
+            "default": "",
+            "examples": [
+              "ghg_target"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

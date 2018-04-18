@@ -17,23 +17,28 @@ class Section
     {'title' => nil, 'slug' => nil}
   end
 
-  # @param includes [Array<String>]
-  def self.all(includes = [])
-    Configuration.instance.sections.map do |section|
-      section.serializable_hash(
-        serialization_options(includes)
-      )
+  def self.all
+    Configuration.instance.sections
+  end
+
+  # @param slug [String]
+  def self.find_by_slug(slug)
+    Configuration.instance.sections.find do |section|
+      section.slug == slug
     end
   end
 
   # @param slug [String]
-  def self.find_by_slug(slug, includes = [])
-    result = Configuration.instance.sections.find do |section|
+  def find_category_by_slug(slug)
+    categories.find do |section|
       section.slug == slug
     end
-    return nil unless result
-    result.serializable_hash(
-      serialization_options(includes)
+  end
+
+  # @param includes [Array<Symbol>]
+  def to_hash(includes = [])
+    serializable_hash(
+      Section.serialization_options(includes)
     )
   end
 

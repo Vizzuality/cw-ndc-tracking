@@ -17,4 +17,22 @@ class Category
   def attributes
     {'title' => nil, 'slug' => nil}
   end
+
+  # @param includes [Array<Symbol>]
+  def to_hash(includes = [])
+    serializable_hash(
+      Category.serialization_options(includes)
+    )
+  end
+
+  def self.serialization_options(includes)
+    default_serialization_options = {methods: [:title, :slug]}
+    custom_serialization_options =
+      if includes.include?(:targets)
+        {include: :targets}
+      else
+        {}
+      end
+    default_serialization_options.merge(custom_serialization_options)
+  end
 end
