@@ -4,10 +4,12 @@
 * [Progress Bar](#progress-bar)
 * [Search](#search)
 * [Button](#button)
+* [BackButton](#backbutton)
 * [Input](#input)
 * [Dropdown](#dropdown)
-* [NavLinks](#nav-links)
+* [NavLinks](#navlinks)
 * [Nav](#nav)
+* [Header](#header)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -328,7 +330,7 @@ None
 - [classnames](https://github.com/JedWatson/classnames)
 
 - [Icon](#icon)
-- [NavLinks](#nav-links)
+- [NavLinks](#navlinks)
 
 ## Header
 
@@ -357,5 +359,5 @@ None
 
 - [classnames](https://github.com/JedWatson/classnames)
 
-- [NavLinks](#nav-links)
-- [BackButton](#back-button)
+- [NavLinks](#navlinks)
+- [BackButton](#backbutton)
