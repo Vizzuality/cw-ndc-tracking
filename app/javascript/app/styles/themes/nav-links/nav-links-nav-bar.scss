@@ -1,0 +1,10 @@
+@import '~styles/layout.scss';
+
+.link {
+  font-size: $font-size-s;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-medium;
+  margin-right: 40px;
+  padding-bottom: 20px;
+}
