@@ -122,16 +122,6 @@ None
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](../assets/components/button-back.png)
-
-```
-  <Button
-    theme={squareButtonTheme}
-    onClick={() => true}
-  >
-    <Icon theme={blueIconTheme} icon={backIcon} />
-  </Button>
-```
 
 #### Props
 - children: node,
@@ -148,6 +138,25 @@ None
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 - [Icon](#icon)
+
+## BackButton
+
+> ![](../assets/components/button-back.png)
+
+```
+  <BackButton />
+```
+
+#### Props
+- className: oneOfType([string, array]),
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+
+- [Icon](#icon)
+- [Button](#button)
+
 
 ## Input
 
@@ -283,7 +292,7 @@ None
 
 ## NavLinks
 
-> ![](/.gitbook/assets/components/nav-links.png)
+> ![](../assets/components/nav-links.png)
 
 ```
   <NavLink routes={routes} />
@@ -302,7 +311,7 @@ None
 
 ## Nav
 
-> ![](/.gitbook/assets/components/navbar.png)
+> ![](/../assets/components/navbar.png)
 
 ```
 <Nav/>
@@ -320,3 +329,33 @@ None
 
 - [Icon](#icon)
 - [NavLinks](#nav-links)
+
+## Header
+
+> ![Header](../assets/components/header.png)
+
+```
+<Header
+  title="Planning"
+  routes={this.props.routes}
+  actions={
+    <div className={styles.actionLayout}>
+      ...
+    </div>
+  }
+  backButton
+/>
+```
+
+#### Props
+- backButton: PropTypes.bool,
+- title: PropTypes.string.isRequired,
+- routes: PropTypes.array, // routes for the navigation tab
+- actions: PropTypes.node  // buttons, dropdowns, ... on the right
+
+#### Dependencies
+
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [NavLinks](#nav-links)
+- [BackButton](#back-button)
