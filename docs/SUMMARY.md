@@ -6,4 +6,3 @@
   * [Frontend](tracking-tool-for-climate-watch/frontend.md)
   * [Release](tracking-tool-for-climate-watch/release.md)
   * [Components](tracking-tool-for-climate-watch/components.md)
-

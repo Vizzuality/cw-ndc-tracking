@@ -119,6 +119,12 @@ html {
   img {
     max-width: 100%;
   }
+
+  label {
+    font-weight: $font-weight-bold;
+    color: $theme-color;
+    font-size: $font-size-s;
+  }
 }
 
 *:focus {
