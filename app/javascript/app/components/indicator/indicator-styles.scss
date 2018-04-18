@@ -24,3 +24,8 @@
   font-size: 1.375rem; // 22px / 16px
   color: $theme-color;
 }
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}

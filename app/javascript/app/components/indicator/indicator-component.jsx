@@ -33,9 +33,11 @@ const Indicator = ({
     ) : (
       <Input inputType={fieldType} unit={inputUnit} label={label} />
     )}
-    <Button theme={squareButtonTheme} onClick={() => true}>
-      <Icon theme={blueIconTheme} icon={deleteIcon} />
-    </Button>
+    <div className={theme.buttonContainer}>
+      <Button theme={squareButtonTheme} onClick={() => true}>
+        <Icon theme={blueIconTheme} icon={deleteIcon} />
+      </Button>
+    </div>
   </div>
 );
 
