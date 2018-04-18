@@ -1,0 +1,26 @@
+@import '~styles/layout';
+
+.wrapper {
+  @include columns((5, 4, 1));
+  // @include xy-gutters($gutter-type: 'padding',$gutter-position: ('top', 'bottom'));
+  border-top: 1px solid $gray;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  > :nth-child(2) {
+    @include column-offset(2, $gutters: true);
+  }
+
+  &.textArea {
+    @include columns((5, 6, 1));
+
+    > :nth-child(2) {
+      @include column-offset(0, $gutters: true);
+    }
+  }
+}
+
+.indicatorTitle {
+  font-size: 1.375rem; // 22px / 16px
+  color: $theme-color;
+}
