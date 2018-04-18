@@ -6,6 +6,7 @@
 
 .navbar {
   margin-top: 8px;
+
   @include row($columns: (10,2));
 }
 

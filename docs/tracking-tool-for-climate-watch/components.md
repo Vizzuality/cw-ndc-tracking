@@ -5,6 +5,8 @@
 * [Search](#search)
 * [Button](#button)
 * [Dropdown](#dropdown)
+* [NavLinks](#nav-links)
+* [Nav](#nav)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -185,9 +187,49 @@ None
 - [lodash](https://lodash.com/docs/4.17.5)/sortBy
 
 ##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
-- react-dom 16.2.0   
-`npm install react-dom@16.2.0`  
-(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
-- react-dom-factories 1.0.2   
-`npm install react-dom-factories@1.0.2`  
+- react-dom 16.2.0
+`npm install react-dom@16.2.0`
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
+- react-dom-factories 1.0.2
+`npm install react-dom-factories@1.0.2`
 
+
+## NavLinks
+
+> ![](/.gitbook/assets/components/nav-links.png)
+
+```
+  <NavLink routes={routes} />
+```
+
+#### Props
+- className: string,
+- routes: array.isRequired,
+- theme: object
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [classnames](https://github.com/JedWatson/classnames)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Nav
+
+> ![](/.gitbook/assets/components/navbar.png)
+
+```
+<Nav/>
+```
+
+#### Props
+- className: string,
+- routes: array.isRequired, // from container
+- actions: array  // from container
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [Icon](#icon)
+- [NavLinks](#nav-links)
