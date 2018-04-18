@@ -30,7 +30,9 @@ class Nav extends PureComponent {
           {actions && (
             <div className={cx(styles.navActions)}>
               {actions.map(action => (
-                <div className={styles.link}>{action.name}</div>
+                <div key={action.name} className={styles.link}>
+                  {action.name}
+                </div>
               ))}
             </div>
           )}
