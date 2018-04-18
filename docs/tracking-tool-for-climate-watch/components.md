@@ -20,7 +20,7 @@ The components used in the page are documented here with some basic information 
 
 ## Icon
 
-> ![Icon component](../assets/components/icon.png)
+> ![](../assets/components/icon.png)
 
 ```
   <Icon icon={searchIcon} />
@@ -38,8 +38,8 @@ The components used in the page are documented here with some basic information 
 
 ## Progress Bar
 
-> ![Progress Bar component](../assets/components/progress-bar.png)
-> ![Progress Bar component](../assets/components/progress-bar-full.png)
+> ![](../assets/components/progress-bar.png)
+> ![](../assets/components/progress-bar-full.png)
 
 ```
   <ProgressBar progress={50} />
@@ -55,7 +55,7 @@ None
 
 ## Search
 
-> ![Search component](../assets/components/search.png)
+> ![](../assets/components/search.png)
 
 ```
 <Search
@@ -334,7 +334,7 @@ None
 
 ## Header
 
-> ![Header](../assets/components/header.png)
+> ![](../assets/components/header.png)
 
 ```
 <Header
