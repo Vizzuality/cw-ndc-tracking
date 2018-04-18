@@ -269,7 +269,7 @@ None
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 - [Icon](#icon)
 - [recompose](https://github.com/acdlite/recompose)
-- [lodash](https://lodash.com/docs/4.17.5)/sortBy
+- [lodash/sortBy](https://lodash.com/docs/4.17.5#sortBy)
 
 ##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
 - react-dom 16.2.0
