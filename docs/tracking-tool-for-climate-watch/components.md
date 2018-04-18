@@ -1,13 +1,14 @@
 # Components
 
+* [Button](#button)
+* [Dropdown](#dropdown)
 * [Icon](#icon)
+* [Indicator](#indicator)
+* [Input](#input)
+* [Nav](#nav)
+* [NavLinks](#navLinks)
 * [Progress Bar](#progress-bar)
 * [Search](#search)
-* [Button](#button)
-* [Input](#input)
-* [Dropdown](#dropdown)
-* [NavLinks](#nav-links)
-* [Nav](#nav)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -15,71 +16,6 @@ The components used in the page are documented here with some basic information 
 - Use example
 - Props
 - Dependencies
-
-## Icon
-
-> ![Icon component](../assets/components/icon.png)
-
-```
-  <Icon icon={searchIcon} />
-```
-
-#### Props
-
-- icon: object,
-- className: string,
-- theme: object
-
-#### Dependencies
-
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
-
-## Progress Bar
-
-> ![Progress Bar component](../assets/components/progress-bar.png)
-> ![Progress Bar component](../assets/components/progress-bar-full.png)
-
-```
-  <ProgressBar progress={50} />
-```
-
-#### Props
-
-- progress: number
-
-#### Dependencies
-
-None
-
-## Search
-
-> ![Search component](../assets/components/search.png)
-
-```
-<Search
-  placeholder="Search something"
-  value={searchValue}
-  onChange={handleOnChange}
-  className={styles.search}
-  theme={searchTheme}
-  autofocus
-/>
-```
-
-#### Props
-
-- value: string, // value of the search input
-- placeholder: string,
-- autofocus: bool, // focus on load
-- onChange: func,
-- className: string,
-- theme: object,
-- handleKeyUp: func,
-- disabled: bool
-
-#### Dependencies
-
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 ## Button
 
@@ -148,6 +84,111 @@ None
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 - [Icon](#icon)
+
+## Dropdown
+
+> ![](../assets/components/dropdown.png)
+
+> ![](../assets/components/dropdown-open.png)
+
+> ![](../assets/components/dropdown-disabled.png)
+
+```
+<Dropdown
+  placeholder="selection"
+  options={[
+    { label: 'uno', value: 'uno' },
+    { label: 'dos', value: 'dos' }
+  ]}
+  label="select some stuff"
+  disabled
+/>
+
+```
+
+#### Props
+- label: string
+- wrapperClassName: string
+- className: string
+- theme: object
+- hasSearch: bool
+- disabled: bool
+- selectorRef: func
+
+#### Dependencies
+
+- [react-selectize](https://github.com/furqanZafar/react-selectize)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [Icon](#icon)
+- [recompose](https://github.com/acdlite/recompose)
+- [lodash/sortBy](https://lodash.com/docs/4.17.5#sortBy)
+
+##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
+- react-dom 16.2.0
+`npm install react-dom@16.2.0`
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
+- react-dom-factories 1.0.2
+`npm install react-dom-factories@1.0.2`
+
+
+## Icon
+
+> ![Icon component](../assets/components/icon.png)
+
+```
+  <Icon icon={searchIcon} />
+```
+
+#### Props
+
+- icon: object,
+- className: string,
+- theme: object
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Indicator
+
+> ![](../assets/components/indicator-dropdown.png)
+
+```
+<Indicator
+  title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
+  fieldType="dropdown"
+  dropdownOptions={[
+    { label: 'No', value: 'No' },
+    { label: 'Yes', value: 'Yes' }
+  ]}
+/>
+
+```
+
+> ![](../assets/components/indicator-number.png)
+
+```
+<Indicator
+  title="Emissions level in base year"
+  fieldType="number"
+  inputUnit="MtCO2eq"
+  label="Value"
+/>
+
+```
+
+#### Props
+- dropdownOptions: array
+- fieldType: string
+- inputUnit: string
+- label: string
+- theme: object
+- title: string
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [classnames](https://www.npmjs.com/package/classnames)
 
 ## Input
 
@@ -235,93 +276,25 @@ None
 - [lodash/debounce](https://www.npmjs.com/package/lodash.debounce)
 - [classnames](https://www.npmjs.com/package/classnames)
 
-## Dropdown
+## Nav
 
-> ![](../assets/components/dropdown.png)
-
-> ![](../assets/components/dropdown-open.png)
-
-> ![](../assets/components/dropdown-disabled.png)
+> ![](/.gitbook/assets/components/navbar.png)
 
 ```
-<Dropdown
-  placeholder="selection"
-  options={[
-    { label: 'uno', value: 'uno' },
-    { label: 'dos', value: 'dos' }
-  ]}
-  label="select some stuff"
-  disabled
-/>
-
+<Nav/>
 ```
 
 #### Props
-- label: string
-- wrapperClassName: string
-- className: string
-- theme: object
-- hasSearch: bool
-- disabled: bool
-- selectorRef: func
+- className: string,
+- routes: array.isRequired, // from container
+- actions: array  // from container
 
 #### Dependencies
 
-- [react-selectize](https://github.com/furqanZafar/react-selectize)
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [classnames](https://github.com/JedWatson/classnames)
+
 - [Icon](#icon)
-- [recompose](https://github.com/acdlite/recompose)
-- [lodash/sortBy](https://lodash.com/docs/4.17.5#sortBy)
-
-##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
-- react-dom 16.2.0
-`npm install react-dom@16.2.0`
-(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
-- react-dom-factories 1.0.2
-`npm install react-dom-factories@1.0.2`
-
-## Indicator
-
-> ![](../assets/components/indicator-dropdown.png)
-
-```
-<Indicator
-  title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
-  fieldType="dropdown"
-  dropdownOptions={[
-    { label: 'No', value: 'No' },
-    { label: 'Yes', value: 'Yes' }
-  ]}
-/>
-
-```
-
-> ![](../assets/components/indicator-number.png)
-
-```
-<Indicator
-  title="Emissions level in base year"
-  fieldType="number"
-  inputUnit="MtCO2eq"
-  label="Value"
-/>
-
-```
-
-#### Props
-- dropdownOptions: array
-- fieldType: string
-- inputUnit: string
-- label: string
-- theme: object
-- title: string
-
-#### Dependencies
-
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
-- [classnames](https://www.npmjs.com/package/classnames)
-
-
+- [NavLinks](#nav-links)
 
 ## NavLinks
 
@@ -342,22 +315,49 @@ None
 - [classnames](https://github.com/JedWatson/classnames)
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
-## Nav
+## Progress Bar
 
-> ![](/.gitbook/assets/components/navbar.png)
+> ![Progress Bar component](../assets/components/progress-bar.png)
+> ![Progress Bar component](../assets/components/progress-bar-full.png)
 
 ```
-<Nav/>
+  <ProgressBar progress={50} />
 ```
 
 #### Props
-- className: string,
-- routes: array.isRequired, // from container
-- actions: array  // from container
+
+- progress: number
 
 #### Dependencies
 
-- [classnames](https://github.com/JedWatson/classnames)
+None
 
-- [Icon](#icon)
-- [NavLinks](#nav-links)
+## Search
+
+> ![Search component](../assets/components/search.png)
+
+```
+<Search
+  placeholder="Search something"
+  value={searchValue}
+  onChange={handleOnChange}
+  className={styles.search}
+  theme={searchTheme}
+  autofocus
+/>
+```
+
+#### Props
+
+- value: string, // value of the search input
+- placeholder: string,
+- autofocus: bool, // focus on load
+- onChange: func,
+- className: string,
+- theme: object,
+- handleKeyUp: func,
+- disabled: bool
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
