@@ -103,11 +103,15 @@
 [
    {
       "title":"NDC Targets",
-      "slug":"ndc_targets"
+      "slug":"ndc_targets",
+      "optional":false,
+      "order": 0
    },
    {
       "title":"Policies and actions",
-      "slug":"policies_and_actions"
+      "slug":"policies_and_actions",
+      "optional":false,
+      "order": 1
    },
    ...
 ]
@@ -120,6 +124,8 @@
    {
       "title":"NDC Targets",
       "slug":"ndc_targets",
+      "optional":false,
+      "order": 0,
       "targets":[
          {
             "title":"GHG Target",
@@ -147,6 +153,8 @@
 ```
 {
    "title":"NDC Targets",
-   "slug":"ndc_targets"
+   "slug":"ndc_targets",
+   "optional":false,
+   "order": 0
 }
 ```

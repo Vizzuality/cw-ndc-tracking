@@ -22,6 +22,24 @@
         "ndc_targets"
       ]
     },
+    "optional": {
+      "$id": "/properties/optional",
+      "type": "boolean",
+      "title": "The Optional Schema ",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "order": {
+      "$id": "/properties/order",
+      "type": "integer",
+      "title": "The Order Schema ",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
     "targets": {
       "$id": "/properties/targets",
       "type": "array",

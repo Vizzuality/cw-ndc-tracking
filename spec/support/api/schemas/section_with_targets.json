@@ -47,6 +47,15 @@
               "ndc_targets"
             ]
           },
+          "optional": {
+            "$id": "/properties/categories/items/properties/optional",
+            "type": "boolean",
+            "title": "The Optional Schema ",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
           "targets": {
             "$id": "/properties/categories/items/properties/targets",
             "type": "array",

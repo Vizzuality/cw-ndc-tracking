@@ -8,9 +8,10 @@ class Section
   def initialize(section_config)
     @title = section_config[:title]
     @slug = section_config[:slug]
-    @categories = section_config[:categories].map do |category_config|
-      Category.new(category_config.symbolize_keys)
-    end
+    @categories = section_config[:categories].
+      map.with_index do |category_config, idx|
+        Category.new(category_config.symbolize_keys.merge(order: idx))
+      end
   end
 
   def attributes
