@@ -41,6 +41,12 @@
   }
 }
 
+.inputWithLabel {
+  position: relative;
+}
+
 .label {
+  position: absolute;
+  top: calc(-1rem - 5px);
   padding-bottom: 0.2em;
 }
