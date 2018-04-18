@@ -283,7 +283,7 @@ None
 
 ## NavLinks
 
-> ![](/.gitbook/assets/components/nav-links.png)
+> ![](../assets/components/nav-links.png)
 
 ```
   <NavLink routes={routes} />
@@ -302,7 +302,7 @@ None
 
 ## Nav
 
-> ![](/.gitbook/assets/components/navbar.png)
+> ![](../assets/components/navbar.png)
 
 ```
 <Nav/>
