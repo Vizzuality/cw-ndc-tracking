@@ -1,10 +1,50 @@
 @import '~styles/layout.scss';
 
-.logo {
-  width: 136px;
-  height: 13px;
+.navbarContainer {
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
-  @include row();
+  margin-top: 8px;
+
+  @include row($columns: (10,2));
+}
+
+.navMenu {
+  display: flex;
+}
+
+.navActions {
+  display: flex;
+  border-left: 1px solid $border-color;
+
+  .link {
+    color: $dark-gray;
+    font-size: $font-size-s;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-medium;
+    margin: 18px 0 0 20px;
+  }
+}
+
+.logoContainer {
+  padding-top: 10px;
+
+  .logoText {
+    font-size: $font-size-xxs;
+    line-height: $line-height-xxs;
+    letter-spacing: $letter-spacing-small;
+    color: $dark-gray;
+  }
+
+  .logo {
+    width: 136px;
+    height: 13px;
+  }
+}
+
+.navLinks {
+  flex: 1;
+  padding-left: 40px;
 }

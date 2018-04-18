@@ -6,6 +6,8 @@
 * [Button](#button)
 * [Input](#input)
 * [Dropdown](#dropdown)
+* [NavLinks](#nav-links)
+* [Nav](#nav)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -278,3 +280,43 @@ None
 - react-dom-factories 1.0.2
 `npm install react-dom-factories@1.0.2`
 
+
+## NavLinks
+
+> ![](/.gitbook/assets/components/nav-links.png)
+
+```
+  <NavLink routes={routes} />
+```
+
+#### Props
+- className: string,
+- routes: array.isRequired,
+- theme: object
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [classnames](https://github.com/JedWatson/classnames)
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Nav
+
+> ![](/.gitbook/assets/components/navbar.png)
+
+```
+<Nav/>
+```
+
+#### Props
+- className: string,
+- routes: array.isRequired, // from container
+- actions: array  // from container
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [Icon](#icon)
+- [NavLinks](#nav-links)
