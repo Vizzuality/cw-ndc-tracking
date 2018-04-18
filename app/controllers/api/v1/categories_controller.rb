@@ -5,20 +5,20 @@ module Api
       before_action :load_category, only: [:show]
 
       def index
-        @categories = @section.categories.map do |category|
-          category.to_hash(category_includes)
-        end
+        @categories = GetAllCategories.new.call(@section, category_includes)
         render json: @categories
       end
 
       def show
-        render json: @category.to_hash(category_includes)
+        render json: @category
       end
 
       private
 
       def load_category
-        @category = @section.find_category_by_slug(params[:slug])
+        @category = GetCategory.new.call(
+          @section, params[:slug], category_includes
+        )
         render json: {}, status: :not_found and return unless @category
       end
 
