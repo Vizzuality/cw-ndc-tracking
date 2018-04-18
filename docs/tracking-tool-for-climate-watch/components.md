@@ -4,6 +4,7 @@
 * [Progress Bar](#progress-bar)
 * [Search](#search)
 * [Button](#button)
+* [Input](#input)
 * [Dropdown](#dropdown)
 
 The components used in the page are documented here with some basic information about them:
@@ -15,7 +16,7 @@ The components used in the page are documented here with some basic information 
 
 ## Icon
 
-> ![Icon component](/.gitbook/assets/components/icon.png)
+> ![Icon component](../assets/components/icon.png)
 
 ```
   <Icon icon={searchIcon} />
@@ -33,8 +34,8 @@ The components used in the page are documented here with some basic information 
 
 ## Progress Bar
 
-> ![Progress Bar component](/.gitbook/assets/components/progress-bar.png)
-> ![Progress Bar component](/.gitbook/assets/components/progress-bar-full.png)
+> ![Progress Bar component](../assets/components/progress-bar.png)
+> ![Progress Bar component](../assets/components/progress-bar-full.png)
 
 ```
   <ProgressBar progress={50} />
@@ -50,7 +51,7 @@ None
 
 ## Search
 
-> ![Search component](/.gitbook/assets/components/search.png)
+> ![Search component](../assets/components/search.png)
 
 ```
 <Search
@@ -80,7 +81,7 @@ None
 
 ## Button
 
-> ![](/.gitbook/assets/components/button.png)
+> ![](../assets/components/button.png)
 
 ```
 <Button
@@ -89,7 +90,7 @@ None
   Click me
 </Button>
 ```
-> ![](/.gitbook/assets/components/button-disabled.png)
+> ![](../assets/components/button-disabled.png)
 
 ```
 <Button>I don't have an action</Button>
@@ -98,7 +99,7 @@ None
 </Button>
 ```
 
-> ![](/.gitbook/assets/components/button-yellow.png)
+> ![](../assets/components/button-yellow.png)
 
 ```
 <Button
@@ -109,7 +110,7 @@ None
 </Button>
 ```
 
-> ![](/.gitbook/assets/components/button-square.png)
+> ![](../assets/components/button-square.png)
 
 ```
   <Button
@@ -119,7 +120,7 @@ None
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](/.gitbook/assets/components/button-back.png)
+> ![](../assets/components/button-back.png)
 
 ```
   <Button
@@ -146,13 +147,99 @@ None
 
 - [Icon](#icon)
 
+## Input
+
+> ![](../assets/components/input.png)
+
+```
+  <Input
+    label="Label for CO2"
+    unit="CO2"
+    inputType="text"
+    placeholder="Input some text"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
+> ![](../assets/components/input-disabled.png)
+
+```
+  <Input
+    disabled
+    label="Label for CO2"
+    unit="CO2"
+    inputType="text"
+    placeholder="Input some text"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
+> ![](../assets/components/input-not-applicable.png)
+
+```
+  <Input
+    notApplicable
+    inputType="text"
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
+> ![](../assets/components/input-number.png)
+
+```
+  <Input
+    label="Label for number"
+    unit="%"
+    inputType="number"
+    placeholder="Input some number"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+> ![](../assets/components/input-text-area.png)
+
+```
+  <Input
+    label="Label for text area"
+    unit="CO2"
+    inputType="textarea"
+    placeholder="Text Area"
+    onChange={(value) => console.log('this is the' + value)}
+    onBlur={(value) => console.log('Out of input - this is the' + value)}
+  />
+```
+
+#### Props
+
+- value: string,
+- placeholder: string,
+- autofocus: bool,
+- onChange: func,
+- onBlur: func,
+- className: string,
+- theme: object,
+- handleKeyUp: func,
+- inputType: oneOf(['textarea', 'number', 'text']),
+- disabled: bool,
+- notApplicable: bool, // Grey by default and updates to normal when filled
+- label: string, // optional
+- unit: string  // optional
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [lodash/debounce](https://www.npmjs.com/package/lodash.debounce)
+- [classnames](https://www.npmjs.com/package/classnames)
+
 ## Dropdown
 
-> ![](/.gitbook/assets/components/dropdown.png)
+> ![](../assets/components/dropdown.png)
 
-> ![](/.gitbook/assets/components/dropdown-open.png)
+> ![](../assets/components/dropdown-open.png)
 
-> ![](/.gitbook/assets/components/dropdown-disabled.png)
+> ![](../assets/components/dropdown-disabled.png)
 
 ```
 <Dropdown
@@ -185,9 +272,9 @@ None
 - [lodash](https://lodash.com/docs/4.17.5)/sortBy
 
 ##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
-- react-dom 16.2.0   
-`npm install react-dom@16.2.0`  
-(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
-- react-dom-factories 1.0.2   
-`npm install react-dom-factories@1.0.2`  
+- react-dom 16.2.0
+`npm install react-dom@16.2.0`
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
+- react-dom-factories 1.0.2
+`npm install react-dom-factories@1.0.2`
 
