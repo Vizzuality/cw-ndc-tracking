@@ -42,12 +42,12 @@ const Indicator = ({
 );
 
 Indicator.propTypes = {
-  title: PropTypes.string,
+  dropdownOptions: PropTypes.array,
   fieldType: PropTypes.string,
   inputUnit: PropTypes.string,
   label: PropTypes.string,
-  dropdownOptions: PropTypes.array,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  title: PropTypes.string
 };
 
 export default themr('Indicator', styles)(Indicator);

@@ -278,3 +278,45 @@ None
 - react-dom-factories 1.0.2
 `npm install react-dom-factories@1.0.2`
 
+## Indicator
+
+> ![](../assets/components/indicator-dropdown.png)
+
+```
+<Indicator
+  title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
+  fieldType="dropdown"
+  dropdownOptions={[
+    { label: 'No', value: 'No' },
+    { label: 'Yes', value: 'Yes' }
+  ]}
+/>
+
+```
+
+> ![](../assets/components/indicator-number.png)
+
+```
+<Indicator
+  title="Emissions level in base year"
+  fieldType="number"
+  inputUnit="MtCO2eq"
+  label="Value"
+/>
+
+```
+
+#### Props
+- dropdownOptions: array
+- fieldType: string
+- inputUnit: string
+- label: string
+- theme: object
+- title: string
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [classnames](https://www.npmjs.com/package/classnames)
+
+
