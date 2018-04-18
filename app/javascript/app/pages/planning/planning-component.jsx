@@ -1,14 +1,22 @@
 import React, { PureComponent } from 'react';
-import styles from './planning-styles.scss';
+import Header from 'components/header';
+import PropTypes from 'prop-types';
+
+// import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
+    const { routes } = this.props;
     return (
-      <div className={styles.page}>
-        <h2>Planning page</h2>
+      <div>
+        <Header title="Planning" routes={routes} />
       </div>
     );
   }
 }
+
+Planning.propTypes = {
+  routes: PropTypes.array
+};
 
 export default Planning;

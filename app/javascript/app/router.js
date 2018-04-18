@@ -4,6 +4,7 @@ import queryString from 'query-string';
 
 import Home from 'pages/home';
 import Planning from 'pages/planning';
+import Tracking from 'pages/tracking';
 
 const history = createHistory();
 
@@ -22,7 +23,7 @@ export const routes = {
     nav: true,
     label: 'Tracking',
     path: '/tracking',
-    component: null
+    component: Tracking
   },
   [HOME]: {
     path: '/',
