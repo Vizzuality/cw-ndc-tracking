@@ -9,6 +9,7 @@ const history = createHistory();
 
 export const HOME = 'location/HOME';
 export const PLANNING = 'location/PLANNING';
+export const TRACKING = 'location/TRACKING';
 
 export const routes = {
   [PLANNING]: {
@@ -16,6 +17,12 @@ export const routes = {
     label: 'Planning',
     path: '/planning',
     component: Planning
+  },
+  [TRACKING]: {
+    nav: true,
+    label: 'Tracking',
+    path: '/tracking',
+    component: null
   },
   [HOME]: {
     path: '/',
