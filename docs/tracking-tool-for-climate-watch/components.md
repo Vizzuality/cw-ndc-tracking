@@ -315,7 +315,6 @@ None
 
 #### Dependencies
 
-- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
 - [classnames](https://github.com/JedWatson/classnames)
 
 - [Icon](#icon)

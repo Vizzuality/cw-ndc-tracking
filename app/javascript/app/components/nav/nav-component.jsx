@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'redux-first-router-link';
 import cx from 'classnames';
 
 import Icon from 'components/icon';
@@ -17,10 +16,10 @@ class Nav extends PureComponent {
       <div className={styles.navbarContainer}>
         <nav className={cx(styles.navbar, className)}>
           <div className={cx(styles.navMenu)}>
-            <Link className={styles.logoContainer} to="/">
+            <div className={styles.logoContainer}>
               <Icon className={styles.logo} icon={cwLogo} />
               <div className={styles.logoText}>NDC IMPLEMENTATION TRACKER</div>
-            </Link>
+            </div>
             <NavLinks
               className={styles.navLinks}
               theme={navBarTheme}
