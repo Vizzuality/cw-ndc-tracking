@@ -1,7 +1,9 @@
 # Components
 
+* [BackButton](#backbutton)
 * [Button](#button)
 * [Dropdown](#dropdown)
+* [Header](#header)
 * [Icon](#icon)
 * [Indicator](#indicator)
 * [Input](#input)
@@ -16,6 +18,71 @@ The components used in the page are documented here with some basic information 
 - Use example
 - Props
 - Dependencies
+
+## Icon
+
+> ![](../assets/components/icon.png)
+
+```
+  <Icon icon={searchIcon} />
+```
+
+#### Props
+
+- icon: object,
+- className: string,
+- theme: object
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Progress Bar
+
+> ![](../assets/components/progress-bar.png)
+> ![](../assets/components/progress-bar-full.png)
+
+```
+  <ProgressBar progress={50} />
+```
+
+#### Props
+
+- progress: number
+
+#### Dependencies
+
+None
+
+## Search
+
+> ![](../assets/components/search.png)
+
+```
+<Search
+  placeholder="Search something"
+  value={searchValue}
+  onChange={handleOnChange}
+  className={styles.search}
+  theme={searchTheme}
+  autofocus
+/>
+```
+
+#### Props
+
+- value: string, // value of the search input
+- placeholder: string,
+- autofocus: bool, // focus on load
+- onChange: func,
+- className: string,
+- theme: object,
+- handleKeyUp: func,
+- disabled: bool
+
+#### Dependencies
+
+- [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 ## Button
 
@@ -58,16 +125,6 @@ The components used in the page are documented here with some basic information 
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](../assets/components/button-back.png)
-
-```
-  <Button
-    theme={squareButtonTheme}
-    onClick={() => true}
-  >
-    <Icon theme={blueIconTheme} icon={backIcon} />
-  </Button>
-```
 
 #### Props
 - children: node,
@@ -85,110 +142,24 @@ The components used in the page are documented here with some basic information 
 
 - [Icon](#icon)
 
-## Dropdown
+## BackButton
 
-> ![](../assets/components/dropdown.png)
-
-> ![](../assets/components/dropdown-open.png)
-
-> ![](../assets/components/dropdown-disabled.png)
+> ![](../assets/components/button-back.png)
 
 ```
-<Dropdown
-  placeholder="selection"
-  options={[
-    { label: 'uno', value: 'uno' },
-    { label: 'dos', value: 'dos' }
-  ]}
-  label="select some stuff"
-  disabled
-/>
-
+  <BackButton />
 ```
 
 #### Props
-- label: string
-- wrapperClassName: string
-- className: string
-- theme: object
-- hasSearch: bool
-- disabled: bool
-- selectorRef: func
+- className: oneOfType([string, array]),
 
 #### Dependencies
 
-- [react-selectize](https://github.com/furqanZafar/react-selectize)
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+
 - [Icon](#icon)
-- [recompose](https://github.com/acdlite/recompose)
-- [lodash/sortBy](https://lodash.com/docs/4.17.5#sortBy)
+- [Button](#button)
 
-##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
-- react-dom 16.2.0
-`npm install react-dom@16.2.0`
-(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
-- react-dom-factories 1.0.2
-`npm install react-dom-factories@1.0.2`
-
-
-## Icon
-
-> ![Icon component](../assets/components/icon.png)
-
-```
-  <Icon icon={searchIcon} />
-```
-
-#### Props
-
-- icon: object,
-- className: string,
-- theme: object
-
-#### Dependencies
-
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
-
-## Indicator
-
-> ![](../assets/components/indicator-dropdown.png)
-
-```
-<Indicator
-  title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
-  fieldType="dropdown"
-  dropdownOptions={[
-    { label: 'No', value: 'No' },
-    { label: 'Yes', value: 'Yes' }
-  ]}
-/>
-
-```
-
-> ![](../assets/components/indicator-number.png)
-
-```
-<Indicator
-  title="Emissions level in base year"
-  fieldType="number"
-  inputUnit="MtCO2eq"
-  label="Value"
-/>
-
-```
-
-#### Props
-- dropdownOptions: array
-- fieldType: string
-- inputUnit: string
-- label: string
-- theme: object
-- title: string
-
-#### Dependencies
-
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
-- [classnames](https://www.npmjs.com/package/classnames)
 
 ## Input
 
@@ -298,7 +269,7 @@ The components used in the page are documented here with some basic information 
 
 ## NavLinks
 
-> ![](/.gitbook/assets/components/nav-links.png)
+> ![](../assets/components/nav-links.png)
 
 ```
   <NavLink routes={routes} />
@@ -317,8 +288,7 @@ The components used in the page are documented here with some basic information 
 
 ## Progress Bar
 
-> ![Progress Bar component](../assets/components/progress-bar.png)
-> ![Progress Bar component](../assets/components/progress-bar-full.png)
+> ![](/../assets/components/navbar.png)
 
 ```
   <ProgressBar progress={50} />
@@ -332,32 +302,35 @@ The components used in the page are documented here with some basic information 
 
 None
 
-## Search
+- [Icon](#icon)
+- [NavLinks](#navlinks)
 
-> ![Search component](../assets/components/search.png)
+## Header
+
+> ![](../assets/components/header.png)
 
 ```
-<Search
-  placeholder="Search something"
-  value={searchValue}
-  onChange={handleOnChange}
-  className={styles.search}
-  theme={searchTheme}
-  autofocus
+<Header
+  title="Planning"
+  routes={this.props.routes}
+  actions={
+    <div className={styles.actionLayout}>
+      ...
+    </div>
+  }
+  backButton
 />
 ```
 
 #### Props
-
-- value: string, // value of the search input
-- placeholder: string,
-- autofocus: bool, // focus on load
-- onChange: func,
-- className: string,
-- theme: object,
-- handleKeyUp: func,
-- disabled: bool
+- backButton: PropTypes.bool,
+- title: PropTypes.string.isRequired,
+- routes: PropTypes.array, // routes for the navigation tab
+- actions: PropTypes.node  // buttons, dropdowns, ... on the right
 
 #### Dependencies
 
-- [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [NavLinks](#navlinks)
+- [BackButton](#backbutton)
