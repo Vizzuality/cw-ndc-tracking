@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import TrackingComponent from './tracking-component';
+import ReportingComponent from './reporting-component';
 
 const mapStateToProps = ({ location }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav)
 });
 
-export default connect(mapStateToProps, null)(TrackingComponent);
+export default connect(mapStateToProps, null)(ReportingComponent);
