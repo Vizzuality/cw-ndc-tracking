@@ -1,0 +1,41 @@
+@import '~styles/layout.scss';
+
+.header {
+  padding-top: 34px;
+  background-color: $light-gray;
+}
+
+.headerLayout {
+  @include row();
+
+  &.withActions {
+    @media #{$tablet-landscape} {
+      @include row($columns: (8, 4, 12));
+    }
+  }
+}
+
+.titleContainer {
+  display: flex;
+}
+
+.backButton {
+  margin: 15px 20px 0 0;
+}
+
+.title {
+  padding: 6px 0 20px;
+  font-size: $font-size-xl-large;
+  font-weight: $font-weight-light;
+  line-height: $line-height-small;
+  letter-spacing: $letter-spacing-negative;
+  color: $theme-color;
+}
+
+.navLinksLayout {
+  @include row();
+}
+
+.navLinks {
+  padding-left: 5px;
+}
