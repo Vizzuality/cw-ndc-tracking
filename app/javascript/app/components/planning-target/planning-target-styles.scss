@@ -1,0 +1,31 @@
+@import '~styles/layout';
+
+.wrapper {
+  @include columns((5, 4, 1));
+
+  border-top: 1px solid $border-color;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  > :nth-child(2) {
+    @include column-offset(2, $gutters: true);
+  }
+
+  &.textArea {
+    @include columns((5, 6, 1));
+
+    > :nth-child(2) {
+      @include column-offset(0, $gutters: true);
+    }
+  }
+}
+
+.name {
+  font-size: 1.375rem; // 22px / 16px
+  color: $theme-color;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
