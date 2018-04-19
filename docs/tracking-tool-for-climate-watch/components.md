@@ -162,7 +162,7 @@ None
 
 ## InfoButton
 
-This button shows a tooltip when hovered
+This button its supposed to show a tooltip when hovered. Remember to add the ```<ReactTooltip />``` component to the parent ant to import [react-tooltip](https://github.com/wwayne/react-tooltip)
 
 > ![](../assets/components/button-info.png)
 
@@ -178,7 +178,6 @@ This button shows a tooltip when hovered
 
 #### Dependencies
 
-- [react-tooltip](https://github.com/wwayne/react-tooltip)
 - [classnames](https://www.npmjs.com/package/classnames)
 
 - [Icon](#icon)
