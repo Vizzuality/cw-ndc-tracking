@@ -1,10 +1,12 @@
 module Api
   module V1
     class SectionsController < ApiController
+      before_action :load_report
       before_action :load_section, only: [:show]
 
       def index
-        @sections = GetAllSections.new.call(section_includes)
+        @sections = GetAllSections.new(@report).
+          call(section_includes)
         render json: @sections
       end
 
@@ -13,6 +15,10 @@ module Api
       end
 
       private
+
+      def load_report
+        @report = Report.find_or_create_by({}) # TODO
+      end
 
       def load_section
         @section = GetSection.new.call(params[:slug], section_includes)

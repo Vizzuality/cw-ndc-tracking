@@ -56,6 +56,15 @@
               false
             ]
           },
+          "order": {
+            "$id": "/properties/categories/items/properties/order",
+            "type": "integer",
+            "title": "The Order Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
           "targets": {
             "$id": "/properties/categories/items/properties/targets",
             "type": "array",
@@ -83,6 +92,15 @@
                 }
               }
             }
+          },
+          "active": {
+            "$id": "/properties/categories/items/properties/active",
+            "type": "boolean",
+            "title": "The Active Schema ",
+            "default": false,
+            "examples": [
+              true
+            ]
           }
         }
       }

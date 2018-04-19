@@ -67,6 +67,15 @@
           }
         }
       }
+    },
+    "active": {
+      "$id": "/properties/active",
+      "type": "boolean",
+      "title": "The Active Schema ",
+      "default": false,
+      "examples": [
+        true
+      ]
     }
   }
 }

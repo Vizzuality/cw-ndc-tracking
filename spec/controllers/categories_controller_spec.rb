@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::CategoriesController, type: :controller do
+  include_context 'report with categories'
+
   describe 'GET index' do
     it 'renders title and slug for each category' do
       get :index, params: {section_slug: 'planning'}

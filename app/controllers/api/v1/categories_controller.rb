@@ -1,11 +1,13 @@
 module Api
   module V1
     class CategoriesController < ApiController
+      before_action :load_report
       before_action :load_section
       before_action :load_category, only: [:show]
 
       def index
-        @categories = GetAllCategories.new.call(@section, category_includes)
+        @categories = GetAllCategories.new(@report).
+          call(@section, category_includes)
         render json: @categories
       end
 
@@ -14,6 +16,10 @@ module Api
       end
 
       private
+
+      def load_report
+        @report = Report.find_or_create_by({}) # TODO
+      end
 
       def load_category
         @category = GetCategory.new.call(
