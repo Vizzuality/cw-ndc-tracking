@@ -19,7 +19,7 @@ class Home extends PureComponent {
           autofocus
         />
         <div>
-          <Indicator title="titleee" fieldType="textarea">
+          <Indicator title="titleee" isTextArea handleClick={() => true}>
             <Input
               label="Label for text area"
               unit="CO2"
@@ -31,7 +31,7 @@ class Home extends PureComponent {
           </Indicator>
           <Indicator
             title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
-            fieldType="dropdown"
+            handleClick={() => true}
           >
             <Dropdown
               options={[
@@ -50,9 +50,7 @@ class Home extends PureComponent {
           </Indicator>
           <Indicator
             title="Emissions level in base year"
-            fieldType="number"
-            inputUnit="MtCO2eq"
-            label="Value"
+            handleClick={() => true}
           >
             <Dropdown
               options={[
