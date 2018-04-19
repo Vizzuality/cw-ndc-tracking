@@ -4,7 +4,7 @@ import { themr } from 'react-css-themr';
 import Button from 'components/button';
 import Icon from 'components/icon';
 import ProgressBar from 'components/progress-bar';
-import deleteIcon from 'assets/icons/info.svg';
+import editIcon from 'assets/icons/edit.svg';
 
 import squareButtonTheme from 'styles/themes/button/button-square.scss';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
@@ -19,8 +19,13 @@ const Target = ({ title, theme, reportedPercentage }) => (
       </div>
       {reportedPercentage === 100 ? (
         <div className={theme.buttonContainer}>
-          <Button theme={squareButtonTheme} onClick={() => true}>
-            <Icon theme={blueIconTheme} icon={deleteIcon} />
+          <span className={theme.updateText}>Last update on Jan 24th</span>
+          <Button
+            theme={squareButtonTheme}
+            onClick={() => true}
+            className={theme.editButton}
+          >
+            <Icon theme={blueIconTheme} icon={editIcon} />
           </Button>
         </div>
       ) : (

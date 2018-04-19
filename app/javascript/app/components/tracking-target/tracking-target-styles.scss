@@ -18,7 +18,17 @@
   color: $theme-color;
 }
 
+.updateText {
+  font-size: $font-size-sm;
+  color: $gray;
+}
+
 .buttonContainer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.editButton {
+  margin-left: 10px;
 }
