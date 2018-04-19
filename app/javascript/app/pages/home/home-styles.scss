@@ -1,7 +1,7 @@
 @import '~styles/layout.scss';
 
 .page {
-  @include row(4);
+  @include row();
 }
 
 .search {
