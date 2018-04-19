@@ -4,7 +4,6 @@ import Indicator from 'components/indicator';
 import Input from 'components/input';
 import Dropdown from 'components/dropdown';
 import InfoButton from 'components/button/info-button';
-import ReactTooltip from 'react-tooltip';
 import styles from './home-styles.scss';
 
 class Home extends PureComponent {
@@ -30,9 +29,13 @@ class Home extends PureComponent {
           disabled
         />
         <InfoButton text={'hello'} />
-        <ReactTooltip />
         <div>
-          <Indicator title="titleee" isTextArea handleClick={() => true}>
+          <Indicator
+            title="titleee"
+            isTextArea
+            infoText="some info text"
+            handleClick={() => true}
+          >
             <Input
               label="Label for text area"
               unit="CO2"
@@ -45,6 +48,7 @@ class Home extends PureComponent {
           <Indicator
             title="Conditional upon international provision of means of implementation: capacity building, technology development and transfer, financing"
             handleClick={() => true}
+            infoText="some other info text"
           >
             <Dropdown
               options={[

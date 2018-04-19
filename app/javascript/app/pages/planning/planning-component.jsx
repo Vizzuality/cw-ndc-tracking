@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
-import ReactTooltip from 'react-tooltip';
 import Target from 'components/target';
 import Header from 'components/header';
 import PropTypes from 'prop-types';
 
-import tooltipTheme from 'styles/themes/tooltip/default.scss';
 import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
@@ -21,14 +19,9 @@ class Planning extends PureComponent {
             }
             hasRemoveAction
             hasEditAction
-            infoText="some info text"
+            infoText="text"
           />
-          <Target
-            title={'GHG target'}
-            hasEditAction
-            infoText="some other info text"
-          />
-          <ReactTooltip className={tooltipTheme.tooltip} />
+          <Target title={'GHG target'} hasEditAction infoText="info text" />
         </div>
       </div>
     );
