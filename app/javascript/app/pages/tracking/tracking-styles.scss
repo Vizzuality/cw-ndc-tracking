@@ -3,7 +3,7 @@
 .targetsContainer {
   @include row();
 
-  *:first-child {
+  > :first-child {
     border: none;
   }
 }
