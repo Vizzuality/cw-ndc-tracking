@@ -2,8 +2,8 @@
 
 .wrapper {
   @include columns((5, 4, 1));
-  // @include xy-gutters($gutter-type: 'padding',$gutter-position: ('top', 'bottom'));
-  border-top: 1px solid $gray;
+
+  border-top: 1px solid $border-color;
   padding-top: 50px;
   padding-bottom: 50px;
 

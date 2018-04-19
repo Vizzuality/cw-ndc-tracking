@@ -9,7 +9,7 @@ import deleteIcon from 'assets/icons/info.svg';
 import squareButtonTheme from 'styles/themes/button/button-square.scss';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
 import blueIconTheme from 'styles/themes/icon/icon-blue.scss';
-import styles from './target-styles.scss';
+import styles from './tracking-target-styles.scss';
 
 const Target = ({ title, theme, summary, reportedPercentage }) => (
   <div className={theme.wrapper}>
