@@ -11,34 +11,34 @@ import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
 import blueIconTheme from 'styles/themes/icon/icon-blue.scss';
 import styles from './tracking-target-styles.scss';
 
-const Target = ({ title, theme, summary, reportedPercentage }) => (
-  <div className={theme.wrapper}>
-    <div className={theme.infoContainer}>
-      <p className={theme.name}>{title}</p>
-      {summary && <p className={theme.summary}>{summary}</p>}
-    </div>
-    {reportedPercentage === 100 ? (
-      <div className={theme.buttonContainer}>
-        <Button theme={squareButtonTheme} onClick={() => true}>
-          <Icon theme={blueIconTheme} icon={deleteIcon} />
-        </Button>
+const Target = ({ title, theme, reportedPercentage }) => (
+  <div>
+    <div className={theme.wrapper}>
+      <div className={theme.infoContainer}>
+        <p className={theme.name}>{title}</p>
       </div>
-    ) : (
-      <Fragment>
-        <ProgressBar progress={reportedPercentage} />
-        <Button theme={yellowButtonTheme} onClick={() => true}>
-          Report
-        </Button>
-      </Fragment>
-    )}
+      {reportedPercentage === 100 ? (
+        <div className={theme.buttonContainer}>
+          <Button theme={squareButtonTheme} onClick={() => true}>
+            <Icon theme={blueIconTheme} icon={deleteIcon} />
+          </Button>
+        </div>
+      ) : (
+        <Fragment>
+          <ProgressBar progress={reportedPercentage} />
+          <Button theme={yellowButtonTheme} onClick={() => true}>
+            Report
+          </Button>
+        </Fragment>
+      )}
+    </div>
   </div>
 );
 
 Target.propTypes = {
   reportedPercentage: PropTypes.number,
   theme: PropTypes.object,
-  title: PropTypes.string,
-  summary: PropTypes.string
+  title: PropTypes.string
 };
 
 export default themr('Target', styles)(Target);
