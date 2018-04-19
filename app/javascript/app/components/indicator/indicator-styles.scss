@@ -2,6 +2,7 @@
 
 .wrapper {
   @include columns((5, 4, 1));
+
   border-top: 1px solid $gray;
   padding-top: 50px;
   padding-bottom: 50px;
