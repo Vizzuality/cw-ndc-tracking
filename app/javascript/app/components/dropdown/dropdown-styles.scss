@@ -10,6 +10,8 @@
 }
 
 .label {
+  position: absolute;
+  top: -20px;
   display: block;
   font-size: $font-size-s;
   font-weight: $font-weight-bold;
