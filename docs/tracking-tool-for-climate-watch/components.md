@@ -4,10 +4,12 @@
 * [Progress Bar](#progress-bar)
 * [Search](#search)
 * [Button](#button)
+* [BackButton](#backbutton)
 * [Input](#input)
 * [Dropdown](#dropdown)
-* [NavLinks](#nav-links)
+* [NavLinks](#navlinks)
 * [Nav](#nav)
+* [Header](#header)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -18,7 +20,7 @@ The components used in the page are documented here with some basic information 
 
 ## Icon
 
-> ![Icon component](../assets/components/icon.png)
+> ![](../assets/components/icon.png)
 
 ```
   <Icon icon={searchIcon} />
@@ -36,8 +38,8 @@ The components used in the page are documented here with some basic information 
 
 ## Progress Bar
 
-> ![Progress Bar component](../assets/components/progress-bar.png)
-> ![Progress Bar component](../assets/components/progress-bar-full.png)
+> ![](../assets/components/progress-bar.png)
+> ![](../assets/components/progress-bar-full.png)
 
 ```
   <ProgressBar progress={50} />
@@ -53,7 +55,7 @@ None
 
 ## Search
 
-> ![Search component](../assets/components/search.png)
+> ![](../assets/components/search.png)
 
 ```
 <Search
@@ -122,16 +124,6 @@ None
     <Icon theme={blueIconTheme} icon={deleteIcon} />
   </Button>
 ```
-> ![](../assets/components/button-back.png)
-
-```
-  <Button
-    theme={squareButtonTheme}
-    onClick={() => true}
-  >
-    <Icon theme={blueIconTheme} icon={backIcon} />
-  </Button>
-```
 
 #### Props
 - children: node,
@@ -148,6 +140,25 @@ None
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
 - [Icon](#icon)
+
+## BackButton
+
+> ![](../assets/components/button-back.png)
+
+```
+  <BackButton />
+```
+
+#### Props
+- className: oneOfType([string, array]),
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+
+- [Icon](#icon)
+- [Button](#button)
+
 
 ## Input
 
@@ -318,4 +329,34 @@ None
 - [classnames](https://github.com/JedWatson/classnames)
 
 - [Icon](#icon)
-- [NavLinks](#nav-links)
+- [NavLinks](#navlinks)
+
+## Header
+
+> ![](../assets/components/header.png)
+
+```
+<Header
+  title="Planning"
+  routes={this.props.routes}
+  actions={
+    <div className={styles.actionLayout}>
+      ...
+    </div>
+  }
+  backButton
+/>
+```
+
+#### Props
+- backButton: PropTypes.bool,
+- title: PropTypes.string.isRequired,
+- routes: PropTypes.array, // routes for the navigation tab
+- actions: PropTypes.node  // buttons, dropdowns, ... on the right
+
+#### Dependencies
+
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [NavLinks](#navlinks)
+- [BackButton](#backbutton)
