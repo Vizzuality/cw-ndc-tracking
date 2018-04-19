@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import Header from 'components/header';
+import TrackingTarget from 'components/tracking-target';
 import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';
-// import styles from './tracking-styles.scss';
+import styles from './tracking-styles.scss';
 
 class Tracking extends PureComponent {
   render() {
@@ -23,6 +24,22 @@ class Tracking extends PureComponent {
             />
           }
         />
+        <div className={styles.targetsContainer}>
+          <TrackingTarget
+            title={'GHG target'}
+            summary={
+              'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.'
+            }
+            reportedPercentage={77}
+          />
+          <TrackingTarget
+            title={'GHG target'}
+            summary={
+              'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.'
+            }
+            reportedPercentage={100}
+          />
+        </div>
       </div>
     );
   }
