@@ -86,7 +86,7 @@ class Input extends Component {
     return (
       <Fragment>
         {label ? (
-          <label htmlFor={label}>
+          <label htmlFor={label} className={theme.inputWithLabel}>
             <div className={theme.label}>{`${label}${unit
               ? ` (${unit})`
               : ''}`}</div>
