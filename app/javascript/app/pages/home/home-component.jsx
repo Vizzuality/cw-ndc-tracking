@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import Search from 'components/search';
 import Dropdown from 'components/dropdown';
+import InfoButton from 'components/button/info-button';
 import styles from './home-styles.scss';
 
 class Home extends PureComponent {
@@ -25,6 +26,7 @@ class Home extends PureComponent {
           label="select some stuff"
           disabled
         />
+        <InfoButton text={'hello'} />
       </div>
     );
   }

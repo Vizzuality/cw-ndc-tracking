@@ -5,6 +5,7 @@
 * [Search](#search)
 * [Button](#button)
 * [BackButton](#backbutton)
+* [InfoButton](#infobutton)
 * [Input](#input)
 * [Dropdown](#dropdown)
 * [NavLinks](#navlinks)
@@ -158,6 +159,29 @@ None
 
 - [Icon](#icon)
 - [Button](#button)
+
+## InfoButton
+
+This button shows a tooltip when hovered
+
+> ![](../assets/components/button-info.png)
+
+
+```
+  <InfoButton />
+```
+
+#### Props
+
+- className: oneOfType([string, array]),
+- text: string.isRequired // The text for the tooltip
+
+#### Dependencies
+
+- [react-tooltip](https://github.com/wwayne/react-tooltip)
+- [classnames](https://www.npmjs.com/package/classnames)
+
+- [Icon](#icon)
 
 
 ## Input
