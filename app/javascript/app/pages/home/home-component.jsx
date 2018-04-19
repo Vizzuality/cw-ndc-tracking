@@ -3,6 +3,8 @@ import Search from 'components/search';
 import Indicator from 'components/indicator';
 import Input from 'components/input';
 import Dropdown from 'components/dropdown';
+import InfoButton from 'components/button/info-button';
+import ReactTooltip from 'react-tooltip';
 import styles from './home-styles.scss';
 
 class Home extends PureComponent {
@@ -18,6 +20,17 @@ class Home extends PureComponent {
           className={styles.search}
           autofocus
         />
+        <Dropdown
+          placeholder="selection"
+          options={[
+            { label: 'value 1', value: 'value 1' },
+            { label: 'value 2', value: 'value 2' }
+          ]}
+          label="select some stuff"
+          disabled
+        />
+        <InfoButton text={'hello'} />
+        <ReactTooltip />
         <div>
           <Indicator title="titleee" isTextArea handleClick={() => true}>
             <Input

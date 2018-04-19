@@ -5,11 +5,13 @@
 * [Dropdown](#dropdown)
 * [Header](#header)
 * [Icon](#icon)
+* [InfoButton](#infobutton)
+* [Input](#input)
 * [Indicator](#indicator)
 * [Input](#input)
 * [Nav](#nav)
 * [NavLinks](#navLinks)
-* [Progress Bar](#progress-bar)
+* [Progress Bar](#progressbar)
 * [Search](#search)
 
 The components used in the page are documented here with some basic information about them:
@@ -134,11 +136,11 @@ The components used in the page are documented here with some basic information 
 - [lodash/sortBy](https://lodash.com/docs/4.17.5#sortBy)
 
 ##### `react-selectize` dependencies (read [this](https://github.com/furqanZafar/react-selectize#peer-deps) for more info)
-- react-dom 16.2.0   
-`npm install react-dom@16.2.0`  
-(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).  
-- react-dom-factories 1.0.2   
-`npm install react-dom-factories@1.0.2`  
+- react-dom 16.2.0
+`npm install react-dom@16.2.0`
+(16.3.0 version triggers [this error](https://gist.github.com/jimfb/4faa6cbfb1ef476bd105)).
+- react-dom-factories 1.0.2
+`npm install react-dom-factories@1.0.2`
 
 ## Header
 
@@ -209,6 +211,28 @@ The components used in the page are documented here with some basic information 
 #### Dependencies
 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## InfoButton
+
+This button its supposed to show a tooltip when hovered. Remember to add the ```<ReactTooltip />``` component to the parent ant to import [react-tooltip](https://github.com/wwayne/react-tooltip)
+
+> ![](../assets/components/button-info.png)
+
+
+```
+  <InfoButton text="Cool!"/>
+```
+
+#### Props
+
+- className: oneOfType([string, array]),
+- text: string.isRequired // The text for the tooltip
+
+#### Dependencies
+
+- [classnames](https://www.npmjs.com/package/classnames)
+
+- [Icon](#icon)
 
 ## Input
 
@@ -298,7 +322,7 @@ The components used in the page are documented here with some basic information 
 
 ## Nav
 
-> ![](/.gitbook/assets/components/navbar.png)
+> ![](/../assets/components/navbar.png)
 
 ```
 <Nav/>
@@ -321,7 +345,7 @@ The components used in the page are documented here with some basic information 
 > ![](../assets/components/nav-links.png)
 
 ```
-  <NavLink routes={routes} />
+  <NavLinks routes={routes} />
 ```
 
 #### Props
@@ -335,25 +359,7 @@ The components used in the page are documented here with some basic information 
 - [classnames](https://github.com/JedWatson/classnames)
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 
-
-> ![](../assets/components/navbar.png)
-
-```
-  <ProgressBar progress={50} />
-```
-
-#### Props
-
-- progress: number
-
-#### Dependencies
-
-None
-
-- [Icon](#icon)
-- [NavLinks](#navlinks)
-
-## Progress Bar
+#### ProgressBar
 
 > ![](../assets/components/progress-bar.png)
 > ![](../assets/components/progress-bar-full.png)
