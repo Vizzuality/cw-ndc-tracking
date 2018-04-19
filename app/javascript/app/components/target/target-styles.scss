@@ -1,19 +1,33 @@
 @import '~styles/layout';
 
 .wrapper {
-  @include columns((5, 3));
+  @include columns((7, 3));
 
   border-top: 1px solid $border-color;
   padding-top: 50px;
   padding-bottom: 50px;
 
   > :nth-child(2) {
-    @include column-offset(4, $gutters: true);
+    @include column-offset(2, $gutters: true);
   }
+}
+
+.nameWrapper {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
 }
 
 .name {
   font-size: 1.375rem; // 22px / 16px
+  color: $theme-color;
+}
+
+.infoIcon {
+  margin-left: 10px;
+}
+
+.summary {
   color: $theme-color;
 }
 
