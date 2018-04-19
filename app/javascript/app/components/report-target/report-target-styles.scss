@@ -1,0 +1,63 @@
+@import '~styles/layout.scss';
+
+.targetName {
+  font-size: $font-size-big;
+  color: $theme-color;
+  padding: 0 20px $gutter-padding 20px;
+}
+
+.summary {
+  font-size: $font-size;
+  color: $theme-color;
+  line-height: $line-height-small;
+  font-style: italic;
+  padding: 20px 20px $gutter-padding 20px;
+}
+
+.section {
+  @include xy-grid();
+}
+
+.trackingHeader {
+  border-radius: 4px;
+  padding: 20px;
+  background-color: $theme-color;
+  color: $white;
+}
+
+.section {
+  padding: 20px;
+}
+
+.tracking .section {
+  border-radius: 4px;
+  background-color: $light-gray;
+}
+
+.indicator {
+  padding-bottom: $gutter-padding;
+
+  @include xy-cell(6 of 12, $gutters: 0);
+
+  &.textarea {
+    @include xy-cell(12 of 12, $gutters: 0);
+  }
+
+  .title {
+    font-size: $font-size-sm;
+    color: $dark-gray;
+    padding-bottom: 2px;
+  }
+
+  .value {
+    font-size: $font-size;
+    color: $theme-color;
+  }
+}
+
+.separator {
+  padding-bottom: 40px;
+  margin: 0 20px 40px;
+  border-bottom: 1px solid $border-color;
+}
+
