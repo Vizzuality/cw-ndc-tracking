@@ -8,32 +8,38 @@ class Section
   def initialize(section_config)
     @title = section_config[:title]
     @slug = section_config[:slug]
-    @categories = section_config[:categories].map do |category_config|
-      Category.new(category_config.symbolize_keys)
-    end
+    @categories = section_config[:categories].
+      map.with_index do |category_config, idx|
+        Category.new(category_config.symbolize_keys.merge(order: idx))
+      end
   end
 
   def attributes
     {'title' => nil, 'slug' => nil}
   end
 
-  # @param includes [Array<String>]
-  def self.all(includes = [])
-    Configuration.instance.sections.map do |section|
-      section.serializable_hash(
-        serialization_options(includes)
-      )
+  def self.all
+    Configuration.instance.sections
+  end
+
+  # @param slug [String]
+  def self.find_by_slug(slug)
+    Configuration.instance.sections.find do |section|
+      section.slug == slug
     end
   end
 
   # @param slug [String]
-  def self.find_by_slug(slug, includes = [])
-    result = Configuration.instance.sections.find do |section|
+  def find_category_by_slug(slug)
+    categories.find do |section|
       section.slug == slug
     end
-    return nil unless result
-    result.serializable_hash(
-      serialization_options(includes)
+  end
+
+  # @param includes [Array<Symbol>]
+  def to_hash(includes = [])
+    serializable_hash(
+      Section.serialization_options(includes)
     )
   end
 
