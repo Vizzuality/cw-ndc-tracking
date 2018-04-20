@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 default_report = Report.create
-default_report.initialize_categories
+default_report.initialize_categories([2018], true)

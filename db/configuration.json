@@ -157,7 +157,7 @@
                   },
                   {
                      "title":"Non-GHG Target",
-                     "slug":"ghg_target",
+                     "slug":"non_ghg_target",
                      "optional": false,
                      "indicators":[
                         {
@@ -375,7 +375,7 @@
                   },
                   {
                      "title":"Non-GHG Target",
-                     "slug":"ghg_target",
+                     "slug":"non_ghg_target",
                      "indicators":[]
                   }
                ]

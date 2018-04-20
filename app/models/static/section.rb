@@ -32,8 +32,8 @@ module Static
 
     # @param slug [String]
     def find_category_by_slug(slug)
-      categories.find do |section|
-        section.slug == slug
+      categories.find do |category|
+        category.slug == slug
       end
     end
 
