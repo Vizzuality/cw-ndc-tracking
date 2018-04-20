@@ -5,8 +5,9 @@ class GetSection
   end
 
   # @param slug [String]
-  # @params section_includes [Array<Symbol>]
-  def call(slug, section_includes)
+  # @param year [Integer]
+  # @param section_includes [Array<Symbol>]
+  def call(slug, year, section_includes)
     section = Static::Section.find_by_slug(slug)
     return nil unless section
     section_hash = section.to_hash
@@ -16,7 +17,7 @@ class GetSection
         section,
         section.categories,
         report_categories
-      ).call(section_includes)
+      ).call(year, section_includes)
     end
     section_hash
   end

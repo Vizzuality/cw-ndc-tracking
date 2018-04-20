@@ -1,19 +1,21 @@
 class GetCategory
   # @param report [Report]
-  def initialize(report)
+  # @param section [Static::Section]
+  def initialize(report, section)
     @report = report
+    @section = section
   end
 
-  # @param section [Static::Section]
   # @param slug [String]
-  # @params category_includes [Array<Symbol>]
-  def call(section, slug, category_includes)
-    category = section.find_category_by_slug(slug)
+  # @param year [Integer]
+  # @param category_includes [Array<Symbol>]
+  def call(slug, year, category_includes)
+    category = @section.find_category_by_slug(slug)
     return nil unless category
     MergeStaticAndDynamicCategories.new(
-      section,
-      [section.find_category_by_slug(slug)],
-      @report.categories.where(section_slug: section.slug, slug: slug)
-    ).call(category_includes).first
+      @section,
+      [category],
+      @report.categories.where(section_slug: @section.slug, slug: slug)
+    ).call(year, category_includes).first
   end
 end

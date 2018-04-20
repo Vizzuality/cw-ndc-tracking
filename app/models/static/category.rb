@@ -11,41 +11,22 @@ module Static
       @slug = category_config[:slug]
       @optional = category_config[:optional]
       @order = category_config[:order]
-      @targets = category_config[:targets].map do |target_config|
-        # TODO: targets are dynamic
-        Target.new(target_config.symbolize_keys)
-      end
+      @targets = category_config[:targets].
+        map.with_index do |target_config, idx|
+          Static::Target.new(target_config.symbolize_keys.merge(order: idx))
+        end
     end
 
     def attributes
       {'title' => nil, 'slug' => nil, 'optional' => nil}
     end
 
-    # @param slug [String]
-    def find_target_by_slug(slug)
-      targets.find do |target|
-        target.slug == slug
-      end
-    end
-
-    # @param includes [Array<Symbol>]
-    def to_hash(includes = [])
+    def to_hash
       serializable_hash(
-        Category.serialization_options(includes)
+        {
+          methods: [:title, :slug, :optional, :order]
+        }
       )
-    end
-
-    def self.serialization_options(includes)
-      default_serialization_options = {
-        methods: [:title, :slug, :optional, :order]
-      }
-      custom_serialization_options =
-        if includes.include?(:targets)
-          {include: :targets}
-        else
-          {}
-        end
-      default_serialization_options.merge(custom_serialization_options)
     end
   end
 end

@@ -26,9 +26,23 @@ module Api
 
       private
 
+      def load_report
+        @report = Report.find_or_create_by({}) # TODO
+        render json: {}, status: :not_found and return unless @report
+      end
+
+      def set_year
+        @year = params[:year]&.to_i || Date.today.year
+      end
+
       def load_section
         @section = Static::Section.find_by_slug(params[:section_slug])
         render json: {}, status: :not_found and return unless @section
+      end
+
+      def load_category
+        @category = @section.find_category_by_slug(params[:category_slug])
+        render json: {}, status: :not_found and return unless @category
       end
     end
   end

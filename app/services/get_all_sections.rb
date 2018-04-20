@@ -4,8 +4,9 @@ class GetAllSections
     @report = report
   end
 
-  # @params category_includes [Array<Symbol>]
-  def call(section_includes)
+  # @param year [Integer]
+  # @param category_includes [Array<Symbol>]
+  def call(year, section_includes)
     Static::Section.all.map do |section|
       section_hash = section.to_hash
       if (section_includes & [:categories, :targets]).any?
@@ -14,7 +15,7 @@ class GetAllSections
           section,
           section.categories,
           report_categories
-        ).call(section_includes)
+        ).call(year, section_includes)
       end
       section_hash
     end

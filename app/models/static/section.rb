@@ -37,24 +37,10 @@ module Static
       end
     end
 
-    # @param includes [Array<Symbol>]
-    def to_hash(includes = [])
+    def to_hash
       serializable_hash(
-        Section.serialization_options(includes)
+        {methods: [:title, :slug]}
       )
-    end
-
-    def self.serialization_options(includes)
-      default_serialization_options = {methods: [:title, :slug]}
-      custom_serialization_options =
-        if includes.include?(:targets)
-          {include: {categories: {include: :targets}}}
-        elsif includes.include?(:categories)
-          {include: :categories}
-        else
-          {}
-        end
-      default_serialization_options.merge(custom_serialization_options)
     end
   end
 end
