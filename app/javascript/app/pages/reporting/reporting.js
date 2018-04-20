@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import flatMap from 'lodash/flatMap';
 import ReportingComponent from './reporting-component';
 
 const fakeTarget = {
@@ -63,9 +64,21 @@ const fakeTarget = {
   ]
 };
 
+const fakeCategories = [
+  {
+    title: 'NDC Targets',
+    targets: [fakeTarget, fakeTarget]
+  },
+  {
+    title: 'Policies and actions',
+    targets: [fakeTarget, fakeTarget]
+  }
+];
+
 const mapStateToProps = ({ location }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
-  targets: [fakeTarget, fakeTarget]
+  categories: fakeCategories,
+  targets: flatMap(fakeCategories, 'targets')
 });
 
 export default connect(mapStateToProps, null)(ReportingComponent);

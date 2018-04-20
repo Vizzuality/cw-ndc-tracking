@@ -1,0 +1,18 @@
+@import '~styles/layout.scss';
+
+.categoryTitle {
+  font-size: $font-size;
+  font-weight: $font-weight-bold;
+  color: $theme-color;
+  padding-bottom: $gutter-padding;
+}
+
+.targets {
+  padding-left: 20px;
+}
+
+.target {
+  color: $theme-color;
+  font-size: $font-size;
+  padding-bottom: $gutter-padding;
+}
