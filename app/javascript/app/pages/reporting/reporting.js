@@ -1,10 +1,11 @@
+import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
-import flatMap from 'lodash/flatMap';
+import { push } from 'redux-first-router';
 import ReportingComponent from './reporting-component';
 
-const fakeTarget = {
-  title: 'GHG Target',
-  slug: 'ghg_target',
+const fakeTarget = i => ({
+  title: `GHG Target${i}`,
+  slug: `ghg-target${i}`,
   summary:
     'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.',
   year: 2018,
@@ -62,23 +63,37 @@ const fakeTarget = {
       value: 'Base year target - Multi-year'
     }
   ]
-};
+});
 
 const fakeCategories = [
   {
     title: 'NDC Targets',
-    targets: [fakeTarget, fakeTarget]
+    slug: 'ndc-targets',
+    targets: [fakeTarget(1), fakeTarget(2)]
   },
   {
     title: 'Policies and actions',
-    targets: [fakeTarget, fakeTarget]
+    slug: 'policies-and-actions',
+    targets: [fakeTarget(3), fakeTarget(4)]
   }
 ];
 
 const mapStateToProps = ({ location }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
-  categories: fakeCategories,
-  targets: flatMap(fakeCategories, 'targets')
+  categories: fakeCategories
 });
 
-export default connect(mapStateToProps, null)(ReportingComponent);
+class ReportingContainer extends PureComponent {
+  handleAnchorChange = (categoryId, id) => {
+    push(`/reporting#${categoryId}-${id}`);
+  };
+
+  render() {
+    return createElement(ReportingComponent, {
+      ...this.props,
+      handleAnchorChange: this.handleAnchorChange
+    });
+  }
+}
+
+export default connect(mapStateToProps, null)(ReportingContainer);
