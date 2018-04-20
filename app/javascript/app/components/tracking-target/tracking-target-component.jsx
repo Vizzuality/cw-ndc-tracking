@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import Button from 'components/button';
 import Icon from 'components/icon';
@@ -13,7 +14,12 @@ import styles from './tracking-target-styles.scss';
 
 const Target = ({ title, theme, reportedPercentage }) => (
   <div>
-    <div className={theme.wrapper}>
+    <div
+      className={cx(theme.wrapper, {
+        [theme.completed]: reportedPercentage === 100,
+        [theme.uncompleted]: reportedPercentage !== 100
+      })}
+    >
       <div className={theme.infoContainer}>
         <p className={theme.name}>{title}</p>
       </div>
