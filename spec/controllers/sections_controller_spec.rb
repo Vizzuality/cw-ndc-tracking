@@ -33,5 +33,10 @@ RSpec.describe Api::V1::SectionsController, type: :controller do
       get :show, params: {slug: 'planning', includes: [:targets]}
       expect(@response).to match_response_schema('section_with_targets')
     end
+
+    it 'responds with not found' do
+      get :show, params: {slug: 'foobar'}
+      expect(@response).to have_http_status(:not_found)
+    end
   end
 end

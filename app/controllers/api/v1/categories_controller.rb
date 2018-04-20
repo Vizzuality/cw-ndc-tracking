@@ -2,6 +2,7 @@ module Api
   module V1
     class CategoriesController < ApiController
       before_action :load_section
+      before_action :load_category, only: [:show]
 
       def index
         @categories = @section.categories.map do |category|
@@ -11,16 +12,14 @@ module Api
       end
 
       def show
-        @category = @section.find_category_by_slug(params[:slug]).
-          to_hash(category_includes)
-        render json: @category
+        render json: @category.to_hash(category_includes)
       end
 
       private
 
-      def load_section
-        @section = Section.find_by_slug(params[:section_slug])
-        render status: :not_found and return unless @section
+      def load_category
+        @category = @section.find_category_by_slug(params[:slug])
+        render json: {}, status: :not_found and return unless @category
       end
 
       def category_includes
