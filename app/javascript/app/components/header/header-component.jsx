@@ -14,7 +14,7 @@ const Header = ({ title, actions, routes, backButton }) => (
         {backButton && <BackButton className={styles.backButton} />}
         <div className={styles.title}>{title}</div>
       </div>
-      {actions}
+      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
     {routes && (
       <div className={styles.navLinksLayout}>

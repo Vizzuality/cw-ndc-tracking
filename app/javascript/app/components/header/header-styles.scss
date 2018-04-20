@@ -2,6 +2,7 @@
 
 .header {
   padding-top: 34px;
+  margin-bottom: $gutter-padding;
   background-color: $light-gray;
 }
 
@@ -40,4 +41,8 @@
 
 .navLinks {
   padding-left: 5px;
+}
+
+.actions {
+  padding-top: 12px;
 }
