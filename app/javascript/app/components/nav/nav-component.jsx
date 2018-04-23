@@ -11,7 +11,7 @@ import styles from './nav-styles.scss';
 
 class Nav extends PureComponent {
   render() {
-    const { routes, actions, className } = this.props;
+    const { routes, actions, className, navSections } = this.props;
     return (
       <div className={styles.navbarContainer}>
         <nav className={cx(styles.navbar, className)}>
@@ -24,6 +24,7 @@ class Nav extends PureComponent {
               className={styles.navLinks}
               theme={navBarTheme}
               routes={routes}
+              navSections={navSections}
             />
           </div>
           {actions && (
@@ -44,6 +45,7 @@ class Nav extends PureComponent {
 Nav.propTypes = {
   className: PropTypes.string,
   routes: PropTypes.array.isRequired,
+  navSections: PropTypes.array,
   actions: PropTypes.array
 };
 

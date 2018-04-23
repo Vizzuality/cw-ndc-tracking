@@ -9,20 +9,21 @@ import styles from './nav-links-styles.scss';
 class NavLinks extends PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { routes, className, theme } = this.props;
+    const { navSections, className, theme } = this.props;
     return (
       <div className={cx(className, theme.nav)}>
-        {routes.map(route => (
-          <NavLink
-            key={route.label}
-            to={route.path}
-            className={theme.link}
-            activeClassName={styles.active}
-            isActive={match => match && match.path === route.path}
-          >
-            {route.label}
-          </NavLink>
-        ))}
+        {navSections &&
+          navSections.map(section => (
+            <NavLink
+              key={section.title}
+              to={`/${section.slug}`}
+              className={theme.link}
+              activeClassName={styles.active}
+              isActive={match => match && match.path === `/${section.slug}`}
+            >
+              {section.title}
+            </NavLink>
+          ))}
       </div>
     );
   }
@@ -30,12 +31,12 @@ class NavLinks extends PureComponent {
 
 NavLinks.propTypes = {
   className: PropTypes.string,
-  routes: PropTypes.array.isRequired,
+  navSections: PropTypes.array.isRequired,
   theme: PropTypes.object
 };
 
 NavLinks.defaultProps = {
-  routes: []
+  navSections: []
 };
 
 export default themr('NavLinks', styles)(NavLinks);

@@ -5,7 +5,7 @@ import BackButton from 'components/button/back-button';
 import cx from 'classnames';
 import styles from './header-styles.scss';
 
-const Header = ({ title, actions, routes, backButton }) => (
+const Header = ({ title, actions, navSections, backButton }) => (
   <div className={styles.header}>
     <div
       className={cx(styles.headerLayout, { [styles.withActions]: !!actions })}
@@ -16,9 +16,9 @@ const Header = ({ title, actions, routes, backButton }) => (
       </div>
       {actions && <div className={styles.actions}>{actions}</div>}
     </div>
-    {routes && (
+    {navSections && (
       <div className={styles.navLinksLayout}>
-        <NavLinks className={styles.navLinks} routes={routes} />
+        <NavLinks className={styles.navLinks} navSections={navSections} />
       </div>
     )}
   </div>
@@ -26,8 +26,8 @@ const Header = ({ title, actions, routes, backButton }) => (
 
 Header.propTypes = {
   backButton: PropTypes.bool,
+  navSections: PropTypes.array,
   title: PropTypes.string.isRequired,
-  routes: PropTypes.array,
   actions: PropTypes.node
 };
 
