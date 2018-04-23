@@ -7,21 +7,28 @@ import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
-    const { routes } = this.props;
+    const { routes, categories, selectedCategory } = this.props;
+    const hasCategories = Object.keys(categories).length > 0;
     return (
       <div className={styles.page}>
-        <Header title="Planning" routes={routes} />
+        {hasCategories && (
+          <Header title="Planning" routes={routes} navSections={categories} />
+        )}
         <div className={styles.targetsContainer}>
-          <Target
-            title={'GHG target'}
-            summary={
-              'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.'
-            }
-            hasRemoveAction
-            hasEditAction
-            infoText="text"
-          />
-          <Target title={'GHG target'} hasEditAction infoText="info text" />
+          {hasCategories &&
+            selectedCategory &&
+            categories
+              .find(category => category.slug === selectedCategory)
+              .targets.map(target => (
+                <Target
+                  title={target.title}
+                  key={target.slug}
+                  summary={target.summary}
+                  hasRemoveAction
+                  hasEditAction
+                  infoText="text"
+                />
+              ))}
         </div>
       </div>
     );
@@ -29,7 +36,9 @@ class Planning extends PureComponent {
 }
 
 Planning.propTypes = {
-  routes: PropTypes.array
+  routes: PropTypes.array,
+  selectedCategory: PropTypes.string,
+  categories: PropTypes.array
 };
 
 export default Planning;
