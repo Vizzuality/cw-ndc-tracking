@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  devise_for :users, path: 'users'
 
   namespace :api do
     namespace :v1 do
@@ -9,11 +10,6 @@ Rails.application.routes.draw do
           resources :targets, param: :slug, only: [:index]
         end
       end
-
-      get 'auth/login', to: 'auth#login'
-      get 'auth/logout', to: 'auth#logout'
-
-      get :login, to: 'auth#login'
 
       get '(*endpoint)', controller: :api, action: :route_not_found
     end

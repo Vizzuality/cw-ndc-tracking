@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'activeadmin'
 # Use devise for authentication
 gem 'devise'
+gem 'devise_invitable'
 
 group :development, :test do
   gem 'dotenv-rails'
