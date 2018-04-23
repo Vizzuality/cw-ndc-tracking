@@ -78,19 +78,48 @@ const fakeCategories = [
   }
 ];
 
-const mapStateToProps = ({ location }) => ({
-  routes: Object.values(location.routesMap).filter(r => !!r.nav),
-  categories: fakeCategories
-});
+const goToQuery = query => {
+  const hash = `${query.category}+${query.target}`;
+  push(`reporting#${hash}`);
+  const element = document.getElementById(hash);
+  if (element) {
+    element.scrollIntoView(true);
+    window.scrollBy(0, -20);
+  }
+};
+
+const mapStateToProps = props => {
+  const query = props.location.query;
+  if (query) goToQuery(query);
+
+  return {
+    routes: Object.values(props.location.routesMap).filter(r => !!r.nav),
+    categories: fakeCategories
+  };
+};
 
 class ReportingContainer extends PureComponent {
-  handleAnchorChange = (categoryId, id) => {
-    push(`/reporting#${categoryId}-${id}`);
+  constructor() {
+    super();
+    this.state = {
+      activeCategory: null,
+      activeTarget: null
+    };
+  }
+
+  handleAnchorChange = (categorySlug, targetSlug) => {
+    push(`reporting#${categorySlug}+${targetSlug}`);
+    this.setState({
+      activeCategory: categorySlug,
+      activeTarget: targetSlug
+    });
   };
 
   render() {
     return createElement(ReportingComponent, {
       ...this.props,
+      activeCategory: this.state.activeCategory,
+      activeTarget: this.state.activeTarget,
       handleAnchorChange: this.handleAnchorChange
     });
   }

@@ -9,7 +9,12 @@ import styles from './reporting-styles.scss';
 
 class Reporting extends PureComponent {
   render() {
-    const { categories, handleAnchorChange } = this.props;
+    const {
+      categories,
+      handleAnchorChange,
+      activeCategory,
+      activeTarget
+    } = this.props;
     return (
       <div>
         <Header
@@ -22,7 +27,11 @@ class Reporting extends PureComponent {
           }
         />
         <div className={styles.reportingContentLayout}>
-          <ReportMenu categories={categories} />
+          <ReportMenu
+            categories={categories}
+            activeCategory={activeCategory}
+            activeTarget={activeTarget}
+          />
           <div>
             {categories.length &&
               categories.map((category, categoryIndex) =>
@@ -38,7 +47,7 @@ class Reporting extends PureComponent {
                         categoryIndex !== categories.length - 1 ||
                         targetIndex !== category.targets.length - 1
                       }
-                      id={`${category.slug}-${target.slug}`}
+                      id={`${category.slug}+${target.slug}`}
                     />
                   </Fragment>
                 ))
@@ -52,7 +61,9 @@ class Reporting extends PureComponent {
 
 Reporting.propTypes = {
   categories: PropTypes.array,
-  handleAnchorChange: PropTypes.func.isRequired
+  handleAnchorChange: PropTypes.func.isRequired,
+  activeCategory: PropTypes.string,
+  activeTarget: PropTypes.string
 };
 
 export default Reporting;

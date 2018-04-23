@@ -1,18 +1,37 @@
 @import '~styles/layout.scss';
 
 .categoryTitle {
-  font-size: $font-size;
-  font-weight: $font-weight-bold;
-  color: $theme-color;
   padding-bottom: $gutter-padding;
-}
 
-.targets {
-  padding-left: 20px;
+  a {
+    font-size: $font-size;
+    font-weight: $font-weight-bold;
+    color: $dark-gray;
+
+    &.active {
+      color: $theme-color;
+    }
+  }
 }
 
 .target {
-  color: $theme-color;
   font-size: $font-size;
   padding-bottom: $gutter-padding;
+
+  a {
+    position: relative;
+    color: $theme-color;
+    text-decoration: none;
+    padding-left: 20px;
+
+    &.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -0.3em;
+      background-color: $theme-secondary;
+      width: 4px;
+      height: 30px;
+    }
+  }
 }
