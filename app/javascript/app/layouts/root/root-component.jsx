@@ -12,7 +12,7 @@ class Root extends PureComponent {
     return (
       <div className={styles.app}>
         <Nav />
-        {Component && <Component />}
+        <div className={styles.contentLayout}>{Component && <Component />}</div>
       </div>
     );
   }

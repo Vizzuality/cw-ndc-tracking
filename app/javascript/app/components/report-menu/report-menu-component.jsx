@@ -11,7 +11,7 @@ class ReportMenu extends PureComponent {
     const { categories, activeCategory, activeTarget } = this.props;
     return (
       <div className={styles.ReportMenu}>
-        <Sticky top={20}>
+        <Sticky top={90}>
           {categories.length &&
             categories.map(category => (
               <Fragment key={category.title}>

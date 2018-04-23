@@ -82,9 +82,10 @@ const goToQuery = query => {
   const hash = `${query.category}+${query.target}`;
   push(`reporting#${hash}`);
   const element = document.getElementById(hash);
+  const offset = -90;
   if (element) {
     element.scrollIntoView(true);
-    window.scrollBy(0, -20);
+    window.scrollBy(0, offset);
   }
 };
 
