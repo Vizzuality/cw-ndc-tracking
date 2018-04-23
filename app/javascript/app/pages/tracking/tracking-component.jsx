@@ -7,12 +7,15 @@ import styles from './tracking-styles.scss';
 
 class Tracking extends PureComponent {
   render() {
-    const { routes } = this.props;
+    const { routes, categories, selectedCategory } = this.props;
+    const hasCategories = Object.keys(categories).length > 0;
     return (
       <div>
+        {hasCategories &&
         <Header
           title="Tracking"
           routes={routes}
+          navSections={categories}
           actions={
             <Dropdown
               placeholder="Select a year"
@@ -24,6 +27,7 @@ class Tracking extends PureComponent {
             />
           }
         />
+        }
         <div className={styles.targetsContainer}>
           <TrackingTarget
             title={'GHG target'}
