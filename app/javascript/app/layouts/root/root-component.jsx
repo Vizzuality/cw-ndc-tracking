@@ -8,11 +8,12 @@ import styles from './root-styles.scss'; // eslint-disable-line
 
 class App extends PureComponent {
   render() {
-    const { route } = this.props;
+    const { route, sections } = this.props;
+    const hasSections = Object.keys(sections).length > 0;
     const Component = route && route.component;
     return (
       <div className={styles.app}>
-        <Nav />
+        {hasSections && <Nav navSections={sections} />}
         {Component && <Component />}
         <ReactTooltip className={tooltipTheme.tooltip} />
       </div>
@@ -21,7 +22,8 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  route: Proptypes.object.isRequired
+  route: Proptypes.object.isRequired,
+  sections: Proptypes.array.isRequired
 };
 
 export default App;
