@@ -40,6 +40,7 @@ class Reporting extends PureComponent {
                     <Waypoint
                       onEnter={() =>
                         handleAnchorChange(category.slug, target.slug)}
+                      fireOnRapidScroll={false}
                     />
                     <ReportTarget
                       target={target}
