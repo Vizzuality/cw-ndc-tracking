@@ -19,7 +19,8 @@ class NavLinks extends PureComponent {
               to={`/${section.slug}`}
               className={theme.link}
               activeClassName={styles.active}
-              isActive={match => match && match.path === `/${section.slug}`}
+              isActive={() =>
+                location && location.pathname.includes(`/${section.slug}`)}
             >
               {section.title}
             </NavLink>
