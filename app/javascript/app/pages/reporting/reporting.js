@@ -1,35 +1,8 @@
 import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'redux-first-router';
-import isEmpty from 'lodash/isEmpty';
+import { parseCategories } from './reporting-selectors';
 import ReportingComponent from './reporting-component';
-
-const updatedTargets = (category, sectionSlug) =>
-  category.targets.map(target => ({
-    ...target,
-    [sectionSlug]: target.indicators || []
-  }));
-
-const parseCategories = sections => {
-  const categories = [];
-  sections.forEach(section => {
-    section.categories.forEach(category => {
-      const existingCategory = categories.find(c => category.slug === c.slug);
-      if (!existingCategory) {
-        const updatedCategory = category;
-        const targets = updatedTargets(updatedCategory, section.slug);
-        updatedCategory.targets = targets;
-        categories.push(updatedCategory);
-      } else {
-        const index = categories.indexOf(existingCategory);
-        const updatedExistingCategory = { ...existingCategory };
-        const targets = updatedTargets(updatedExistingCategory, section.slug);
-        categories[index] = { ...categories[index], targets };
-      }
-    });
-  });
-  return categories;
-};
 
 const goToQuery = query => {
   const hash = `${query.category}+${query.target}`;
@@ -43,14 +16,12 @@ const goToQuery = query => {
 };
 
 const mapStateToProps = ({ location, sections }) => {
-  const categories = isEmpty(sections) ? [] : parseCategories(sections);
-
   const query = location.query;
   if (query) goToQuery(query);
-
+  const state = { sections };
   return {
     routes: Object.values(location.routesMap).filter(r => !!r.nav),
-    categories
+    categories: parseCategories(state)
   };
 };
 
