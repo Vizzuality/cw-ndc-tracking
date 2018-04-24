@@ -7,13 +7,11 @@ import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
-    const { routes, categories, selectedCategory } = this.props;
+    const { categories, selectedCategory } = this.props;
     const hasCategories = Object.keys(categories).length > 0;
     return (
       <div className={styles.page}>
-        {hasCategories && (
-          <Header title="Planning" routes={routes} navSections={categories} />
-        )}
+        {hasCategories && <Header title="Planning" navSections={categories} />}
         <div className={styles.targetsContainer}>
           {hasCategories &&
             selectedCategory &&
@@ -36,7 +34,6 @@ class Planning extends PureComponent {
 }
 
 Planning.propTypes = {
-  routes: PropTypes.array,
   selectedCategory: PropTypes.string,
   categories: PropTypes.array
 };

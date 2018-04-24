@@ -10,7 +10,12 @@ const mapStateToProps = ({ location, sections }) => ({
     ? sections.find(section => section.slug === 'planning').categories[0].slug
     : null,
   categories: hasSections(sections)
-    ? sections.find(section => section.slug === 'planning').categories
+    ? sections
+      .find(section => section.slug === 'planning')
+      .categories.map(category => ({
+        ...category,
+        path: `/planning/${category.slug}`
+      }))
     : []
 });
 

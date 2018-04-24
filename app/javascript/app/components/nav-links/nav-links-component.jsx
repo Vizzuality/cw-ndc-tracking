@@ -16,7 +16,7 @@ class NavLinks extends PureComponent {
           navSections.map(section => (
             <NavLink
               key={section.title}
-              to={`/${section.slug}`}
+              to={`${section.path}`}
               className={theme.link}
               activeClassName={styles.active}
               isActive={() =>

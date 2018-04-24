@@ -4,7 +4,7 @@ import Component from './root-component';
 
 const mapStateToProps = ({ location, sections }) => ({
   route: location.routesMap[location.type],
-  sections
+  sections: sections.map(section => ({ ...section, path: `/${section.slug}` }))
 });
 
 export default connect(mapStateToProps, null)(Component);
