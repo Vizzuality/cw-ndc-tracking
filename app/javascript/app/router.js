@@ -6,43 +6,37 @@ import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
 
-// import { prefetchSections } from 'layouts/root/root.ducks';
+import { getSectionsThunk } from 'layouts/root/root.ducks';
 
 const history = createHistory();
 
 export const HOME = 'location/HOME';
 export const PLANNING = 'location/PLANNING';
+export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
 export const REPORTING = 'location/REPORTING';
 
 export const routes = {
+  [PLANNING_CATEGORY]: {
+    nav: true,
+    label: 'Planning',
+    path: '/planning/:category',
+    component: Planning,
+    thunk: getSectionsThunk
+  },
   [PLANNING]: {
     nav: true,
     label: 'Planning',
     path: '/planning',
     component: Planning,
-    thunk: async dispatch => {
-      const sections = await fetch(
-        'http://localhost:3000/api/v1/sections?includes[]=categories&includes[]=targets'
-      ).then(function (response) {
-        return response.json();
-      });
-      dispatch({ type: 'GET_SECTIONS', payload: sections });
-    }
+    thunk: getSectionsThunk
   },
   [TRACKING]: {
     nav: true,
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
-    thunk: async dispatch => {
-      const sections = await fetch(
-        'http://localhost:3000/api/v1/sections?includes[]=categories&includes[]=targets'
-      ).then(function (response) {
-        return response.json();
-      });
-      dispatch({ type: 'GET_SECTIONS', payload: sections });
-    }
+    thunk: getSectionsThunk
   },
   [REPORTING]: {
     nav: true,
