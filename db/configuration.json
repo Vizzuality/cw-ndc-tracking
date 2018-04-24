@@ -7,6 +7,7 @@
             {
                "title":"NDC Targets",
                "slug":"ndc_targets",
+               "optional": false,
                "targets":[
                   {
                      "title":"GHG Target",
@@ -157,6 +158,7 @@
                   {
                      "title":"Non-GHG Target",
                      "slug":"ghg_target",
+                     "optional": false,
                      "indicators":[
                         {
                            "title":"Theme",
@@ -200,16 +202,19 @@
             {
                "title": "Policies and actions",
                "slug": "policies_and_actions",
+               "optional": false,
                "targets": []
             },
             {
                "title": "User-defined targets",
                "slug": "user_defined_targets",
+               "optional": true,
                "targets": []
             },
             {
                "title":"Methodology",
                "slug":"methodology",
+               "optional": false,
                "targets":[
                   {
                      "title":"Scope and coverage",
@@ -361,21 +366,36 @@
             {
                "title": "NDC Targets",
                "slug": "ndc_targets",
-               "targets": []
+               "optional": false,
+               "targets":[
+                  {
+                     "title":"GHG Target",
+                     "slug":"ghg_target",
+                     "indicators":[]
+                  },
+                  {
+                     "title":"Non-GHG Target",
+                     "slug":"ghg_target",
+                     "indicators":[]
+                  }
+               ]
             },
             {
                "title": "Policies and actions",
                "slug": "policies_and_actions",
+               "optional": false,
                "targets": []
             },
             {
                "title": "Finance and support",
                "slug": "finance_and_support",
+               "optional": false,
                "targets": []
             },
             {
                "title": "Assessing progress",
                "slug": "assessing_progress",
+               "optional": false,
                "targets": []
             }
          ]

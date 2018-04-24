@@ -1,17 +1,25 @@
 module Api
   module V1
     class SectionsController < ApiController
+      before_action :load_section, only: [:show]
+
       def index
-        @sections = Section.all(section_includes)
+        @sections = Section.all.map do |section|
+          section.to_hash(section_includes)
+        end
         render json: @sections
       end
 
       def show
-        @section = Section.find_by_slug(params[:slug], section_includes)
-        render json: @section
+        render json: @section.to_hash(section_includes)
       end
 
       private
+
+      def load_section
+        @section = Section.find_by_slug(params[:slug])
+        render json: {}, status: :not_found and return unless @section
+      end
 
       def section_includes
         (params[:includes] || []).map(&:to_sym)

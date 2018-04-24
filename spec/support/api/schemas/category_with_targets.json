@@ -10,7 +10,7 @@
       "title": "The Title Schema ",
       "default": "",
       "examples": [
-        "Planning"
+        "NDC Targets"
       ]
     },
     "slug": {
@@ -19,41 +19,50 @@
       "title": "The Slug Schema ",
       "default": "",
       "examples": [
-        "planning"
+        "ndc_targets"
       ]
     },
-    "categories": {
-      "$id": "/properties/categories",
+    "optional": {
+      "$id": "/properties/optional",
+      "type": "boolean",
+      "title": "The Optional Schema ",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "order": {
+      "$id": "/properties/order",
+      "type": "integer",
+      "title": "The Order Schema ",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "targets": {
+      "$id": "/properties/targets",
       "type": "array",
       "items": {
-        "$id": "/properties/categories/items",
+        "$id": "/properties/targets/items",
         "type": "object",
         "properties": {
           "title": {
-            "$id": "/properties/categories/items/properties/title",
+            "$id": "/properties/targets/items/properties/title",
             "type": "string",
             "title": "The Title Schema ",
             "default": "",
             "examples": [
-              "NDC Targets"
+              "GHG Target"
             ]
           },
           "slug": {
-            "$id": "/properties/categories/items/properties/slug",
+            "$id": "/properties/targets/items/properties/slug",
             "type": "string",
             "title": "The Slug Schema ",
             "default": "",
             "examples": [
-              "ndc_targets"
-            ]
-          },
-          "optional": {
-            "$id": "/properties/categories/items/properties/optional",
-            "type": "boolean",
-            "title": "The Optional Schema ",
-            "default": false,
-            "examples": [
-              false
+              "ghg_target"
             ]
           }
         }

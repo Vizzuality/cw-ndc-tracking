@@ -6,7 +6,7 @@ import Nav from 'components/nav';
 import tooltipTheme from 'styles/themes/tooltip/default.scss';
 import styles from './root-styles.scss'; // eslint-disable-line
 
-class App extends PureComponent {
+class Root extends PureComponent {
   render() {
     const { route, sections } = this.props;
     const hasSections = Object.keys(sections).length > 0;
@@ -14,16 +14,16 @@ class App extends PureComponent {
     return (
       <div className={styles.app}>
         {hasSections && <Nav navSections={sections} />}
-        {Component && <Component />}
+        <div className={styles.contentLayout}>{Component && <Component />}</div>
         <ReactTooltip className={tooltipTheme.tooltip} />
       </div>
     );
   }
 }
 
-App.propTypes = {
+Root.propTypes = {
   route: Proptypes.object.isRequired,
   sections: Proptypes.array.isRequired
 };
 
-export default App;
+export default Root;

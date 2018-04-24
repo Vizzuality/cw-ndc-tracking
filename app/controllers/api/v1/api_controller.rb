@@ -23,6 +23,13 @@ module Api
         headers['Access-Control-Allow-Origin'] = ENV['CORS_WHITELIST']
         headers['Access-Control-Allow-Methods'] = 'GET'
       end
+
+      private
+
+      def load_section
+        @section = Section.find_by_slug(params[:section_slug])
+        render json: {}, status: :not_found and return unless @section
+      end
     end
   end
 end

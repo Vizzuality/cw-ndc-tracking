@@ -1,19 +1,20 @@
 @import '~styles/layout.scss';
 
 .navbarContainer {
-  position: relative;
+  position: fixed;
+  background-color: $white;
+  width: 100%;
   z-index: 10;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
-  margin-top: 8px;
-
   @include row($columns: (10,2));
 }
 
 .navMenu {
   display: flex;
+  margin-top: 10px;
 }
 
 .navActions {

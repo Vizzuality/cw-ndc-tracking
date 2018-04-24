@@ -3,7 +3,7 @@
 .targetName {
   font-size: $font-size-big;
   color: $theme-color;
-  padding: 0 20px $gutter-padding 20px;
+  padding-bottom: $gutter-padding;
 }
 
 .summary {
@@ -11,7 +11,7 @@
   color: $theme-color;
   line-height: $line-height-small;
   font-style: italic;
-  padding: 20px 20px $gutter-padding 20px;
+  padding: 20px 0 $gutter-padding 0;
 }
 
 .section {
@@ -25,13 +25,14 @@
   color: $white;
 }
 
-.section {
-  padding: 20px;
-}
+.tracking {
+  margin: 0 -20px;
 
-.tracking .section {
-  border-radius: 4px;
-  background-color: $light-gray;
+  .section {
+    padding: 20px;
+    border-radius: 4px;
+    background-color: $light-gray;
+  }
 }
 
 .indicator {
@@ -57,7 +58,6 @@
 
 .separator {
   padding-bottom: 40px;
-  margin: 0 20px 40px;
+  margin-bottom: 40px;
   border-bottom: 1px solid $border-color;
 }
-
