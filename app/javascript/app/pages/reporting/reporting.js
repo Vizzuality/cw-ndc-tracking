@@ -1,35 +1,82 @@
 import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'redux-first-router';
-import isEmpty from 'lodash/isEmpty';
 import ReportingComponent from './reporting-component';
 
-const updatedTargets = (category, sectionSlug) =>
-  category.targets.map(target => ({
-    ...target,
-    [sectionSlug]: target.indicators || []
-  }));
+const fakeTarget = i => ({
+  title: `GHG Target${i}`,
+  slug: `ghg-target${i}`,
+  summary:
+    'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.',
+  year: 2018,
+  planning: [
+    {
+      title: 'GHG target type',
+      slug: 'ghg_target_type',
+      type: 'select',
+      value: 'Base year target - Multi-year'
+    },
+    {
+      title: 'Single or multi-year target',
+      slug: 'time_single_multi_year_target',
+      type: 'select',
+      value: '2030'
+    },
+    {
+      title: 'Target level of emissions',
+      slug: 'time_target_emissions',
+      type: 'textarea',
+      value:
+        'This contribution is consistent with emission levels of 1.3 GtCO2e(GWP - 100; IPCC AR5) in 2025 and 1.2 GtCO2e(GWP- 100; IPCC AR5) in 2030, corresponding, respectively, to a reduction of 37% and 43%, based on estimated emission levels of 2.1 GtCO2e(GWP - 100; IPCC AR5) in 2005.'
+    },
+    {
+      title: 'Target year',
+      slug: 'M_TarYr',
+      type: 'input',
+      value: '2040'
+    }
+  ],
+  tracking: [
+    {
+      title: 'GHG target tracking',
+      slug: 'ghg_target_type',
+      type: 'select',
+      value: 'Base year target - Multi-year'
+    },
+    {
+      title: 'Single or multi-year target tracking',
+      slug: 'time_single_multi_year_target',
+      type: 'select',
+      value: 'Base year target - Multi-year'
+    },
+    {
+      title: 'Target level of emissions tracking',
+      slug: 'time_target_emissions',
+      type: 'textarea',
+      value:
+        'This contribution is consistent with emission levels of 1.3 GtCO2e(GWP - 100; IPCC AR5) in 2025 and 1.2 GtCO2e(GWP- 100; IPCC AR5) in 2030, corresponding, respectively, to a reduction of 37% and 43%, based on estimated emission levels of 2.1 GtCO2e(GWP - 100; IPCC AR5) in 2005.'
+    },
+    {
+      title: 'Target year tracking',
+      slug: 'M_TarYr',
+      type: 'input',
+      value: 'Base year target - Multi-year'
+    }
+  ]
+});
 
-const parseCategories = sections => {
-  const categories = [];
-  sections.forEach(section => {
-    section.categories.forEach(category => {
-      const existingCategory = categories.find(c => category.slug === c.slug);
-      if (!existingCategory) {
-        const updatedCategory = category;
-        const targets = updatedTargets(updatedCategory, section.slug);
-        updatedCategory.targets = targets;
-        categories.push(updatedCategory);
-      } else {
-        const index = categories.indexOf(existingCategory);
-        const updatedExistingCategory = { ...existingCategory };
-        const targets = updatedTargets(updatedExistingCategory, section.slug);
-        categories[index] = { ...categories[index], targets };
-      }
-    });
-  });
-  return categories;
-};
+const fakeCategories = [
+  {
+    title: 'NDC Targets',
+    slug: 'ndc-targets',
+    targets: [fakeTarget(1), fakeTarget(2)]
+  },
+  {
+    title: 'Policies and actions',
+    slug: 'policies-and-actions',
+    targets: [fakeTarget(3), fakeTarget(4)]
+  }
+];
 
 const goToQuery = query => {
   const hash = `${query.category}+${query.target}`;
@@ -42,15 +89,13 @@ const goToQuery = query => {
   }
 };
 
-const mapStateToProps = ({ location, sections }) => {
-  const categories = isEmpty(sections) ? [] : parseCategories(sections);
-
-  const query = location.query;
+const mapStateToProps = props => {
+  const query = props.location.query;
   if (query) goToQuery(query);
 
   return {
-    routes: Object.values(location.routesMap).filter(r => !!r.nav),
-    categories
+    routes: Object.values(props.location.routesMap).filter(r => !!r.nav),
+    categories: fakeCategories
   };
 };
 

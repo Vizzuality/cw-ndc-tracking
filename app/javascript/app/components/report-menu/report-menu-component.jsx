@@ -12,7 +12,7 @@ class ReportMenu extends PureComponent {
     return (
       <div className={styles.ReportMenu}>
         <Sticky top={90}>
-          {categories.length > 0 &&
+          {categories.length &&
             categories.map(category => (
               <Fragment key={category.title}>
                 <div className={styles.categoryTitle}>
@@ -22,9 +22,7 @@ class ReportMenu extends PureComponent {
                       payload: {
                         query: {
                           category: category.slug,
-                          target: category.targets[0]
-                            ? category.targets[0].slug
-                            : ''
+                          target: category.targets[0].slug
                         }
                       }
                     }}
@@ -35,7 +33,7 @@ class ReportMenu extends PureComponent {
                   </NavLink>
                 </div>
                 <Fragment>
-                  {category.targets.length > 0 &&
+                  {category.targets.length &&
                     category.targets.map(target => (
                       <div key={target.title} className={styles.target}>
                         <NavLink
