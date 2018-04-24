@@ -33,25 +33,27 @@ class Reporting extends PureComponent {
             activeTarget={activeTarget}
           />
           <div>
-            {categories.length &&
-              categories.map((category, categoryIndex) =>
-                category.targets.map((target, targetIndex) => (
-                  <Fragment key={target.title}>
-                    <Waypoint
-                      onEnter={() =>
-                        handleAnchorChange(category.slug, target.slug)}
-                      fireOnRapidScroll={false}
-                    />
-                    <ReportTarget
-                      target={target}
-                      separator={
-                        categoryIndex !== categories.length - 1 ||
-                        targetIndex !== category.targets.length - 1
-                      }
-                      id={`${category.slug}+${target.slug}`}
-                    />
-                  </Fragment>
-                ))
+            {categories.length > 0 &&
+              categories.map(
+                (category, categoryIndex) =>
+                  category.targets &&
+                  category.targets.map((target, targetIndex) => (
+                    <Fragment key={target.title}>
+                      <Waypoint
+                        onEnter={() =>
+                          handleAnchorChange(category.slug, target.slug)}
+                        fireOnRapidScroll={false}
+                      />
+                      <ReportTarget
+                        target={target}
+                        separator={
+                          categoryIndex !== categories.length - 1 ||
+                          targetIndex !== category.targets.length - 1
+                        }
+                        id={`${category.slug}+${target.slug}`}
+                      />
+                    </Fragment>
+                  ))
               )}
           </div>
         </div>
