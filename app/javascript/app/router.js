@@ -50,7 +50,8 @@ export const routes = {
     nav: true,
     label: 'Reporting',
     path: '/reporting',
-    component: Reporting
+    component: Reporting,
+    thunk: getSectionsThunk
   },
   [HOME]: {
     path: '/',
