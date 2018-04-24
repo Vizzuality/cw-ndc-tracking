@@ -1,9 +1,11 @@
+import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
+import { push } from 'redux-first-router';
 import ReportingComponent from './reporting-component';
 
-const fakeTarget = {
-  title: 'GHG Target',
-  slug: 'ghg_target',
+const fakeTarget = i => ({
+  title: `GHG Target${i}`,
+  slug: `ghg-target${i}`,
   summary:
     'Brazil intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels in 2025.',
   year: 2018,
@@ -61,11 +63,67 @@ const fakeTarget = {
       value: 'Base year target - Multi-year'
     }
   ]
-};
-
-const mapStateToProps = ({ location }) => ({
-  routes: Object.values(location.routesMap).filter(r => !!r.nav),
-  targets: [fakeTarget, fakeTarget]
 });
 
-export default connect(mapStateToProps, null)(ReportingComponent);
+const fakeCategories = [
+  {
+    title: 'NDC Targets',
+    slug: 'ndc-targets',
+    targets: [fakeTarget(1), fakeTarget(2)]
+  },
+  {
+    title: 'Policies and actions',
+    slug: 'policies-and-actions',
+    targets: [fakeTarget(3), fakeTarget(4)]
+  }
+];
+
+const goToQuery = query => {
+  const hash = `${query.category}+${query.target}`;
+  push(`reporting#${hash}`);
+  const element = document.getElementById(hash);
+  const offset = -90;
+  if (element) {
+    element.scrollIntoView(true);
+    window.scrollBy(0, offset);
+  }
+};
+
+const mapStateToProps = props => {
+  const query = props.location.query;
+  if (query) goToQuery(query);
+
+  return {
+    routes: Object.values(props.location.routesMap).filter(r => !!r.nav),
+    categories: fakeCategories
+  };
+};
+
+class ReportingContainer extends PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      activeCategory: null,
+      activeTarget: null
+    };
+  }
+
+  handleAnchorChange = (categorySlug, targetSlug) => {
+    push(`reporting#${categorySlug}+${targetSlug}`);
+    this.setState({
+      activeCategory: categorySlug,
+      activeTarget: targetSlug
+    });
+  };
+
+  render() {
+    return createElement(ReportingComponent, {
+      ...this.props,
+      activeCategory: this.state.activeCategory,
+      activeTarget: this.state.activeTarget,
+      handleAnchorChange: this.handleAnchorChange
+    });
+  }
+}
+
+export default connect(mapStateToProps, null)(ReportingContainer);

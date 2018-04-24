@@ -3,3 +3,7 @@
 .actionButtonsLayout {
   @include columns(6);
 }
+
+.reportingContentLayout {
+  @include row($columns: (4,8));
+}

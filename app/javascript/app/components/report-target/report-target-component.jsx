@@ -43,10 +43,10 @@ class ReportTarget extends PureComponent {
   }
 
   render() {
-    const { target, separator } = this.props;
+    const { target, separator, id } = this.props;
     return (
       target && (
-        <div key={target.title} className={styles.target}>
+        <div key={target.title} className={styles.target} id={id}>
           <div className={styles.targetName}>{capitalize(target.title)}</div>
           <div className={styles.summary}>{target.summary}</div>
           {this.renderSection('planning')}
@@ -60,7 +60,8 @@ class ReportTarget extends PureComponent {
 
 ReportTarget.propTypes = {
   target: PropTypes.object,
-  separator: PropTypes.bool
+  separator: PropTypes.bool,
+  id: PropTypes.string
 };
 
 export default ReportTarget;

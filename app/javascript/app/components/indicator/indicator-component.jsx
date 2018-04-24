@@ -33,7 +33,7 @@ Indicator.propTypes = {
   isTextArea: PropTypes.bool,
   theme: PropTypes.object,
   title: PropTypes.string,
-  handleClick: PropTypes.func.required
+  handleClick: PropTypes.func.isRequired
 };
 
 export default themr('Indicator', styles)(Indicator);
