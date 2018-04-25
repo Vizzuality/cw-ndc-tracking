@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }.merge(ActiveAdmin::Devise.config)
+
   ActiveAdmin.routes(self)
-  devise_for :users, path: 'users'
 
   namespace :api do
     namespace :v1 do

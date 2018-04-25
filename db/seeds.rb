@@ -6,7 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  User.create!(
+    email: 'admin@example.com',
+    name: 'Admin User',
+    is_admin: true,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  User.create!(
+    email: 'user@example.com',
+    name: 'API user Brazil',
+    country_iso_code: 'BR',
+    is_admin: false,
+    password: 'password',
+    password_confirmation: 'password'
+  )
 
-default_report = Report.find_or_create_by({}) # TODO
-default_report.initialize_categories([2018], true)
+  default_report = Report.find_or_create_by({}) # TODO
+  default_report.initialize_categories([2018], true)
+end

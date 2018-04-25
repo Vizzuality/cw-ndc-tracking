@@ -1,10 +1,16 @@
 ActiveAdmin.register User do
   config.clear_action_items!
-  permit_params :country_iso_code, :email, :name, :password, :password_confirmation
+
+  permit_params do
+    params = [:email, :name, :password, :password_confirmation]
+    params += [:is_admin, :country_iso_code] if current_user.is_admin?
+    params
+  end
 
   index do
     selectable_column
     id_column
+    column :is_admin
     column :country_iso_code
     column :email
     column :name
@@ -13,12 +19,16 @@ ActiveAdmin.register User do
     actions
   end
 
+  filter :is_admin
   filter :country_iso_code
   filter :invitation_sent_at
 
   form do |f|
     f.inputs "User Details" do
-      f.input :country_iso_code
+      if current_user.is_admin?
+        f.input :is_admin
+        f.input :country_iso_code
+      end
       f.input :email
       f.input :name
       f.input :password

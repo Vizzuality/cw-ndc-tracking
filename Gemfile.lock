@@ -61,6 +61,7 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.2.0)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -250,6 +251,10 @@ GEM
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    simple_token_authentication (1.15.1)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -300,6 +305,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   byebug
+  cancancan (~> 2.0)
   capybara (~> 2.13)
   devise
   devise_invitable
@@ -315,6 +321,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_token_authentication (~> 1.0)
   simplecov
   simplecov-console
   spring
