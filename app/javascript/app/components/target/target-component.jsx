@@ -19,7 +19,7 @@ const Target = ({
   hasEditAction,
   infoText
 }) => (
-  <div>
+  <div className={theme.borderStyles}>
     <div className={theme.wrapper}>
       <div className={theme.infoContainer}>
         <div className={styles.nameWrapper}>
