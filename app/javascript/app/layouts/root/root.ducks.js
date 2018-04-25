@@ -1,9 +1,11 @@
-// Navigation pre-fetching thunks
+const { DEV_API } = process.env;
+
 export async function getSectionsThunk(dispatch) {
   const sections = await fetch(
-    'http://localhost:3000/api/v1/sections?includes[]=categories&includes[]=targets'
+    `${DEV_API}/sections?includes[]=categories&includes[]=targets`
   ).then(function (response) {
-    return response.json();
+    if (response.ok) return response.json();
+    throw Error(response.statusText);
   });
   dispatch({ type: 'GET_SECTIONS', payload: sections });
 }
