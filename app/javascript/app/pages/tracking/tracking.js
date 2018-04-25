@@ -20,16 +20,13 @@ const getCategories = sections =>
       }))
     : []);
 
-const getSelectedCategory = sections =>
-  (hasSections(sections)
-    ? sections.find(section => section.slug === 'tracking').categories[0].slug
-    : null);
+const getSelectedCategory = pathname => pathname.substring('/tracking'.length);
 
 const mapStateToProps = ({ location, sections }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
   pathname: location.pathname,
   setDefaultCategory,
-  selectedCategory: getSelectedCategory(sections),
+  selectedCategory: getSelectedCategory(location.pathname),
   categories: getCategories(sections)
 });
 
