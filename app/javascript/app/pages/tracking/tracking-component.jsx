@@ -6,6 +6,11 @@ import PropTypes from 'prop-types';
 import styles from './tracking-styles.scss';
 
 class Tracking extends PureComponent {
+  componentDidMount() {
+    const { setDefaultCategory, pathname } = this.props;
+    setDefaultCategory(pathname);
+  }
+
   render() {
     const { categories } = this.props;
     const hasCategories = Object.keys(categories).length > 0;
@@ -49,7 +54,9 @@ class Tracking extends PureComponent {
 }
 
 Tracking.propTypes = {
-  categories: PropTypes.array
+  categories: PropTypes.array,
+  setDefaultCategory: PropTypes.func,
+  pathname: PropTypes.string
 };
 
 export default Tracking;
