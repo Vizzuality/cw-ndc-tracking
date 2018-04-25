@@ -5,8 +5,7 @@ import Component from './nav-component';
 const actions = null;
 // const actions = [{ name: 'Setup' }];
 
-const mapStateToProps = ({ location }) => ({
-  routes: Object.values(location.routesMap).filter(r => !!r.nav),
+const mapStateToProps = () => ({
   actions
 });
 

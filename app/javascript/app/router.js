@@ -19,35 +19,30 @@ export const REPORTING = 'location/REPORTING';
 
 export const routes = {
   [PLANNING_CATEGORY]: {
-    nav: true,
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
     thunk: getSectionsThunk
   },
   [PLANNING]: {
-    nav: true,
     label: 'Planning',
     path: '/planning',
     component: Planning,
     thunk: getSectionsThunk
   },
   [TRACKING_CATEGORY]: {
-    nav: true,
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
     thunk: getSectionsThunk
   },
   [TRACKING]: {
-    nav: true,
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
     thunk: getSectionsThunk
   },
   [REPORTING]: {
-    nav: true,
     label: 'Reporting',
     path: '/reporting',
     component: Reporting,
