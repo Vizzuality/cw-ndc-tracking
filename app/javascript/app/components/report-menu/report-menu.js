@@ -1,22 +1,25 @@
-import { history } from 'redux-first-router';
+import { connect } from 'react-redux';
 import { createElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Component from './report-menu-component';
 
+const mapStateToProps = ({ location }) => ({ location });
+
 class ReportMenuContainer extends PureComponent {
   render() {
-    const hash = history().location.hash.substring(1);
+    const query = this.props.location.query;
     return createElement(Component, {
       ...this.props,
-      activeCategory: this.props.activeCategory || (hash && hash.split('+')[0]),
-      activeTarget: this.props.activeTarget || (hash && hash.split('+')[1])
+      activeCategory: (query && query.category) || this.props.activeCategory,
+      activeTarget: (query && query.target) || this.props.activeTarget
     });
   }
 }
 
 ReportMenuContainer.propTypes = {
   activeCategory: PropTypes.string,
-  activeTarget: PropTypes.string
+  activeTarget: PropTypes.string,
+  location: PropTypes.object
 };
 
-export default ReportMenuContainer;
+export default connect(mapStateToProps, null)(ReportMenuContainer);

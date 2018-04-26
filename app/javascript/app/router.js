@@ -1,6 +1,7 @@
 import { connectRoutes, NOT_FOUND, redirect, push } from 'redux-first-router';
 import createHistory from 'history/createBrowserHistory';
 import queryString from 'query-string';
+import restoreScroll from 'redux-first-router-restore-scroll';
 
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
@@ -65,6 +66,19 @@ export const routes = {
   }
 };
 
+const customRestoreScroll = restoreScroll({
+  shouldUpdateScroll: (prev, locationState) => {
+    if (!locationState.query) return true;
+    const id = `${locationState.query.category}+${locationState.query.target}`;
+    if (!id || prev.search === locationState.search) return true;
+    const element = document.getElementById(id);
+    if (!element) return true;
+    const yOffset = element.getBoundingClientRect().y + window.scrollY;
+    return [0, yOffset - 90];
+  }
+});
+
 export default connectRoutes(history, routes, {
-  querySerializer: queryString
+  querySerializer: queryString,
+  restoreScroll: customRestoreScroll
 });
