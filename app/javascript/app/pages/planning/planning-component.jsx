@@ -6,11 +6,6 @@ import PropTypes from 'prop-types';
 import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
-  componentDidMount() {
-    const { setDefaultCategory, pathname } = this.props;
-    setDefaultCategory(pathname);
-  }
-
   render() {
     const { categories, selectedCategory } = this.props;
     const hasCategories = Object.keys(categories).length > 0;
@@ -40,9 +35,7 @@ class Planning extends PureComponent {
 
 Planning.propTypes = {
   selectedCategory: PropTypes.string,
-  categories: PropTypes.array,
-  setDefaultCategory: PropTypes.func,
-  pathname: PropTypes.string
+  categories: PropTypes.array
 };
 
 export default Planning;
