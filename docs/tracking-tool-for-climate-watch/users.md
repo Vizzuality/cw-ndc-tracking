@@ -2,7 +2,7 @@
 
 Users and Admins are stored in a single `users` table. Admin users are differentiated by having the `is_admin` flag set.
 
-Users and Admins can be managed via an admin tool powered by ActiveAdmin.
+Users and Admins can be managed via an admin tool powered by ActiveAdmin at `/admin`.
 
 Users are added to the system by invitation from an Admin; the system sends them a link which takes them to a page where they can set their password.
 

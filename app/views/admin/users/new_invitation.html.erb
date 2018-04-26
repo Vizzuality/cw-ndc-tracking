@@ -4,6 +4,11 @@
    
    <table style='width: 50%'>
     <tr>
+      <td><%= f.label :is_admin %></td>
+      <td><%= f.check_box :is_admin %></td>
+    </tr>
+    </tr>
+    <tr>
       <td><%= f.label :country_iso_code %></td>
       <td><%= f.text_field :country_iso_code, required: true %></td>
     </tr>

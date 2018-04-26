@@ -31,14 +31,14 @@ ActiveAdmin.register User do
       end
       f.input :email
       f.input :name
-      f.input :password
-      f.input :password_confirmation
     end
     f.submit
   end
 
   action_item :new_invitation do
-    link_to 'Invite New User', new_invitation_admin_users_path
+    if controller.current_ability.can?(:create, User)
+      link_to 'Invite New User', new_invitation_admin_users_path
+    end
   end
 
   collection_action :new_invitation do
@@ -49,4 +49,12 @@ ActiveAdmin.register User do
     flash[:success] = 'User has been successfully invited.' if User.invite!(params[:user].permit!)
     redirect_to admin_users_path
   end
+
+controller do
+  def update
+    update! do |format|
+      format.html { redirect_to edit_admin_user_path(@user) }
+    end
+  end
+end
 end
