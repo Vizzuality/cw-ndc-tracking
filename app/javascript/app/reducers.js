@@ -3,7 +3,9 @@ import { combineReducers } from 'redux';
 
 // Router
 import router from './router';
+import sections from './providers/sections.providers';
 
 export default combineReducers({
-  location: router.reducer
+  location: router.reducer,
+  sections
 });

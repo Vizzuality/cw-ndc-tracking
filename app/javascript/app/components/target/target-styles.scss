@@ -1,0 +1,44 @@
+@import '~styles/layout';
+
+.borderStyles {
+  border-top: 1px solid $border-color;
+}
+
+.wrapper {
+  @include row((7, 3));
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  > :nth-child(2) {
+    @include column-offset(2, $gutters: true);
+  }
+}
+
+.nameWrapper {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 1.375rem; // 22px / 16px
+  color: $theme-color;
+}
+
+.infoIcon {
+  margin-left: 10px;
+}
+
+.summary {
+  color: $theme-color;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-left: 15px;
+  }
+}

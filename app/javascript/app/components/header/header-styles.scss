@@ -9,6 +9,9 @@
 .headerLayout {
   @include row();
 
+  align-items: flex-end;
+  padding-bottom: 20px;
+
   &.withActions {
     @media #{$tablet-landscape} {
       @include row($columns: (8, 4, 12));
@@ -25,7 +28,6 @@
 }
 
 .title {
-  padding: 6px 0 20px;
   font-size: $font-size-xl-large;
   font-weight: $font-weight-light;
   line-height: $line-height-small;

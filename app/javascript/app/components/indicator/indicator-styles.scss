@@ -1,7 +1,7 @@
 @import '~styles/layout';
 
 .wrapper {
-  @include columns((5, 4, 1));
+  @include columns((6, 4));
 
   border-top: 1px solid $gray;
   padding-top: 50px;
@@ -12,12 +12,21 @@
   }
 
   &.textArea {
-    @include columns((5, 6, 1));
+    @include columns((6, 6));
 
     > :nth-child(2) {
       @include column-offset(0, $gutters: true);
     }
   }
+}
+
+.nameWrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.infoIcon {
+  margin-left: 10px;
 }
 
 .childrenContainer {
