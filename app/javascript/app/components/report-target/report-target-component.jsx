@@ -22,7 +22,7 @@ class ReportTarget extends PureComponent {
 
     const { target } = this.props;
     return (
-      <div className={styles[sectionTitle]}>
+      <div key={sectionTitle} className={styles[sectionTitle]}>
         {sectionTitle === 'tracking' && (
           <div className={styles.trackingHeader}>{target.year}</div>
         )}
@@ -41,16 +41,23 @@ class ReportTarget extends PureComponent {
       </div>
     );
   }
-
   render() {
     const { target, separator, id } = this.props;
+    const sections = ['planning', 'tracking'];
+    const renderSections = () =>
+      sections.map(
+        section =>
+          target[section] &&
+          target[section].length > 0 &&
+          this.renderSection(section)
+      );
+
     return (
       target && (
         <div key={target.title} className={styles.target} id={id}>
           <div className={styles.targetName}>{capitalize(target.title)}</div>
           <div className={styles.summary}>{target.summary}</div>
-          {this.renderSection('planning')}
-          {this.renderSection('tracking')}
+          {renderSections()}
           {separator && <div className={styles.separator} />}
         </div>
       )
