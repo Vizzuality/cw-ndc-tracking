@@ -13,7 +13,7 @@ class MergeStaticAndDynamicTargets
       end
       target_hash = match&.to_hash || {} # TODO: custom targets
       target_hash[:year] = report_target.year
-      target_hash[:reported_percentage] = 0 # TODO:
+      target_hash[:reported_percentage] = 0 # TODO: calculate for tracking, omit for planning
       target_hash[:updated_at] = report_target.updated_at.
         strftime('%Y-%m-%d %H:%M:%S %z') # TODO:
       target_hash
