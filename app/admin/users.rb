@@ -24,7 +24,7 @@ ActiveAdmin.register User do
   filter :invitation_sent_at
 
   form do |f|
-    f.inputs "User Details" do
+    f.inputs 'User Details' do
       if current_user.is_admin?
         f.input :is_admin
         f.input :country_iso_code
@@ -49,5 +49,4 @@ ActiveAdmin.register User do
     flash[:success] = 'User has been successfully invited.' if User.invite!(params[:user].permit!)
     redirect_to admin_users_path
   end
-
 end
