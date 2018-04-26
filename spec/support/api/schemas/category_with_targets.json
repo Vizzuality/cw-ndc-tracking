@@ -40,6 +40,15 @@
         0
       ]
     },
+    "active": {
+      "$id": "/properties/active",
+      "type": "boolean",
+      "title": "The Active Schema ",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
     "targets": {
       "$id": "/properties/targets",
       "type": "array",
@@ -56,6 +65,15 @@
               "GHG Target"
             ]
           },
+          "summary": {
+            "$id": "/properties/targets/items/properties/summary",
+            "type": ["string", "null"],
+            "title": "The Summary Schema ",
+            "default": "",
+            "examples": [
+              "GHG Target"
+            ]
+          },
           "slug": {
             "$id": "/properties/targets/items/properties/slug",
             "type": "string",
@@ -63,6 +81,42 @@
             "default": "",
             "examples": [
               "ghg_target"
+            ]
+          },
+          "order": {
+            "$id": "/properties/targets/items/properties/order",
+            "type": "integer",
+            "title": "The Order Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "year": {
+            "$id": "/properties/targets/items/properties/year",
+            "type": "integer",
+            "title": "The Year Schema ",
+            "default": 0,
+            "examples": [
+              2018
+            ]
+          },
+          "reported_percentage": {
+            "$id": "/properties/targets/items/properties/reported_percentage",
+            "type": "integer",
+            "title": "The Reported_percentage Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "updated_at": {
+            "$id": "/properties/targets/items/properties/updated_at",
+            "type": "string",
+            "title": "The Updated_at Schema ",
+            "default": "",
+            "examples": [
+              "2018-04-19 11:44:16 +0000"
             ]
           }
         }

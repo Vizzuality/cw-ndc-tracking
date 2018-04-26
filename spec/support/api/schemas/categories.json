@@ -42,6 +42,15 @@
         "examples": [
           0
         ]
+      },
+      "active": {
+        "$id": "http://example.com/example.json/items/properties/active",
+        "type": "boolean",
+        "title": "The Active Schema ",
+        "default": false,
+        "examples": [
+          true
+        ]
       }
     }
   }
