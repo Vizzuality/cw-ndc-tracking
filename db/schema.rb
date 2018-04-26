@@ -15,6 +15,31 @@ ActiveRecord::Schema.define(version: 20180425110113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.bigint "report_id", null: false
+    t.text "section_slug", null: false
+    t.text "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id", "section_slug", "slug"], name: "categories_report_id_section_slug_slug_key", unique: true
+    t.index ["report_id"], name: "index_categories_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.text "slug", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id", "slug"], name: "targets_category_id_slug_key", unique: true
+    t.index ["category_id"], name: "index_targets_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -42,31 +67,6 @@ ActiveRecord::Schema.define(version: 20180425110113) do
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.bigint "report_id", null: false
-    t.text "section_slug", null: false
-    t.text "slug", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["report_id", "section_slug", "slug"], name: "categories_report_id_section_slug_slug_key", unique: true
-    t.index ["report_id"], name: "index_categories_on_report_id"
-  end
-
-  create_table "reports", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "targets", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.text "slug", null: false
-    t.integer "year", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id", "slug"], name: "targets_category_id_slug_key", unique: true
-    t.index ["category_id"], name: "index_targets_on_category_id"
   end
 
   add_foreign_key "categories", "reports", on_delete: :cascade
