@@ -1,4 +1,4 @@
-import { connectRoutes, NOT_FOUND, redirect } from 'redux-first-router';
+import { connectRoutes, NOT_FOUND, redirect, push } from 'redux-first-router';
 import createHistory from 'history/createBrowserHistory';
 import queryString from 'query-string';
 import restoreScroll from 'redux-first-router-restore-scroll';
@@ -7,7 +7,8 @@ import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
 
-import { getSectionsThunk } from 'layouts/root/root.ducks';
+import { getSectionsThunk } from './providers/sections.providers';
+import { DEFAULT_TARGET } from './constants/defaults';
 
 const history = createHistory();
 
@@ -20,35 +21,36 @@ export const REPORTING = 'location/REPORTING';
 
 export const routes = {
   [PLANNING_CATEGORY]: {
-    nav: true,
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
     thunk: getSectionsThunk
   },
   [PLANNING]: {
-    nav: true,
     label: 'Planning',
     path: '/planning',
     component: Planning,
-    thunk: getSectionsThunk
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState);
+      push(`/planning/${DEFAULT_TARGET}`);
+    }
   },
   [TRACKING_CATEGORY]: {
-    nav: true,
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
     thunk: getSectionsThunk
   },
   [TRACKING]: {
-    nav: true,
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
-    thunk: getSectionsThunk
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState);
+      push(`/tracking/${DEFAULT_TARGET}`);
+    }
   },
   [REPORTING]: {
-    nav: true,
     label: 'Reporting',
     path: '/reporting',
     component: Reporting,

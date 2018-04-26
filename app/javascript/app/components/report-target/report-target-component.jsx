@@ -27,18 +27,16 @@ class ReportTarget extends PureComponent {
           <div className={styles.trackingHeader}>{target.year}</div>
         )}
         <div className={styles.section}>
-          {target[sectionTitle] ? (
-            target[sectionTitle].map(indicator => (
-              <div
-                key={indicator.slug}
-                className={cx(styles.indicator, {
-                  [styles.textarea]: indicator.type === 'textarea'
-                })}
-              >
-                {renderIndicator(indicator)}
-              </div>
-            ))
-          ) : null}
+          {target[sectionTitle].map(indicator => (
+            <div
+              key={indicator.slug}
+              className={cx(styles.indicator, {
+                [styles.textarea]: indicator.type === 'textarea'
+              })}
+            >
+              {renderIndicator(indicator)}
+            </div>
+          ))}
         </div>
       </div>
     );

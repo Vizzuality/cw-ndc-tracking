@@ -13,7 +13,7 @@ import blueIconTheme from 'styles/themes/icon/icon-blue.scss';
 import styles from './tracking-target-styles.scss';
 
 const Target = ({ title, theme, reportedPercentage }) => (
-  <div>
+  <div className={theme.borderStyles}>
     <div
       className={cx(theme.wrapper, {
         [theme.completed]: reportedPercentage === 100,

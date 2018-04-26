@@ -1,42 +1,20 @@
-class Category
-  include ActiveModel::Model
-  include ActiveModel::Serialization
-  attr_reader :title, :slug, :optional, :order, :targets
+class Category < ApplicationRecord
+  belongs_to :report
+  has_many :targets, dependent: :delete_all
 
-  # @param category_config [Hash]
-  # @option category_config :categories [Array<Hash>]
-  def initialize(category_config)
-    @title = category_config[:title]
-    @slug = category_config[:slug]
-    @optional = category_config[:optional]
-    @order = category_config[:order]
-    @targets = category_config[:targets].map do |target_config|
-      # TODO: targets are dynamic
-      Target.new(target_config.symbolize_keys)
+  # @param year [Integer]
+  # @param force [Boolean] destroy / create
+  def initialize_targets(year, force = false)
+    targets.delete_all if force
+    static_category.targets.each do |static_target|
+      targets.create(slug: static_target.slug, year: year)
     end
   end
 
-  def attributes
-    {'title' => nil, 'slug' => nil, 'optional' => nil}
-  end
+  private
 
-  # @param includes [Array<Symbol>]
-  def to_hash(includes = [])
-    serializable_hash(
-      Category.serialization_options(includes)
-    )
-  end
-
-  def self.serialization_options(includes)
-    default_serialization_options = {
-      methods: [:title, :slug, :optional, :order]
-    }
-    custom_serialization_options =
-      if includes.include?(:targets)
-        {include: :targets}
-      else
-        {}
-      end
-    default_serialization_options.merge(custom_serialization_options)
+  def static_category
+    section = Static::Section.find_by_slug(section_slug)
+    section.find_category_by_slug(slug)
   end
 end

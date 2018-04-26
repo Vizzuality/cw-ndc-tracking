@@ -10,3 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20180419111333) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "report_id", null: false
+    t.text "section_slug", null: false
+    t.text "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id", "section_slug", "slug"], name: "categories_report_id_section_slug_slug_key", unique: true
+    t.index ["report_id"], name: "index_categories_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.text "slug", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id", "slug"], name: "targets_category_id_slug_key", unique: true
+    t.index ["category_id"], name: "index_targets_on_category_id"
+  end
+
+  add_foreign_key "categories", "reports", on_delete: :cascade
+  add_foreign_key "targets", "categories", on_delete: :cascade
+end
