@@ -12,7 +12,8 @@
   },
   "jest": {
     "testPathIgnorePatterns": [
-      "/node_modules/", "config/webpack/test.js"
+      "/node_modules/",
+      "config/webpack/test.js"
     ]
   },
   "private": false,
@@ -40,6 +41,7 @@
     "redux": "3.7.1",
     "redux-first-router": "0.0.20-next",
     "redux-first-router-link": "1.4.2",
+    "redux-first-router-restore-scroll": "^1.2.1",
     "redux-thunk": "2.2.0",
     "redux-tools": "github:vizzuality/redux-tools#3.3.0",
     "reselect": "3.0.1"

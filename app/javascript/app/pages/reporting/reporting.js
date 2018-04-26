@@ -1,23 +1,11 @@
 import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'redux-first-router';
+import { sections } from '../../mocks/sections';
 import { parseCategories } from './reporting-selectors';
 import ReportingComponent from './reporting-component';
 
-const goToQuery = query => {
-  const hash = `${query.category}+${query.target}`;
-  push(`reporting#${hash}`);
-  const element = document.getElementById(hash);
-  const offset = -90;
-  if (element) {
-    element.scrollIntoView(true);
-    window.scrollBy(0, offset);
-  }
-};
-
-const mapStateToProps = ({ location, sections }) => {
-  const query = location.query;
-  if (query) goToQuery(query);
+const mapStateToProps = ({ location }) => {
   const state = { sections };
   return {
     routes: Object.values(location.routesMap).filter(r => !!r.nav),
@@ -35,7 +23,7 @@ class ReportingContainer extends PureComponent {
   }
 
   handleAnchorChange = (categorySlug, targetSlug) => {
-    push(`reporting#${categorySlug}+${targetSlug}`);
+    push(`reporting?category=${categorySlug}&target=${targetSlug}`);
     this.setState({
       activeCategory: categorySlug,
       activeTarget: targetSlug

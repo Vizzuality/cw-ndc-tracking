@@ -40,8 +40,9 @@ class Reporting extends PureComponent {
                   category.targets.map((target, targetIndex) => (
                     <Fragment key={target.title}>
                       <Waypoint
-                        onEnter={() =>
-                          handleAnchorChange(category.slug, target.slug)}
+                        onEnter={scrollProperties =>
+                          scrollProperties.event &&
+                          handleAnchorChange(category.slug, target.slug)} // event is null if not scrolling
                         fireOnRapidScroll={false}
                       />
                       <ReportTarget
