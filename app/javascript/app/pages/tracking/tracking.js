@@ -24,7 +24,7 @@ const mapStateToProps = ({ location, sections }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
   pathname: location.pathname,
   setDefaultCategory,
-  selectedCategory: location.payload,
+  selectedCategory: location.payload.category,
   categories: getCategories(sections)
 });
 
