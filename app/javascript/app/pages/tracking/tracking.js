@@ -20,13 +20,11 @@ const getCategories = sections =>
       }))
     : []);
 
-const getSelectedCategory = pathname => pathname.substring('/tracking'.length);
-
 const mapStateToProps = ({ location, sections }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
   pathname: location.pathname,
   setDefaultCategory,
-  selectedCategory: getSelectedCategory(location.pathname),
+  selectedCategory: location.payload,
   categories: getCategories(sections)
 });
 

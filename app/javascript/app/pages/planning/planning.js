@@ -20,13 +20,11 @@ const getCategories = sections =>
       }))
     : []);
 
-const getSelectedCategory = pathname => pathname.substring('/planinnig'.length);
-
 const mapStateToProps = ({ location, sections }) => ({
   routes: Object.values(location.routesMap).filter(r => !!r.nav),
   pathname: location.pathname,
   setDefaultCategory,
-  selectedCategory: getSelectedCategory(location.pathname),
+  selectedCategory: location.payload.category,
   categories: getCategories(sections)
 });
 
