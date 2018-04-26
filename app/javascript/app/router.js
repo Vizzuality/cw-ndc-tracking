@@ -6,6 +6,7 @@ import restoreScroll from 'redux-first-router-restore-scroll';
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
+import EditTarget from 'pages/edit-target';
 
 import { getSectionsThunk } from './providers/sections.providers';
 import { DEFAULT_TARGET } from './constants/defaults';
@@ -18,6 +19,8 @@ export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
 export const TRACKING_CATEGORY = 'location/TRACKING_CATEGORY';
 export const REPORTING = 'location/REPORTING';
+export const PLANNING_TARGET_EDIT = 'location/PLANNING_TARGET_EDIT';
+export const TRACKING_TARGET_EDIT = 'location/TRACKING_TARGET_EDIT';
 
 export const routes = {
   [PLANNING_CATEGORY]: {
@@ -59,6 +62,20 @@ export const routes = {
   [HOME]: {
     path: '/',
     thunk: dispatch => dispatch(redirect({ type: PLANNING }))
+  },
+  [PLANNING_TARGET_EDIT]: {
+    path: '/planning/:category/:target',
+    component: EditTarget,
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState);
+    }
+  },
+  [TRACKING_TARGET_EDIT]: {
+    path: '/tracking/:category/:target',
+    component: EditTarget,
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState);
+    }
   },
   [NOT_FOUND]: {
     path: '/404',

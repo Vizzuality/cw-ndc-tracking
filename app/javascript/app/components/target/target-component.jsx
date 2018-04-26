@@ -15,8 +15,8 @@ const Target = ({
   title,
   theme,
   summary,
-  hasRemoveAction,
-  hasEditAction,
+  editActionLink,
+  handleRemoveAction,
   infoText
 }) => (
   <div className={theme.borderStyles}>
@@ -29,13 +29,13 @@ const Target = ({
         {summary && <p className={theme.summary}>{summary}</p>}
       </div>
       <div className={theme.buttonContainer}>
-        {hasEditAction && (
-          <Button theme={squareButtonTheme} onClick={() => true}>
+        {editActionLink && (
+          <Button theme={squareButtonTheme} link={editActionLink}>
             <Icon theme={blueIconTheme} icon={editIcon} />
           </Button>
         )}
-        {hasRemoveAction && (
-          <Button theme={squareButtonTheme} onClick={() => true}>
+        {handleRemoveAction && (
+          <Button theme={squareButtonTheme} onClick={handleRemoveAction}>
             <Icon theme={blueIconTheme} icon={deleteIcon} />
           </Button>
         )}
@@ -45,8 +45,8 @@ const Target = ({
 );
 
 Target.propTypes = {
-  hasEditAction: PropTypes.bool,
-  hasRemoveAction: PropTypes.bool,
+  editActionLink: PropTypes.string,
+  handleRemoveAction: PropTypes.func,
   theme: PropTypes.object,
   title: PropTypes.string,
   infoText: PropTypes.string,

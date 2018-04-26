@@ -22,8 +22,7 @@ class Planning extends PureComponent {
                   title={target.title}
                   key={target.slug}
                   summary={target.summary}
-                  hasRemoveAction
-                  hasEditAction
+                  editActionLink={`/planning/${selectedCategory}/${target.title}`}
                   infoText="text"
                 />
               ))}
