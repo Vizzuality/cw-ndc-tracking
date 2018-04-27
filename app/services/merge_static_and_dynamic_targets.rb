@@ -1,13 +1,13 @@
 class MergeStaticAndDynamicTargets
   # @param static_targets [Array<Static::Target>]
-  # @param report_targets [Array<Target>]
-  def initialize(static_targets, report_targets)
+  # @param dynamic_targets [Array<Target>]
+  def initialize(static_targets, dynamic_targets)
     @static_targets = static_targets
-    @report_targets = report_targets
+    @dynamic_targets = dynamic_targets
   end
 
   def call
-    @report_targets.map do |report_target|
+    @dynamic_targets.map do |report_target|
       match = @static_targets.detect do |static_target|
         report_target.slug == static_target.slug
       end
