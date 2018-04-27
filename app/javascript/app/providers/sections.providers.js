@@ -1,11 +1,11 @@
-const { DEV_API } = process.env;
+const { API_URL } = process.env;
 
 export async function getSectionsThunk(dispatch, getState) {
   const { sections } = getState();
 
   if (sections.length === 0) {
     const apiSections = await fetch(
-      `${DEV_API}/sections?includes[]=categories&includes[]=targets`
+      `${API_URL}/sections?includes[]=categories&includes[]=targets`
     ).then(function (response) {
       if (response.ok) return response.json();
       throw Error(response.statusText);
