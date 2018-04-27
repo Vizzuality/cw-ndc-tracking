@@ -27,6 +27,13 @@ gem 'uglifier', '~> 3.1.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#
+gem 'activeadmin'
+# Use devise for authentication
+gem 'devise'
+gem 'devise_invitable'
+gem 'simple_token_authentication', '~> 1.0'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -47,6 +54,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+  gem 'letter_opener'
 end
 
 group :test do
