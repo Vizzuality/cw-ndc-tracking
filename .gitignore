@@ -53,3 +53,6 @@ bower.json
 
 # Editors
 .vscode/
+
+# Precompiled Assets
+public/assets/
