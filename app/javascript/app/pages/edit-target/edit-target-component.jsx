@@ -27,6 +27,7 @@ class EditTarget extends PureComponent {
                   key={i.slug}
                   title={i.title}
                   values={i.values}
+                  infoText={i.title}
                   handleBlur={() => 'TODO save'}
                 />
               ))}
