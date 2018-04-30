@@ -34,6 +34,7 @@ class Tracking extends PureComponent {
                   key={target.title}
                   title={target.title}
                   summary={target.summary}
+                  updatedAt={target.updated_at}
                   reportedPercentage={100}
                   editActionLink={`/tracking/${selectedCategory}/${target.slug}`}
                 />
