@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import capitalize from 'lodash/capitalize';
@@ -9,15 +9,14 @@ class ReportTarget extends PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   renderSection(sectionTitle) {
     const renderIndicator = indicator => (
-      <div
-        key={indicator.slug}
-        className={cx(styles.indicator, {
-          [styles.textarea]: indicator.type === 'textarea'
-        })}
-      >
+      <Fragment>
         <div className={styles.title}>{indicator.title}</div>
-        <div className={styles.value}>{indicator.value}</div>
-      </div>
+        {indicator.values.map(v => (
+          <span key={v.label} className={styles.value}>
+            {v.value}
+          </span>
+        ))}
+      </Fragment>
     );
 
     const { target } = this.props;
