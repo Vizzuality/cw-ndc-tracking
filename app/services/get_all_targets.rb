@@ -14,6 +14,7 @@ class GetAllTargets
   # @param year [Integer]
   def call(year)
     MergeStaticAndDynamicTargets.new(
+      @category,
       @static_category.targets,
       @category.targets.where(year: year)
     ).call

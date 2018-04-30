@@ -1,158 +1,289 @@
 {
    "sections":[
       {
-         "title": "Planning",
-         "slug": "planning",
+         "title":"Planning",
+         "slug":"planning",
          "categories":[
             {
                "title":"NDC Targets",
                "slug":"ndc_targets",
-               "optional": false,
+               "optional":false,
                "targets":[
                   {
                      "title":"GHG Target",
-                     "summary": "GHG Target",
+                     "summary":"GHG Target",
                      "slug":"ghg_target",
                      "indicators":[
                         {
                            "title":"GHG target type",
                            "slug":"ghg_target_type",
-                           "type":"select"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Single or multi-year target",
                            "slug":"time_single_multi_year_target",
-                           "type":"select"
+                           "values":[
+                              {
+                                 "type":"select",
+                                 "options":[
+                                    {
+                                       "label":"Multi-year target"
+                                    },
+                                    {
+                                       "label":"Single-year target"
+                                    }
+                                 ]
+                              }
+                           ]
                         },
                         {
                            "title":"Target level of emissions",
                            "slug":"time_target_emissions",
-                           "type":"textarea"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Target year",
                            "slug":"M_TarYr",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Absolute emission reduction (MtCO2eq)",
                            "slug":"M_TarA1",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Absolute emission reduction compared to base year (%)",
                            "slug":"M_TarA2",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Emissions level in base year (MtCO2eq)",
                            "slug":"M_TarA3",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Base year",
                            "slug":"M_TarA4",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Absolute emission reduction compared to Baseline (MtCO2eq)",
                            "slug":"M_TarA5",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline emissions level in target year (MtCO2eq)",
                            "slug":"M_TarA6",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Emission reduction compared to Baseline (%)",
                            "slug":"M_TarB1",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline emissions level in target year (MtCO2eq)",
                            "slug":"M_TarB2",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Targeted emissions intensity per GDP (tCO2eq per GDP)",
                            "slug":"M_TarC1",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Reduction in emissions intensity per GDP compared to base year (%)",
                            "slug":"M_TarC2",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Emissions intensity per GDP in base year (tCO2eq per GDP)",
                            "slug":"M_TarC3",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Base year",
                            "slug":"M_TarC4",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Targeted emissions intensity per capita (tCO2eq per capita)",
                            "slug":"M_TarC7",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Reduction in emissions intensity per capita compared to base year (% per capita)",
                            "slug":"M_TarC8",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Emissions intensity per capita in base year (tCO2eq per capita)",
                            "slug":"M_TarC9",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Base year",
                            "slug":"M_TarC10",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Reduction in emissions intensity per capita compared to target year (%)",
                            "slug":"M_TarC11",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline emissions intensity per capita in target year (tCO2eq per capita)",
                            "slug":"M_TarC12",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Unconditional part of mitigation target",
                            "slug":"M_Con1",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Estimated costs of unconditional part",
                            "slug":"M_Con2",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Conditional part of mitigation target",
                            "slug":"M_Con3",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Estimated costs of conditional part",
                            "slug":"M_Con4",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Conditional upon international provision of means of \"implementation\": capacity building, technology development and transfer, financing",
                            "slug":"M_Con5",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"select",
+                                 "options":[
+                                    {
+                                       "label":"Yes"
+                                    },
+                                    {
+                                       "label":"No"
+                                    },
+                                    {
+                                       "label":"n/a"
+                                    }
+                                 ]
+                              }
+                           ]
                         },
                         {
                            "title":"Other conditions",
                            "slug":"M_OtherCon",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         }
                      ]
                   },
@@ -160,63 +291,95 @@
                      "title":"Non-GHG Target",
                      "summary":"Non-GHG Target",
                      "slug":"non_ghg_target",
-                     "optional": false,
+                     "optional":false,
                      "indicators":[
                         {
                            "title":"Theme",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"theme",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Sector",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"sector",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Target type",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"target_type",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Target year",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"target_year",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Target value of output",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"target_value_of_output",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Base year",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"base_year",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Base year value of output",
-                           "slug":null,
-                           "type":"input"
+                           "slug":"base_year_value_of_output",
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         }
                      ]
                   }
                ]
             },
             {
-               "title": "Policies and actions",
-               "slug": "policies_and_actions",
-               "optional": false,
-               "targets": []
+               "title":"Policies and actions",
+               "slug":"policies_and_actions",
+               "optional":false,
+               "targets":[
+
+               ]
             },
             {
-               "title": "User-defined targets",
-               "slug": "user_defined_targets",
-               "optional": true,
-               "targets": []
+               "title":"User-defined targets",
+               "slug":"user_defined_targets",
+               "optional":true,
+               "targets":[
+
+               ]
             },
             {
                "title":"Methodology",
                "slug":"methodology",
-               "optional": false,
+               "optional":false,
                "targets":[
                   {
                      "title":"Scope and coverage",
@@ -225,22 +388,49 @@
                         {
                            "title":"Greenhouse gases covered",
                            "slug":"coverage_ghg",
-                           "type":"multiselect"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Sectors covered",
                            "slug":"coverage_sectors",
-                           "type":"multiselect"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Excluding LULUCF",
                            "slug":"M_ExclL",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"select",
+                                 "options":[
+                                    {
+                                       "label":"Yes"
+                                    },
+                                    {
+                                       "label":"No"
+                                    },
+                                    {
+                                       "label":"n/a"
+                                    }
+                                 ]
+                              }
+                           ]
                         },
                         {
                            "title":"Percentage of national emissions covered, as reflected in the most recent national greenhouse gas inventory",
                            "slug":"coverage_percent_covered",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         }
                      ]
                   },
@@ -251,42 +441,74 @@
                         {
                            "title":"Assumed IPCC inventory methodologies to be used to track progress",
                            "slug":"method_ipcc",
-                           "type":"multiselect"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Assumed global warming potential (GWP) values to be used to track progress",
                            "slug":"method_gwp",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline scenario \"targets\": Static or dynamic baseline scenario",
                            "slug":"method_baseline_static_dynamic",
-                           "type":"select"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline scenario \"targets\": Cut-off year for policies included in the baseline scenario, and any significant policies excluded from the baseline scenario",
                            "slug":"method_baseline_year",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline scenario \"targets\": Projection method",
                            "slug":"method_baseline_projection_method",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline scenario \"targets\": Emission drivers included and assumptions and data sources for key drivers",
                            "slug":"method_baseline_emission_drivers",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Baseline scenario \"targets\": For dynamic baseline scenario targets, under what conditions will the baseline be recalculated",
                            "slug":"method_baseline_dynamic_recalculation",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Assumptions and methodological approaches for GHG reduction targets relative to emissions intensity",
                            "slug":"method_intensity",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         }
                      ]
                   },
@@ -297,37 +519,65 @@
                         {
                            "title":"Treatment of land sector",
                            "slug":"method_land_treatment",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Coverage of the land sector as compared to total net emissions from the land sector, as a percentage if known",
                            "slug":"method_land_coverage",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Assumed accounting approach for the land sector (activity-based or land-based)",
                            "slug":"method_land_accounting_approach",
-                           "type":"select"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Assumed accounting method for the land sector (net-net, forward-looking baseline, or gross-net)",
                            "slug":"method_land_accounting_method",
-                           "type":"select"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Level against which emissions and removals from the land sector are accounted, including policy assumptions and methodologies employed",
                            "slug":"method_land_level",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Any assumed use of methodologies to quantify and account for natural disturbances and legacy effects",
                            "slug":"method_land_method",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Any other relevant accounting approaches, assumptions or methodologies",
                            "slug":"method_land_other",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         }
                      ]
                   },
@@ -338,22 +588,38 @@
                         {
                            "title":"Planned use of international market mechanisms",
                            "slug":"method_imm",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Limit on the percentage of emission reductions that may be achieved through the use of units from international market mechanisms",
                            "slug":"method_imm_limit",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         },
                         {
                            "title":"Assumed types and years of units to be applied",
                            "slug":"method_imm_type_unit",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"input"
+                              }
+                           ]
                         },
                         {
                            "title":"Whether and how any units purchased/acquired or sold/transferred abroad will ensure environmental integrity and avoid double counting",
                            "slug":"method_imm_double_counting",
-                           "type":"input"
+                           "values":[
+                              {
+                                 "type":"textarea"
+                              }
+                           ]
                         }
                      ]
                   }
@@ -362,43 +628,101 @@
          ]
       },
       {
-         "title": "Tracking",
-         "slug": "tracking",
+         "title":"Tracking",
+         "slug":"tracking",
          "categories":[
             {
-               "title": "NDC Targets",
-               "slug": "ndc_targets",
-               "optional": false,
+               "title":"NDC Targets",
+               "slug":"ndc_targets",
+               "optional":false,
                "targets":[
                   {
                      "title":"GHG Target",
                      "slug":"ghg_target",
-                     "indicators":[]
+                     "indicators":[
+                        {
+                           "title":"GHG Emissions at reporting year",
+                           "slug":"ghg_emissions_at_reporting_year",
+                           "values":[
+                              {
+                                 "type":"input",
+                                 "unit":"Gt"
+                              }
+                           ]
+                        },
+                        {
+                           "title":"Land sector",
+                           "slug":"land_sector",
+                           "values":[
+                              {
+                                 "type":"input",
+                                 "label":"Time series data",
+                                 "hint":"Expects csv format"
+                              }
+                           ]
+                        },
+                        {
+                           "title":"Transferable emissions under ITMOs",
+                           "slug":"transferrable_emissions_under_itmos",
+                           "values":[
+                              {
+                                 "type":"input",
+                                 "unit":"Gt"
+                              },
+                              {
+                                 "type":"input",
+                                 "label":"Year"
+                              }
+                           ]
+                        },
+                        {
+                           "title":"Quantification of GHG target",
+                           "slug":"quantification_of_ghg_target",
+                           "values":[
+                              {
+                                 "type":"input",
+                                 "unit":"Gt"
+                              },
+                              {
+                                 "type":"input",
+                                 "label":"Year"
+                              }
+                           ]
+                        }
+                     ]
                   },
                   {
                      "title":"Non-GHG Target",
                      "slug":"non_ghg_target",
-                     "indicators":[]
+                     "indicators":[
+
+                     ]
                   }
                ]
             },
             {
-               "title": "Policies and actions",
-               "slug": "policies_and_actions",
-               "optional": false,
-               "targets": []
+               "title":"Policies and actions",
+               "slug":"policies_and_actions",
+               "optional":false,
+               "targets":[
+
+               ]
             },
             {
-               "title": "Finance and support",
-               "slug": "finance_and_support",
-               "optional": false,
-               "targets": []
+               "title":"Finance and support",
+               "slug":"finance_and_support",
+               "optional":false,
+               "targets":[
+
+               ]
             },
             {
-               "title": "Assessing progress",
-               "slug": "assessing_progress",
-               "optional": false,
-               "targets": []
+               "title":"Assessing progress",
+               "slug":"assessing_progress",
+               "optional":false,
+               "targets":[
+
+               ]
             }
          ]
       }

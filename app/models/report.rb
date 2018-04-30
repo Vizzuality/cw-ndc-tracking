@@ -4,8 +4,8 @@ class Report < ApplicationRecord
   # @param years [Array<Integer>]
   # @param force [Boolean] destroy / create
   def initialize_categories(years, force = false)
-    planning_section = Static::Section.find_by_slug('planning')
-    tracking_section = Static::Section.find_by_slug('tracking')
+    planning_section = Static::Section.find_by_slug(Static::Section::PLANNING)
+    tracking_section = Static::Section.find_by_slug(Static::Section::TRACKING)
 
     categories.delete_all if force
 
