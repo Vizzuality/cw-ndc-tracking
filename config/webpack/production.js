@@ -13,12 +13,7 @@ module.exports = merge(sharedConfig, {
   stats: 'normal',
 
   plugins: [
-    new webpack.EnvironmentPlugin([
-      'GOOGLE_ANALYTICS_ID',
-      'CW_API',
-      'ESP_API',
-      'GFW_API'
-    ]),
+    new webpack.EnvironmentPlugin(['GOOGLE_ANALYTICS_ID', 'RAILS_ENV']),
 
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
