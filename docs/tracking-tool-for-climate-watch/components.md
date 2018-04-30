@@ -195,18 +195,16 @@ The components used in the page are documented here with some basic information 
 > ![](../assets/components/indicator.png)
 
 ```
-  <Indicator title="titleee" isTextArea handleClick={() => true}>
-    ... Children ...
-  </Indicator>
+  <Indicator title="title" values=[] onBlur={() => true}/>
 ```
 
 #### Props
 
 - title: string
-- isTextArea: boolean
 - theme: object
-- children: react node
-- handleClick: function
+- values: array
+- handleBlur: function
+- infoText: string
 
 #### Dependencies
 

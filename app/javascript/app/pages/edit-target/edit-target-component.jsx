@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Header from 'components/header';
 import PropTypes from 'prop-types';
 import Search from 'components/search';
-
+import Indicator from 'components/indicator';
 import styles from './edit-target-styles.scss';
 
 class EditTarget extends PureComponent {
@@ -21,7 +21,16 @@ class EditTarget extends PureComponent {
                 className={styles.search}
               />
             </div>
-            <div className={styles.indicators}>{indicators}</div>
+            <div className={styles.indicators}>
+              {indicators.map(i => (
+                <Indicator
+                  key={i.slug}
+                  title={i.title}
+                  values={i.values}
+                  handleBlur={() => 'TODO save'}
+                />
+              ))}
+            </div>
           </div>
         ) : (
           'loading'

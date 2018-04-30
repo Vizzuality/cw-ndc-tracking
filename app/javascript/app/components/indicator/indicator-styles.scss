@@ -1,9 +1,12 @@
 @import '~styles/layout';
 
-.wrapper {
-  @include columns((6, 4));
+.borderStyles {
+  border-top: 1px solid $border-color;
+}
 
-  border-top: 1px solid $gray;
+.wrapper {
+  @include row((6, 4));
+
   padding-top: 50px;
   padding-bottom: 50px;
 
@@ -12,7 +15,7 @@
   }
 
   &.textArea {
-    @include columns((6, 6));
+    @include row((6, 6));
 
     > :nth-child(2) {
       @include column-offset(0, $gutters: true);
