@@ -8,18 +8,16 @@
       "$id": "/properties/title",
       "type": "string",
       "title": "The Title Schema ",
-      "default": "",
       "examples": [
-        "Planning"
+        "Tracking"
       ]
     },
     "slug": {
       "$id": "/properties/slug",
       "type": "string",
       "title": "The Slug Schema ",
-      "default": "",
       "examples": [
-        "planning"
+        "tracking"
       ]
     },
     "categories": {
@@ -33,7 +31,6 @@
             "$id": "/properties/categories/items/properties/title",
             "type": "string",
             "title": "The Title Schema ",
-            "default": "",
             "examples": [
               "NDC Targets"
             ]
@@ -42,7 +39,6 @@
             "$id": "/properties/categories/items/properties/slug",
             "type": "string",
             "title": "The Slug Schema ",
-            "default": "",
             "examples": [
               "ndc_targets"
             ]
@@ -51,7 +47,6 @@
             "$id": "/properties/categories/items/properties/optional",
             "type": "boolean",
             "title": "The Optional Schema ",
-            "default": false,
             "examples": [
               false
             ]
@@ -60,7 +55,6 @@
             "$id": "/properties/categories/items/properties/order",
             "type": "integer",
             "title": "The Order Schema ",
-            "default": 0,
             "examples": [
               0
             ]
@@ -69,7 +63,6 @@
             "$id": "/properties/categories/items/properties/active",
             "type": "boolean",
             "title": "The Active Schema ",
-            "default": false,
             "examples": [
               true
             ]
@@ -85,7 +78,6 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/title",
                   "type": "string",
                   "title": "The Title Schema ",
-                  "default": "",
                   "examples": [
                     "GHG Target"
                   ]
@@ -94,16 +86,14 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/summary",
                   "type": ["string", "null"],
                   "title": "The Summary Schema ",
-                  "default": "",
                   "examples": [
-                    "GHG Target"
+                    null
                   ]
                 },
                 "slug": {
                   "$id": "/properties/categories/items/properties/targets/items/properties/slug",
                   "type": "string",
                   "title": "The Slug Schema ",
-                  "default": "",
                   "examples": [
                     "ghg_target"
                   ]
@@ -112,7 +102,6 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/order",
                   "type": "integer",
                   "title": "The Order Schema ",
-                  "default": 0,
                   "examples": [
                     0
                   ]
@@ -121,7 +110,6 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/year",
                   "type": "integer",
                   "title": "The Year Schema ",
-                  "default": 0,
                   "examples": [
                     2018
                   ]
@@ -130,7 +118,6 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/reported_percentage",
                   "type": "integer",
                   "title": "The Reported_percentage Schema ",
-                  "default": 0,
                   "examples": [
                     0
                   ]
@@ -139,16 +126,36 @@
                   "$id": "/properties/categories/items/properties/targets/items/properties/updated_at",
                   "type": "string",
                   "title": "The Updated_at Schema ",
-                  "default": "",
                   "examples": [
-                    "2018-04-19 11:44:16 +0000"
+                    "2018-04-30 12:08:13 +0000"
                   ]
                 }
-              }
+              },
+              "required": [
+                "title",
+                "summary",
+                "slug",
+                "order",
+                "year",
+                "updated_at"
+              ]
             }
           }
-        }
+        },
+        "required": [
+          "title",
+          "slug",
+          "optional",
+          "order",
+          "active",
+          "targets"
+        ]
       }
     }
-  }
+  },
+  "required": [
+    "title",
+    "slug",
+    "categories"
+  ]
 }

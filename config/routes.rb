@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sections, param: :slug, only: [:index, :show] do
         resources :categories, param: :slug, only: [:index, :show] do
-          resources :targets, param: :slug, only: [:index]
+          resources :targets, param: :slug, only: [:index] do
+            resources :indicators, only: [:index]
+          end
         end
       end
 

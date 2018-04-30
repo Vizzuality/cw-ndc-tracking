@@ -21,6 +21,13 @@ module Static
       {'title' => nil, 'slug' => nil, 'optional' => nil}
     end
 
+    # @param slug [String]
+    def find_target_by_slug(slug)
+      targets.find do |target|
+        target.slug == slug
+      end
+    end
+
     def to_hash
       serializable_hash(
         {

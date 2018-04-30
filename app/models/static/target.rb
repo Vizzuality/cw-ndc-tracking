@@ -11,7 +11,10 @@ module Static
       @summary = target_config[:summary]
       @slug = target_config[:slug]
       @order = target_config[:order]
-      @indicators = [] # TODO
+      @indicators = target_config[:indicators].
+        map.with_index do |indicator_config, idx|
+          Static::Indicator.new(indicator_config.symbolize_keys.merge(order: idx))
+        end
     end
 
     def attributes
