@@ -7,7 +7,11 @@ import Input from 'components/input';
 import styles from './indicator-styles.scss';
 
 const Indicator = ({ title, values, theme, infoText, handleBlur }) => (
-  <div className={theme.borderStyles}>
+  <div
+    className={cx(theme.borderStyles, {
+      [theme.notApplicable]: values.some(v => v.value === 'n/a')
+    })}
+  >
     <div
       className={cx(theme.wrapper, {
         [theme.textArea]: values.some(v => v.type === 'textarea')

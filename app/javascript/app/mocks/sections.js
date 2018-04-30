@@ -16,6 +16,22 @@ export const indicators = [
     metadata: 'TODO'
   },
   {
+    title: 'Not applicable',
+    slug: 'not_applicable',
+    values: [
+      {
+        type: 'text',
+        unit: 'CO2',
+        label: 'Value',
+        value: 'n/a'
+      }
+    ],
+    order: 0,
+    reported: false,
+    updated_at: '2018-04-30 12:08:12 +0000',
+    metadata: 'TODO'
+  },
+  {
     title: 'Land sector',
     slug: 'land_sector',
     values: [
