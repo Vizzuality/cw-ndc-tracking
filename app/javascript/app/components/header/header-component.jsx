@@ -27,7 +27,7 @@ const Header = ({ title, actions, navSections, backButton }) => (
 Header.propTypes = {
   backButton: PropTypes.bool,
   navSections: PropTypes.array,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   actions: PropTypes.node
 };
 

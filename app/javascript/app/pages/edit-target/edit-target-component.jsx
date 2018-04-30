@@ -7,29 +7,35 @@ import styles from './edit-target-styles.scss';
 
 class EditTarget extends PureComponent {
   render() {
-    const { target, handleOnSearch, searchValue } = this.props;
+    const { target, handleOnSearch, search, indicators } = this.props;
     return (
       <div className={styles.page}>
-        <Header title={target} backButton />
-        <div className={styles.actionsWrapper}>
-          <div className={styles.actions}>
-            <Search
-              placeholder="Search something"
-              value={searchValue}
-              onChange={handleOnSearch}
-              className={styles.search}
-            />
+        <Header title={target && target.title} backButton />
+        {target ? (
+          <div className={styles.actionsWrapper}>
+            <div className={styles.actions}>
+              <Search
+                placeholder="Search something"
+                value={search}
+                onChange={handleOnSearch}
+                className={styles.search}
+              />
+            </div>
+            <div className={styles.indicators}>{indicators}</div>
           </div>
-        </div>
+        ) : (
+          'loading'
+        )}
       </div>
     );
   }
 }
 
 EditTarget.propTypes = {
-  target: PropTypes.string,
+  target: PropTypes.object,
   handleOnSearch: PropTypes.func.isRequired,
-  searchValue: PropTypes.string
+  indicators: PropTypes.array,
+  search: PropTypes.string
 };
 
 export default EditTarget;

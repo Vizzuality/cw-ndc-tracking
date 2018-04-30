@@ -22,7 +22,7 @@ class Planning extends PureComponent {
                   title={target.title}
                   key={target.slug}
                   summary={target.summary}
-                  editActionLink={`/planning/${selectedCategory}/${target.title}`}
+                  editActionLink={`/planning/${selectedCategory}/${target.slug}`}
                   infoText="text"
                 />
               ))}

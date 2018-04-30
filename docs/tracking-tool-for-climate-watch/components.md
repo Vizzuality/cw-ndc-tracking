@@ -161,7 +161,7 @@ The components used in the page are documented here with some basic information 
 
 #### Props
 - backButton: PropTypes.bool,
-- title: PropTypes.string.isRequired,
+- title: PropTypes.string,
 - routes: PropTypes.array, // routes for the navigation tab
 - actions: PropTypes.node  // buttons, dropdowns, ... on the right
 
