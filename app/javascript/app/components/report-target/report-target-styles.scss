@@ -53,6 +53,7 @@
   .value {
     font-size: $font-size;
     color: $theme-color;
+
     &:not(:nth-child(2)) {
       margin-left: 10px;
     }
