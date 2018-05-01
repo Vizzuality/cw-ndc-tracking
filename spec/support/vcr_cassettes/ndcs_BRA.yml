@@ -1,0 +1,840 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.climatewatchdata.org/api/v1/ndcs?location=BRA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.13.11
+      Date:
+      - Tue, 01 May 2018 12:17:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Access-Control-Allow-Origin:
+      - https://www.globalforestwatch.org
+      Access-Control-Allow-Methods:
+      - GET
+      Etag:
+      - W/"c96f0e02c7311131c52e3424d28fef6e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 22fa3680-102e-4c0d-916e-10a57aed52dd
+      X-Runtime:
+      - '0.604270'
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+    body:
+      encoding: UTF-8
+      string: '{"categories":{"199":{"name":"Overview","slug":"overview","type":"global"},"200":{"name":"Mitigation","slug":"mitigation","type":"global"},"201":{"name":"Adaptation","slug":"adaptation","type":"global"},"202":{"name":"Sectoral
+        Information","slug":"sectoral_information","type":"global"},"203":{"name":"Other
+        information","slug":"other_information","type":"global"},"204":{"name":"NDC","slug":"ndc","type":"overview"},"205":{"name":"UNFCCC
+        Process","slug":"unfccc_process","type":"overview"},"206":{"name":"The reference
+        point (including, as appropriate, a base year)","slug":"the_reference_point_including_as_appropriate_a_base_year","type":"overview"},"207":{"name":"Time
+        frames and/or periods for implementation","slug":"time_frames_andor_periods_for_implementation","type":"overview"},"208":{"name":"Scope
+        and coverage","slug":"scope_and_coverage","type":"overview"},"209":{"name":"Overall
+        Planning and Preparation","slug":"overall_planning_and_preparation","type":"overview"},"210":{"name":"Target","slug":"target","type":"overview"},"211":{"name":"Implementation","slug":"implementation","type":"overview"},"212":{"name":"Support
+        Needs","slug":"support_needs","type":"overview"},"213":{"name":"Planning Process","slug":"planning_process","type":"overview"},"214":{"name":"Assumptions
+        and methodological approaches including those for estimating and accounting
+        for anthropogenic greenhouse gas emissions and, as appropriate, removals","slug":"assumptions_and_methodological_approaches_including_those_for_estimating_and_accounting_for_anthropogenic_greenhouse_gas_emissions_and_as_appropriate_removals","type":"overview"},"215":{"name":"How
+        the Party considers that its intended nationally determined contribution is
+        fair and ambitious, in light of its national circumstances, and how it contributes
+        towards achieving the objective of the Convention as set out in its Article
+        2","slug":"how_the_party_considers_that_its_intended_nationally_determined_contribution_is_fair_and_ambitious_in_light_of_its_national_circumstances_and_how_it_contributes_towards_achieving_the_objective_of_the_convention_as_set_out_in_its_article_2","type":"overview"},"216":{"name":"Adaptation
+        Target","slug":"adaptation_target","type":"overview"},"217":{"name":"Implementation
+        Of INDC","slug":"implementation_of_indc","type":"overview"},"218":{"name":"Conditionality","slug":"conditionality","type":"overview"},"219":{"name":"Sectoral
+        Targets","slug":"sectoral_targets","type":"overview"},"220":{"name":"Upstream
+        Policies","slug":"upstream_policies","type":"overview"},"221":{"name":"Sectoral
+        Plans","slug":"sectoral_plans","type":"overview"},"222":{"name":"Downstream
+        Actions","slug":"downstream_actions","type":"overview"},"223":{"name":"Sectoral
+        Adaptation Commitments","slug":"sectoral_adaptation_commitments","type":"overview"},"224":{"name":"Links","slug":"links","type":"overview"},"225":{"name":"Mitigation","slug":"mitigation","type":"map"},"226":{"name":"Adaptation","slug":"adaptation","type":"map"},"227":{"name":"Finance
+        and Support","slug":"finance_and_support","type":"map"},"228":{"name":"Other","slug":"other","type":"map"},"229":{"name":"UNFCCC
+        Process","slug":"unfccc_process","type":"map"},"230":{"name":"Mitigation Actions","slug":"mitigation_actions","type":"map"},"231":{"name":"Adaptation
+        Actions","slug":"adaptation_actions","type":"map"}},"sectors":{"1252":{"id":1252,"name":"Waste"},"1253":{"id":1253,"parent_id":1252,"name":"Waste:
+        General"},"1254":{"id":1254,"name":"Energy"},"1255":{"id":1255,"parent_id":1254,"name":"Energy:
+        General"},"1256":{"id":1256,"name":"Agriculture"},"1257":{"id":1257,"parent_id":1256,"name":"Food
+        Security"},"1258":{"id":1258,"name":"Education"},"1259":{"id":1259,"parent_id":1258,"name":"Education:
+        General"},"1260":{"id":1260,"name":"Water"},"1261":{"id":1261,"parent_id":1260,"name":"Water
+        Management"},"1262":{"id":1262,"parent_id":1260,"name":"Water Quality"},"1263":{"id":1263,"name":"Coastal
+        Zone"},"1264":{"id":1264,"parent_id":1263,"name":"Mangroves"},"1265":{"id":1265,"parent_id":1254,"name":"Renewable
+        Energy"},"1266":{"id":1266,"name":"Cross-Cutting Area"},"1267":{"id":1267,"parent_id":1266,"name":"Climate
+        Risk Management"},"1268":{"id":1268,"name":"Environment"},"1269":{"id":1269,"parent_id":1268,"name":"Air
+        Quality Management"},"1270":{"id":1270,"name":"Transport"},"1271":{"id":1271,"parent_id":1270,"name":"Transit-Oriented
+        Development"},"1272":{"id":1272,"parent_id":1254,"name":"CCS"},"1273":{"id":1273,"parent_id":1270,"name":"Transportation
+        Fuels"},"1274":{"id":1274,"parent_id":1254,"name":"Demand-Side Efficiency:
+        Appliances"},"1275":{"id":1275,"name":"Buildings"},"1276":{"id":1276,"parent_id":1275,"name":"Buildings"},"1277":{"id":1277,"parent_id":1270,"name":"Vehicle
+        Fleet"},"1278":{"id":1278,"parent_id":1254,"name":"Supply-Side Efficiency:
+        Power Generation Efficiency Improvement"},"1279":{"id":1279,"parent_id":1270,"name":"Rail"},"1280":{"id":1280,"name":"Economy-wide"},"1281":{"id":1281,"parent_id":1280,"name":"Economy-wide:
+        General"},"1282":{"id":1282,"name":"Industries"},"1283":{"id":1283,"parent_id":1282,"name":"Air
+        Conditioners and Refrigerators"},"1284":{"id":1284,"parent_id":1260,"name":"Water
+        Infrastructure"},"1285":{"id":1285,"parent_id":1268,"name":"Watershed and
+        River Basin Management"},"1286":{"id":1286,"parent_id":1256,"name":"Irrigation"},"1287":{"id":1287,"parent_id":1268,"name":"Ecosystem
+        and Biodiversity"},"1288":{"id":1288,"name":"LULUCF/Forestry"},"1289":{"id":1289,"parent_id":1288,"name":"Land
+        Degradation"},"1290":{"id":1290,"parent_id":1266,"name":"Capacity Building
+        and Knowledge Transfer"},"1291":{"id":1291,"parent_id":1266,"name":"Climate
+        Services"},"1292":{"id":1292,"parent_id":1260,"name":"Water Supply"},"1293":{"id":1293,"parent_id":1288,"name":"Sustainable
+        Land Management"},"1294":{"id":1294,"name":"Social Development"},"1295":{"id":1295,"parent_id":1294,"name":"Poverty
+        Reduction"},"1296":{"id":1296,"parent_id":1254,"name":"Energy Efficiency"},"1297":{"id":1297,"parent_id":1282,"name":"Industries:
+        General"},"1298":{"id":1298,"parent_id":1256,"name":"Agriculture: General"},"1299":{"id":1299,"parent_id":1288,"name":"LULUCF/Forestry:
+        General"},"1300":{"id":1300,"parent_id":1252,"name":"Waste-to-Energy"},"1301":{"id":1301,"parent_id":1252,"name":"Solid
+        Waste"},"1302":{"id":1302,"parent_id":1252,"name":"Wastewater"},"1303":{"id":1303,"parent_id":1256,"name":"Climate
+        Smart Agriculture"},"1304":{"id":1304,"parent_id":1254,"name":"Renewable Energy:
+        Solar"},"1305":{"id":1305,"parent_id":1254,"name":"Renewable Energy: Waste-to-Energy"},"1306":{"id":1306,"parent_id":1254,"name":"Renewable
+        Energy: Biofuels"},"1307":{"id":1307,"parent_id":1254,"name":"Gas"},"1308":{"id":1308,"parent_id":1254,"name":"Demand-Side
+        Efficiency"},"1309":{"id":1309,"parent_id":1254,"name":"Demand-Side Efficiency:
+        Buildings"},"1310":{"id":1310,"parent_id":1270,"name":"Public Transport"},"1311":{"id":1311,"parent_id":1256,"name":"Soils"},"1312":{"id":1312,"parent_id":1256,"name":"Livestock"},"1313":{"id":1313,"parent_id":1288,"name":"Conservation"},"1314":{"id":1314,"parent_id":1270,"name":"Transport:
+        General"},"1315":{"id":1315,"parent_id":1288,"name":"Sustainable Forest Management"},"1316":{"id":1316,"parent_id":1254,"name":"Clean
+        Cooking and Heating: Efficient Cookstoves"},"1317":{"id":1317,"parent_id":1252,"name":"Recycling,
+        Reuse, Reduce"},"1318":{"id":1318,"parent_id":1256,"name":"Agricultural Waste"},"1319":{"id":1319,"parent_id":1256,"name":"Fertilizers"},"1320":{"id":1320,"parent_id":1288,"name":"Reforestation"},"1321":{"id":1321,"parent_id":1288,"name":"Afforestation"},"1322":{"id":1322,"name":"Urban"},"1323":{"id":1323,"parent_id":1322,"name":"Buildings"},"1324":{"id":1324,"name":"Health"},"1325":{"id":1325,"parent_id":1324,"name":"Disease
+        Surveillance and Control"},"1326":{"id":1326,"name":"Disaster Risk Management
+        (DRM)"},"1327":{"id":1327,"parent_id":1326,"name":"Disaster Preparedness"},"1328":{"id":1328,"parent_id":1288,"name":"Wetlands"},"1329":{"id":1329,"parent_id":1254,"name":"Renewable
+        Energy: Hydro"},"1330":{"id":1330,"parent_id":1324,"name":"Health: General"},"1331":{"id":1331,"parent_id":1256,"name":"Fisheries
+        and Aquaculture"},"1332":{"id":1332,"parent_id":1270,"name":"Infrastructure
+        and Roads"},"1333":{"id":1333,"name":"Tourism"},"1334":{"id":1334,"parent_id":1333,"name":"Tourism:
+        General"},"1335":{"id":1335,"parent_id":1282,"name":"Cement"},"1336":{"id":1336,"parent_id":1282,"name":"Chemicals"},"1337":{"id":1337,"parent_id":1256,"name":"Crops"},"1338":{"id":1338,"parent_id":1263,"name":"Coastal
+        Fisheries"},"1339":{"id":1339,"parent_id":1263,"name":"Coastal Management"},"1340":{"id":1340,"parent_id":1263,"name":"Sea-level
+        Rise Protection"},"1341":{"id":1341,"parent_id":1324,"name":"Health Services
+        and Assessment"},"1342":{"id":1342,"parent_id":1326,"name":"Early Warning
+        System"},"1343":{"id":1343,"parent_id":1254,"name":"Power System Planning"},"1344":{"id":1344,"parent_id":1256,"name":"Land
+        and Soil Management"},"1345":{"id":1345,"parent_id":1254,"name":"Biomass Energy"},"1346":{"id":1346,"parent_id":1326,"name":"Disaster
+        Relief and Recovery"},"1347":{"id":1347,"parent_id":1288,"name":"REDD+"},"1348":{"id":1348,"parent_id":1254,"name":"Renewable
+        Energy: Wind"},"1349":{"id":1349,"parent_id":1326,"name":"Disaster preparedness"},"1350":{"id":1350,"parent_id":1266,"name":"Capacity
+        building and knowledge transfer"},"1351":{"id":1351,"parent_id":1266,"name":"Climate
+        risk management"},"1352":{"id":1352,"parent_id":1266,"name":"Climate services"},"1353":{"id":1353,"parent_id":1288,"name":"Sustainable
+        land management"},"1354":{"id":1354,"parent_id":1322,"name":"Waste Management"},"1355":{"id":1355,"parent_id":1270,"name":"Transportation
+        Planning"},"1356":{"id":1356,"parent_id":1254,"name":"Supply-Side Efficiency:
+        Grid/Energy Loss Reduction"},"1357":{"id":1357,"parent_id":1254,"name":"Gas
+        Pipelines"},"1358":{"id":1358,"parent_id":1254,"name":"Gas Processing"},"1359":{"id":1359,"parent_id":1254,"name":"Clean
+        Cooking and Heating"},"1360":{"id":1360,"parent_id":1270,"name":"Urban Transport"},"1361":{"id":1361,"parent_id":1270,"name":"Road
+        Sector"},"1362":{"id":1362,"parent_id":1254,"name":"Renewable Energy: Geothermal"},"1363":{"id":1363,"parent_id":1254,"name":"Supply-Side
+        Efficiency: Power Generation Efficiency Improvement: Cogeneration Plants"},"1364":{"id":1364,"parent_id":1254,"name":"Renewable
+        Energy: Solar: Off-Grid"},"1365":{"id":1365,"parent_id":1326,"name":"Disaster
+        Risk Management (DRM): General"},"1366":{"id":1366,"parent_id":1254,"name":"Energy
+        Access"},"1367":{"id":1367,"parent_id":1322,"name":"Sustainable Urban Planning"},"1368":{"id":1368,"parent_id":1324,"name":"Malnutrition"},"1369":{"id":1369,"parent_id":1254,"name":"Renewable
+        Energy: Solar: Utility Scale"},"1370":{"id":1370,"parent_id":1254,"name":"Mini-Grids"},"1371":{"id":1371,"parent_id":1270,"name":"Transportation
+        Infrastructure"},"1372":{"id":1372,"parent_id":1254,"name":"Supply-Side Efficiency:
+        Power Generation Efficiency Improvement: Gas-Powered Combined Cycle"},"1373":{"id":1373,"parent_id":1254,"name":"Gas
+        Field Development"},"1374":{"id":1374,"parent_id":1288,"name":"Grasslands"},"1375":{"id":1375,"parent_id":1254,"name":"Demand-Side
+        Efficiency: Industries"},"1376":{"id":1376,"parent_id":1254,"name":"Supply-Side
+        Efficiency"},"1377":{"id":1377,"parent_id":1260,"name":"Water Conservation
+        and Reuse"},"1378":{"id":1378,"parent_id":1270,"name":"Sustainable Transport
+        Planning"},"1379":{"id":1379,"parent_id":1270,"name":"Aviation"},"1380":{"id":1380,"parent_id":1254,"name":"Gas
+        Flaring"},"1381":{"id":1381,"parent_id":1288,"name":"Peatlands"},"1382":{"id":1382,"parent_id":1260,"name":"Water:
+        General"},"1383":{"id":1383,"parent_id":1256,"name":"Land and soil management"},"1384":{"id":1384,"parent_id":1294,"name":"Gender"},"1385":{"id":1385,"parent_id":1256,"name":"Climate
+        smart agriculture"},"1386":{"id":1386,"parent_id":1294,"name":"Poverty reduction"},"1387":{"id":1387,"parent_id":1256,"name":"Food
+        security"},"1388":{"id":1388,"parent_id":1260,"name":"Water supply"},"1389":{"id":1389,"parent_id":1260,"name":"Water
+        management"},"1390":{"id":1390,"parent_id":1260,"name":"Water quality"},"1391":{"id":1391,"parent_id":1266,"name":"Climate
+        risk services"},"1392":{"id":1392,"parent_id":1288,"name":"Sustainable forest
+        management"},"1393":{"id":1393,"parent_id":1288,"name":"Land degradation"},"1394":{"id":1394,"parent_id":1256,"name":"Agroforestry"},"1395":{"id":1395,"parent_id":1263,"name":"Sea-level
+        rise protection"},"1396":{"id":1396,"parent_id":1263,"name":"Coastal management"},"1397":{"id":1397,"parent_id":1266,"name":"Climate
+        Risk services"},"1398":{"id":1398,"parent_id":1268,"name":"Watershed and river
+        basin management"},"1399":{"id":1399,"parent_id":1254,"name":"Energy efficiency"},"1400":{"id":1400,"parent_id":1254,"name":"Demand-side
+        efficiency: Appliances"},"1401":{"id":1401,"parent_id":1254,"name":"Renewable
+        energy: solar"},"1402":{"id":1402,"parent_id":1254,"name":"Clean cooking and
+        heating: Efficient cookstoves"},"1403":{"id":1403,"parent_id":1254,"name":"Demand-side
+        efficiency: Buildings"},"1404":{"id":1404,"parent_id":1254,"name":"Demand-side
+        efficiency: cities"},"1405":{"id":1405,"parent_id":1254,"name":"Demand-side
+        efficiency"},"1406":{"id":1406,"parent_id":1254,"name":"Supply-side efficiency:
+        Grid/energy loss reduction"},"1407":{"id":1407,"parent_id":1254,"name":"Renewable
+        Energy: Off-Grid"},"1408":{"id":1408,"parent_id":1254,"name":"Clean cooking
+        and heating"},"1409":{"id":1409,"parent_id":1254,"name":"Supply-side efficiency:
+        Power generation efficiency improvement: Fuel switching"},"1410":{"id":1410,"parent_id":1254,"name":"Renewable
+        energy: hydro"},"1411":{"id":1411,"parent_id":1254,"name":"Renewable energy:
+        biofuels"},"1412":{"id":1412,"parent_id":1260,"name":"Wastewater Treatment"},"1413":{"id":1413,"parent_id":1268,"name":"Ecosystem
+        and biodiversity"},"1414":{"id":1414,"parent_id":1333,"name":"Tourism"},"1415":{"id":1415,"parent_id":1324,"name":"Awareness
+        raising and behavior change"},"1416":{"id":1416,"parent_id":1324,"name":"Health
+        services and assessment"},"1417":{"id":1417,"parent_id":1322,"name":"Sustainable
+        urban planning"},"1418":{"id":1418,"parent_id":1254,"name":"Renewable Energy:
+        Ocean"},"1419":{"id":1419,"parent_id":1326,"name":"Monitoring and Evaluation
+        System"},"1420":{"id":1420,"parent_id":1270,"name":"Inland Waterways"},"1421":{"id":1421,"parent_id":1254,"name":"Demand-Side
+        Efficiency: Cities"},"1422":{"id":1422,"parent_id":1270,"name":"Non-Motorized
+        Transport"},"1423":{"id":1423,"parent_id":1270,"name":"Freight Vehicles"},"1424":{"id":1424,"parent_id":1270,"name":"Fuels
+        In Freight Transport"},"1425":{"id":1425,"parent_id":1260,"name":"Water Efficiency"},"1426":{"id":1426,"parent_id":1324,"name":"Awareness
+        Raising and Behavior Change"},"1427":{"id":1427,"parent_id":1260,"name":"Water
+        conservation and reuse"},"1428":{"id":1428,"parent_id":1326,"name":"Monitoring
+        and evaluation system"},"1429":{"id":1429,"name":"Cross-cutting Area"},"1430":{"id":1430,"parent_id":1429,"name":"Capacity
+        building and knowledge transfer"},"1431":{"id":1431,"parent_id":1256,"name":"Fisheries
+        and aquaculture"},"1432":{"id":1432,"parent_id":1324,"name":"Disease Surveilance
+        and Control"},"1433":{"id":1433,"parent_id":1270,"name":"Infrastructure and
+        roads"},"1434":{"id":1434,"parent_id":1322,"name":"Waste management"},"1435":{"id":1435,"parent_id":1252,"name":"Solid
+        waste"},"1436":{"id":1436,"parent_id":1254,"name":"Renewable energy"},"1437":{"id":1437,"parent_id":1270,"name":"Maritime"},"1438":{"id":1438,"parent_id":1282,"name":"Industries:
+        general"},"1439":{"id":1439,"parent_id":1282,"name":"HFCs"},"1440":{"id":1440,"parent_id":1254,"name":"Demand-side
+        efficiency: Cities"},"1441":{"id":1441,"parent_id":1254,"name":"Supply-side
+        efficiency: Power generation efficiency improvement: Gas-powered combined
+        cycle"},"1442":{"id":1442,"parent_id":1256,"name":"Agroecology"},"1443":{"id":1443,"parent_id":1282,"name":"SLCPs"},"1444":{"id":1444,"parent_id":1268,"name":"Pollution
+        Control"},"1445":{"id":1445,"parent_id":1270,"name":"Suburban Rail"},"1446":{"id":1446,"parent_id":1254,"name":"Gas-to-Power"},"1447":{"id":1447,"parent_id":1254,"name":"Associated
+        Gas"},"1448":{"id":1448,"parent_id":1282,"name":"Iron and Steel"},"1449":{"id":1449,"parent_id":1254,"name":"Demand-Side
+        Efficiency: Tourism"},"1450":{"id":1450,"parent_id":1260,"name":"Water Sanitation"},"1451":{"id":1451,"parent_id":1254,"name":"Clean
+        Cooking and Heating: Cleaner Household Fuels"},"1452":{"id":1452,"parent_id":1270,"name":"BRT"},"1453":{"id":1453,"parent_id":1260,"name":"Watershed
+        and river basin management"},"1454":{"id":1454,"parent_id":1429,"name":"Climate
+        services"},"1455":{"id":1455,"parent_id":1294,"name":"Social development"},"1456":{"id":1456,"parent_id":1252,"name":"Recycling,
+        reuse, reduce"},"1457":{"id":1457,"parent_id":1256,"name":"Agricultural waste"},"1458":{"id":1458,"parent_id":1282,"name":"Iron
+        and steel"},"1459":{"id":1459,"parent_id":1254,"name":"Supply-side efficiency"},"1460":{"id":1460,"parent_id":1270,"name":"Freight
+        Regulation"},"1461":{"id":1461,"parent_id":1254,"name":"Supply-Side Efficiency:
+        Power Generation Efficiency Improvement: Fuel Switching"},"1462":{"id":1462,"parent_id":1270,"name":"Inter-Urban
+        Transport"},"1463":{"id":1463,"parent_id":1282,"name":"Paper"},"1464":{"id":1464,"parent_id":1294,"name":"Safety
+        Net"},"1465":{"id":1465,"parent_id":1266,"name":"Landscape Management"},"1466":{"id":1466,"parent_id":1254,"name":"Supply-Side
+        Efficiency: Power Generation Efficiency Improvement: Rehabilitation"},"1467":{"id":1467,"parent_id":1254,"name":"Demand-side
+        efficiency: appliances"},"1468":{"id":1468,"parent_id":1254,"name":"Demand-side
+        efficiency: industries"},"1469":{"id":1469,"parent_id":1270,"name":"Vehicle
+        fleet"},"1470":{"id":1470,"parent_id":1254,"name":"Supply-side efficiency:
+        Power generation efficiency improvement"},"1471":{"id":1471,"parent_id":1254,"name":"Renewable
+        energy: Hydro"},"1472":{"id":1472,"parent_id":1260,"name":"Water infrastructure"},"1473":{"id":1473,"parent_id":1260,"name":"Water
+        efficiency"},"1474":{"id":1474,"parent_id":1266,"name":"Landscape management"},"1475":{"id":1475,"parent_id":1326,"name":"Disaster
+        relif and recovery"},"1476":{"id":1476,"parent_id":1270,"name":"Road sector"},"1477":{"id":1477,"parent_id":1288,"name":"Grassland"},"1478":{"id":1478,"parent_id":1260,"name":"Wastewater
+        treatment"},"1479":{"id":1479,"parent_id":1324,"name":"Health"},"1480":{"id":1480,"parent_id":1254,"name":"Renewable
+        Energy: hydro"},"1481":{"id":1481,"parent_id":1254,"name":"Demand-side efficiency:
+        Tourism"},"1482":{"id":1482,"parent_id":1254,"name":"Demand-side efficiency:
+        Industries"},"1483":{"id":1483,"parent_id":1254,"name":"Power System Planning:
+        Transmission Lines"},"1484":{"id":1484,"parent_id":1254,"name":"Power System
+        Planning: Distribution Lines"},"1485":{"id":1485,"name":"Cross-cutting area"},"1486":{"id":1486,"parent_id":1485,"name":"Capacity
+        building and knowledge transfer"},"1487":{"id":1487,"parent_id":1254,"name":"Energy:
+        general"},"1488":{"id":1488,"parent_id":1254,"name":"Clean cooking and heating:
+        Cleaner household fuels"},"1489":{"id":1489,"parent_id":1266,"name":"Sustainable
+        urban planning"},"1490":{"id":1490,"parent_id":1270,"name":"Sustainable transport
+        planning"},"1491":{"id":1491,"parent_id":1254,"name":"Power system planning:
+        Transmission lines"},"1492":{"id":1492,"parent_id":1294,"name":"Subsidies"},"1493":{"id":1493,"parent_id":1256,"name":"Crop"},"1494":{"id":1494,"parent_id":1260,"name":"Water
+        sanitation"},"1495":{"id":1495,"parent_id":1254,"name":"Energy access"},"1496":{"id":1496,"parent_id":1322,"name":"Water
+        supply"},"1497":{"id":1497,"parent_id":1270,"name":"Transportation fuels"},"1498":{"id":1498,"parent_id":1252,"name":"Waste-to-energy"},"1499":{"id":1499,"parent_id":1254,"name":"Demind-side
+        efficiency"},"1500":{"id":1500,"parent_id":1254,"name":"Renewable Energy:
+        Waste"},"1501":{"id":1501,"parent_id":1429,"name":"Climate risk management"},"1502":{"id":1502,"parent_id":1254,"name":"Renewable
+        Energy: solar"},"1503":{"id":1503,"parent_id":1254,"name":"Renewable Energy:
+        wind"},"1504":{"id":1504,"parent_id":1254,"name":"Renewable Energy: biofuels"},"1505":{"id":1505,"parent_id":1270,"name":"Renewable
+        Energy: biofuels"},"1506":{"id":1506,"parent_id":1288,"name":"Aforestation"},"1507":{"id":1507,"parent_id":1254,"name":"Gas
+        field development"}},"indicators":[{"id":1675,"source":"CAIT","name":"NDC
+        summary","slug":"indc_summary","category_ids":[204,199],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Brazil
+        intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels
+        in 2025.\"\u003c/p\u003e"}]}},{"id":1676,"source":"CAIT","name":"NDC summary","slug":"indc_summary_long","category_ids":[204,199],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Brazil
+        intends to commit to reduce greenhouse gas emissions by 37% below 2005 levels
+        in 2025.\"\u003c/p\u003e \u003cp\u003e\"Brazil''s INDC has a broad scope including
+        mitigation, adaptation and means of implementation, consistent with the contributions''
+        purpose to achieve the ultimate objective of the Convention, pursuant to decision
+        1/CP.20, paragraph 9 (Lima Call for Climate Action).\"\u003c/p\u003e"}]}},{"id":1677,"source":"CAIT","name":"Mitigation
+        contribution type","slug":"mitigation_contribution_type","category_ids":[225,199,204],"labels":{"726":{"name":"GHG
+        target","index":1},"727":{"name":"Non-GHG target only","index":2},"728":{"name":"Actions
+        only","index":3},"729":{"name":"GHG target and non-GHG target","index":4},"730":{"name":"Non-GHG
+        target and actions","index":5},"731":{"name":"No Document Submitted","index":6}},"locations":{"BRA":[{"value":"GHG
+        target","label_id":726}]}},{"id":1678,"source":"CAIT","name":"GHG target type","slug":"ghg_target_type","category_ids":[225,199,204],"labels":{"732":{"name":"Base
+        year target","index":1},"733":{"name":"Fixed level target","index":2},"734":{"name":"Baseline
+        scenario target","index":3},"735":{"name":"Intensity target","index":4},"736":{"name":"Trajectory
+        target","index":5},"737":{"name":"Intensity target and Trajectory target","index":6},"738":{"name":"Not
+        Applicable","index":7},"739":{"name":"No Document Submitted","index":8}},"locations":{"BRA":[{"value":"Base
+        year target","label_id":732}]}},{"id":1679,"source":"CAIT","name":"Non-GHG
+        target","slug":"non_ghg_target","category_ids":[204,199],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\u0026ldquo;Brazil
+        will adopt further measures that are consistent with the 2\u0026deg;C temperature
+        goal, in particular, in the energy sector, achieving 45% of renewables in
+        the energy mix by 2030. This includes expanding the use of renewable energy
+        sources other than hydropower in the total energy mix to between 28% and 33%
+        by 2030, and expanding the use of non-fossil-fuel energy sources domestically,
+        by increasing the share of renewables (other than hydropower) in the power
+        supply to at least 23% by 2030, including by raising the share of wind, biomass
+        and solar.\u0026rdquo;\u003c/p\u003e"}]}},{"id":1680,"source":"CAIT","name":"Non-GHG
+        target type","slug":"non_ghg_target_type","category_ids":[199,204,225],"labels":{"740":{"name":"Renewable
+        energy target","index":1},"741":{"name":"Energy efficiency target","index":2},"742":{"name":"Forestry
+        target","index":3},"743":{"name":"Multiple non-GHG targets","index":4},"744":{"name":"Not
+        Applicable","index":5},"745":{"name":"No Document Submitted","index":6}},"locations":{"BRA":[{"value":"Renewable
+        energy target","label_id":740}]}},{"id":1681,"source":"CAIT","name":"Actions","slug":"actions","category_ids":[204,199],"labels":{},"locations":{"BRA":[{"value":"See
+        INDC for list of actions for means of achieving the target"}]}},{"id":1682,"source":"CAIT","name":"Adaptation
+        included","slug":"adaptation","category_ids":[204,226,199],"labels":{"780":{"name":"Adaptation
+        included","index":1},"781":{"name":"Adaptation not included","index":2},"782":{"name":"No
+        Document Submitted","index":3}},"locations":{"BRA":[{"value":"Yes","label_id":780}]}},{"id":1683,"source":"CAIT","name":"Conditionality
+        of the INDC","slug":"conditionality","category_ids":[227,204,199],"labels":{"783":{"name":"Conditional
+        (I)NDC only","index":1},"784":{"name":"Unconditional (I)NDC only","index":2},"785":{"name":"Conditional
+        (I)NDC and unconditional (I)NDC","index":3},"786":{"name":"Partially conditional
+        (I)NDC (unspecified mix of domestic/international resources)","index":4},"787":{"name":"Not
+        Specified","index":5},"788":{"name":"No Document Submitted","index":6}},"locations":{"BRA":[{"value":"UnConditional
+        (I)NDC only"}]}},{"id":1684,"source":"CAIT","name":"Ratified","slug":"pa_ratified","category_ids":[205,199],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1685,"source":"CAIT","name":"Date
+        of Ratification","slug":"pa_ratified_date","category_ids":[199,205],"labels":{},"locations":{"BRA":[{"value":"21-Sep-16"}]}},{"id":1686,"source":"CAIT","name":"Signed","slug":"pa_sign","category_ids":[199,205],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1687,"source":"CAIT","name":"Date
+        of Signature","slug":"pa_sign_date","category_ids":[199,205],"labels":{},"locations":{"BRA":[{"value":"22-Apr-16"}]}},{"id":1689,"source":"CAIT","name":"Status
+        of ratification","slug":"pa_status","category_ids":[229,199,205],"labels":{"720":{"name":"Signed
+        Agreement","index":1},"721":{"name":"Intent to withdraw","index":2},"722":{"name":"Joined
+        Agreement","index":3}},"locations":{"BRA":[{"value":"Joined Agreement","label_id":722}]}},{"id":1690,"source":"CAIT","name":"(I)NDC
+        submitted","slug":"submission","category_ids":[199,205,229],"labels":{"723":{"name":"First
+        NDC Submitted","index":1},"724":{"name":"INDC Submitted","index":2},"725":{"name":"No
+        Document Submitted","index":3}},"locations":{"BRA":[{"value":"First NDC Submitted","label_id":723}]}},{"id":1691,"source":"CAIT","name":"Base
+        year(s)/period","slug":"reference_base_year","category_ids":[225,200,206],"labels":{"746":{"name":"1990","index":1},"747":{"name":"2000","index":2},"748":{"name":"2005","index":3},"749":{"name":"2010","index":4},"750":{"name":"Multiple
+        base years","index":5},"751":{"name":"Other","index":6},"752":{"name":"Not
+        Applicable","index":7},"753":{"name":"No Document Submitted","index":8}},"locations":{"BRA":[{"value":"2005","label_id":748}]}},{"id":1692,"source":"CAIT","name":"Base
+        year/period emissions","slug":"reference_base_emissions","category_ids":[200,206],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e2.1
+        GtCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100; IPCC AR5) in 2005\u003c/p\u003e"}]}},{"id":1695,"source":"CAIT","name":"Target
+        year(s)/period","slug":"time_target_year","category_ids":[207,225,200],"labels":{"754":{"name":"2025","index":1},"755":{"name":"2030","index":2},"756":{"name":"2035","index":3},"757":{"name":"2025
+        and 2030","index":4},"758":{"name":"Other","index":5},"759":{"name":"Not Applicable","index":6},"760":{"name":"No
+        Document Submitted","index":7}},"locations":{"BRA":[{"value":"2025","label_id":754}]}},{"id":1696,"source":"CAIT","name":"Target
+        level of emissions","slug":"time_target_emissions","category_ids":[207,200],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"This
+        contribution is consistent with emission levels of 1.3 GtCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP-100; IPCC AR5)in 2025 and 1.2 GtCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5)in 2030, corresponding, respectively, to a reduction of 37% and 43%,
+        based on estimated emission levels of 2.1 GtCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP- 100; IPCC AR5) in 2005.\"\u003c/p\u003e"}]}},{"id":1697,"source":"CAIT","name":"Single
+        or multi-year target","slug":"time_single_multi_year_target","category_ids":[207,200],"labels":{},"locations":{"BRA":[{"value":"Single-year
+        target"}]}},{"id":1698,"source":"CAIT","name":"Long-term target","slug":"time_long_term_target","category_ids":[200,225,207],"labels":{"761":{"name":"2050","index":1},"762":{"name":"Other","index":2},"763":{"name":"No
+        long-term target","index":3},"764":{"name":"No Document Submitted","index":4}},"locations":{"BRA":[{"value":"\u003cp\u003eNo
+        long-term target but includes long-term vision\u003c/p\u003e \u003cp\u003e\"Consistent
+        with the long-term vision of holding the increase in global average temperature
+        below 2\u0026deg;C above pre-industrial levels, Brazil will strive for a transition
+        towards energy systems based on renewable sources and the decarbonization
+        of the global economy by the end of the century, in the context of sustainable
+        development and access to the financial and technological means necessary
+        for this transition.\"\u003c/p\u003e","label_id":763}]}},{"id":1700,"source":"CAIT","name":"Sectors
+        covered","slug":"coverage_sectors_short","category_ids":[208,200],"labels":{},"locations":{"BRA":[{"value":"Brazil''s
+        target covers all sectors"}]}},{"id":1701,"source":"CAIT","name":"Sectors
+        covered","slug":"coverage_sectors","category_ids":[208,200,225],"labels":{"765":{"name":"All
+        Sectors including LULUCF","index":1},"766":{"name":"All Sectors excluding
+        LULUCF","index":2},"767":{"name":"Partial Sectors","index":3},"768":{"name":"Not
+        Specified","index":4},"769":{"name":"No Document Submitted","index":5}},"locations":{"BRA":[{"value":"Brazil''s
+        target covers all sectors","label_id":765}]}},{"id":1702,"source":"CAIT","name":"Greenhouse
+        gases covered","slug":"coverage_ghg","category_ids":[200,208,225],"labels":{"770":{"name":"Seven
+        Kyoto Gases","index":1},"771":{"name":"Six Kyoto Gases","index":2},"772":{"name":"Six
+        Kyoto Gases and Black Carbon","index":3},"773":{"name":"Partial Gases","index":4},"774":{"name":"Not
+        Specified","index":5},"775":{"name":"No Document Submitted","index":6}},"locations":{"BRA":[{"value":"\u003cp\u003eCO\u003csub\u003e2\u003c/sub\u003e,
+        CH\u003csub\u003e4\u003c/sub\u003e, N\u003csub\u003e2\u003c/sub\u003eO, Perfluorocarbons,
+        Hydrofluorocarbons and SF\u003csub\u003e6\u003c/sub\u003e\u003c/p\u003e","label_id":771}]}},{"id":1703,"source":"CAIT","name":"Percentage
+        of national emissions covered, as reflected in the most recent national greenhouse
+        gas inventory","slug":"coverage_percent_covered","category_ids":[200,208],"labels":{},"locations":{"BRA":[{"value":"100%"}]}},{"id":1704,"source":"CAIT","name":"Planning
+        processes","slug":"planning_processes","category_ids":[213,200,209],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1705,"source":"WB","name":"Political decision (head of
+        state/ cabinet/ environment ministry)","slug":"M_PL1","description":"The main
+        institution(s) responsible for enacting climate policies at the country level","category_ids":[200,209],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1706,"source":"WB","name":"Technical
+        decision (stakeholder involvement)","slug":"M_PL2","description":"Whether
+        stakeholders were involved for technical decision on the NDC","category_ids":[200,209],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1707,"source":"WB","name":"Assessment
+        of development benefits","slug":"M_PL3","description":"Whether or not of the
+        development benefits were assessed in the NDC","category_ids":[209,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1708,"source":"WB","name":"Building
+        on existing LEDS (Low Emission Development Strategies and Plans)","slug":"M_PL4","description":"Whether
+        the NDC builds on existing LEDS","category_ids":[209,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1709,"source":"WB","name":"Building
+        on existing national development policies","slug":"M_PL5","description":"The
+        existing development policies that the NDC builds on","category_ids":[200,209],"labels":{},"locations":{"BRA":[{"value":"National
+        Policy on Climate Change, the Law on the Protection of Native"}]}},{"id":1711,"source":"WB","name":"Barriers","slug":"M_PL7","description":"The
+        barriers that countries are facing to implement their NDC (i.e. Data uncertainty,
+        lack of policy coordination, poor economic growth, financial constraints","category_ids":[200,209],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1712,"source":"WB","name":"Economy-wide","slug":"M_Econ","description":"Whether
+        are not the NDC has an economy-wide emission reduction target.","category_ids":[200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1713,"source":"WB","name":"Target
+        year","slug":"M_TarYr","description":"The year by which mitigation objectives
+        are expected to be achieved","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"2030"}]}},{"id":1714,"source":"WB","name":"Excluding
+        LULUCF","slug":"M_ExclL","description":"Whether the mitigation effort excludes
+        LULUCF","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"No"}]}},{"id":1715,"source":"WB","name":"Coverage
+        of Gases","slug":"M_Gases","description":"The gases that are covered in the
+        NDC","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"CO2,
+        CH4, N2O, HFCs, PFCs, SF6"}]}},{"id":1716,"source":"WB","name":"Conditional
+        upon international provision of means of implementation: capacity building,
+        technology development and transfer, financing","slug":"M_Con5","description":"Whether
+        the NDC is conditional upon international support","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"No"}]}},{"id":1717,"source":"WB","name":"Second
+        Target Year","slug":"M_SecTarYr","description":"Whether the NDC has a second-year
+        target for mitigation","category_ids":[200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1718,"source":"WB","name":"Mitigation
+        target (absolute)","slug":"M_Tar1","description":"Whether the NDC has an absolute
+        mitigation target","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1719,"source":"WB","name":"Mitigation
+        target (absolute) in % of base year","slug":"M_Tar2","description":"Whether
+        the NDC has a mitigation target (absolute) in % of base year","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1724,"source":"WB","name":"Intensity
+        target (per GDP) in % of emission intensity in base year","slug":"M_Tar7","description":"Whether
+        the NDC has an intensity target (per GDP) in % of emission intensity in base
+        year","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1729,"source":"WB","name":"Absolute
+        Emission Reduction (MtCO2eq per year)","slug":"M_TarA1","description":"The
+        absolute Emission Reduction (MtCO2eq per year)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"1200"}]}},{"id":1730,"source":"WB","name":"Absolute
+        Emission Reduction Compared to Base Year (%)","slug":"M_TarA2","description":"The
+        absolute emission reduction compared to the base year (%)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"-43%"}]}},{"id":1731,"source":"WB","name":"Emissions
+        level in base year (MtCO2eq per year)","slug":"M_TarA3","description":"The
+        level of emission in base year (MtCO2eq per year)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"2100"}]}},{"id":1732,"source":"WB","name":"Base
+        year","slug":"M_TarA4","description":"The base year for the emission reduction
+        target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"2005"}]}},{"id":1737,"source":"WB","name":"Targeted
+        Emissions Intensity per GDP (tCO2eq per year per GDP)","slug":"M_TarC1","description":"The
+        targeted emissions intensity per GDP (tCO2eq per year per GDP)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1738,"source":"WB","name":"Reduction
+        in Emissions Intensity per GDP Compared to Base Year (%)","slug":"M_TarC2","description":"The
+        reduction in emissions intensity per GDP Compared to Base Year (%)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"-75%"}]}},{"id":1739,"source":"WB","name":"Emissions
+        intensity per GDP in base year (tCO2eq per year per GDP)","slug":"M_TarC3","description":"The
+        emissions intensity per GDP in base year (tCO2eq per year per GDP)","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1740,"source":"WB","name":"Base
+        year","slug":"M_TarC4","description":"The base year for the emission intensity
+        target","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"2005"}]}},{"id":1747,"source":"WB","name":"Unconditional
+        part of mitigation target","slug":"M_Con1","description":"The part of the
+        mitigation target that is unconditional","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"-43%"}]}},{"id":1748,"source":"WB","name":"Estimated
+        costs of unconditional part","slug":"M_Con2","description":"The estimated
+        cost of the unconditional part","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1750,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_Con3","description":"The part of the
+        mitigation target that is conditional","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1751,"source":"WB","name":"Estimated
+        costs of conditional part","slug":"M_Con4","description":"The estimated cost
+        of the conditional part","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1756,"source":"WB","name":"Second
+        target year","slug":"M_TarYr_2","description":"Whether the NDC has a second-year
+        target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"2025"}]}},{"id":1757,"source":"WB","name":"Mitigation
+        target (absolute)","slug":"M_Tar1_2","description":"Whether the NDC has a
+        second absolute mitigation target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1758,"source":"WB","name":"Mitigation
+        target (absolute) in % of base year","slug":"M_Tar2_2","description":"Whether
+        the NDC has a second mitigation target (absolute) in % of base year","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1762,"source":"WB","name":"Intensity
+        target (per GDP) in % of emission intensity in base year","slug":"M_Tar7_2","description":"Whether
+        the NDC has a second Intensity target (per GDP) in % of emission intensity
+        in base year","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1766,"source":"WB","name":"Absolute
+        Emission Reduction (MtCO2eq per year)","slug":"M_TarA1_2","description":"Absolute
+        emission reduction for the second target (MtCO2eq per year)","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"1300"}]}},{"id":1767,"source":"WB","name":"Absolute
+        Emission Reduction Compared to Base Year (%)","slug":"M_TarA2_2","description":"Absolute
+        emission reduction compared to the base year for the second target (%)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"-37%"}]}},{"id":1768,"source":"WB","name":"Emissions
+        level in base year (MtCO2eq per year)","slug":"M_TarA3_2","description":"Emission
+        level in base year for the second target (MtCO2eq per year)","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"2100"}]}},{"id":1769,"source":"WB","name":"Base
+        year","slug":"M_TarA4_2","description":"Base year for the second target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"2005"}]}},{"id":1774,"source":"WB","name":"Targeted
+        Emissions Intensity per GDP (tCO2eq per year per GDP)","slug":"M_TarC1_2","description":"Targeted
+        emissions intensity per GDP for the second target (tCO2eq per year per GDP)","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1775,"source":"WB","name":"Reduction
+        in Emissions Intensity per GDP Compared to Base Year (%)","slug":"M_TarC2_2","description":"Reduction
+        in emissions intensity per GDP compared to base year for the second target
+        (%)","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"-66%"}]}},{"id":1776,"source":"WB","name":"Emissions
+        intensity per GDP in base year (tCO2eq per year per GDP)","slug":"M_TarC3_2","description":"Emissions
+        intensity per GDP in base year for the second target (tCO2eq per year per
+        GDP)","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1777,"source":"WB","name":"Base
+        year","slug":"M_TarC4_2","description":"The base year for the emission intensity
+        for the second target","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"2005"}]}},{"id":1782,"source":"WB","name":"Estimated
+        costs of unconditional part","slug":"M_Con2_2","description":"Estimated unconditional
+        cost of the second target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1783,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_Con3_2","description":"The part of mitigation
+        that is conditional regarding the second target","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1784,"source":"WB","name":"Estimated
+        costs of conditional part","slug":"M_Con4_2","description":"Estimated conditional
+        cost for the second target","category_ids":[200,210],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1785,"source":"WB","name":"Conditional
+        upon international provision of means of implementation: capacity building,
+        technology development and transfer, financing","slug":"M_Con5_2","description":"Whether
+        the second target is conditional upon international support","category_ids":[210,200],"labels":{},"locations":{"BRA":[{"value":"No"}]}},{"id":1788,"source":"WB","name":"Total
+        estimated costs of implementation of target","slug":"M_Cost1","description":"The
+        total estimated cost of implementation of the NDC (mitigation, adaptation,
+        and other)","category_ids":[211,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1790,"source":"WB","name":"Mitigation
+        costs of implementation of target","slug":"M_Cost2","description":"The estimated
+        cost of implementation for the mitigation part","category_ids":[200,211],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1792,"source":"WB","name":"Adaptation
+        costs of implementation of target","slug":"M_Cost3","description":"The estimated
+        cost of implementation for the adaptation part","category_ids":[200,211],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1797,"source":"WB","name":"Use
+        of carbon pricing/international market mechanisms intended","slug":"M_Cost5","description":"Whether
+        the country intends to use carbon pricing/international mechanism","category_ids":[211,200],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1798,"source":"WB","name":"Potential
+        financing sources identified in INDC","slug":"M_Cost6","description":"Potential
+        financing resources identified","category_ids":[212,200],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1799,"source":"WB","name":"Technologies
+        needed to implement INDC","slug":"M_Cost7","description":"Information on technology
+        needs to implement NDC","category_ids":[200,212],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1800,"source":"WB","name":"Capacity
+        Building needed to implement INDC","slug":"M_Cost8","description":"Information
+        on capacity building needs to implement the NDC","category_ids":[200,212],"labels":{},"locations":{"BRA":[{"value":"n/a"}]}},{"id":1801,"source":"CAIT","name":"Additional
+        action that could be achieved if certain conditions were met","slug":"other_action","category_ids":[212,200],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003eNot
+        Applicablebut provides more clarification under the means of implementation\u003cp\u003e
+        \u003cp\u003e\"Clarification on the extent to which the contribution is dependent
+        upon international support\u003c/p\u003e \u003cp\u003eThis iNDC is presented
+        in accordance with the principles and provisions of the Convention, particularly
+        Article 4, paragraphs 1 and 7, and Article 12, paragraphs 1(b) and 4.\u003c/p\u003e
+        \u003cp\u003eAccordingly, the policies, measures and actions to achieve this
+        contribution will be implemented without prejudice to the use of the financial
+        mechanism of the Convention or of any other modalities of international cooperation
+        and support, with a view to enhance effectiveness and/or anticipate implementation.
+        The implementation of Brazil''s iNDC is not contingent upon international
+        support, yet it welcomes support from developed countries with a view to generate
+        global benefits.\u003c/p\u003e \u003cp\u003eAdditional actions would demand
+        large-scale increase of international support and investment flows, as well
+        as technology development, deployment, diffusion and transfer.\u003c/p\u003e
+        \u003cp\u003eSpecifically concerning the forest sector, the implementation
+        of REDD+ activities and the permanence of results achieved require the provision,
+        on a continuous basis, of adequate and predictable results-based payments
+        in accordance with the relevant COP decisions.\"\u003c/p\u003e"}]}},{"id":1802,"source":"CAIT","name":"Assumed
+        IPCC Inventory methodologies to be used to track progress","slug":"method_ipcc","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Inventory
+        based approach for estimating and accounting anthropogenic greenhouse gas
+        emissions and, as appropriate, removals in accordance with the applicable
+        IPCC guidelines.\"\u003c/p\u003e \u003cp\u003e\"This iNDC takes into account
+        the role of conservation units(federal and state level protected areas) and
+        indigenous lands (areas at the minimum in the \"delimited\" stage in the demarcation
+        processes) as forest managed areas, in accordance with the applicable IPCC
+        guidelines on the estimation of emission removals.\"\u003c/p\u003e"}]}},{"id":1803,"source":"CAIT","name":"Assumed
+        global warming potential (GWP) values to be used to track progress","slug":"method_gwp","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e100
+        year Global Warming Potential (GWP-100), using IPCC AR5 values.\u003c/p\u003e
+        \u003cp\u003e\"Brazil notes that, according to the IPCC, \"the most appropriate
+        metric and time horizon will depend on which aspects of climate change are
+        considered most important to a particular application. No single metric can
+        accurately compare all consequences of different emissions, and all have limitations
+        and uncertainties\". The IPCC also states that the Global Temperature Potential
+        (GTP) metric is better suited to target-based policies, while the GWP metric
+        is not directly related to a temperature limit such as the 2\u0026deg;C target.
+        Taking this into account, the GTP metric is the most consistent with contributions
+        to hold the increase in global average temperature below 2\u0026deg;C above
+        preindustrial levels.\u003c/p\u003e \u003cp\u003eWith a view to assuring full
+        transparency, clarity and understanding, Brazil decided to communicate this
+        iNDC using GWP-100 (IPCC AR5), prior to COP-21. Consistent with the 2\u0026deg;C
+        temperature goal and in light of science, Brazil is providing estimates to
+        correspond to GTP-100, with IPCC AR5 values.\u003c/p\u003e \u003cp\u003eBrazil''s
+        iNDC is consistent with emission levels of 1.0 GtCO2e (GTP-100; IPCC AR5)
+        in 2025 and 0.8 GtCO\u003csub\u003e2\u003c/sub\u003ee (GTP-100; IPCC AR5)in
+        2030. This represents reductions of 43% and 52%, respectively, compared to
+        estimated emission levels of 1.7 GtCO\u003csub\u003e2\u003c/sub\u003ee (GTP-100;
+        IPCC AR5) in 2005. These reductions translate to reductions of 37% and 43%
+        when expressed in GWP-100 (IPCC AR5).\"\u003c/p\u003e"}]}},{"id":1804,"source":"CAIT","name":"Planned
+        use of international market mechanisms","slug":"method_imm","category_ids":[225,200,214],"labels":{"776":{"name":"Yes
+        / Possible","index":1},"777":{"name":"No","index":2},"778":{"name":"Not Specified","index":3},"779":{"name":"No
+        Document Submitted","index":4}},"locations":{"BRA":[{"value":"Yes","label_id":776}]}},{"id":1805,"source":"CAIT","name":"International
+        market mechanisms: Planned use of international market mechanisms","slug":"method_imm_planned_use","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Brazil
+        reserves its position in relation to the possible use of any market mechanisms
+        that may be established under the Paris agreement.\"\u003c/p\u003e"}]}},{"id":1806,"source":"CAIT","name":"International
+        market mechanisms: Limit on the percentage of emission reductions that may
+        be achieved through the use of units from international market mechanisms","slug":"method_imm_limit","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1807,"source":"CAIT","name":"International market mechanisms:
+        Assumed types and years of units to be applied","slug":"method_imm_type_unit","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1808,"source":"CAIT","name":"International market mechanisms:
+        Whether and how any units purchased/acquired or sold/transferred abroad will
+        ensure environmental integrity and avoid double counting","slug":"method_imm_double_counting","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Brazil
+        emphasizes that any transfer of units resulting from mitigation outcomes achieved
+        in the Brazilian territory will be subject to prior and formal consent by
+        the Federal Government.\"\u003c/p\u003e \u003cp\u003e\"Brazil will not recognize
+        the use by other Parties of any units resulting from mitigation outcomes achieved
+        in the Brazilian territory that have been acquired through any mechanism,
+        instrument or arrangement established outside the Convention, its Kyoto Protocol
+        or its Paris agreement.\"\u003c/p\u003e"}]}},{"id":1809,"source":"CAIT","name":"Accounting
+        for emissions and removals from the land sector: Treatment of land sector","slug":"method_land_treatment","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"Included
+        in the target"}]}},{"id":1810,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Coverage of the land sector as compared
+        to total net emissions from the land sector, as a percentage if known","slug":"method_land_coverage","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1811,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Assumed accounting approach for the land
+        sector (activity-based or land-based)","slug":"method_land_accounting_approach","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1812,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Assumed accounting method for the land
+        sector (net-net, forward-looking baseline, or gross-net)","slug":"method_land_accounting_method","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1813,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Level against which emissions and removals
+        from the land sector are accounted, including policy assumptions and methodologies
+        employed","slug":"method_land_level","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1814,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Any assumed use of methodologies to quantify
+        and account for natural disturbances and legacy effects","slug":"method_land_method","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1815,"source":"CAIT","name":"Accounting for emissions
+        and removals from the land sector: Any other relevant accounting approaches,
+        assumptions or methodologies","slug":"method_land_other","category_ids":[214,200],"labels":{},"locations":{"BRA":[{"value":"Not
+        Specified"}]}},{"id":1821,"source":"CAIT","name":"Assumptions and methodological
+        approaches for GHG reduction targets relative to emissions intensity","slug":"method_intensity","category_ids":[200,214],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003eNot
+        Applicablebut includes the following information\u003c/p\u003e \u003cp\u003e\"Brazil''s
+        iNDC corresponds to an estimated reduction of 66% in terms of greenhouse gas
+        emissions per unit of GDP (emissions intensity) in 2025 and of 75% in terms
+        of emissions intensity in 2030, both in relation to 2005.\u0026nbsp;\u003c/p\u003e
+        \u003cp\u003eIn the period 2004-2012, Brazil''s GDP increased by 32%, while
+        emissions dropped 52% (GWP-100; IPCC AR5), delinking economic growth from
+        emission increase over the period, while at the same time Brazil lifted more
+        than 23 million people out of poverty.\u003c/p\u003e \u003cp\u003ePer capita
+        emissions decreased from 14.4 tCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5) in 2004 to an estimated 6.5 tCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP-100; IPCC AR5)in 2012. At this 2012 level, Brazil''s per capita emissions
+        are already equivalent to what some developed countries have considered fair
+        and ambitious for their average per capita emissions by 2030. Brazil''s per
+        capita emissions will decline further to an estimated 6.2 tCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP-100; IPCC AR5) in 2025 and 5.4 tCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5) in 2030 under this contribution.\"\u003c/p\u003e"}]}},{"id":1823,"source":"CAIT","name":"Description
+        of fairness","slug":"fairness","category_ids":[215,200],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003eBrazil
+        communicated the following information describing how its INDC is fair and
+        ambitious.\u003c/p\u003e \u003cp\u003e\"Brazil is a developing country with
+        several challenges regarding poverty eradication, education, public health,
+        employment, housing, infrastructure and energy access. In spite of these challenges,
+        Brazil''s current actions in the global effort against climate change represent
+        one of the largest undertakings by any single country to date, having reduced
+        its emissions by 41% (GWP-100; IPCC SAR)in 2012 in relation to 2005 levels.\u003c/p\u003e
+        \u003cp\u003eBrazil is nevertheless willing to further enhance its contribution
+        towards achieving the objective of the Convention, in the context of sustainable
+        development. Brazil''s iNDC represents a progression in relation to its current
+        undertakings, in both the type and levels of ambition, while recognizing that
+        emissions will grow to meet social and development needs.\u003c/p\u003e \u003cp\u003eBy
+        adopting an economy-wide, absolute mitigation target, Brazil will follow a
+        more stringent modality of contribution, compared to its voluntary actions
+        pre-2020. This contribution is consistent with emission levels of 1.3 GtCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP-100; IPCC AR5)in 2025 and 1.2 GtCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5)in 2030, corresponding, respectively, to a\u0026nbsp;reduction of
+        37% and 43%, based on estimated emission levels of 2.1 GtCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP- 100; IPCC AR5) in 2005.\u003c/p\u003e \u003cp\u003eIn relation to Brazil''s
+        existing national voluntary commitment, which aims to achieve gross emissions
+        of approximately 2 GtCO\u003csub\u003e2\u003c/sub\u003ee in 2020, this iNDC
+        represents an additional gross reduction of approximately 19% in 2025. Furthermore,
+        this contribution is consistent with reductions of 6% in 2025 and 16% in 2030
+        below 1990 levels (1.4 GtCO\u003csub\u003e2\u003c/sub\u003ee GWP-100; IPCC
+        AR5).\u003c/p\u003e \u003cp\u003eBrazil''s iNDC corresponds to an estimated
+        reduction of 66% in terms of greenhouse gas emissions per unit of GDP (emissions
+        intensity) in 2025 and of 75% in terms of emissions intensity in 2030, both
+        in relation to 2005.\u003c/p\u003e \u003cp\u003eIn the period 2004-2012, Brazil''s
+        GDP increased by 32%, while emissions dropped 52% (GWP-100; IPCC AR5), delinking
+        economic growth from emission increase over the period, while at the same
+        time Brazil lifted more than 23 million people out of poverty.\u003c/p\u003e
+        \u003cp\u003ePer capita emissions decreased from 14.4 tCO2e (GWP-100; IPCC
+        AR5) in 2004 to an estimated 6.5 tCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5)in 2012. At this 2012 level, Brazil''s per capita emissions are already
+        equivalent to what some developed countries have considered fair and ambitious
+        for their average per capita emissions by 2030. Brazil''s per capita emissions
+        will decline further to an estimated 6.2 tCO\u003csub\u003e2\u003c/sub\u003ee
+        (GWP-100; IPCC AR5) in 2025 and 5.4 tCO\u003csub\u003e2\u003c/sub\u003ee (GWP-100;
+        IPCC AR5) in 2030 under this contribution.\u003c/p\u003e \u003cp\u003eBrazil
+        will reduce greenhouse gas emissions in the context of continued population
+        and GDP growth, as well as income per capita increase, making therefore this
+        contribution unequivocally very ambitious.\u003c/p\u003e \u003cp\u003eBrazil''s
+        mitigation actions to implement this contribution, including its current undertakings,
+        are consistent with the 2\u0026deg;C temperature goal, in light of IPCC scenarios
+        and national circumstances.\u003c/p\u003e \u003cp\u003eAccording to the IPCC,
+        global scenarios consistent with a likely chance to keep temperature change
+        below 2\u0026deg;C relative to pre-industrial levels are characterized, inter
+        alia, by:\u003c/p\u003e \u003cp style=\"padding-left: 30px;\"\u003ei) sustainable
+        use of bioenergy;\u003c/p\u003e \u003cp style=\"padding-left: 30px;\"\u003eii)
+        large-scale measures relating to land use change and forests;\u003c/p\u003e
+        \u003cp style=\"padding-left: 30px;\"\u003eiii) tripling to nearly quadrupling
+        the share of zero- and low-carbon energy supply globally by the year 2050.\u003c/p\u003e
+        \u003cp\u003eIn this context, Brazil already has one of the largest and most
+        successful biofuel programs to date, including cogeneration of electricity
+        using biomass. Brazil has achieved the most impressive results of any country
+        in reducing emissions from deforestation, mainly by reducing the deforestation
+        rate in the Brazilian Amazonia by 82% between 2004 and 2014. Brazil''s energy
+        mix today consists of 40% of renewables (75% of renewables in its electricity
+        supply), which amounts to three times the world average in renewables, and
+        more than four times the OECD average. This already qualifies Brazil as a
+        low carbon economy.\u003c/p\u003e \u003cp\u003eBrazil intends to adopt further
+        measures that are consistent with the 2\u0026deg;C temperature goal, in particular:\u003c/p\u003e
+        \u003cp style=\"padding-left: 30px;\"\u003ei) increasing the share of sustainable
+        biofuels in the Brazilian energy mix to approximately 18% by 2030, by expanding
+        biofuel consumption, increasing ethanol supply, including by increasing the
+        share of advanced biofuels (second generation), and increasing the share of
+        biodiesel in the diesel mix;\u003c/p\u003e \u003cp style=\"padding-left: 30px;\"\u003eii)
+        in land use change and forests:\u003c/p\u003e \u003cp style=\"padding-left:
+        60px;\"\u003e- strengthening and enforcing the implementation of the Forest
+        Code, at federal, state and municipal levels;\u003c/p\u003e \u003cp style=\"padding-left:
+        60px;\"\u003e- strengthening policies and measures with a view to achieve,
+        in the Brazilian Amazonia, zero illegal deforestation by 2030 and compensating
+        for greenhouse gas emissions from legal suppression of vegetation by 2030;\u003c/p\u003e
+        \u003cp style=\"padding-left: 60px;\"\u003e- restoring and reforesting 12
+        million hectares of forests by 2030, for multiple purposes;\u003c/p\u003e
+        \u003cp style=\"padding-left: 60px;\"\u003e- enhancing sustainable native
+        forest management systems, through georeferencing and tracking systems applicable
+        to native forest management, with a view to curbing illegal and unsustainable
+        practices;\u003c/p\u003e \u003cp style=\"padding-left: 30px;\"\u003eiii) in
+        the energy sector, achieving 45% of renewables in the energy mix by 2030,
+        including:\u003c/p\u003e \u003cp style=\"padding-left: 60px;\"\u003e- expanding
+        the use of renewable energy sources other than hydropower in the total energy
+        mix to between 28% and 33% by 2030;\u003c/p\u003e \u003cp style=\"padding-left:
+        60px;\"\u003e- expanding the use of non-fossil fuel energy sources domestically,
+        increasing the share of renewables (other than hydropower) in the power supply
+        to at least 23% by 2030, including by raising the share of wind, biomass and
+        solar;\u003c/p\u003e \u003cp style=\"padding-left: 60px;\"\u003e- achieving
+        10% efficiency gains in the electricity sector by 2030.\u003c/p\u003e \u003cp
+        style=\"padding-left: 30px;\"\u003eIn addition, Brazil also intends to:\u003c/p\u003e
+        \u003cp style=\"padding-left: 30px;\"\u003eiv) in the agriculture sector,
+        strengthen the Low Carbon Emission Agriculture Program (ABC) as the main strategy
+        for sustainable agriculture development, including by restoring an additional
+        15 million hectares of\u0026nbsp;degraded pasturelands by 2030 and enhancing
+        5 million hectares of integrated cropland-livestock-forestry systems (ICLFS)
+        by 2030;\u003c/p\u003e \u003cp style=\"padding-left: 30px;\"\u003ev) in the
+        industry sector, promote new standards of clean technology and further enhance
+        energy efficiency measures and low carbon infrastructure;\u003c/p\u003e \u003cp
+        style=\"padding-left: 30px;\"\u003evi) in the transportation sector, further
+        promote efficiency measures, and improve infrastructure for transport and
+        public transportation in urban areas.\u003c/p\u003e \u003cp\u003eBrazil recognizes
+        the importance of the engagement of local governments and of their efforts
+        in combating climate change.\"\u003c/p\u003e \u003cp\u003eHistorical Responsibility
+        and Equity\u003c/p\u003e \u003cp\u003e\"Most of the current concentration
+        of greenhouse gases in the atmosphere is a result of emissions since the industrial
+        revolution (the post-1750 period). Current generations are bearing the costs
+        of past interference with the global climate system, resulting from human
+        activities and consequent greenhouse gas emissions, primarily by developed
+        countries, during the last two centuries. Similarly, current human activities
+        around the world will affect the climate system over the next centuries.\u003c/p\u003e
+        \u003cp\u003eIn order to build a fair and equitable global response to climate
+        change, it is therefore of central importance to link cause (net anthropogenic
+        greenhouse gas emissions) and effect (temperature increase and global climate
+        change).\u003c/p\u003e \u003cp\u003eThe global mean surface temperature increase
+        due to anthropogenic greenhouse gas emissions is an objective criterion to
+        measure climate change, serving the purpose of establishing upper limits to
+        prevent dangerous anthropogenic interference with the climate system.\u003c/p\u003e
+        \u003cp\u003eThe specific and relative role of each actor''s emissions to
+        global climate change can be determined using the global mean surface temperature
+        as an indicator. Each individual actor''s contribution to temperature increase
+        should take into consideration differences in terms of starting points, approaches,
+        economic structures, resource bases, the need to maintain sustainable economic
+        growth, available technologies and other individual circumstances.\u003c/p\u003e
+        \u003cp\u003eEstablishing the series, in all sectors, of anthropogenic greenhouse
+        gas emissions by sources and removals by sinks allows the estimation of the
+        relative share of total temperature increase attributable to an individual
+        country. The relative responsibility of a given country in relation to the
+        global mean surface temperature increase can be estimated with a high level
+        of confidence. Hence, the marginal relative contribution to the global average
+        surface temperature increase is a relevant measure to evaluate responsibility
+        in the global effort to limit temperature increase to 2\u0026deg;C compared
+        to preindustrial levels.\u003c/p\u003e \u003cp\u003eBrazil''s mitigation efforts
+        are of a type, scope and scale at least equivalent to the iNDCs of those developed
+        countries most responsible for climate change. In view of the above, and based
+        on available tools, it is evident that Brazil''s iNDC, while consistent with
+        its national circumstances and capabilities, is far more ambitious than what
+        would correspond to Brazil''s marginal relative responsibility for the global
+        average temperature increase.\"\u003c/p\u003e"}]}},{"id":1824,"source":"CAIT","name":"Description
+        of ambition","slug":"ambition","category_ids":[200,215],"labels":{},"locations":{"BRA":[{"value":"Please
+        refer to the Description of fairness for a combined description of fairness
+        and ambition."}]}},{"id":1825,"source":"CAIT","name":"Description of how it
+        contributes towards achieving the objective of the Convention","slug":"objective","category_ids":[200,215],"labels":{},"locations":{"BRA":[{"value":"\u003cp\u003e\"Brazil''s
+        iNDC has a broad scope including mitigation, adaptation and means of implementation,
+        consistent with the contributions'' purpose to achieve the ultimate objective
+        of the Convention, pursuant to decision 1/CP.20, paragraph 9 (Lima Call for
+        Climate Action).\"\u003c/p\u003e"}]}},{"id":1826,"source":"CAIT","name":"Industries","slug":"m_industries","category_ids":[200,230],"labels":{"831":{"name":"Yes","index":1},"832":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Industries:
+        General","label_id":831}]}},{"id":1828,"source":"CAIT","name":"Energy","slug":"m_energy","category_ids":[230,200],"labels":{"829":{"name":"Yes","index":1},"830":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Renewable
+        Energy, Renewable Energy: Biofuels, Supply-Side Efficiency: Power Generation
+        Efficiency Improvement","label_id":829}]}},{"id":1830,"source":"CAIT","name":"LULUCF/Forestry","slug":"m_lulucf","category_ids":[200,230],"labels":{"833":{"name":"Yes","index":1},"834":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Conservation,
+        Reforestation","label_id":833}]}},{"id":1831,"source":"CAIT","name":"Transport","slug":"m_transport","category_ids":[230,200],"labels":{"835":{"name":"Yes","index":1},"836":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Public
+        Transport, Transport: General","label_id":835}]}},{"id":1833,"source":"CAIT","name":"Agriculture","slug":"m_agriculture","category_ids":[230,200],"labels":{"823":{"name":"Yes","index":1},"824":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Agriculture:
+        General","label_id":823}]}},{"id":1836,"source":"CAIT","name":"Cross-Cutting
+        Area","slug":"a_cross_cutting_area","category_ids":[231,201],"labels":{"799":{"name":"Yes","index":1},"800":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Capacity
+        Building and Knowledge Transfer, Climate Risk Management","label_id":799}]}},{"id":1840,"source":"CAIT","name":"Environment","slug":"a_environment","category_ids":[231,201],"labels":{"807":{"name":"Yes","index":1},"808":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Ecosystem
+        and Biodiversity","label_id":807}]}},{"id":1847,"source":"CAIT","name":"Water","slug":"a_water","category_ids":[231,201],"labels":{"821":{"name":"Yes","index":1},"822":{"name":"No","index":2}},"locations":{"BRA":[{"value":"Water
+        Supply","label_id":821}]}},{"id":1848,"source":"WB","name":"Adaptation Included
+        in INDC (Yes/No)","slug":"A_Tg_AdInclu","description":"Whether or not the
+        NDC includes adaptation","category_ids":[216,201],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1849,"source":"WB","name":"Target
+        Year for Adaptation","slug":"A_Tg_TarYr","description":"The year by which
+        adaptation objectives are expected to be achieved","category_ids":[201,216],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1851,"source":"WB","name":"Total
+        Implementation Cost","slug":"A_Im_TotCost","description":"The total implementation
+        cost for the adaptation part of the NDC","category_ids":[217,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1853,"source":"WB","name":"Financial
+        Support","slug":"A_Im_Finan","description":"Whether financial support is needed
+        to implement the adaptation part of the NDC","category_ids":[201,217],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1854,"source":"WB","name":"Technology
+        Transfer","slug":"A_Im_TecTran","description":"Whether technology transfer
+        is needed to implement the adaptation part of the NDC","category_ids":[201,217],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1855,"source":"WB","name":"Capacity
+        Building","slug":"A_Im_CapBul","description":"Whether support in capacity
+        building is needed to implement the NDC","category_ids":[217,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1856,"source":"WB","name":"Total
+        Imiplementation Costs for Unconditional Part","slug":"A_Cd_UncCost","description":"The
+        total implementation cost for the unconditional part of adaptation","category_ids":[201,218],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1858,"source":"WB","name":"Total
+        Implementation Costs for Conditional Part","slug":"A_Cd_ConCost","description":"The
+        total implementation cost for the conditional part of adaptation","category_ids":[218,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1862,"source":"WB","name":"Building
+        on Existing National Development/Resilience Policies and Plans","slug":"A_Pl_NatDevPol","description":"The
+        existing national development/resilience policies that the NDC builds on","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"National
+        Adaptation Plan (NAP) |National Policy on Climate Change (Law 12,187/2009)|Law
+        on the Protection of Native Forests (Law 12,651/2012, aka Forest Code)|Law
+        on the Protection of National System of Conservation Units (Law 9,985/2000)"}]}},{"id":1863,"source":"WB","name":"Political
+        Decision for INDC Planning","slug":"A_Pl_PolDec","description":"The agency
+        in charge for the planning of the NDC","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1864,"source":"WB","name":"Technical
+        Group Engagement in INDC Planning (Yes/No)","slug":"A_Pl_TecGr","description":"Whether
+        or not a technical group was engaged in the NDC planning","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1865,"source":"WB","name":"Private
+        Sector Engagement in INDC Planning (Yes/No)","slug":"A_Pl_PrivSec","description":"Whether
+        or not the private sector actors were engaged in the NDC planning","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1866,"source":"WB","name":"Multisectoral
+        Commission Engagement in INDC Planning (Yes/No)","slug":"A_Pl_MulComm","description":"Whether
+        or not a multi-sectoral commission was engaged in NDC planning.","category_ids":[201,213],"labels":{},"locations":{"BRA":[{"value":"Yes"}]}},{"id":1867,"source":"WB","name":"Civil
+        Society Engagement in INDC Planning (Yes/No)","slug":"A_Pl_CivSoc","description":"Whether
+        or not civil society actors were engaged in the NDC planning","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1868,"source":"WB","name":"Assessment
+        of Development Benefits in INDC","slug":"A_Pl_DevBen","description":"Information
+        assessment of development benefits in NDC","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1870,"source":"WB","name":"Barriers
+        identifed for INDC Implementation","slug":"A_Pl_Barr","description":"Identified
+        barriers for NDC implementation.","category_ids":[213,201],"labels":{},"locations":{"BRA":[{"value":"N/A"}]}},{"id":1873,"source":"WB","name":"Sectoral
+        targets on","slug":"M_SecTar1","description":"Targets at the sectoral level","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"45%
+        renewables in the energy mix by 2030; 23% renewables in the power supply by
+        2030","sector_id":1265},{"value":"15 million ha restoration of degraded pasturelands
+        by 2030; 5 million ha of integraded cropland-livestock-forestry systems by
+        2030","sector_id":1298},{"value":"Zero illegal deforestation by 2030","sector_id":1313},{"value":"12
+        million ha reforestation by 2030","sector_id":1320},{"value":"10% efficiency
+        gains in the power supply","sector_id":1278},{"value":"18% sustainable biofuels
+        in the energy mix by 2030","sector_id":1306}]}},{"id":1874,"source":"WB","name":"Page
+        reference","slug":"M_P6","description":"Link to the page reference for the
+        sectoral targets","category_ids":[202,219],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1306},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1278},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1320},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1313},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1298},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1265}]}},{"id":1876,"source":"WB","name":"Emission
+        reduction potential","slug":"M_SecTar4","description":"emission reduction
+        potential for a given sectoral target","category_ids":[202,219],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1265}]}},{"id":1877,"source":"WB","name":"Estimated
+        total costs for implementation","slug":"M_SecTar5","description":"Estimated
+        total cost of implementation for a given sectoral target","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1265},{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1278}]}},{"id":1879,"source":"WB","name":"Capacity
+        building needs","slug":"M_SecTar6","description":"Capacity building needed
+        for a given sectoral target","category_ids":[202,219],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1265},{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1278}]}},{"id":1880,"source":"WB","name":"Technology
+        needs","slug":"M_SecTar7","description":"Technology needed for a given sectoral
+        target","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1265}]}},{"id":1881,"source":"WB","name":"Unconditional
+        part of mitigation target","slug":"M_SecTar8","description":"Unconditional
+        part of the mitigation effort for a given sectoral target","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1265},{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1298}]}},{"id":1882,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecTar9","description":"Estimated cost
+        of implementation for the unconditional part of a given sectoral target","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1265}]}},{"id":1884,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_SecTar10","description":"Conditional
+        part of the mitigation target for a given sectoral target","category_ids":[219,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1265},{"value":"n/a","sector_id":1313},{"value":"n/a","sector_id":1298}]}},{"id":1885,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecTar11","description":"Estimated cost
+        of implementation for the conditional mitigation part of a given sectoral
+        target","category_ids":[202,219],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298},{"value":"n/a","sector_id":1278},{"value":"n/a","sector_id":1320},{"value":"n/a","sector_id":1306},{"value":"n/a","sector_id":1265},{"value":"n/a","sector_id":1313}]}},{"id":1889,"source":"WB","name":"Upstream
+        policies on","slug":"M_SecPol3","description":"Information on upstream policies
+        for a given sector","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"Strengthen
+        the Forest Code","sector_id":1313}]}},{"id":1890,"source":"WB","name":"Page
+        reference","slug":"M_P7","description":"Link to the page reference for the
+        upstream policy","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1313}]}},{"id":1893,"source":"WB","name":"Emission
+        reduction potential","slug":"M_SecPol6","description":"Emission reduction
+        potential for a given sectoral upstream","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1894,"source":"WB","name":"Estimated
+        total costs for implementation","slug":"M_SecPol7","description":"Estimated
+        total cost of implementation for a given sectoral upstream policy","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1896,"source":"WB","name":"Capacity
+        building needs","slug":"M_SecPol8","description":"Capacity building needed
+        for a given sectoral upstream policy","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1897,"source":"WB","name":"Technology
+        needs","slug":"M_SecPol9","description":"Technology needed for a given sectoral
+        upstream policy","category_ids":[220,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1898,"source":"WB","name":"Unconditional
+        part of mitigation target","slug":"M_SecPol10","description":"Unconditional
+        part of mitigation target for a given upstream sectoral policy","category_ids":[220,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1899,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecPol11","description":"Estimated cost
+        of implementation for the unconditional part of a given sectoral upstream
+        policy","category_ids":[202,220],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1901,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_SecPol12","description":"Conditional
+        part of mitigation target for a given sectoral upstream policy","category_ids":[220,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1902,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecPol13","description":"Estimated cost
+        of implementation for the conditional part of a given sectoral policy","category_ids":[220,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1313}]}},{"id":1904,"source":"WB","name":"Sectoral
+        plans on","slug":"M_SecGen3","description":"Information on sectoral plans","category_ids":[202,221],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1314},{"value":"n/a","sector_id":1310}]}},{"id":1905,"source":"WB","name":"Page
+        reference","slug":"M_P5","description":"Link to the page reference for sectoral
+        plans","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=8","sector_id":1297},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=8","sector_id":1310},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=8","sector_id":1314}]}},{"id":1906,"source":"WB","name":"Emission
+        reduction potential","slug":"M_SecGen4","description":"emission reduction
+        potential for a given sectoral plan","category_ids":[202,221],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1314}]}},{"id":1907,"source":"WB","name":"Estimated
+        total costs for implementation","slug":"M_SecGen5","description":"Estimated
+        total costs of implementation for a given sectoral plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1314}]}},{"id":1909,"source":"WB","name":"Capacity
+        building needs","slug":"M_SecGen6","description":"Capacity building needed
+        for a given sectoral plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1314}]}},{"id":1910,"source":"WB","name":"Technology
+        needs","slug":"M_SecGen7","description":"Technology needed for a given sectoral
+        plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1314},{"value":"n/a","sector_id":1310}]}},{"id":1911,"source":"WB","name":"Unconditional
+        part of mitigation target","slug":"M_SecGen8","description":"Unconditional
+        part of mitigation target for a given sectoral plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1314},{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1297}]}},{"id":1912,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecGen9","description":"Estimated cost
+        of implementation for the unconditional part of a given sectoral plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1314},{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1310}]}},{"id":1914,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_SecGen10","description":"Conditional
+        part of mitigation target for a given sectoral plan","category_ids":[221,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1314}]}},{"id":1915,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecGen11","description":"Estimated cost
+        of implementation for the conditional part of a given sectoral plan","category_ids":[202,221],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1297},{"value":"n/a","sector_id":1310},{"value":"n/a","sector_id":1314}]}},{"id":1918,"source":"WB","name":"Downstream
+        actions","slug":"M_SecAct2","description":"Sectoral downstream actions to
+        be undertaken as part of the NDC contribution","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"Strengthen
+        the Low Carbon Emission Argiculture Program","sector_id":1298}]}},{"id":1919,"source":"WB","name":"Page
+        reference","slug":"M_P8","description":"Link to the page reference for the
+        sectoral downstream actions to be undertaken as part of the NDC contribution","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=7","sector_id":1298}]}},{"id":1920,"source":"WB","name":"Emission
+        reduction potential","slug":"M_SecAct5","description":"Emission reduction
+        potential for a given sectoral downstream action","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1921,"source":"WB","name":"Estimated
+        total costs for implementation","slug":"M_SecAct6","description":"Estimated
+        total cost of implementation for a given sectoral downstream action (mitigation
+        and adaptation)","category_ids":[202,222],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1923,"source":"WB","name":"Capacity
+        building needs","slug":"M_SecAct7","description":"Capacity building needed
+        for a given sectoral downstream action","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1924,"source":"WB","name":"Technology
+        needs","slug":"M_SecAct8","description":"Technology needed for a given sectoral
+        downstream action","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1925,"source":"WB","name":"Unconditional
+        part of mitigation target","slug":"M_SecAct9","description":"Unconditional
+        part of mitigation target for a given sectoral downstream action","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1926,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecAct10","description":"Estimated cost
+        of implementation for the unconditional part of a given sectoral downstream
+        action","category_ids":[222,202],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1928,"source":"WB","name":"Conditional
+        part of mitigation target","slug":"M_SecAct11","description":"Conditional
+        part of mitigation target for a given sectoral downstream actions","category_ids":[202,222],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1929,"source":"WB","name":"Estimated
+        costs for implementation","slug":"M_SecAct12","description":"Estimated cost
+        of implementation for the conditional part of a given sectoral downstream
+        action","category_ids":[202,222],"labels":{},"locations":{"BRA":[{"value":"n/a","sector_id":1298}]}},{"id":1941,"source":"WB","name":"Sectorial
+        Conditional Actions","slug":"A_Sc_ConAct","description":"Condition actions
+        of the sectoral level","category_ids":[202,223],"labels":{},"locations":{"BRA":[{"value":"Part
+        of the NAP: integrate vulnerabilities and climate risk management into public
+        policies and strategies, as well as enhance the coherence of national and
+        local development strategies with adaptation measures","sector_id":1267},{"value":"Implement
+        knowledge management systems, to promote research and technology development
+        for adaptation, to develop processes and tools in support of adaptation actions
+        and strategies at different levels of government; key areas include health,
+        sanitation and transport| Improve housing and living conditions, bolster their
+        capacity to withstand the effects of severe climate impacts| Monitor extreme
+        rainfall events with the EWS and action plans in place to respond to natural
+        disasters","sector_id":1290},{"value":"National Water Security Plan: enhance
+        national capacity in water security","sector_id":1292},{"value":"National
+        Strategic Plan for Protected Areas as well as the implementation of Forest
+        Code: conservation and sustainable use of biodiversity","sector_id":1287}]}},{"id":1942,"source":"WB","name":"Page
+        Number for Sectorial Conditional Actions","slug":"A_Sc_ConActP","description":"Link
+        to the page reference for the sectoral condition actions","category_ids":[223,202],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=3","sector_id":1290},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=3","sector_id":1267},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=3","sector_id":1292},{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf#page=3","sector_id":1287}]}},{"id":1943,"source":"WB","name":"Implementing
+        Agency for Sectorial Conditonal Actions","slug":"A_Sc_ConActImp","description":"The
+        agency responsible for implementing the sectoral conditional action","category_ids":[202,223],"labels":{},"locations":{"BRA":[{"value":"N/A","sector_id":1290},{"value":"N/A","sector_id":1267},{"value":"N/A","sector_id":1287},{"value":"N/A","sector_id":1292}]}},{"id":1944,"source":"WB","name":"Funders
+        for Sectorial Conditional Actions","slug":"A_Sc_ConActDon","description":"The
+        funders for sectoral conditional actions","category_ids":[202,223],"labels":{},"locations":{"BRA":[{"value":"N/A","sector_id":1290},{"value":"N/A","sector_id":1267},{"value":"N/A","sector_id":1287},{"value":"N/A","sector_id":1292}]}},{"id":1945,"source":"WB","name":"Estimated
+        Cost for Sectorial Conditional Actions","slug":"A_Sc_ConActCost","description":"The
+        estimated costs for sectoral conditional actions","category_ids":[202,223],"labels":{},"locations":{"BRA":[{"value":"N/A","sector_id":1290},{"value":"N/A","sector_id":1292},{"value":"N/A","sector_id":1287},{"value":"N/A","sector_id":1267}]}},{"id":1952,"source":"WB","name":"Link
+        to INDC","slug":"M_INDC","description":"Link to NDC","category_ids":[203,224],"labels":{},"locations":{"BRA":[{"value":"http://www4.unfccc.int/submissions/INDC/Published%20Documents/Brazil/1/BRAZIL%20iNDC%20english%20FINAL.pdf"}]}},{"id":1953,"source":"CAIT","name":"Additional
+        information, explanation, or context as relevant","slug":"other_information","category_ids":[203],"labels":{},"locations":{"BRA":[{"value":"See
+        the Brazil''s full INDC submission for additional information on national
+        context, emissions profile, mitigation activities, etc.\u003c/p\u003e"}]}}]}'
+    http_version: 
+  recorded_at: Tue, 01 May 2018 12:17:53 GMT
+recorded_with: VCR 4.0.0
