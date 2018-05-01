@@ -15,6 +15,7 @@ class GetAllIndicators
 
   # @param year [Integer]
   def call(year)
+    return [] unless @category
     @target = @category.targets.where(slug: @static_target.slug, year: year).first
     MergeStaticAndDynamicIndicators.new(
       @category,
