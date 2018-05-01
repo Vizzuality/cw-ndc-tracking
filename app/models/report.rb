@@ -3,11 +3,11 @@ class Report < ApplicationRecord
   has_many :categories, dependent: :delete_all
 
   # @param years [Array<Integer>]
-  # @param force [Boolean] destroy / create
-  def initialize_categories(years, force = false)
-    planning_section = Static::Section.find_by_slug(Static::Section::PLANNING)
-    tracking_section = Static::Section.find_by_slug(Static::Section::TRACKING)
-
+  # @param options [Hash]
+  # @option options [Boolean] :force destroy / create
+  # @option options [Array<Hash>] :cw_values values from Climate Watch
+  def initialize_data(years, options = {})
+    force = options[:force] || false
     categories.delete_all if force
 
     [planning_section, tracking_section].each do |section|
@@ -16,10 +16,16 @@ class Report < ApplicationRecord
         category = categories.create(
           section_slug: section.slug, slug: category.slug
         )
-        years.each do |year|
-          category.initialize_targets(year, force)
-        end
+        category.initialize_data(years, options)
       end
     end
+  end
+
+  def planning_section
+    Static::Section.find_by_slug(Static::Section::PLANNING)
+  end
+
+  def tracking_section
+    Static::Section.find_by_slug(Static::Section::TRACKING)
   end
 end

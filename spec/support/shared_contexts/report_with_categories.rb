@@ -4,6 +4,10 @@ RSpec.shared_context 'report with categories' do
   include_context 'sections'
 
   before(:each) {
-    default_report.initialize_categories([2018], true)
+    VCR.use_cassette('ndcs_BRA') do
+      default_report = InitialiseReport.new(
+        @api_user, @api_user.country_iso_code
+      ).call([2018], {force: true})
+    end
   }
 end

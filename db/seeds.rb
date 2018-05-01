@@ -23,6 +23,7 @@ if Rails.env.development?
     password_confirmation: 'password'
   )
 
-  default_report = Report.find_or_create_by({user_id: api_user.id})
-  default_report.initialize_categories([2018], true)
+  default_report = InitialiseReport.new(
+    api_user, api_user.country_iso_code
+  ).call([2018], {force: true})
 end
