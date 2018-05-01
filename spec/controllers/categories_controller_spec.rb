@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::CategoriesController, type: :controller do
   include_context 'report with categories'
-  login_user
+  login_user(@api_user)
 
   describe 'GET index' do
     it 'renders title and slug for each category' do
