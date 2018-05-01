@@ -17,7 +17,7 @@ if Rails.env.development?
   api_user = User.create!(
     email: 'user@example.com',
     name: 'API user Brazil',
-    country_iso_code: 'BR',
+    country_iso_code: 'BRA',
     is_admin: false,
     password: 'password',
     password_confirmation: 'password'
