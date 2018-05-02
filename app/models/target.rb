@@ -14,8 +14,7 @@ class Target < ApplicationRecord
         value_from_cw = options[:cw_values].detect do |e|
           e[:slug] == static_indicator.slug
         end
-        next unless value_from_cw
-        values = [value_from_cw[:value]]
+        values = value_from_cw && [value_from_cw[:value]]
       end
       indicator = indicators.create(
         slug: static_indicator.slug,

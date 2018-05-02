@@ -9,7 +9,7 @@ class InitialiseReport
   # @param years [Array<Integer>]
   # @param options [Hash]
   # @option options [Boolean] :force destroy / create
-  def call(years, options)
+  def call(years, options = {})
     force = options[:force] || false
     @report = Report.find_by_user_id(@user.id)
     unless @report

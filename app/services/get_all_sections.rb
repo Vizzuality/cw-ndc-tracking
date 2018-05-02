@@ -11,7 +11,7 @@ class GetAllSections
       section_hash = section.to_hash
       if (section_includes & [:categories, :targets]).any?
         report_categories = @report.categories.all
-        section_hash[:categories] = MergeStaticAndDynamicCategories.new(
+        section_hash['categories'] = MergeStaticAndDynamicCategories.new(
           section,
           section.categories,
           report_categories
