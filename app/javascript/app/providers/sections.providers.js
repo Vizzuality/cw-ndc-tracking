@@ -1,4 +1,4 @@
-export async function getSectionsApi(dispatch, getState) {
+export async function getSections(dispatch, getState) {
   if (!getState().user.email) {
     dispatch({ type: 'location/LOGIN' });
   } else {
