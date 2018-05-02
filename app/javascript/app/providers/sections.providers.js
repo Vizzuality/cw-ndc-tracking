@@ -1,6 +1,8 @@
+import { LOGIN } from 'router';
+
 export async function getSections(dispatch, getState) {
   if (!getState().user.email) {
-    dispatch({ type: 'location/LOGIN' });
+    dispatch({ type: LOGIN });
   } else {
     dispatch(fetchSections());
   }
