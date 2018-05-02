@@ -3,9 +3,10 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import router from './router';
+import fetchAuthMiddleware from './middleware/fetch.middleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middlewares = [thunk, router.middleware];
+const middlewares = [fetchAuthMiddleware, thunk, router.middleware];
 
 const store = (initialState = {}) =>
   createStore(
