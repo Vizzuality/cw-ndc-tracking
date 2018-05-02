@@ -1,20 +1,23 @@
-const { DEV_API } = process.env;
-
-export async function getSectionsThunk(dispatch, getState) {
-  const { sections } = getState();
-
-  if (sections.length === 0) {
-    const apiSections = await fetch(
-      `${DEV_API}/sections?includes[]=categories&includes[]=targets`
-    ).then(function (response) {
-      if (response.ok) return response.json();
-      throw Error(response.statusText);
-    });
-    dispatch({ type: 'GET_SECTIONS', payload: apiSections });
+export async function getSectionsApi(dispatch, getState) {
+  if (!getState().user.email) {
+    dispatch({ type: 'location/LOGIN' });
   } else {
-    dispatch({ type: 'GET_SECTIONS', payload: sections });
+    dispatch(fetchSections());
   }
 }
 
+// Action Creators
+export const fetchSections = () => ({
+  type: 'API',
+  path: '/sections?includes[]=categories&includes[]=targets',
+  onSuccess: storeSections
+});
+
+export const storeSections = data => ({
+  type: 'STORE_SECTIONS',
+  payload: data
+});
+
+// Reducer
 export default (state = [], action) =>
-  (action.type === 'GET_SECTIONS' ? action.payload : state);
+  (action.type === 'STORE_SECTIONS' ? action.payload : state);
