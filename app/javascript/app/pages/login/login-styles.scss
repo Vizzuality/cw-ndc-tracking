@@ -1,3 +1,30 @@
+@import '~styles/settings.scss';
+
 .wrapper {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: $light-gray;
+}
+
+.logoContainer {
+  padding-top: 10px;
+  align-self: center;
+
+  .logoText {
+    font-size: $font-size;
+    line-height: $line-height-xxs;
+    letter-spacing: $letter-spacing-small;
+    color: $dark-gray;
+  }
+
+  .logo {
+    width: 260px;
+    height: 25px;
+  }
 }
