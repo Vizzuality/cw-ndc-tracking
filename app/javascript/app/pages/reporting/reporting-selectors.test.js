@@ -21,9 +21,17 @@ export const parsedCategories = [
             values: [
               {
                 label: 'Value',
-                type: 'textarea',
+                type: 'select',
+                options: [
+                  {
+                    label: 'white'
+                  },
+                  {
+                    label: 'black'
+                  }
+                ],
                 unit: 'Gt',
-                value: 'zonk'
+                value: 'white'
               }
             ]
           },
@@ -54,7 +62,7 @@ export const parsedCategories = [
               {
                 hint: 'Expects csv format',
                 label: 'Time series data',
-                type: 'text',
+                type: 'textarea',
                 value: 'zonk'
               }
             ]

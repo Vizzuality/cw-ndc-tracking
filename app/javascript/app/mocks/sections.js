@@ -4,10 +4,11 @@ export const indicators = [
     slug: 'ghg_emissions_at_reporting_year',
     values: [
       {
-        type: 'textarea',
+        type: 'select',
         unit: 'Gt',
+        options: [{ label: 'white' }, { label: 'black' }],
         label: 'Value',
-        value: 'zonk'
+        value: 'white'
       }
     ],
     order: 0,
@@ -36,7 +37,7 @@ export const indicators = [
     slug: 'land_sector',
     values: [
       {
-        type: 'text',
+        type: 'textarea',
         label: 'Time series data',
         hint: 'Expects csv format',
         value: 'zonk'

@@ -113,6 +113,8 @@ The components used in the page are documented here with some basic information 
     { label: 'dos', value: 'dos' }
   ]}
   label="select some stuff"
+  defaultValue="uno"
+  handleChange={(value) => doSomething(value)}
   disabled
 />
 
@@ -125,6 +127,8 @@ The components used in the page are documented here with some basic information 
 - theme: object
 - hasSearch: bool
 - disabled: bool
+- defaultValue: string
+- handleChange: func
 - selectorRef: func
 
 #### Dependencies
