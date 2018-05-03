@@ -35,7 +35,7 @@ class Login extends Component {
         />
         <Input
           label="Password"
-          inputType="text"
+          inputType="password"
           placeholder="Please add your password"
           onChange={value => this.setState({ password: value })}
           onBlur={value => this.setState({ password: value })}
