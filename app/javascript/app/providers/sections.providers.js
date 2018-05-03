@@ -1,9 +1,11 @@
 import { LOGIN } from 'router';
 
 export async function getSections(dispatch, getState) {
-  if (!getState().user.email) {
+  const isUserLoged = getState().user.email || localStorage.getItem('user');
+  const isSectionsEmpty = getState().sections.length === 0;
+  if (!isUserLoged) {
     dispatch({ type: LOGIN });
-  } else {
+  } else if (isSectionsEmpty) {
     dispatch(fetchSections());
   }
 }

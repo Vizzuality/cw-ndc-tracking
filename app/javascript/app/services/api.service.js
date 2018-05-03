@@ -1,8 +1,9 @@
 const { API_URL } = process.env;
 
 export const apiGet = (endpoint, getState) => {
-  const token = getState().user.authentication_token;
-  const email = getState().user.email;
+  const token =
+    getState().user.authentication_token || localStorage.getItem('CWTTT');
+  const email = getState().user.email || localStorage.getItem('user');
 
   const configWithHeaders = {
     method: 'GET',
