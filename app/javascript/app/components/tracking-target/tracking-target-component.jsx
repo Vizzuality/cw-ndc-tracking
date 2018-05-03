@@ -34,9 +34,9 @@ const Target = ({
         <div className={theme.buttonContainer}>
           <span
             className={theme.updateText}
-          >{`Last update on ${distanceInWordsToNow(
+          >{`Last update ${distanceInWordsToNow(
               new Date(updatedAt)
-            )}`}</span>
+            )} ago`}</span>
           {editActionLink && (
             <Button
               className={theme.editButton}
