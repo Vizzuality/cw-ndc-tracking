@@ -27,6 +27,13 @@ gem 'uglifier', '~> 3.1.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#
+gem 'activeadmin'
+# Use devise for authentication
+gem 'devise'
+gem 'devise_invitable'
+gem 'simple_token_authentication', '~> 1.0'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -36,7 +43,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 4.0'
 end
 
 group :development do
@@ -47,12 +54,15 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+  gem 'letter_opener'
 end
 
 group :test do
   gem 'simplecov'
   gem 'simplecov-console'
   gem 'json-schema'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

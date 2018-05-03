@@ -3,16 +3,18 @@ import createHistory from 'history/createBrowserHistory';
 import queryString from 'query-string';
 import restoreScroll from 'redux-first-router-restore-scroll';
 
+import Login from 'pages/login';
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
 
-import { getSectionsThunk } from './providers/sections.providers';
+import { getSections } from './providers/sections.providers';
 import { DEFAULT_TARGET } from './constants/defaults';
 
 const history = createHistory();
 
 export const HOME = 'location/HOME';
+export const LOGIN = 'location/LOGIN';
 export const PLANNING = 'location/PLANNING';
 export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
@@ -24,14 +26,14 @@ export const routes = {
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
-    thunk: getSectionsThunk
+    thunk: getSections
   },
   [PLANNING]: {
     label: 'Planning',
     path: '/planning',
     component: Planning,
     thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState);
+      getSections(dispatch, getState);
       push(`/planning/${DEFAULT_TARGET}`);
     }
   },
@@ -39,14 +41,14 @@ export const routes = {
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
-    thunk: getSectionsThunk
+    thunk: getSections
   },
   [TRACKING]: {
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
     thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState);
+      getSections(dispatch, getState);
       push(`/tracking/${DEFAULT_TARGET}`);
     }
   },
@@ -54,7 +56,11 @@ export const routes = {
     label: 'Reporting',
     path: '/reporting',
     component: Reporting,
-    thunk: getSectionsThunk
+    thunk: getSections
+  },
+  [LOGIN]: {
+    path: '/login',
+    component: Login
   },
   [HOME]: {
     path: '/',

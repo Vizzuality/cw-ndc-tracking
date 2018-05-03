@@ -22,8 +22,8 @@ class MergeStaticAndDynamicIndicators
       indicator_hash['updated_at'] = dynamic_indicator.updated_at.
         strftime('%Y-%m-%d %H:%M:%S %z')
       indicator_hash['metadata'] = 'TODO' # TODO
-      indicator_hash['values'].each do |value_hash|
-        value_hash['value'] = 'zonk'
+      indicator_hash['values'].each.with_index do |value_hash, idx|
+        value_hash['value'] = dynamic_indicator.values&.at(idx)
       end
       indicator_hash
     end

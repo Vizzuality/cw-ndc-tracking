@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }.merge(ActiveAdmin::Devise.config)
+
+  ActiveAdmin.routes(self)
+
   namespace :api do
     namespace :v1 do
       resources :sections, param: :slug, only: [:index, :show] do
@@ -8,11 +15,6 @@ Rails.application.routes.draw do
           end
         end
       end
-
-      get 'auth/login', to: 'auth#login'
-      get 'auth/logout', to: 'auth#logout'
-
-      get :login, to: 'auth#login'
 
       get '(*endpoint)', controller: :api, action: :route_not_found
     end

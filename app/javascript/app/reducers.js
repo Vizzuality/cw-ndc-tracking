@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-// import { handleModule } from 'redux-tools';
 
 // Router
 import router from './router';
 import sections from './providers/sections.providers';
+import { setUser } from './pages/login/login-reducers';
 
 export default combineReducers({
   location: router.reducer,
-  sections
+  sections,
+  user: setUser
 });

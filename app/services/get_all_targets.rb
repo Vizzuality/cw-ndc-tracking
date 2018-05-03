@@ -13,6 +13,7 @@ class GetAllTargets
 
   # @param year [Integer]
   def call(year)
+    return [] unless @category
     MergeStaticAndDynamicTargets.new(
       @category,
       @static_category.targets,

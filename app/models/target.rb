@@ -2,12 +2,23 @@ class Target < ApplicationRecord
   belongs_to :category
   has_many :indicators
 
-  # @param force [Boolean] destroy / create
-  def initialize_indicators(force = false)
+  # @param options [Hash]
+  # @option options [Boolean] :force destroy / create
+  # @option options [Array<Hash>] :cw_values values from Climate Watch
+  def initialize_data(options)
+    force = options[:force] || false
     indicators.delete_all if force
     static_target.indicators.each do |static_indicator|
+      values = nil
+      if options[:cw_values]
+        value_from_cw = options[:cw_values].detect do |e|
+          e[:slug] == static_indicator.slug
+        end
+        values = value_from_cw && [value_from_cw[:value]]
+      end
       indicator = indicators.create(
         slug: static_indicator.slug,
+        values: values,
         created_at: self.created_at,
         updated_at: self.created_at
       )

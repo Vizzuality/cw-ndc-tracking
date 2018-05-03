@@ -2,6 +2,7 @@ module Api
   module V1
     class ApiController < ActionController::API
       rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
+      acts_as_token_authentication_handler_for User, fallback: :none
 
       def resource_not_found
         render json: {
@@ -18,6 +19,7 @@ module Api
       end
 
       before_action :set_access_control_headers
+      before_action :authenticate_user!
 
       def set_access_control_headers
         headers['Access-Control-Allow-Origin'] = ENV['CORS_WHITELIST']
@@ -27,7 +29,7 @@ module Api
       private
 
       def load_report
-        @report = Report.find_or_create_by({}) # TODO
+        @report = Report.find_or_create_by(user_id: current_user.id)
         render json: {}, status: :not_found and return unless @report
       end
 
