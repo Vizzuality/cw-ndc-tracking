@@ -12,9 +12,11 @@ class ReportTarget extends PureComponent {
       <Fragment>
         <div className={styles.title}>{indicator.title}</div>
         {indicator.values.map(v => (
-          <span key={v.label} className={styles.value}>
+          <div key={v.label} className={styles.value}>
+            {v.label !== 'Value' && `${v.label}: `}
             {v.value}
-          </span>
+            {v.unit && ` ${v.unit}`}
+          </div>
         ))}
       </Fragment>
     );
