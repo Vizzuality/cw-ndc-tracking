@@ -18,6 +18,6 @@ before_script:
   - psql -c 'create database "cw-ndc-tracker_test"' -U postgres
   - RAILS_ENV=test bundle exec rake db:migrate
 script:
-  - bundle exec rspec
+  - CW_API_URL=https://www.climatewatchdata.org/api/v1/ bundle exec rspec
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
