@@ -63,7 +63,7 @@ class Input extends Component {
       ref: el => {
         this.inputRef = el;
       },
-      type: inputType === 'number' ? 'number' : 'text',
+      type: inputType,
       className: cx(styles.input, className, theme.input, {
         [theme.textArea]: inputType === 'textarea',
         [theme.notApplicable]: notApplicable && value === '',
@@ -109,7 +109,7 @@ Input.propTypes = {
   theme: PropTypes.object,
   handleKeyUp: PropTypes.func,
   onBlur: PropTypes.func,
-  inputType: PropTypes.oneOf(['textarea', 'number', 'text']),
+  inputType: PropTypes.oneOf(['textarea', 'number', 'text', 'password']),
   disabled: PropTypes.bool,
   notApplicable: PropTypes.bool,
   label: PropTypes.string,

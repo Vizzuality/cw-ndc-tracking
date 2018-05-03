@@ -1,20 +1,27 @@
-const { DEV_API } = process.env;
+import { LOGIN } from 'router';
 
-export async function getSectionsThunk(dispatch, getState) {
-  const { sections } = getState();
-
-  if (sections.length === 0) {
-    const apiSections = await fetch(
-      `${DEV_API}/sections?includes[]=categories&includes[]=targets`
-    ).then(function (response) {
-      if (response.ok) return response.json();
-      throw Error(response.statusText);
-    });
-    dispatch({ type: 'GET_SECTIONS', payload: apiSections });
-  } else {
-    dispatch({ type: 'GET_SECTIONS', payload: sections });
+export async function getSections(dispatch, getState) {
+  const isUserLogged = getState().user.email || localStorage.getItem('user');
+  const isSectionsEmpty = getState().sections.length === 0;
+  if (!isUserLogged) {
+    dispatch({ type: LOGIN });
+  } else if (isSectionsEmpty) {
+    dispatch(fetchSections());
   }
 }
 
+// Action Creators
+export const fetchSections = () => ({
+  type: 'API',
+  path: '/sections?includes[]=categories&includes[]=targets',
+  onSuccess: storeSections
+});
+
+export const storeSections = data => ({
+  type: 'STORE_SECTIONS',
+  payload: data
+});
+
+// Reducer
 export default (state = [], action) =>
-  (action.type === 'GET_SECTIONS' ? action.payload : state);
+  (action.type === 'STORE_SECTIONS' ? action.payload : state);
