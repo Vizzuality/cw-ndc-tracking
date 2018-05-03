@@ -1,16 +1,16 @@
 class GetAllCategories
   # @param report [Report]
-  # @param section [Static::Section]
-  def initialize(report, section)
+  # @param static_section [Static::Section]
+  def initialize(report, static_section)
     @report = report
-    @section = section
+    @static_section = static_section
   end
 
   # @param year [Integer]
   # @param category_includes [Array<Symbol>]
   def call(year, category_includes)
     MergeStaticAndDynamicCategories.new(
-      @section, @section.categories, @report.categories.all
+      @static_section, @static_section.categories, @report.categories.all
     ).call(year, category_includes)
   end
 end

@@ -7,14 +7,13 @@ class Category < ApplicationRecord
   def initialize_targets(year, force = false)
     targets.delete_all if force
     static_category.targets.each do |static_target|
-      targets.create(slug: static_target.slug, year: year)
+      target = targets.create(slug: static_target.slug, year: year)
+      target.initialize_indicators
     end
   end
 
-  private
-
   def static_category
-    section = Static::Section.find_by_slug(section_slug)
-    section.find_category_by_slug(slug)
+    static_section = Static::Section.find_by_slug(section_slug)
+    static_section.find_category_by_slug(slug)
   end
 end

@@ -3,11 +3,11 @@ module Api
     class CategoriesController < ApiController
       before_action :load_report
       before_action :set_year
-      before_action :load_section
+      before_action :load_static_section
       before_action :load_category, only: [:show]
 
       def index
-        @categories = GetAllCategories.new(@report, @section).
+        @categories = GetAllCategories.new(@report, @static_section).
           call(@year, category_includes)
         render json: @categories
       end
@@ -19,7 +19,7 @@ module Api
       private
 
       def load_category
-        @category = GetCategory.new(@report, @section).
+        @category = GetCategory.new(@report, @static_section).
           call(params[:slug], @year, category_includes)
         render json: {}, status: :not_found and return unless @category
       end
