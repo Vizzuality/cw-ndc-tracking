@@ -9,7 +9,7 @@ import styles from './root-styles.scss'; // eslint-disable-line
 class Root extends PureComponent {
   render() {
     const { route, sections } = this.props;
-    const hasSections = Object.keys(sections).length > 0;
+    const hasSections = sections.length > 1;
     const Component = route && route.component;
     return (
       <div className={styles.app}>
