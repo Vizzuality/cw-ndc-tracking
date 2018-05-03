@@ -15,7 +15,13 @@ class Dropdown extends PureComponent {
     this.selectorElement.highlightFirstSelectableOption();
   }
   render() {
-    const { label, wrapperClassName, className, disabled } = this.props;
+    const {
+      label,
+      wrapperClassName,
+      className,
+      disabled,
+      handleChange
+    } = this.props;
     return (
       <div className={cx(styles.dropdownWrapper, wrapperClassName)}>
         {label && <span className={styles.label}>{label}</span>}
@@ -26,6 +32,7 @@ class Dropdown extends PureComponent {
             }}
             className={cx(className, disabled)}
             renderToggleButton={() => <Icon icon={arrow} />}
+            onValueChange={handleChange}
             {...this.props}
           />
         </div>
@@ -41,7 +48,8 @@ Dropdown.propTypes = {
   theme: PropTypes.object,
   hasSearch: PropTypes.bool,
   disabled: PropTypes.bool,
-  selectorRef: PropTypes.func
+  selectorRef: PropTypes.func,
+  handleChange: PropTypes.func
 };
 
 export default themr('Dropdown', styles)(Dropdown);

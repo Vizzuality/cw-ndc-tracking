@@ -1,0 +1,20 @@
+@import '~styles/layout.scss';
+
+.actionsWrapper {
+  border-bottom: 1px solid $border-color;
+}
+
+.actions {
+  @include row(3);
+
+  > :first-child {
+    @include column-offset(9, $gutters: true);
+  }
+
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.loader {
+  margin-top: 0;
+}

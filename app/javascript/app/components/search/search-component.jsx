@@ -59,7 +59,7 @@ class Search extends Component {
           className={cx(styles.input, theme.input)}
           placeholder={placeholder}
           onChange={e => this.handleChange(e.target.value)}
-          value={search}
+          value={search || ''}
           onKeyUp={handleKeyUp}
           disabled={disabled}
         />

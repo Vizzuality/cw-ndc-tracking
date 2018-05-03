@@ -12,21 +12,104 @@ export const parsedCategories = [
         slug: 'both_target',
         planning: [
           {
-            title: 'Planning indicator 1',
-            slug: 'planning_indicator1',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 0,
+            reported: false,
+            slug: 'ghg_emissions_at_reporting_year',
+            title: 'GHG Emissions at reporting year',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'select',
+                options: [
+                  {
+                    label: 'white'
+                  },
+                  {
+                    label: 'black'
+                  }
+                ],
+                unit: 'Gt',
+                value: 'white'
+              }
+            ]
           },
           {
-            title: 'Planning indicator 2',
-            slug: 'planning_indicator2',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 0,
+            reported: false,
+            slug: 'not_applicable',
+            title: 'Not applicable',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'CO2',
+                value: 'n/a'
+              }
+            ]
+          },
+          {
+            metadata: 'TODO',
+            order: 1,
+            reported: false,
+            slug: 'land_sector',
+            title: 'Land sector',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                hint: 'Expects csv format',
+                label: 'Time series data',
+                type: 'textarea',
+                value: 'zonk'
+              }
+            ]
+          },
+          {
+            metadata: 'TODO',
+            order: 2,
+            reported: false,
+            slug: 'transferrable_emissions_under_itmos',
+            title: 'Transferable emissions under ITMOs',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'Gt',
+                value: 'zonk'
+              },
+              {
+                label: 'Year',
+                type: 'number',
+                value: '1930'
+              }
+            ]
           }
         ],
         tracking: [
           {
-            title: 'Tracking indicator 1',
-            slug: 'tracking_indicator1',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 3,
+            reported: false,
+            slug: 'quantification_of_ghg_target',
+            title: 'Quantification of GHG target',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'Gt',
+                value: 'zonk'
+              },
+              {
+                label: 'Year',
+                type: 'number',
+                value: '1892'
+              }
+            ]
           }
         ]
       },
@@ -35,9 +118,25 @@ export const parsedCategories = [
         slug: 'only_planning_target',
         planning: [
           {
-            title: 'Planning indicator 3',
-            slug: 'planning_indicator3',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 3,
+            reported: false,
+            slug: 'quantification_of_ghg_target',
+            title: 'Quantification of GHG target',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'Gt',
+                value: 'zonk'
+              },
+              {
+                label: 'Year',
+                type: 'number',
+                value: '1892'
+              }
+            ]
           }
         ],
         tracking: []
@@ -47,9 +146,25 @@ export const parsedCategories = [
         slug: 'only_tracking_target',
         tracking: [
           {
-            title: 'Tracking indicator 2',
-            slug: 'tracking_indicator2',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 3,
+            reported: false,
+            slug: 'quantification_of_ghg_target',
+            title: 'Quantification of GHG target',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'Gt',
+                value: 'zonk'
+              },
+              {
+                label: 'Year',
+                type: 'number',
+                value: '1892'
+              }
+            ]
           }
         ]
       }
@@ -65,9 +180,25 @@ export const parsedCategories = [
         slug: 'target',
         tracking: [
           {
-            title: 'indicator',
-            slug: 'indicator',
-            value: 'test value'
+            metadata: 'TODO',
+            order: 3,
+            reported: false,
+            slug: 'quantification_of_ghg_target',
+            title: 'Quantification of GHG target',
+            updated_at: '2018-04-30 12:08:12 +0000',
+            values: [
+              {
+                label: 'Value',
+                type: 'text',
+                unit: 'Gt',
+                value: 'zonk'
+              },
+              {
+                label: 'Year',
+                type: 'number',
+                value: '1892'
+              }
+            ]
           }
         ]
       }

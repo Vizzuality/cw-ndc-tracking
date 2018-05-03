@@ -8,12 +8,11 @@ import styles from './planning-styles.scss';
 class Planning extends PureComponent {
   render() {
     const { categories, selectedCategory } = this.props;
-    const hasCategories = Object.keys(categories).length > 0;
     return (
       <div className={styles.page}>
-        {hasCategories && <Header title="Planning" navSections={categories} />}
+        <Header title="Planning" navSections={categories} />
         <div className={styles.targetsContainer}>
-          {hasCategories &&
+          {categories &&
             selectedCategory &&
             categories
               .find(category => category.slug === selectedCategory)
@@ -22,8 +21,7 @@ class Planning extends PureComponent {
                   title={target.title}
                   key={target.slug}
                   summary={target.summary}
-                  hasRemoveAction
-                  hasEditAction
+                  editActionLink={`/planning/${selectedCategory}/${target.slug}`}
                   infoText="text"
                 />
               ))}

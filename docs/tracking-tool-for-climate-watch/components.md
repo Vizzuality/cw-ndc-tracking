@@ -13,6 +13,7 @@
 * [NavLinks](#navLinks)
 * [Progress Bar](#progressbar)
 * [Search](#search)
+* [Loading](#loading)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -113,6 +114,8 @@ The components used in the page are documented here with some basic information 
     { label: 'dos', value: 'dos' }
   ]}
   label="select some stuff"
+  defaultValue="uno"
+  handleChange={(value) => doSomething(value)}
   disabled
 />
 
@@ -125,6 +128,8 @@ The components used in the page are documented here with some basic information 
 - theme: object
 - hasSearch: bool
 - disabled: bool
+- defaultValue: string
+- handleChange: func
 - selectorRef: func
 
 #### Dependencies
@@ -161,7 +166,7 @@ The components used in the page are documented here with some basic information 
 
 #### Props
 - backButton: PropTypes.bool,
-- title: PropTypes.string.isRequired,
+- title: PropTypes.string,
 - routes: PropTypes.array, // routes for the navigation tab
 - actions: PropTypes.node  // buttons, dropdowns, ... on the right
 
@@ -195,18 +200,16 @@ The components used in the page are documented here with some basic information 
 > ![](../assets/components/indicator.png)
 
 ```
-  <Indicator title="titleee" isTextArea handleClick={() => true}>
-    ... Children ...
-  </Indicator>
+  <Indicator title="title" values=[] onBlur={() => true}/>
 ```
 
 #### Props
 
 - title: string
-- isTextArea: boolean
 - theme: object
-- children: react node
-- handleClick: function
+- values: array
+- handleBlur: function
+- infoText: string
 
 #### Dependencies
 
@@ -405,3 +408,21 @@ None
 #### Dependencies
 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Loading
+
+> ![](../assets/components/loading.png)
+
+```
+<Loading className={styles.loader} />
+```
+
+#### Props
+
+- className: PropTypes.string,
+- height: PropTypes.any, default: 'auto'
+- mini: PropTypes.bool, default: false
+
+#### Dependencies
+
+- [classnames](https://github.com/JedWatson/classnames)
