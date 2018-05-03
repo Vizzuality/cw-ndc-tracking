@@ -73,14 +73,14 @@ export const routes = {
     path: '/planning/:category/:target',
     component: EditTarget,
     thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState);
+      getSections(dispatch, getState);
     }
   },
   [TRACKING_TARGET_EDIT]: {
     path: '/tracking/:category/:target',
     component: EditTarget,
     thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState);
+      getSections(dispatch, getState);
     }
   },
   [NOT_FOUND]: {
