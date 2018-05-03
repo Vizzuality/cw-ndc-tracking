@@ -3,6 +3,7 @@ import Header from 'components/header';
 import PropTypes from 'prop-types';
 import Search from 'components/search';
 import Indicator from 'components/indicator';
+import Loading from 'components/loading';
 import styles from './edit-target-styles.scss';
 
 class EditTarget extends PureComponent {
@@ -34,7 +35,7 @@ class EditTarget extends PureComponent {
             </div>
           </div>
         ) : (
-          'loading'
+          <Loading className={styles.loader} />
         )}
       </div>
     );

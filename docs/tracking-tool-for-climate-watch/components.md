@@ -13,6 +13,7 @@
 * [NavLinks](#navLinks)
 * [Progress Bar](#progressbar)
 * [Search](#search)
+* [Loading](#loading)
 
 The components used in the page are documented here with some basic information about them:
 
@@ -407,3 +408,21 @@ None
 #### Dependencies
 
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
+
+## Loading
+
+> ![](../assets/components/loading.png)
+
+```
+<Loading className={styles.loader} />
+```
+
+#### Props
+
+- className: PropTypes.string,
+- height: PropTypes.any, default: 'auto'
+- mini: PropTypes.bool, default: false
+
+#### Dependencies
+
+- [classnames](https://github.com/JedWatson/classnames)
