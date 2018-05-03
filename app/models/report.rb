@@ -1,4 +1,5 @@
 class Report < ApplicationRecord
+  belongs_to :user
   has_many :categories, dependent: :delete_all
 
   # @param years [Array<Integer>]

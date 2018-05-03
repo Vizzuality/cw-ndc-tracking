@@ -29,7 +29,7 @@ module Api
       private
 
       def load_report
-        @report = Report.find_or_create_by({}) # TODO
+        @report = Report.find_or_create_by(user_id: current_user.id)
         render json: {}, status: :not_found and return unless @report
       end
 
