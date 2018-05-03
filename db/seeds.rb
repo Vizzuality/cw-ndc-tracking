@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env.development?
-  User.create!(
+  admin_user = User.create!(
     email: 'admin@example.com',
     name: 'Admin User',
     is_admin: true,
     password: 'password',
     password_confirmation: 'password'
   )
-  User.create!(
+  api_user = User.create!(
     email: 'user@example.com',
     name: 'API user Brazil',
     country_iso_code: 'BR',
@@ -23,6 +23,6 @@ if Rails.env.development?
     password_confirmation: 'password'
   )
 
-  default_report = Report.find_or_create_by({}) # TODO
+  default_report = Report.find_or_create_by({user_id: api_user.id})
   default_report.initialize_categories([2018], true)
 end
