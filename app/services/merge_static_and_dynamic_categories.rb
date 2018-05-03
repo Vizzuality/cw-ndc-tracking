@@ -1,33 +1,44 @@
 class MergeStaticAndDynamicCategories
-  # @param section [Static::Section]
+  # @param static_section [Static::Section]
   # @param static_categories [Array<Static::Category>]
-  # @param report_categories [Array<Category>]
-  def initialize(section, static_categories, report_categories)
-    @section = section
+  # @param dynamic_categories [Array<Category>]
+  def initialize(static_section, static_categories, dynamic_categories)
+    @static_section = static_section
     @static_categories = static_categories
-    @report_categories = report_categories
+    @dynamic_categories = dynamic_categories
   end
 
   # @param year [Integer]
   # @param category_includes [Array<Symbol>]
   def call(year, category_includes)
     @static_categories.map do |static_category|
-      match = @report_categories.detect do |report_category|
-        report_category.section_slug == @section.slug &&
-          report_category.slug == static_category.slug
+      match = @dynamic_categories.detect do |dynamic_category|
+        dynamic_category.section_slug == @static_section.slug &&
+          dynamic_category.slug == static_category.slug
       end
       category_hash = static_category.to_hash
-      category_hash[:active] = match.present?
+      category_hash['active'] = match.present?
 
       if category_includes.include?(:targets)
-        report_targets = match && match.targets.where(year: year).all || []
-        category_hash[:targets] = MergeStaticAndDynamicTargets.new(
-          static_category.targets,
-          report_targets
-        ).call
+        category_hash['targets'] = include_targets(
+          match,
+          static_category,
+          year
+        )
       end
 
       category_hash
     end
+  end
+
+  private
+
+  def include_targets(dynamic_category, static_category, year)
+    return [] unless dynamic_category.present?
+    MergeStaticAndDynamicTargets.new(
+      dynamic_category,
+      static_category.targets,
+      dynamic_category.targets.where(year: year)
+    ).call
   end
 end

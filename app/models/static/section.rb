@@ -4,6 +4,9 @@ module Static
     include ActiveModel::Serialization
     attr_reader :title, :slug, :categories
 
+    PLANNING = 'planning'.freeze
+    TRACKING = 'tracking'.freeze
+
     # @param section_config [Hash]
     # @option section_config :categories [Array<Hash>]
     def initialize(section_config)

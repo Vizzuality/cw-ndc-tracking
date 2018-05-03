@@ -37,14 +37,14 @@ module Api
         @year = params[:year]&.to_i || Date.today.year
       end
 
-      def load_section
-        @section = Static::Section.find_by_slug(params[:section_slug])
-        render json: {}, status: :not_found and return unless @section
+      def load_static_section
+        @static_section = Static::Section.find_by_slug(params[:section_slug])
+        render json: {}, status: :not_found and return unless @static_section
       end
 
-      def load_category
-        @category = @section.find_category_by_slug(params[:category_slug])
-        render json: {}, status: :not_found and return unless @category
+      def load_static_category
+        @static_category = @static_section.find_category_by_slug(params[:category_slug])
+        render json: {}, status: :not_found and return unless @static_category
       end
     end
   end

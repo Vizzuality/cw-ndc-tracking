@@ -218,3 +218,56 @@
    }
 ]
 ```
+
+## Indicators
+
+### `GET /api/v1/sections/:section_slug/categories/:category_slug/targets/:target_slug/indicators`
+
+#### Parameters:
+- `year` - integer, if omitted defaults to current year
+
+#### Examples:
+
+- `GET /api/v1/sections/planning/categories/ndc_targets/targets/ghg_target/indicators`
+
+```
+[
+   {
+      "title":"Land sector",
+      "slug":"land_sector",
+      "values":[
+         {
+            "type":"input",
+            "label":"Time series data",
+            "hint":"Expects csv format",
+            "value":"zonk"
+         }
+      ],
+      "order":1,
+      "reported":false,
+      "updated_at":"2018-04-30 12:08:12 +0000",
+      "metadata":"TODO"
+   },
+   {
+      "title":"Transferable emissions under ITMOs",
+      "slug":"transferrable_emissions_under_itmos",
+      "values":[
+         {
+            "type":"input",
+            "unit":"Gt",
+            "label":"Value",
+            "value":"zonk"
+         },
+         {
+            "type":"input",
+            "label":"Year",
+            "value":"zonk"
+         }
+      ],
+      "order":2,
+      "reported":false,
+      "updated_at":"2018-04-30 12:08:12 +0000",
+      "metadata":"TODO"
+   }
+]
+```

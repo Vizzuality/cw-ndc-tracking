@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :rememberable,
          :validatable,
          :invitable
+
+  validates :country_iso_code, presence: true, length: {is: 3}
 end
