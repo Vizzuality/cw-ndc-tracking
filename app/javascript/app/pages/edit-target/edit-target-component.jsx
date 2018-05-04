@@ -36,7 +36,7 @@ class EditTarget extends PureComponent {
                   values={i.values}
                   infoText={i.title}
                   handleBlur={(valueLabel, value) =>
-                    handleEditIndicator(i.slug, valueLabel, value)}
+                    handleEditIndicator(i.id, valueLabel, value)}
                 />
               ))}
             </div>

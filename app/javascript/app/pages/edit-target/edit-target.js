@@ -40,12 +40,24 @@ class EditTargetContainer extends PureComponent {
       updateUrlParam({ name: 'search', value: query });
     };
 
-    const handleEditIndicator = (indicatorSlug, valueLabel, value) => {
-      const { section, category, target, handlePatchIndicator } = this.props;
-      return handlePatchIndicator(
-        { section, category, target: target.slug, indicator: indicatorSlug },
-        { valueLabel, value }
-      );
+    // eslint-disable-next-line consistent-return
+    const handleEditIndicator = (indicatorId, valueLabel, value) => {
+      const {
+        section,
+        category,
+        target,
+        handlePatchIndicator,
+        indicators
+      } = this.props;
+      const indicator = indicators.find(i => i.id === indicatorId);
+      const valueToUpdate =
+        indicator && indicator.values.find(v => v.label === valueLabel);
+      if (valueToUpdate && valueToUpdate.value !== value) {
+        return handlePatchIndicator(
+          { section, category, target: target.slug, indicator: indicatorId },
+          { valueLabel, value }
+        );
+      }
     };
 
     return createElement(Component, {
@@ -60,6 +72,7 @@ EditTargetContainer.propTypes = {
   section: PropTypes.string,
   category: PropTypes.string,
   target: PropTypes.object,
+  indicators: PropTypes.array,
   handlePatchIndicator: PropTypes.func
 };
 
