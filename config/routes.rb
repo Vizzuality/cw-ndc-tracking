@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :sections, param: :slug, only: [:index, :show] do
         resources :categories, param: :slug, only: [:index, :show] do
           resources :targets, param: :slug, only: [:index] do
-            resources :indicators, only: [:index]
+            resources :indicators, only: [:index, :update]
           end
         end
       end
