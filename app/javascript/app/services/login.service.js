@@ -1,5 +1,5 @@
-const { API_URL } = process.env;
-const URL = `${API_URL}/users/sign_in`;
+const { BASE_URL } = process.env;
+const URL = `${BASE_URL}/users/sign_in`;
 
 export async function login(password, email) {
   return fetch(URL, {
