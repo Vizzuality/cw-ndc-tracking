@@ -26,10 +26,12 @@ class TrackingContainer extends PureComponent {
     const handleOnSearch = query => {
       updateUrlParam({ name: 'search', value: query });
     };
+    const handleYearChange = year => year; // TODO: Update year;
 
     return createElement(TrackingComponent, {
       ...this.props,
-      handleOnSearch
+      handleOnSearch,
+      handleYearChange
     });
   }
 }

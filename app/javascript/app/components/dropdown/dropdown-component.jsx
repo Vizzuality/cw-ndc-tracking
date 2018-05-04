@@ -49,7 +49,7 @@ Dropdown.propTypes = {
   hasSearch: PropTypes.bool,
   disabled: PropTypes.bool,
   selectorRef: PropTypes.func,
-  handleChange: PropTypes.func
+  handleChange: PropTypes.func.isRequired
 };
 
 export default themr('Dropdown', styles)(Dropdown);

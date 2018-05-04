@@ -8,7 +8,13 @@ import styles from './tracking-styles.scss';
 
 class Tracking extends PureComponent {
   render() {
-    const { categories, selectedCategory, search, handleOnSearch } = this.props;
+    const {
+      categories,
+      selectedCategory,
+      search,
+      handleOnSearch,
+      handleYearChange
+    } = this.props;
     const isNotNdcTargetsCategory =
       categories && selectedCategory && selectedCategory !== 'ndc_targets';
     return (
@@ -20,10 +26,13 @@ class Tracking extends PureComponent {
             <Dropdown
               placeholder="Select a year"
               options={[
-                { label: '1984', value: '1984' },
-                { label: '2020', value: '2020' }
+                { label: '2017', value: 2017 },
+                { label: '2018', value: 2018 }
               ]}
+              defaultValue={{ label: '2018', value: 2018 }}
               label="Year"
+              handleChange={handleYearChange}
+              hideResetButton
             />
           }
         />
@@ -64,7 +73,8 @@ Tracking.propTypes = {
   categories: PropTypes.array,
   search: PropTypes.string,
   selectedCategory: PropTypes.string,
-  handleOnSearch: PropTypes.func.isRequired
+  handleOnSearch: PropTypes.func.isRequired,
+  handleYearChange: PropTypes.func
 };
 
 export default Tracking;
