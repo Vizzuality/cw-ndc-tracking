@@ -16,6 +16,7 @@ class MergeStaticAndDynamicIndicators
         dynamic_indicator.slug == static_indicator.slug
       end
       indicator_hash = match&.to_hash || {} # TODO: custom indicators
+      indicator_hash['id'] = dynamic_indicator.id
       if @dynamic_category.section_slug == Static::Section::TRACKING
         indicator_hash['reported'] = dynamic_indicator.reported?
       end
