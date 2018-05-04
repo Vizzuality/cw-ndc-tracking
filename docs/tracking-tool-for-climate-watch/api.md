@@ -233,6 +233,7 @@
 ```
 [
    {
+      "id": 1,
       "title":"Land sector",
       "slug":"land_sector",
       "values":[
@@ -249,6 +250,7 @@
       "metadata":"TODO"
    },
    {
+      "id": 2,
       "title":"Transferable emissions under ITMOs",
       "slug":"transferrable_emissions_under_itmos",
       "values":[
@@ -271,3 +273,47 @@
    }
 ]
 ```
+
+### `PATCH /api/v1/sections/:section_slug/categories/:category_slug/targets/:target_slug/indicator/:id`
+
+#### Body
+
+{
+   indicator: {
+      value: {
+         value: 2015, label: 'Year'
+      }
+   }
+}
+
+#### Response
+
+```
+{
+   "title":"Quantification of GHG target",
+   "slug":"quantification_of_ghg_target",
+   "values":[
+      {
+         "type":"input",
+         "unit":"Gt",
+         "label":"Value",
+         "value":20
+      },
+      {
+         "type":"input",
+         "label":"Year",
+         "value":2018
+      }
+   ],
+   "order":3,
+   "id":620,
+   "reported":true,
+   "updated_at":"2018-05-04 13:15:16 +0000",
+   "metadata":"TODO"
+}
+```
+
+#### Example
+
+curl "http://localhost:3000/api/v1/sections/tracking/categories/ndc_targets/targets/ghg_target/indicators/620" -X PATCH -d '{"indicator": {"value": {"value": 20, "label": "Value"}}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: 5xafy8w2RZUygXa_Bt_K"
+

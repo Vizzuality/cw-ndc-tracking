@@ -15,9 +15,8 @@ class GetAllTargets
   def call(year)
     return [] unless @category
     MergeStaticAndDynamicTargets.new(
-      @category,
       @static_category.targets,
       @category.targets.where(year: year)
-    ).call
+    ).call(include_reported: @static_section.tracking?)
   end
 end

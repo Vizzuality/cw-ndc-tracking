@@ -45,5 +45,9 @@ module Static
         {methods: [:title, :slug]}
       )
     end
+
+    def tracking?
+      @slug == TRACKING
+    end
   end
 end
