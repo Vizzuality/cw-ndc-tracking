@@ -41,7 +41,7 @@ class EditTargetContainer extends PureComponent {
     };
 
     // eslint-disable-next-line consistent-return
-    const handleEditIndicator = (indicatorId, valueLabel, value) => {
+    const handleEditIndicator = (indicatorSlug, valueLabel, value) => {
       const {
         section,
         category,
@@ -49,12 +49,12 @@ class EditTargetContainer extends PureComponent {
         handlePatchIndicator,
         indicators
       } = this.props;
-      const indicator = indicators.find(i => i.id === indicatorId);
+      const indicator = indicators.find(i => i.slug === indicatorSlug);
       const valueToUpdate =
         indicator && indicator.values.find(v => v.label === valueLabel);
       if (valueToUpdate && valueToUpdate.value !== value) {
         return handlePatchIndicator(
-          { section, category, target: target.slug, indicator: indicatorId },
+          { section, category, target: target.slug, indicator: indicatorSlug },
           { valueLabel, value }
         );
       }
