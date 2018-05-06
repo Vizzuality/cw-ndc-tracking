@@ -1,7 +1,7 @@
 import { apiActionCreator, get } from '../services/api.service';
 
 export async function getCategoriesThunk(dispatch, getState) {
-  const section = getState().currentSection;
+  const section = getState().location.pathname.split('/')[1];
   const path = `sections/${section}/categories?includes[]=targets`;
   dispatch(fetchCategories(path));
 }
@@ -16,4 +16,4 @@ export const storeCategories = data => ({
 
 // Reducer
 export default (state = [], action) =>
-  (action.type === 'STORE_CATEGORIES' ? state : state);
+  (action.type === 'STORE_CATEGORIES' ? action.payload : state);
