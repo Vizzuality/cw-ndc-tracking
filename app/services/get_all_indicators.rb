@@ -18,10 +18,9 @@ class GetAllIndicators
     return [] unless @category
     @target = @category.targets.where(slug: @static_target.slug, year: year).first
     MergeStaticAndDynamicIndicators.new(
-      @category,
       @target,
       @static_target.indicators,
       @target.indicators
-    ).call
+    ).call(include_reported: @static_section.tracking?)
   end
 end

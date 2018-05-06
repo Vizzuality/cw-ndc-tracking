@@ -1,11 +1,37 @@
 import { connect } from 'react-redux';
-import { getCategories } from './planning-selectors';
+import { PureComponent, createElement } from 'react';
+import { history } from 'redux-first-router';
+import qs from 'query-string';
+import { updateUrlParam } from 'utils/navigation';
+import { filterCategoryTargetsBySearch } from './planning-selectors';
 import PlanningComponent from './planning-component';
 
-const mapStateToProps = ({ location, sections }) => ({
-  pathname: location.pathname,
-  selectedCategory: location.payload.category,
-  categories: getCategories({ sections })
-});
+const mapStateToProps = ({ location, sections }) => {
+  const query = qs.parse(history().location.search);
+  const search = (query && query.search) || null;
+  const state = {
+    sections,
+    search
+  };
+  return {
+    pathname: location.pathname,
+    selectedCategory: location.payload.category,
+    categories: filterCategoryTargetsBySearch(state),
+    search
+  };
+};
 
-export default connect(mapStateToProps, null)(PlanningComponent);
+class PlanningContainer extends PureComponent {
+  render() {
+    const handleOnSearch = query => {
+      updateUrlParam({ name: 'search', value: query });
+    };
+
+    return createElement(PlanningComponent, {
+      ...this.props,
+      handleOnSearch
+    });
+  }
+}
+
+export default connect(mapStateToProps, null)(PlanningContainer);

@@ -1,5 +1,5 @@
 import { LOGIN } from 'router';
-import { apiRequest } from '../services/api.service';
+import { apiGet, apiPatch } from '../services/api.service';
 
 export default store => next => action => {
   const isApiAction = action.type === 'API';
@@ -9,7 +9,9 @@ export default store => next => action => {
     if (!isUserLoggedIn) {
       store.dispatch({ type: LOGIN });
     } else {
-      apiRequest(action.path, action.method, store.getState)
+      (action.method === 'PATCH'
+        ? apiPatch(action.path, store.getState, action.body)
+        : apiGet(action.path, store.getState))
         .then(function (response) {
           return response.json();
         })

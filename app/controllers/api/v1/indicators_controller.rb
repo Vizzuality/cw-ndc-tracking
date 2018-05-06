@@ -6,6 +6,7 @@ module Api
       before_action :load_static_section
       before_action :load_static_category
       before_action :load_static_target
+      before_action :load_indicator, only: [:update]
 
       def index
         @indicators = GetAllIndicators.new(
@@ -14,11 +15,30 @@ module Api
         render json: @indicators
       end
 
+      def update
+        if @indicator.update_value(indicator_params[:value])
+          render json: MergeStaticAndDynamicIndicator.new(
+            @indicator.static_indicator, @indicator
+          ).call(include_reported: @static_section.tracking?)
+        else
+          render json: {error: 'Update error'}, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def load_static_target
         @static_target = @static_category.find_target_by_slug(params[:target_slug])
         render json: {}, status: :not_found and return unless @static_target
+      end
+
+      def load_indicator
+        @indicator = Indicator.find(params[:id])
+        render json: {}, status: :not_found and return unless @indicator
+      end
+
+      def indicator_params # TODO return error when incorrect payload
+        params.require(:indicator).permit(value: [:value, :label])
       end
     end
   end

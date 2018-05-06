@@ -30,7 +30,7 @@ class Target < ApplicationRecord
     return 0 if all_indicators_count.zero?
     updated_indicators_count = indicators.
       where('updated_at > ?', created_at).count
-    updated_indicators_count / all_indicators_count
+    updated_indicators_count.to_f * 100 / all_indicators_count
   end
 
   def static_target

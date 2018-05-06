@@ -21,6 +21,13 @@ module Static
       {'title' => nil, 'summary' => nil, 'slug' => nil}
     end
 
+    # @param slug [String]
+    def find_indicator_by_slug(slug)
+      indicators.find do |indicator|
+        indicator.slug == slug
+      end
+    end
+
     def to_hash
       serializable_hash(
         {

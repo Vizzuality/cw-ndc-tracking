@@ -36,9 +36,8 @@ class MergeStaticAndDynamicCategories
   def include_targets(dynamic_category, static_category, year)
     return [] unless dynamic_category.present?
     MergeStaticAndDynamicTargets.new(
-      dynamic_category,
       static_category.targets,
       dynamic_category.targets.where(year: year)
-    ).call
+    ).call(include_reported: @static_section.tracking?)
   end
 end
