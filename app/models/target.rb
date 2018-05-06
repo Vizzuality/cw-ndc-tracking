@@ -16,11 +16,11 @@ class Target < ApplicationRecord
         end
         values = value_from_cw && [value_from_cw[:value]]
       end
-      indicator = indicators.create(
+      indicators.create(
         slug: static_indicator.slug,
         values: values,
-        created_at: self.created_at,
-        updated_at: self.created_at
+        created_at: created_at,
+        updated_at: created_at
       )
     end
   end

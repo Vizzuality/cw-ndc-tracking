@@ -46,15 +46,17 @@ ActiveAdmin.register User do
   end
 
   collection_action :send_invitation, method: :post do
-    flash[:success] = 'User has been successfully invited.' if User.invite!(params[:user].permit!)
+    if User.invite!(params[:user].permit!)
+      flash[:success] = 'User has been successfully invited.'
+    end
     redirect_to admin_users_path
   end
 
-controller do
-  def update
-    update! do |format|
-      format.html { redirect_to edit_admin_user_path(@user) }
+  controller do
+    def update
+      update! do |format|
+        format.html { redirect_to edit_admin_user_path(@user) }
+      end
     end
   end
-end
 end

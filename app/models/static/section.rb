@@ -41,9 +41,7 @@ module Static
     end
 
     def to_hash
-      serializable_hash(
-        {methods: [:title, :slug]}
-      )
+      serializable_hash(methods: [:title, :slug])
     end
 
     def tracking?
