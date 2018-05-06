@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import deburr from 'lodash/deburr';
-import { indicators } from '../../mocks/sections';
 
 const getSections = state => state.sections || null;
 const getSearch = state => state.search || null;
@@ -21,12 +20,11 @@ export const getTarget = createSelector(
 );
 
 export const getIndicators = createSelector(
-  [getTarget, getSearch],
-  (target, search) => {
-    const ind = indicators;
-    if (!target || !ind) return null;
-    if (!search) return ind;
-    return ind.filter(
+  [getTarget, getSearch, state => state.indicators],
+  (target, search, indicators) => {
+    if (!target || !indicators) return null;
+    if (!search) return indicators;
+    return indicators.filter(
       i => deburr(i.title.toLowerCase()).indexOf(search.toLowerCase()) > -1
     );
   }
