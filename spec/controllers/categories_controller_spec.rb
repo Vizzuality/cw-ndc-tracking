@@ -15,6 +15,11 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
       expect(@response).to match_response_schema('categories_with_targets')
     end
 
+    it 'includes indicators' do
+      get :index, params: {section_slug: 'planning', includes: [:indicators]}
+      expect(@response).to match_response_schema('categories_with_indicators')
+    end
+
     it 'responds with not found' do
       get :index, params: {section_slug: 'foobar'}
       expect(@response).to have_http_status(:not_found)
@@ -28,8 +33,17 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
     end
 
     it 'includes targets' do
-      get :show, params: {section_slug: 'planning', slug: 'ndc_targets', includes: [:targets]}
+      get :show, params: {
+        section_slug: 'planning', slug: 'ndc_targets', includes: [:targets]
+      }
       expect(@response).to match_response_schema('category_with_targets')
+    end
+
+    it 'includes indicators' do
+      get :show, params: {
+        section_slug: 'planning', slug: 'ndc_targets', includes: [:indicators]
+      }
+      expect(@response).to match_response_schema('category_with_indicators')
     end
 
     it 'responds with not found' do

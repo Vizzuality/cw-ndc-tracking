@@ -12,11 +12,13 @@ class GetAllTargets
   end
 
   # @param year [Integer]
-  def call(year)
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  def call(year, options = {})
     return [] unless @category
     MergeStaticAndDynamicTargets.new(
       @static_category.targets,
       @category.targets.where(year: year)
-    ).call(include_reported: @static_section.tracking?)
+    ).call(options.merge(include_reported: @static_section.tracking?))
   end
 end

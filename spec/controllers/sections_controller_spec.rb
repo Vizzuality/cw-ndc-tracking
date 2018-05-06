@@ -30,6 +30,11 @@ RSpec.describe Api::V1::SectionsController, type: :controller do
         get :index, params: {includes: [:targets]}
         expect(@response).to match_response_schema('sections_with_targets')
       end
+
+      it 'includes indicators' do
+        get :index, params: {includes: [:indicators]}
+        expect(@response).to match_response_schema('sections_with_indicators')
+      end
     end
 
     describe 'GET show' do
@@ -46,6 +51,11 @@ RSpec.describe Api::V1::SectionsController, type: :controller do
       it 'includes targets' do
         get :show, params: {slug: 'planning', includes: [:targets]}
         expect(@response).to match_response_schema('section_with_targets')
+      end
+
+      it 'includes indicators' do
+        get :show, params: {slug: 'planning', includes: [:indicators]}
+        expect(@response).to match_response_schema('section_with_indicators')
       end
     end
 

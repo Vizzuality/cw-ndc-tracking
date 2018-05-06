@@ -43,8 +43,14 @@ module Api
       end
 
       def load_static_category
-        @static_category = @static_section.find_category_by_slug(params[:category_slug])
+        @static_category = @static_section.find_category_by_slug(
+          params[:category_slug]
+        )
         render json: {}, status: :not_found and return unless @static_category
+      end
+
+      def serialisation_options
+        {includes: (params[:includes] || []).map(&:to_sym)}
       end
     end
   end

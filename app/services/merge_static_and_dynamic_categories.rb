@@ -9,8 +9,10 @@ class MergeStaticAndDynamicCategories
   end
 
   # @param year [Integer]
-  # @param category_includes [Array<Symbol>]
-  def call(year, category_includes)
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  # @option options [Boolean] :include_reported
+  def call(year, options = {})
     @static_categories.map do |static_category|
       match = @dynamic_categories.detect do |dynamic_category|
         dynamic_category.section_slug == @static_section.slug &&
@@ -19,11 +21,13 @@ class MergeStaticAndDynamicCategories
       category_hash = static_category.to_hash
       category_hash['active'] = match.present?
 
-      if category_includes.include?(:targets)
+      if options[:includes].is_a?(Array) &&
+          (options[:includes] & [:targets, :indicators]).any?
         category_hash['targets'] = include_targets(
           match,
           static_category,
-          year
+          year,
+          options
         )
       end
 
@@ -33,11 +37,17 @@ class MergeStaticAndDynamicCategories
 
   private
 
-  def include_targets(dynamic_category, static_category, year)
+  # @param dynamic_category [Category]
+  # @param static_category [Static::Category]
+  # @param year [Integer]
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  # @option options [Boolean] :include_reported
+  def include_targets(dynamic_category, static_category, year, options)
     return [] unless dynamic_category.present?
     MergeStaticAndDynamicTargets.new(
       static_category.targets,
       dynamic_category.targets.where(year: year)
-    ).call(include_reported: @static_section.tracking?)
+    ).call(options)
   end
 end
