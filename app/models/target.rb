@@ -1,6 +1,8 @@
 class Target < ApplicationRecord
   belongs_to :category
   has_many :indicators
+  delegate :tracking?, to: :category
+  delegate :planning?, to: :category
 
   # @param options [Hash]
   # @option options [Boolean] :force destroy / create
@@ -16,12 +18,13 @@ class Target < ApplicationRecord
         end
         values = value_from_cw && [value_from_cw[:value]]
       end
-      indicator = indicators.create(
-        slug: static_indicator.slug,
-        values: values,
-        created_at: self.created_at,
-        updated_at: self.created_at
-      )
+
+      create_indicator(static_indicator, values)
+
+      if static_section.planning?
+        # TODO: eventually not all indicators will be trackable
+        initialize_indicator_in_tracking_target(static_indicator)
+      end
     end
   end
 
@@ -36,5 +39,34 @@ class Target < ApplicationRecord
   def static_target
     static_category = category.static_category
     static_category.find_target_by_slug(slug)
+  end
+
+  def static_section
+    Static::Section.find_by_slug(category.section_slug)
+  end
+
+  def initialize_indicator_in_tracking_target(static_indicator)
+    if tracking_target
+      tracking_target.create_indicator(static_indicator, nil)
+    end
+  end
+
+  def create_indicator(static_indicator, values)
+    indicators.create(
+      slug: static_indicator.slug,
+      values: values,
+      created_at: self.created_at,
+      updated_at: self.created_at
+    )
+  end
+
+  def tracking_target
+    return self if tracking?
+    category.tracking_category&.targets&.find_by_slug(slug)
+  end
+
+  def planning_target
+    return self if planning?
+    category.planning_category&.targets&.find_by_slug(slug)
   end
 end

@@ -1,6 +1,5 @@
 class Indicator < ApplicationRecord
   belongs_to :target
-  delegate :tracking?, to: :target
 
   after_update do
     target.update_attribute(:updated_at, updated_at)
@@ -37,6 +36,12 @@ class Indicator < ApplicationRecord
 
   def static_indicator
     static_target = target.static_target
-    static_target.find_indicator_by_slug(slug)
+    static_indicator = static_target.find_indicator_by_slug(slug)
+    if target.tracking? && static_indicator.nil?
+      # could be a planning indicator
+      static_target = target.planning_target.static_target
+      static_indicator = static_target.find_indicator_by_slug(slug)
+    end
+    static_indicator
   end
 end

@@ -10,7 +10,7 @@ class Report < ApplicationRecord
     force = options[:force] || false
     categories.delete_all if force
 
-    [planning_section, tracking_section].each do |section|
+    [tracking_section, planning_section].each do |section|
       mandatory_categories = section.categories.reject(&:optional)
       mandatory_categories.each do |category|
         category = categories.create(
