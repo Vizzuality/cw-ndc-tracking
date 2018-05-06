@@ -1,11 +1,39 @@
 import { connect } from 'react-redux';
-import { getCategories } from './tracking-selectors';
+import { PureComponent, createElement } from 'react';
+import { history } from 'redux-first-router';
+import qs from 'query-string';
+import { updateUrlParam } from 'utils/navigation';
+import { filterCategoryTargetsBySearch } from './tracking-selectors';
 import TrackingComponent from './tracking-component';
 
-const mapStateToProps = ({ location, sections }) => ({
-  pathname: location.pathname,
-  selectedCategory: location.payload.category,
-  categories: getCategories({ sections })
-});
+const mapStateToProps = ({ location, sections }) => {
+  const query = qs.parse(history().location.search);
+  const search = (query && query.search) || null;
+  const state = {
+    sections,
+    search
+  };
+  return {
+    pathname: location.pathname,
+    selectedCategory: location.payload.category,
+    categories: filterCategoryTargetsBySearch(state),
+    search
+  };
+};
 
-export default connect(mapStateToProps, null)(TrackingComponent);
+class TrackingContainer extends PureComponent {
+  render() {
+    const handleOnSearch = query => {
+      updateUrlParam({ name: 'search', value: query });
+    };
+    const handleYearChange = year => year; // TODO: Update year;
+
+    return createElement(TrackingComponent, {
+      ...this.props,
+      handleOnSearch,
+      handleYearChange
+    });
+  }
+}
+
+export default connect(mapStateToProps, null)(TrackingContainer);

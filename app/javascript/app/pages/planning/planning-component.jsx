@@ -2,15 +2,30 @@ import React, { PureComponent } from 'react';
 import Target from 'components/target';
 import Header from 'components/header';
 import PropTypes from 'prop-types';
+import Search from 'components/search';
 
 import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
-    const { categories, selectedCategory } = this.props;
+    const { categories, selectedCategory, handleOnSearch, search } = this.props;
+    const isNotNdcTargetsCategory =
+      categories && selectedCategory && selectedCategory !== 'ndc_targets';
     return (
       <div className={styles.page}>
         <Header title="Planning" navSections={categories} />
+        {isNotNdcTargetsCategory && (
+          <div className={styles.actionsWrapper}>
+            <div className={styles.actions}>
+              <Search
+                placeholder="Search something"
+                value={search}
+                onChange={handleOnSearch}
+                className={styles.search}
+              />
+            </div>
+          </div>
+        )}
         <div className={styles.targetsContainer}>
           {categories &&
             selectedCategory &&
@@ -33,7 +48,9 @@ class Planning extends PureComponent {
 
 Planning.propTypes = {
   selectedCategory: PropTypes.string,
-  categories: PropTypes.array
+  search: PropTypes.string,
+  categories: PropTypes.array,
+  handleOnSearch: PropTypes.func
 };
 
 export default Planning;
