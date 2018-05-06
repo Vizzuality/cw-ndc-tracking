@@ -1,9 +1,11 @@
-import { apiGet } from '../services/api.service';
+import { apiGet, apiPatch } from '../services/api.service';
 
 export default store => next => action => {
   const isApiAction = action.type === 'API';
   if (isApiAction) {
-    apiGet(action.path, store.getState)
+    (action.method === 'PATCH'
+      ? apiPatch(action.path, store.getState, action.body)
+      : apiGet(action.path, store.getState))
       .then(function (response) {
         return response.json();
       })
