@@ -1,11 +1,10 @@
 import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'redux-first-router';
-import { sections } from '../../mocks/sections';
 import { parseCategories } from './reporting-selectors';
 import ReportingComponent from './reporting-component';
 
-const mapStateToProps = ({ location }) => {
+const mapStateToProps = ({ location, sections }) => {
   const state = { sections };
   return {
     routes: Object.values(location.routesMap).filter(r => !!r.nav),

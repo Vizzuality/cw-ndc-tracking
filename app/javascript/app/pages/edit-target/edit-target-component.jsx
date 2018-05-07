@@ -13,7 +13,8 @@ class EditTarget extends PureComponent {
       handleOnSearch,
       search,
       indicators,
-      handleEditIndicator
+      handleEditIndicator,
+      handleNotSavedChange
     } = this.props;
     return (
       <div className={styles.page}>
@@ -35,8 +36,9 @@ class EditTarget extends PureComponent {
                   title={i.title}
                   values={i.values}
                   infoText={i.title}
+                  handleChange={handleNotSavedChange}
                   handleBlur={(valueLabel, value) =>
-                    handleEditIndicator(i.slug, valueLabel, value)}
+                    handleEditIndicator(i.id, valueLabel, value)}
                 />
               ))}
             </div>
@@ -54,7 +56,8 @@ EditTarget.propTypes = {
   handleOnSearch: PropTypes.func.isRequired,
   indicators: PropTypes.array,
   search: PropTypes.string,
-  handleEditIndicator: PropTypes.func
+  handleEditIndicator: PropTypes.func,
+  handleNotSavedChange: PropTypes.func
 };
 
 export default EditTarget;

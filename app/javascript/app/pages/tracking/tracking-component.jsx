@@ -18,53 +18,55 @@ class Tracking extends PureComponent {
     const isNotNdcTargetsCategory =
       categories && selectedCategory && selectedCategory !== 'ndc_targets';
     return (
-      <div>
-        <Header
-          title="Tracking"
-          navSections={categories}
-          actions={
-            <Dropdown
-              placeholder="Select a year"
-              options={[
-                { label: '2017', value: 2017 },
-                { label: '2018', value: 2018 }
-              ]}
-              defaultValue={{ label: '2018', value: 2018 }}
-              label="Year"
-              handleChange={handleYearChange}
-              hideResetButton
-            />
-          }
-        />
-        {isNotNdcTargetsCategory && (
-          <div className={styles.actionsWrapper}>
-            <div className={styles.actions}>
-              <Search
-                placeholder="Search something"
-                value={search}
-                onChange={handleOnSearch}
-                className={styles.search}
+      categories && (
+        <div>
+          <Header
+            title="Tracking"
+            navSections={categories}
+            actions={
+              <Dropdown
+                placeholder="Select a year"
+                options={[
+                  { label: '2017', value: 2017 },
+                  { label: '2018', value: 2018 }
+                ]}
+                defaultValue={{ label: '2018', value: 2018 }}
+                label="Year"
+                handleChange={handleYearChange}
+                hideResetButton
               />
-            </div>
-          </div>
-        )}
-        <div className={styles.targetsContainer}>
-          {categories &&
-            selectedCategory &&
-            categories
-              .find(category => category.slug === selectedCategory)
-              .targets.map(target => (
-                <TrackingTarget
-                  key={target.title}
-                  title={target.title}
-                  summary={target.summary}
-                  updatedAt={target.updated_at}
-                  reportedPercentage={100}
-                  editActionLink={`/tracking/${selectedCategory}/${target.slug}`}
+            }
+          />
+          {isNotNdcTargetsCategory && (
+            <div className={styles.actionsWrapper}>
+              <div className={styles.actions}>
+                <Search
+                  placeholder="Search something"
+                  value={search}
+                  onChange={handleOnSearch}
+                  className={styles.search}
                 />
-              ))}
+              </div>
+            </div>
+          )}
+          <div className={styles.targetsContainer}>
+            {categories &&
+              selectedCategory &&
+              categories
+                .find(category => category.slug === selectedCategory)
+                .targets.map(target => (
+                  <TrackingTarget
+                    key={target.title}
+                    title={target.title}
+                    summary={target.summary}
+                    updatedAt={target.updated_at}
+                    reportedPercentage={100}
+                    editActionLink={`/tracking/${selectedCategory}/${target.slug}`}
+                  />
+                ))}
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
