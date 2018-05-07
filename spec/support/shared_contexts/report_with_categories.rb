@@ -7,7 +7,7 @@ RSpec.shared_context 'report with categories' do
     VCR.use_cassette('ndcs_BRA') do
       @default_report = InitialiseReport.new(
         @api_user, @api_user.country_iso_code
-      ).call([2018], {force: true})
+      ).call([2018], force: true)
     end
   }
 end

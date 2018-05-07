@@ -6,6 +6,9 @@ class MergeStaticAndDynamicTargets
     @dynamic_targets = dynamic_targets
   end
 
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  # @option options [Boolean] :include_reported
   def call(options = {})
     @dynamic_targets.map do |dynamic_target|
       match = @static_targets.detect do |static_target|
@@ -18,7 +21,26 @@ class MergeStaticAndDynamicTargets
       end
       target_hash['updated_at'] = dynamic_target.updated_at.
         strftime('%Y-%m-%d %H:%M:%S %z')
+      if options[:includes].is_a?(Array) &&
+          options[:includes].include?(:indicators)
+        target_hash['indicators'] = include_indicators(
+          dynamic_target,
+          match,
+          options
+        )
+      end
+
       target_hash
     end
+  end
+
+  private
+
+  def include_indicators(dynamic_target, static_target, options)
+    return [] unless dynamic_target.present?
+    MergeStaticAndDynamicIndicators.new(
+      static_target.indicators,
+      dynamic_target.indicators
+    ).call(options)
   end
 end

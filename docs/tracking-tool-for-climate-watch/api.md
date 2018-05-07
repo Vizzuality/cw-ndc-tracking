@@ -5,7 +5,7 @@
 ### `GET /api/v1/sections`
 
 #### Parameters:
-- `includes` - array of nested resources to include. Available values: `categories`, `targets`
+- `includes` - array of nested resources to include. Available values: `categories`, `targets`, `indicators`
 - `year` - integer, if omitted defaults to current year (applies to nested targets)
 
 #### Examples:
@@ -85,6 +85,54 @@
 ]
 ```
 
+- `/api/v1/sections?includes[]=categories&includes[]=targets&includes[]=indicators`
+
+```
+[
+   {
+      "title":"Planning",
+      "slug":"planning",
+      "categories":[
+         {
+            "title":"NDC Targets",
+            "slug":"ndc_targets",
+            "optional":false,
+            "order":0,
+            "active":true,
+            "targets":[
+               {
+                  "title":"GHG Target",
+                  "summary":"GHG Target",
+                  "slug":"ghg_target",
+                  "order":0,
+                  "year":2018,
+                  "reported_percentage":0,
+                  "updated_at":"2018-04-19 11:44:16 +0000",
+                  "indicators":[
+                     {
+                        "title":"GHG target type",
+                        "slug":"ghg_target_type",
+                        "values":[
+                           {
+                              "type":"textarea",
+                              "label":"Value",
+                              "value":"Base year target"
+                           }
+                        ],
+                        "order":0,
+                        "id":559,
+                        "updated_at":"2018-05-01 10:58:18 +0000",
+                        "metadata":"TODO"
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+]
+```
+
 ### `GET /api/v1/sections/:slug`
 
 #### Parameters:
@@ -106,7 +154,7 @@
 ### `GET /api/v1/sections/:section_slug/categories`
 
 #### Parameters:
-- `includes` - array of nested resources to include. Available values: `targets`
+- `includes` - array of nested resources to include. Available values: `targets`, `indicators`
 - `year` - integer, if omitted defaults to current year (applies to nested targets)
 
 #### Examples:
@@ -151,15 +199,48 @@
             "year":2018,
             "reported_percentage":0,
             "updated_at":"2018-04-19 11:44:16 +0000"
-         },
+         }
+      ]
+   }
+]
+```
+
+- `GET /api/v1/sections/planning/categories?includes[]=targets&includes[]=indicators`
+
+```
+[
+   {
+      "title":"NDC Targets",
+      "slug":"ndc_targets",
+      "optional":false,
+      "order":0,
+      "active":true,
+      "targets":[
          {
-            "title":"Non-GHG Target",
-            "summary":"Non-GHG Target",
-            "slug":"non_ghg_target",
-            "order":1,
+            "title":"GHG Target",
+            "summary":"GHG Target",
+            "slug":"ghg_target",
+            "order":0,
             "year":2018,
             "reported_percentage":0,
-            "updated_at":"2018-04-19 11:44:16 +0000"
+            "updated_at":"2018-04-19 11:44:16 +0000",
+            "indicators":[
+               {
+                  "title":"GHG target type",
+                  "slug":"ghg_target_type",
+                  "values":[
+                     {
+                        "type":"textarea",
+                        "label":"Value",
+                        "value":"Base year target"
+                     }
+                  ],
+                  "order":0,
+                  "id":559,
+                  "updated_at":"2018-05-01 10:58:18 +0000",
+                  "metadata":"TODO"
+               }
+            ]
          }
       ]
    }
@@ -190,6 +271,7 @@
 ### `GET /api/v1/sections/:section_slug/categories/:category_slug/targets`
 
 #### Parameters:
+- `includes` - array of nested resources to include. Available values: `indicators`
 - `year` - integer, if omitted defaults to current year
 
 #### Examples:
@@ -215,6 +297,39 @@
       "year":2018,
       "reported_percentage":0,
       "updated_at":"2018-04-19 11:44:16 +0000"
+   }
+]
+```
+
+- `GET /api/v1/sections/planning/categories/ndc_targets/targets?includes[]=indicators`
+
+```
+[
+   {
+      "title":"GHG Target",
+      "summary":"GHG Target",
+      "slug":"ghg_target",
+      "order":0,
+      "year":2018,
+      "reported_percentage":0,
+      "updated_at":"2018-04-19 11:44:16 +0000",
+      "indicators":[
+         {
+            "title":"GHG target type",
+            "slug":"ghg_target_type",
+            "values":[
+               {
+                  "type":"textarea",
+                  "label":"Value",
+                  "value":"Base year target"
+               }
+            ],
+            "order":0,
+            "id":559,
+            "updated_at":"2018-05-01 10:58:18 +0000",
+            "metadata":"TODO"
+         }
+      ]
    }
 ]
 ```

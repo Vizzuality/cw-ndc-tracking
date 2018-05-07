@@ -7,8 +7,9 @@ module Api
       before_action :load_static_category
 
       def index
-        @targets = GetAllTargets.new(@report, @static_section, @static_category).
-          call(@year)
+        @targets = GetAllTargets.new(
+          @report, @static_section, @static_category
+        ).call(@year, serialisation_options)
         render json: @targets
       end
     end

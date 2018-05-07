@@ -11,15 +11,15 @@ class Indicator < ApplicationRecord
   def validate_arity
     expected_length = static_indicator.values.length
     return true if values.nil? ||
-      values.is_a?(Array) && values.length == expected_length
-    errors[:values] << 'Must be an array of #{expected_length} elements'
+        values.is_a?(Array) && values.length == expected_length
+    errors[:values] << "Must be an array of #{expected_length} elements"
   end
 
   # @param value [Hash]
   # @option value [String] :label
   # @option value :value
   def update_value(value)
-    value_index = self.static_indicator.values.index do |v|
+    value_index = static_indicator.values.index do |v|
       v[:label] == value[:label]
     end
     unless value_index

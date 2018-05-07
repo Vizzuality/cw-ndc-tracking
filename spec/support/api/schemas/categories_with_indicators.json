@@ -1,0 +1,222 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "items": {
+    "$id": "http://example.com/example.json/items",
+    "type": "object",
+    "properties": {
+      "title": {
+        "$id": "http://example.com/example.json/items/properties/title",
+        "type": "string",
+        "title": "The Title Schema ",
+        "default": "",
+        "examples": [
+          "NDC Targets"
+        ]
+      },
+      "slug": {
+        "$id": "http://example.com/example.json/items/properties/slug",
+        "type": "string",
+        "title": "The Slug Schema ",
+        "default": "",
+        "examples": [
+          "ndc_targets"
+        ]
+      },
+      "optional": {
+        "$id": "http://example.com/example.json/items/properties/optional",
+        "type": "boolean",
+        "title": "The Optional Schema ",
+        "default": false,
+        "examples": [
+          false
+        ]
+      },
+      "order": {
+        "$id": "http://example.com/example.json/items/properties/order",
+        "type": "integer",
+        "title": "The Order Schema ",
+        "default": 0,
+        "examples": [
+          0
+        ]
+      },
+      "active": {
+        "$id": "http://example.com/example.json/items/properties/active",
+        "type": "boolean",
+        "title": "The Active Schema ",
+        "default": false,
+        "examples": [
+          true
+        ]
+      },
+      "targets": {
+        "$id": "http://example.com/example.json/items/properties/targets",
+        "type": "array",
+        "items": {
+          "$id": "http://example.com/example.json/items/properties/targets/items",
+          "type": "object",
+          "properties": {
+            "title": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/title",
+              "type": "string",
+              "title": "The Title Schema ",
+              "default": "",
+              "examples": [
+                "Non-GHG Target"
+              ]
+            },
+            "summary": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/summary",
+              "type": "string",
+              "title": "The Summary Schema ",
+              "default": "",
+              "examples": [
+                "Non-GHG Target"
+              ]
+            },
+            "slug": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/slug",
+              "type": "string",
+              "title": "The Slug Schema ",
+              "default": "",
+              "examples": [
+                "non_ghg_target"
+              ]
+            },
+            "order": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/order",
+              "type": "integer",
+              "title": "The Order Schema ",
+              "default": 0,
+              "examples": [
+                1
+              ]
+            },
+            "year": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/year",
+              "type": "integer",
+              "title": "The Year Schema ",
+              "default": 0,
+              "examples": [
+                2018
+              ]
+            },
+            "updated_at": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/updated_at",
+              "type": "string",
+              "title": "The Updated_at Schema ",
+              "default": "",
+              "examples": [
+                "2018-05-01 10:58:17 +0000"
+              ]
+            },
+            "indicators": {
+              "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators",
+              "type": "array",
+              "items": {
+                "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items",
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/title",
+                    "type": "string",
+                    "title": "The Title Schema ",
+                    "default": "",
+                    "examples": [
+                      "Theme"
+                    ]
+                  },
+                  "slug": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/slug",
+                    "type": "string",
+                    "title": "The Slug Schema ",
+                    "default": "",
+                    "examples": [
+                      "theme"
+                    ]
+                  },
+                  "values": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values",
+                    "type": "array",
+                    "items": {
+                      "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values/items",
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values/items/properties/type",
+                          "type": "string",
+                          "title": "The Type Schema ",
+                          "default": "",
+                          "examples": [
+                            "input"
+                          ]
+                        },
+                        "label": {
+                          "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values/items/properties/label",
+                          "type": "string",
+                          "title": "The Label Schema ",
+                          "default": "",
+                          "examples": [
+                            "Value"
+                          ]
+                        },
+                        "value": {
+                          "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values/items/properties/value",
+                          "type": "null",
+                          "title": "The Value Schema ",
+                          "default": null,
+                          "examples": [
+                            null
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "order": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/order",
+                    "type": "integer",
+                    "title": "The Order Schema ",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "id": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/id",
+                    "type": "integer",
+                    "title": "The Id Schema ",
+                    "default": 0,
+                    "examples": [
+                      587
+                    ]
+                  },
+                  "updated_at": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/updated_at",
+                    "type": "string",
+                    "title": "The Updated_at Schema ",
+                    "default": "",
+                    "examples": [
+                      "2018-05-01 10:58:17 +0000"
+                    ]
+                  },
+                  "metadata": {
+                    "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/metadata",
+                    "type": "string",
+                    "title": "The Metadata Schema ",
+                    "default": "",
+                    "examples": [
+                      "TODO"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

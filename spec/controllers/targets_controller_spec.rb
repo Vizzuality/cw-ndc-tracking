@@ -12,6 +12,15 @@ RSpec.describe Api::V1::TargetsController, type: :controller do
       expect(@response).to match_response_schema('targets')
     end
 
+    it 'includes indicators' do
+      get :index, params: {
+        section_slug: 'planning',
+        category_slug: 'ndc_targets',
+        includes: [:indicators]
+      }
+      expect(@response).to match_response_schema('targets_with_indicators')
+    end
+
     it 'responds with not found' do
       get :index, params: {
         section_slug: 'foobar', category_slug: 'ndc_targets'

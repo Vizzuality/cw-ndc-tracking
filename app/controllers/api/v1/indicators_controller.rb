@@ -11,7 +11,7 @@ module Api
       def index
         @indicators = GetAllIndicators.new(
           @report, @static_section, @static_category, @static_target
-        ).call(@year)
+        ).call(@year, serialisation_options)
         render json: @indicators
       end
 
@@ -19,7 +19,7 @@ module Api
         if @indicator.update_value(indicator_params[:value])
           render json: MergeStaticAndDynamicIndicator.new(
             @indicator.static_indicator, @indicator
-          ).call(include_reported: @static_section.tracking?)
+          ).call(serialisation_options)
         else
           render json: {error: 'Update error'}, status: :unprocessable_entity
         end
@@ -28,7 +28,9 @@ module Api
       private
 
       def load_static_target
-        @static_target = @static_category.find_target_by_slug(params[:target_slug])
+        @static_target = @static_category.find_target_by_slug(
+          params[:target_slug]
+        )
         render json: {}, status: :not_found and return unless @static_target
       end
 
@@ -37,7 +39,8 @@ module Api
         render json: {}, status: :not_found and return unless @indicator
       end
 
-      def indicator_params # TODO return error when incorrect payload
+      def indicator_params
+        # TODO: return error when incorrect payload
         params.require(:indicator).permit(value: [:value, :label])
       end
     end

@@ -8,7 +8,7 @@ module Api
 
       def index
         @categories = GetAllCategories.new(@report, @static_section).
-          call(@year, category_includes)
+          call(@year, serialisation_options)
         render json: @categories
       end
 
@@ -20,12 +20,8 @@ module Api
 
       def load_category
         @category = GetCategory.new(@report, @static_section).
-          call(params[:slug], @year, category_includes)
+          call(params[:slug], @year, serialisation_options)
         render json: {}, status: :not_found and return unless @category
-      end
-
-      def category_includes
-        (params[:includes] || []).map(&:to_sym)
       end
     end
   end

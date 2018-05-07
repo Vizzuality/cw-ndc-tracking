@@ -14,13 +14,15 @@ class GetAllIndicators
   end
 
   # @param year [Integer]
-  def call(year)
+  # @param options [Hash]
+  def call(year, options = {})
     return [] unless @category
-    @target = @category.targets.where(slug: @static_target.slug, year: year).first
+    @target = @category.targets.where(
+      slug: @static_target.slug, year: year
+    ).first
     MergeStaticAndDynamicIndicators.new(
-      @target,
       @static_target.indicators,
       @target.indicators
-    ).call(include_reported: @static_section.tracking?)
+    ).call(options.merge(include_reported: @static_section.tracking?))
   end
 end
