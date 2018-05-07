@@ -4,7 +4,8 @@ import { apiGet, apiPatch } from '../services/api.service';
 export default store => next => action => {
   const isApiAction = action.type === 'API';
   const isUserLoggedIn =
-    store.getState().user.email || localStorage.getItem('user');
+    store.getState().user.email ||
+    (localStorage.getItem('user') && localStorage.getItem('CWTTT'));
   if (isApiAction) {
     if (!isUserLoggedIn) {
       store.dispatch({ type: LOGIN });
@@ -12,12 +13,13 @@ export default store => next => action => {
       (action.method === 'PATCH'
         ? apiPatch(action.path, store.getState, action.body)
         : apiGet(action.path, store.getState))
-        .then(function (response) {
+        .then(response => {
+          if (response.status === 401) {
+            store.dispatch({ type: LOGIN });
+          }
           return response.json();
         })
-        .then(function (data) {
-          store.dispatch(action.onSuccess(data));
-        });
+        .then(data => data && store.dispatch(action.onSuccess(data)));
     }
   }
   return next(action);

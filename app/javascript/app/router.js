@@ -10,8 +10,6 @@ import Reporting from 'pages/reporting';
 import EditTarget from 'pages/edit-target';
 
 import { getSectionsThunk } from './providers/sections.provider';
-import { getCategoriesThunk } from './providers/categories.provider';
-import { getTargetsThunk } from './providers/targets.provider';
 import { getIndicatorsThunk } from './providers/indicators.provider';
 
 import { DEFAULT_TARGET } from './constants/defaults';
@@ -36,11 +34,7 @@ export const routes = {
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
-    thunk: dispatchPreFetchThunks(
-      getSectionsThunk,
-      getCategoriesThunk,
-      getTargetsThunk
-    )
+    thunk: dispatchPreFetchThunks(getSectionsThunk)
   },
   [PLANNING]: {
     label: 'Planning',

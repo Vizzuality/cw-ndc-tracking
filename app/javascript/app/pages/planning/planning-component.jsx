@@ -12,36 +12,38 @@ class Planning extends PureComponent {
     const isNotNdcTargetsCategory =
       categories && selectedCategory && selectedCategory !== 'ndc_targets';
     return (
-      <div className={styles.page}>
-        <Header title="Planning" navSections={categories} />
-        {isNotNdcTargetsCategory && (
-          <div className={styles.actionsWrapper}>
-            <div className={styles.actions}>
-              <Search
-                placeholder="Search something"
-                value={search}
-                onChange={handleOnSearch}
-                className={styles.search}
-              />
-            </div>
-          </div>
-        )}
-        <div className={styles.targetsContainer}>
-          {categories &&
-            selectedCategory &&
-            categories
-              .find(category => category.slug === selectedCategory)
-              .targets.map(target => (
-                <Target
-                  title={target.title}
-                  key={target.slug}
-                  summary={target.summary}
-                  editActionLink={`/planning/${selectedCategory}/${target.slug}`}
-                  infoText="text"
+      categories && (
+        <div className={styles.page}>
+          <Header title="Planning" navSections={categories} />
+          {isNotNdcTargetsCategory && (
+            <div className={styles.actionsWrapper}>
+              <div className={styles.actions}>
+                <Search
+                  placeholder="Search something"
+                  value={search}
+                  onChange={handleOnSearch}
+                  className={styles.search}
                 />
-              ))}
+              </div>
+            </div>
+          )}
+          <div className={styles.targetsContainer}>
+            {categories &&
+              selectedCategory &&
+              categories
+                .find(category => category.slug === selectedCategory)
+                .targets.map(target => (
+                  <Target
+                    title={target.title}
+                    key={target.slug}
+                    summary={target.summary}
+                    editActionLink={`/planning/${selectedCategory}/${target.slug}`}
+                    infoText="text"
+                  />
+                ))}
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
