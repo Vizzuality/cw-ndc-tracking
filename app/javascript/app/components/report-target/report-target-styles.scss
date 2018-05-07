@@ -37,8 +37,13 @@
 
 .indicator {
   padding-bottom: $gutter-padding;
+  &:nth-child(even) {
+    @include xy-cell(6 of 12, $gutter-position: left);
+  }
 
-  @include xy-cell(6 of 12, $gutters: 0);
+  &:nth-child(odd) {
+    @include xy-cell(6 of 12, $gutter-position: right);
+  }
 
   &.textarea {
     @include xy-cell(12 of 12, $gutters: 0);

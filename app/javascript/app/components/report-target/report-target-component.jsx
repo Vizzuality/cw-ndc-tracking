@@ -13,8 +13,10 @@ class ReportTarget extends PureComponent {
         <div className={styles.title}>{indicator.title}</div>
         {indicator.values.map(v => (
           <div key={v.label} className={styles.value}>
-            {v.label !== 'Value' && `${v.label}: `}
-            {v.value}
+            {v.label !== 'Value' && v.value && `${v.label}: `}
+            <span
+              dangerouslySetInnerHTML={{ __html: v.value }} // eslint-disable-line
+            />
             {v.unit && ` ${v.unit}`}
           </div>
         ))}
