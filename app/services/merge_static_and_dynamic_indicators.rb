@@ -11,10 +11,9 @@ class MergeStaticAndDynamicIndicators
   # @option options [Boolean] :include_reported
   def call(options = {})
     @dynamic_indicators.map do |dynamic_indicator|
-      match = @static_indicators.detect do |static_indicator|
-        dynamic_indicator.slug == static_indicator.slug
-      end
-      MergeStaticAndDynamicIndicator.new(match, dynamic_indicator).
+      # TODO: opportunity to simplify
+      static_indicator = dynamic_indicator.static_indicator
+      MergeStaticAndDynamicIndicator.new(static_indicator, dynamic_indicator).
         call(options)
     end
   end

@@ -47,5 +47,9 @@ module Static
     def tracking?
       @slug == TRACKING
     end
+
+    def planning?
+      @slug == PLANNING
+    end
   end
 end
