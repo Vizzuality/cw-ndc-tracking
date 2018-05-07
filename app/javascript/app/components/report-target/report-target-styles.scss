@@ -37,6 +37,7 @@
 
 .indicator {
   padding-bottom: $gutter-padding;
+
   &:nth-child(even) {
     @include xy-cell(6 of 12, $gutter-position: left);
   }
