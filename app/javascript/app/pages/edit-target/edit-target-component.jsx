@@ -8,7 +8,13 @@ import styles from './edit-target-styles.scss';
 
 class EditTarget extends PureComponent {
   render() {
-    const { target, handleOnSearch, search, indicators } = this.props;
+    const {
+      target,
+      handleOnSearch,
+      search,
+      indicators,
+      handleEditIndicator
+    } = this.props;
     return (
       <div className={styles.page}>
         <Header title={target && target.title} backButton />
@@ -29,7 +35,8 @@ class EditTarget extends PureComponent {
                   title={i.title}
                   values={i.values}
                   infoText={i.title}
-                  handleBlur={() => 'TODO save'}
+                  handleBlur={(valueLabel, value) =>
+                    handleEditIndicator(i.slug, valueLabel, value)}
                 />
               ))}
             </div>
@@ -46,7 +53,8 @@ EditTarget.propTypes = {
   target: PropTypes.object,
   handleOnSearch: PropTypes.func.isRequired,
   indicators: PropTypes.array,
-  search: PropTypes.string
+  search: PropTypes.string,
+  handleEditIndicator: PropTypes.func
 };
 
 export default EditTarget;

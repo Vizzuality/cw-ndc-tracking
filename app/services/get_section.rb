@@ -6,19 +6,36 @@ class GetSection
 
   # @param slug [String]
   # @param year [Integer]
-  # @param section_includes [Array<Symbol>]
-  def call(slug, year, section_includes)
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  def call(slug, year, options = {})
     static_section = Static::Section.find_by_slug(slug)
     return nil unless static_section
     section_hash = static_section.to_hash
-    if (section_includes & [:categories, :targets]).any?
-      report_categories = @report.categories.all
-      section_hash[:categories] = MergeStaticAndDynamicCategories.new(
-        static_section,
-        static_section.categories,
-        report_categories
-      ).call(year, section_includes)
+    if options[:includes].is_a?(Array) &&
+        (options[:includes] & [:categories, :targets, :indicators]).any?
+      section_hash['categories'] = include_categories(
+        static_section, year, options
+      )
     end
     section_hash
+  end
+
+  private
+
+  # @param static_section [Static::Section]
+  # @param year [Integer]
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  def include_categories(static_section, year, options = {})
+    dynamic_categories = @report.categories.all
+    MergeStaticAndDynamicCategories.new(
+      static_section,
+      static_section.categories,
+      dynamic_categories
+    ).call(
+      year,
+      options.merge(include_reported: static_section.tracking?)
+    )
   end
 end

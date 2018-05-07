@@ -29,11 +29,7 @@ module Static
     end
 
     def to_hash
-      serializable_hash(
-        {
-          methods: [:title, :slug, :optional, :order]
-        }
-      )
+      serializable_hash(methods: [:title, :slug, :optional, :order])
     end
   end
 end

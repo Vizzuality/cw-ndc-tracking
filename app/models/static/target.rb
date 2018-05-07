@@ -13,7 +13,9 @@ module Static
       @order = target_config[:order]
       @indicators = target_config[:indicators].
         map.with_index do |indicator_config, idx|
-          Static::Indicator.new(indicator_config.symbolize_keys.merge(order: idx))
+          Static::Indicator.new(
+            indicator_config.symbolize_keys.merge(order: idx)
+          )
         end
     end
 
@@ -29,11 +31,7 @@ module Static
     end
 
     def to_hash
-      serializable_hash(
-        {
-          methods: [:title, :summary, :slug, :order]
-        }
-      )
+      serializable_hash(methods: [:title, :summary, :slug, :order])
     end
   end
 end

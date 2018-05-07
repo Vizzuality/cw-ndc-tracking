@@ -7,10 +7,11 @@ class GetAllCategories
   end
 
   # @param year [Integer]
-  # @param category_includes [Array<Symbol>]
-  def call(year, category_includes)
+  # @param options [Hash]
+  # @option options [Array<Symbol>] :includes
+  def call(year, options = {})
     MergeStaticAndDynamicCategories.new(
       @static_section, @static_section.categories, @report.categories.all
-    ).call(year, category_includes)
+    ).call(year, options.merge(include_reported: @static_section.tracking?))
   end
 end

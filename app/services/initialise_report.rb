@@ -12,15 +12,15 @@ class InitialiseReport
   def call(years, options = {})
     force = options[:force] || false
     @report = Report.find_by_user_id(@user.id)
-    unless @report
-      @report = Report.create(user_id: @user.id)
-    else
+    if @report
       @report.categories.delete_all if force
+    else
+      @report = Report.create(user_id: @user.id)
     end
     cw_values = GetIndicatorValuesForCountry.new.call(@country_iso_code)
 
     @report.initialize_data(
-      years, {force: options[:force], cw_values: cw_values}
+      years, force: options[:force], cw_values: cw_values
     )
     @report
   end

@@ -9,11 +9,10 @@ module Static
       @title = indicator_config[:title]
       @slug = indicator_config[:slug]
       @order = indicator_config[:order]
-      @values = indicator_config[:values].
-        map do |value_config|
-          value_config['label'] = 'Value' unless value_config['label'].present?
-          value_config.symbolize_keys
-        end
+      @values = indicator_config[:values].map do |value_config|
+        value_config['label'] = 'Value' unless value_config['label'].present?
+        value_config.symbolize_keys
+      end
     end
 
     def attributes
@@ -21,11 +20,7 @@ module Static
     end
 
     def to_hash
-      serializable_hash(
-        {
-          methods: [:title, :slug, :order, :values]
-        }
-      )
+      serializable_hash(methods: [:title, :slug, :order, :values])
     end
   end
 end

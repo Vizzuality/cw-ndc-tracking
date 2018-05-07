@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env.development?
-  admin_user = User.create!(
+  User.create!(
     email: 'admin@example.com',
     name: 'Admin User',
     is_admin: true,
@@ -23,7 +23,7 @@ if Rails.env.development?
     password_confirmation: 'password'
   )
 
-  default_report = InitialiseReport.new(
+  InitialiseReport.new(
     api_user, api_user.country_iso_code
-  ).call([2018], {force: true})
+  ).call([2018], force: true)
 end

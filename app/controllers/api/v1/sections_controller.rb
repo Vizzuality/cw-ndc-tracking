@@ -7,7 +7,7 @@ module Api
 
       def index
         @static_sections = GetAllSections.new(@report).
-          call(@year, section_includes)
+          call(@year, serialisation_options)
         render json: @static_sections
       end
 
@@ -19,12 +19,8 @@ module Api
 
       def load_static_section
         @static_section = GetSection.new(@report).
-          call(params[:slug], @year, section_includes)
+          call(params[:slug], @year, serialisation_options)
         render json: {}, status: :not_found and return unless @static_section
-      end
-
-      def section_includes
-        (params[:includes] || []).map(&:to_sym)
       end
     end
   end

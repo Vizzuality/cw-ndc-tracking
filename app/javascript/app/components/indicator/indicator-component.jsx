@@ -36,7 +36,8 @@ const Indicator = ({ title, values, theme, infoText, handleBlur }) => (
                   defaultValue={parseValue(value.value)}
                   options={parseOptions(value.options)}
                   hideResetButton
-                  handleChange={handleBlur}
+                  handleChange={updatedValue =>
+                    handleBlur(value.label, updatedValue)}
                 />
               ) : (
                 <Input
@@ -45,7 +46,7 @@ const Indicator = ({ title, values, theme, infoText, handleBlur }) => (
                   inputType={value.type}
                   label={value.label}
                   unit={value.unit}
-                  onBlur={handleBlur}
+                  onBlur={updatedValue => handleBlur(value.label, updatedValue)}
                 />
               ))
           )}

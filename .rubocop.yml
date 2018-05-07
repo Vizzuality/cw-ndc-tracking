@@ -63,7 +63,7 @@ Style/StringLiterals:
     - 'spec/rails_helper.rb'
 
 Metrics/LineLength:
-  Max: 100
+  Max: 80
   Exclude:
     - 'db/**/*'
     - 'spec/spec_helper.rb'
