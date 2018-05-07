@@ -1,6 +1,7 @@
 import { apiActionCreator, get } from '../services/api.service';
 
-const path = 'sections?includes[]=categories&includes[]=targets';
+const path =
+  'sections?includes[]=categories&includes[]=targets&includes[]=indicators';
 
 export async function getSectionsThunk(dispatch, getState) {
   const isSectionsEmpty = getState().sections.length === 0;
