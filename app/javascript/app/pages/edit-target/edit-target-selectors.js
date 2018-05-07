@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import sortBy from 'lodash/sortBy';
 import deburr from 'lodash/deburr';
 
 const getSections = state => state.sections || null;
@@ -23,9 +24,12 @@ export const getIndicators = createSelector(
   [getTarget, getSearch, state => state.indicators],
   (target, search, indicators) => {
     if (!target || !indicators) return null;
-    if (!search) return indicators;
-    return indicators.filter(
-      i => deburr(i.title.toLowerCase()).indexOf(search.toLowerCase()) > -1
+    if (!search) return sortBy(indicators, 'order');
+    return sortBy(
+      indicators.filter(
+        i => deburr(i.title.toLowerCase()).indexOf(search.toLowerCase()) > -1
+      ),
+      'order'
     );
   }
 );
