@@ -36,6 +36,18 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class EditTargetContainer extends PureComponent {
+  componentWillUnmount() {
+    if (this.handleBeforeunload) { window.removeEventListener('beforeunload', this.handleBeforeunload); }
+  }
+
+  // eslint-disable-next-line consistent-return
+  handleBeforeunload = event => {
+    const returnValue = 'Close this alert to save the changes';
+    const updatedEvent = event;
+    updatedEvent.returnValue = returnValue;
+    return returnValue;
+  };
+
   render() {
     const handleOnSearch = query => {
       updateUrlParam({ name: 'search', value: query });
@@ -50,6 +62,7 @@ class EditTargetContainer extends PureComponent {
         handlePatchIndicator,
         indicators
       } = this.props;
+      if (this.handleBeforeunload) { window.removeEventListener('beforeunload', this.handleBeforeunload); }
       const indicator = indicators.find(i => i.id === indicatorId);
       const valueToUpdate =
         indicator && indicator.values.find(v => v.label === valueLabel);
@@ -61,10 +74,15 @@ class EditTargetContainer extends PureComponent {
       }
     };
 
+    const handleNotSavedChange = () => {
+      window.addEventListener('beforeunload', this.handleBeforeunload);
+    };
+
     return createElement(Component, {
       ...this.props,
       handleOnSearch,
-      handleEditIndicator
+      handleEditIndicator,
+      handleNotSavedChange
     });
   }
 }

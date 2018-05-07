@@ -10,7 +10,14 @@ import styles from './indicator-styles.scss';
 const parseValue = value => ({ label: value, value });
 const parseOptions = options => options.map(option => parseValue(option.label));
 
-const Indicator = ({ title, values, theme, infoText, handleBlur }) => (
+const Indicator = ({
+  title,
+  values,
+  theme,
+  infoText,
+  handleChange,
+  handleBlur
+}) => (
   <div
     className={cx(theme.borderStyles, {
       [theme.notApplicable]: values.some(v => v.value === 'n/a')
@@ -46,6 +53,7 @@ const Indicator = ({ title, values, theme, infoText, handleBlur }) => (
                   inputType={value.type}
                   label={value.label}
                   unit={value.unit}
+                  onChange={handleChange}
                   onBlur={updatedValue => handleBlur(value.label, updatedValue)}
                 />
               ))
@@ -61,6 +69,7 @@ Indicator.propTypes = {
   theme: PropTypes.object,
   title: PropTypes.string,
   handleBlur: PropTypes.func,
+  handleChange: PropTypes.func,
   infoText: PropTypes.string
 };
 
