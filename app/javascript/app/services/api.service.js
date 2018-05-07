@@ -28,15 +28,16 @@ export const apiGet = (endpoint, getState) => {
 export const apiPatch = (endpoint, getState, body) => {
   const configWithHeaders = {
     method: 'PATCH',
-    body,
+    body: JSON.stringify(body),
     headers: getHeaders(getState, localStorage)
   };
   return fetch(`${API_URL}/${endpoint}`, configWithHeaders);
 };
 
-export const apiActionCreator = (path, method, successAction) => ({
+export const apiActionCreator = (path, method, successAction, body = null) => ({
   type: 'API',
   path,
   method,
-  onSuccess: successAction
+  onSuccess: successAction,
+  ...(body ? { body } : {})
 });
