@@ -64,7 +64,9 @@ export const routes = {
     label: 'Reporting',
     path: '/reporting',
     component: Reporting,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState, true);
+    }
   },
   [LOGIN]: {
     path: '/login',
@@ -93,7 +95,9 @@ export const routes = {
 const customRestoreScroll = restoreScroll({
   shouldUpdateScroll: (prev, locationState) => {
     if (!locationState.query) return true;
-    if (locationState.kind === 'push' && !locationState.payload.query) { return false; } // Don't scroll if changing the anchor while scrolling
+    if (locationState.kind === 'push' && !locationState.payload.query) {
+      return false;
+    } // Don't scroll if changing the anchor while scrolling
     const id = `${locationState.query.category}+${locationState.query.target}`;
     if (!id || prev.search === locationState.search) return true;
     const element = document.getElementById(id);

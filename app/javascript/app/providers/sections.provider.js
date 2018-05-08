@@ -2,10 +2,10 @@ import { apiActionCreator, get } from '../services/api.service';
 
 const path =
   'sections?includes[]=categories&includes[]=targets&includes[]=indicators';
-
-export async function getSectionsThunk(dispatch, getState) {
+// Remove the force attribute when the reducers are updated and the data has only one source
+export async function getSectionsThunk(dispatch, getState, force = false) {
   const isSectionsEmpty = getState().sections.length === 0;
-  if (isSectionsEmpty) {
+  if (isSectionsEmpty || force) {
     dispatch(fetchSections());
   }
 }

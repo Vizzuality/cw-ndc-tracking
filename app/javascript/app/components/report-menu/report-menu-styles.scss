@@ -23,6 +23,7 @@
     color: $theme-color;
     text-decoration: none;
     padding-left: 20px;
+    display: inline-block;
 
     &.active::before {
       content: "";
