@@ -6,11 +6,11 @@ import { updateUrlParam } from 'utils/navigation';
 import { filterCategoryTargetsBySearch } from './tracking-selectors';
 import TrackingComponent from './tracking-component';
 
-const mapStateToProps = ({ location, sections }) => {
+const mapStateToProps = ({ location, tracking }) => {
   const query = qs.parse(history().location.search);
   const search = (query && query.search) || null;
   const state = {
-    sections,
+    tracking,
     search
   };
   return {

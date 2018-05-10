@@ -2,18 +2,15 @@ import { createSelector } from 'reselect';
 import deburr from 'lodash/deburr';
 
 const getSearch = state => state.search || null;
-const getCategories = createSelector(
-  state => state.sections,
-  sections => {
-    if (!sections || sections.length === 0) return null;
-    return sections
-      .find(section => section.slug === 'tracking')
-      .categories.map(category => ({
-        ...category,
-        path: `/tracking/${category.slug}`
-      }));
-  }
-);
+const getTracking = state => state.tracking || null;
+
+const getCategories = createSelector(getTracking, tracking => {
+  if (!tracking || tracking.length === 0) return null;
+  return tracking.categories.map(category => ({
+    ...category,
+    path: `/tracking/${category.slug}`
+  }));
+});
 
 export const filterCategoryTargetsBySearch = createSelector(
   [getCategories, getSearch],
