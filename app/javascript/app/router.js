@@ -10,7 +10,9 @@ import Reporting from 'pages/reporting';
 import EditTarget from 'pages/edit-target';
 
 import { getSectionsThunk } from './providers/sections.provider';
-import { getIndicatorsThunk } from './providers/indicators.provider';
+import { getPlanningThunk } from './providers/planning.provider';
+import { getTrackingThunk } from './providers/tracking.provider';
+import { getReportThunk } from './providers/report.provider';
 
 import { DEFAULT_TARGET } from './constants/defaults';
 
@@ -34,7 +36,7 @@ export const routes = {
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: dispatchPreFetchThunks(getSectionsThunk, getPlanningThunk)
   },
   [PLANNING]: {
     label: 'Planning',
@@ -49,14 +51,14 @@ export const routes = {
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: dispatchPreFetchThunks(getSectionsThunk, getTrackingThunk)
   },
   [TRACKING]: {
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
     thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState);
+      getTrackingThunk(dispatch, getState);
       push(`/tracking/${DEFAULT_TARGET}`);
     }
   },
@@ -64,9 +66,7 @@ export const routes = {
     label: 'Reporting',
     path: '/reporting',
     component: Reporting,
-    thunk: (dispatch, getState) => {
-      getSectionsThunk(dispatch, getState, true);
-    }
+    thunk: dispatchPreFetchThunks(getReportThunk)
   },
   [LOGIN]: {
     path: '/login',
@@ -79,12 +79,12 @@ export const routes = {
   [PLANNING_TARGET_EDIT]: {
     path: '/planning/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(getSectionsThunk, getPlanningThunk)
   },
   [TRACKING_TARGET_EDIT]: {
     path: '/tracking/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(getSectionsThunk, getTrackingThunk)
   },
   [NOT_FOUND]: {
     path: '/404',
