@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import includes from 'lodash/includes';
 
-const getSections = state => state.sections || null;
+const getReport = state => state.report || null;
 
 const updatedTargets = (category, sectionSlug) =>
   category.targets.map(target => {
@@ -51,10 +51,10 @@ const updateExistingCategoryTargets = (
 // look for the targets with the same slug
 // add the tracking: indicators to them
 
-export const parseCategories = createSelector(getSections, sections => {
-  if (!sections) return null;
+export const parseCategories = createSelector(getReport, report => {
+  if (!report) return null;
   const categories = [];
-  sections.forEach(section => {
+  report.forEach(section => {
     section.categories.forEach(category => {
       const existingCategory = categories.find(c => category.slug === c.slug);
       if (!existingCategory) {
