@@ -6,11 +6,11 @@ import { updateUrlParam } from 'utils/navigation';
 import { filterCategoryTargetsBySearch } from './planning-selectors';
 import PlanningComponent from './planning-component';
 
-const mapStateToProps = ({ location, sections }) => {
+const mapStateToProps = ({ location, planning }) => {
   const query = qs.parse(history().location.search);
   const search = (query && query.search) || null;
   const state = {
-    sections,
+    planning,
     search
   };
   return {
