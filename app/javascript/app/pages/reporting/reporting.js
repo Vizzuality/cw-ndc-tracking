@@ -4,8 +4,8 @@ import { push } from 'redux-first-router';
 import { parseCategories } from './reporting-selectors';
 import ReportingComponent from './reporting-component';
 
-const mapStateToProps = ({ location, sections }) => {
-  const state = { sections };
+const mapStateToProps = ({ location, report }) => {
+  const state = { report };
   return {
     routes: Object.values(location.routesMap).filter(r => !!r.nav),
     categories: parseCategories(state)

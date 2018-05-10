@@ -5,19 +5,21 @@ import { updateUrlParam } from 'utils/navigation';
 import qs from 'query-string';
 import PropTypes from 'prop-types';
 import { patchIndicator } from 'providers/indicators.provider';
-import { getTarget, getIndicators } from './edit-target-selectors';
+import { getTarget, getIndicatorsWithSearch } from './edit-target-selectors';
 import Component from './edit-target-component';
 
-const mapStateToProps = ({ location, sections, indicators }) => {
+const mapStateToProps = ({ location, sections, planning, tracking }) => {
   const query = qs.parse(history().location.search);
   const section = location.pathname.split('/')[1];
   const category = location.payload.category;
+  const target = location.payload.target;
   const state = {
     sections,
     section,
+    planning,
+    tracking,
     category,
-    indicators,
-    target: location.payload.target,
+    target,
     search: (query && query.search) || null
   };
 
@@ -25,7 +27,7 @@ const mapStateToProps = ({ location, sections, indicators }) => {
     section,
     category,
     target: getTarget(state),
-    indicators: getIndicators(state),
+    indicators: getIndicatorsWithSearch(state),
     search: state.search
   };
 };
@@ -37,7 +39,9 @@ const mapDispatchToProps = dispatch => ({
 
 class EditTargetContainer extends PureComponent {
   componentWillUnmount() {
-    if (this.handleBeforeunload) { window.removeEventListener('beforeunload', this.handleBeforeunload); }
+    if (this.handleBeforeunload) {
+      window.removeEventListener('beforeunload', this.handleBeforeunload);
+    }
   }
 
   // eslint-disable-next-line consistent-return
@@ -62,7 +66,9 @@ class EditTargetContainer extends PureComponent {
         handlePatchIndicator,
         indicators
       } = this.props;
-      if (this.handleBeforeunload) { window.removeEventListener('beforeunload', this.handleBeforeunload); }
+      if (this.handleBeforeunload) {
+        window.removeEventListener('beforeunload', this.handleBeforeunload);
+      }
       const indicator = indicators.find(i => i.id === indicatorId);
       const valueToUpdate =
         indicator && indicator.values.find(v => v.label === valueLabel);
