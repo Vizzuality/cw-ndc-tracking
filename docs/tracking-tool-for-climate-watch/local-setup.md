@@ -60,7 +60,7 @@ POSTGRES_URL=postgresql://postgres@localhost/cw-ndc-tracker_development
 ### Setting up the database
 
 ```text
-rails db:create db:migrate
+rails db:create db:migrate db:seed
 ```
 
 These will create the development database and then run the database migration tasks.
