@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Sticky from 'react-stickynode';
 import { NavLink } from 'redux-first-router-link';
 import { REPORTING } from 'app/router';
+import cx from 'classnames';
+import layout from 'styles/layout';
 import styles from './report-menu-styles.scss';
 
 class ReportMenu extends PureComponent {
@@ -10,7 +12,7 @@ class ReportMenu extends PureComponent {
   render() {
     const { categories, activeCategory, activeTarget } = this.props;
     return (
-      <div className={styles.ReportMenu}>
+      <div className={cx(styles.ReportMenu, layout.noPrint)}>
         <Sticky top={90}>
           {categories.length > 0 &&
             categories.map(category => (
