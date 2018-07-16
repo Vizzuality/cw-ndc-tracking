@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import capitalize from 'lodash/capitalize';
 
+import layout from 'styles/layout';
+import printStyles from './report-target-print-styles.scss';
 import styles from './report-target-styles.scss';
 
 class ReportTarget extends PureComponent {
@@ -10,7 +12,9 @@ class ReportTarget extends PureComponent {
   renderSection(sectionTitle) {
     const renderIndicator = indicator => (
       <Fragment>
-        <div className={styles.title}>{indicator.title}</div>
+        <div className={cx(styles.title, layout.noPageBreak)}>
+          {indicator.title}
+        </div>
         {indicator.values.map(v => (
           <div key={v.label} className={styles.value}>
             {v.label !== 'Value' && v.value && `${v.label}: `}
@@ -33,7 +37,7 @@ class ReportTarget extends PureComponent {
           {target[sectionTitle].map(indicator => (
             <div
               key={indicator.slug}
-              className={cx(styles.indicator, {
+              className={cx(styles.indicator, layout.noPageBreak, {
                 [styles.textarea]: indicator.type === 'textarea'
               })}
             >
@@ -58,7 +62,9 @@ class ReportTarget extends PureComponent {
     return (
       target && (
         <div key={target.title} className={styles.target} id={id}>
-          <div className={styles.targetName}>{capitalize(target.title)}</div>
+          <div className={cx(styles.targetName, printStyles.targetName)}>
+            {capitalize(target.title)}
+          </div>
           <div className={styles.summary}>{target.summary}</div>
           {renderSections()}
           {separator && <div className={styles.separator} />}

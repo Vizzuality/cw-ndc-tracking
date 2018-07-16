@@ -1,0 +1,10 @@
+@import '~styles/settings.scss';
+
+.button {
+  background-color: $white;
+  transition: box-shadow 150ms ease-out;
+
+  &:hover {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
+  }
+}

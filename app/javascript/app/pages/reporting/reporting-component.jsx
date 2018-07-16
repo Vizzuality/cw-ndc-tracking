@@ -5,6 +5,10 @@ import ReportTarget from 'components/report-target';
 import ReportMenu from 'components/report-menu';
 import PropTypes from 'prop-types';
 import Waypoint from 'react-waypoint';
+import whiteButtonTheme from 'styles/themes/button/button-white.scss';
+import layout from 'styles/layout';
+import cx from 'classnames';
+import printStyles from './reporting-print-styles.scss';
 import styles from './reporting-styles.scss';
 
 class Reporting extends PureComponent {
@@ -19,15 +23,24 @@ class Reporting extends PureComponent {
       <div>
         <Header
           title="Reporting"
+          className={layout.noPrint}
           actions={
             <div className={styles.actionButtonsLayout}>
-              <Button>Save as XLS</Button>
-              <Button>Save as PDF</Button>
+              <Button theme={whiteButtonTheme}>Save as XLS</Button>
+              <Button theme={whiteButtonTheme} onClick={() => window.print()}>
+                Save as PDF
+              </Button>
             </div>
           }
         />
-        <div className={styles.reportingContentLayout}>
+        <div
+          className={cx(
+            styles.reportingContentLayout,
+            printStyles.reportingContentLayout
+          )}
+        >
           <ReportMenu
+            className={styles.noPrint}
             categories={categories}
             activeCategory={activeCategory}
             activeTarget={activeTarget}

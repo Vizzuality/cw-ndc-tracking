@@ -1,0 +1,12 @@
+@import '~styles/layout.scss';
+
+@media only print {
+  .targetName {
+    padding-bottom: 0;
+  }
+
+  .summary {
+    padding-bottom: 0;
+  }
+}
+

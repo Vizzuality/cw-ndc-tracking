@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import NavLinks from 'components/nav-links';
 import BackButton from 'components/button/back-button';
 import cx from 'classnames';
+import layout from 'styles/layout';
 import styles from './header-styles.scss';
 
 const Header = ({ title, actions, navSections, backButton }) => (
-  <div className={styles.header}>
+  <div className={cx(styles.header, layout.noPrint)}>
     <div
       className={cx(styles.headerLayout, { [styles.withActions]: !!actions })}
     >
