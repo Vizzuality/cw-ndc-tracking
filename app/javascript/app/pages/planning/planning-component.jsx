@@ -44,7 +44,7 @@ class Planning extends PureComponent {
                     key={target.slug}
                     summary={target.summary}
                     editActionLink={`/planning/${selectedCategory}/${target.slug}`}
-                    infoText="text"
+                    infoText={target.info}
                     targetType={getTargetMetaData(target, 'ghg_target_type')}
                     targetYear={getTargetMetaData(target, 'M_TarYr')}
                   />
