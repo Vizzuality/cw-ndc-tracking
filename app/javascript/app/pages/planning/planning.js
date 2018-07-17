@@ -27,9 +27,17 @@ class PlanningContainer extends PureComponent {
       updateUrlParam({ name: 'search', value: query });
     };
 
+    function getTargetMetaData(target, slug) {
+      const targetMetaDataField = target.indicators.find(
+        ind => ind.slug === slug
+      );
+      return targetMetaDataField && targetMetaDataField.values[0].value;
+    }
+
     return createElement(PlanningComponent, {
       ...this.props,
-      handleOnSearch
+      handleOnSearch,
+      getTargetMetaData
     });
   }
 }
