@@ -19,16 +19,21 @@ const Target = ({
   handleRemoveAction,
   infoText,
   targetType,
-  targetYear
+  targetYear,
+  summaryOnTooltip
 }) => (
   <div className={theme.borderStyles}>
     <div className={theme.wrapper}>
       <div className={theme.infoContainer}>
         <div className={styles.nameWrapper}>
           <span className={theme.name}>{title}</span>
-          {infoText && <InfoIcon text={infoText} className={styles.infoIcon} />}
+          {summary &&
+          summaryOnTooltip && (
+          <InfoIcon text={infoText} className={styles.infoIcon} />
+            )}
         </div>
-        {summary && <p className={theme.summary}>{summary}</p>}
+        {summary &&
+        !summaryOnTooltip && <p className={theme.summary}>{summary}</p>}
         {targetType && (
           <div className={styles.metadataItem}>
             <p className={styles.metadataTitle}>Target type</p>
@@ -66,12 +71,12 @@ Target.propTypes = {
   infoText: PropTypes.string,
   summary: PropTypes.string,
   targetType: PropTypes.string,
-  targetYear: PropTypes.string
+  targetYear: PropTypes.string,
+  summaryOnTooltip: PropTypes.bool
 };
 
 Target.defaultProps = {
-  hasRemoveAction: false,
-  hasEditAction: false
+  summaryOnTooltip: false
 };
 
 export default themr('Target', styles)(Target);
