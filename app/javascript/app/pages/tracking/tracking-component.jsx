@@ -13,7 +13,8 @@ class Tracking extends PureComponent {
       selectedCategory,
       search,
       handleOnSearch,
-      handleYearChange
+      handleYearChange,
+      getSelectedCategoryTitle
     } = this.props;
     const isNotNdcTargetsCategory =
       categories && selectedCategory && selectedCategory !== 'ndc_targets';
@@ -41,7 +42,10 @@ class Tracking extends PureComponent {
             <div className={styles.actionsWrapper}>
               <div className={styles.actions}>
                 <Search
-                  placeholder="Search something"
+                  placeholder={`Filter ${getSelectedCategoryTitle(
+                    categories,
+                    selectedCategory
+                  )}`}
                   value={search}
                   onChange={handleOnSearch}
                   className={styles.search}
@@ -76,7 +80,8 @@ Tracking.propTypes = {
   search: PropTypes.string,
   selectedCategory: PropTypes.string,
   handleOnSearch: PropTypes.func.isRequired,
-  handleYearChange: PropTypes.func
+  handleYearChange: PropTypes.func,
+  getSelectedCategoryTitle: PropTypes.func
 };
 
 export default Tracking;
