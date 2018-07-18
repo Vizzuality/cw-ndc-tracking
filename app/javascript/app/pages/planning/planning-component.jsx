@@ -8,7 +8,13 @@ import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
-    const { categories, selectedCategory, handleOnSearch, search } = this.props;
+    const {
+      categories,
+      selectedCategory,
+      handleOnSearch,
+      search,
+      getTargetMetaData
+    } = this.props;
     const isNotNdcTargetsCategory =
       categories && selectedCategory && selectedCategory !== 'ndc_targets';
     return (
@@ -38,7 +44,8 @@ class Planning extends PureComponent {
                     key={target.slug}
                     summary={target.summary}
                     editActionLink={`/planning/${selectedCategory}/${target.slug}`}
-                    infoText="text"
+                    targetType={getTargetMetaData(target, 'ghg_target_type')}
+                    targetYear={getTargetMetaData(target, 'M_TarYr')}
                   />
                 ))}
           </div>
@@ -52,7 +59,8 @@ Planning.propTypes = {
   selectedCategory: PropTypes.string,
   search: PropTypes.string,
   categories: PropTypes.array,
-  handleOnSearch: PropTypes.func
+  handleOnSearch: PropTypes.func,
+  getTargetMetaData: PropTypes.func
 };
 
 export default Planning;
