@@ -28,6 +28,7 @@ class PlanningContainer extends PureComponent {
     };
 
     function getTargetMetaData(target, slug) {
+      if (!target || !target.indicators) return null;
       const targetMetaDataField = target.indicators.find(
         ind => ind.slug === slug
       );
