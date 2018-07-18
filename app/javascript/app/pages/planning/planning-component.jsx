@@ -16,7 +16,8 @@ class Planning extends PureComponent {
       selectedCategory,
       handleOnSearch,
       search,
-      getTargetMetaData
+      getTargetMetaData,
+      getSelectedCategoryTitle
     } = this.props;
     const hasAddTarget =
       categories &&
@@ -34,7 +35,10 @@ class Planning extends PureComponent {
               })}
             >
               <Search
-                placeholder="Search something"
+                placeholder={`Filter ${getSelectedCategoryTitle(
+                  categories,
+                  selectedCategory
+                )}`}
                 value={search}
                 onChange={handleOnSearch}
                 className={styles.search}
@@ -73,7 +77,8 @@ Planning.propTypes = {
   search: PropTypes.string,
   categories: PropTypes.array,
   handleOnSearch: PropTypes.func,
-  getTargetMetaData: PropTypes.func
+  getTargetMetaData: PropTypes.func,
+  getSelectedCategoryTitle: PropTypes.func
 };
 
 export default Planning;

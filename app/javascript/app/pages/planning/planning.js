@@ -35,10 +35,16 @@ class PlanningContainer extends PureComponent {
       return targetMetaDataField && targetMetaDataField.values[0].value;
     }
 
+    function getSelectedCategoryTitle(categories, selectedCategory) {
+      if (!categories || !selectedCategory) return null;
+      return categories.find(c => c.slug === selectedCategory).title;
+    }
+
     return createElement(PlanningComponent, {
       ...this.props,
       handleOnSearch,
-      getTargetMetaData
+      getTargetMetaData,
+      getSelectedCategoryTitle
     });
   }
 }
