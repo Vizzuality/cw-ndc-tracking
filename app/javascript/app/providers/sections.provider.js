@@ -5,7 +5,7 @@ const path =
 // Remove the force attribute when the reducers are updated and the data has only one source
 export async function getSectionsThunk(dispatch, getState, force = false) {
   const isSectionsEmpty = getState().sections.length === 0;
-  if (isSectionsEmpty || force) {
+  if (isSectionsEmpty || force === true) {
     dispatch(fetchSections());
   }
 }
