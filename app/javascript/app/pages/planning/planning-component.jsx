@@ -44,7 +44,7 @@ class Planning extends PureComponent {
                 className={styles.search}
               />
               {hasAddTarget && (
-                <Button theme={yellowButtonTheme} link={'TODO'}>
+                <Button theme={yellowButtonTheme} disabled>
                   Add target
                 </Button>
               )}
