@@ -13,10 +13,6 @@
 .actions {
   @include row(3);
 
-  > :first-child {
-    @include column-offset(9, $gutters: true);
-  }
-
   padding-top: 10px;
   padding-bottom: 40px;
 }
