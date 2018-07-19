@@ -16,7 +16,7 @@ class ReportTarget extends PureComponent {
           {indicator.title}
         </div>
         {indicator.values.map(v => (
-          <div key={v.label} className={styles.value}>
+          <div key={v.label} className={cx(styles.value, layout.noPageBreak)}>
             {v.label !== 'Value' && v.value && `${v.label}: `}
             <span
               dangerouslySetInnerHTML={{ __html: v.value }} // eslint-disable-line
@@ -37,9 +37,14 @@ class ReportTarget extends PureComponent {
           {target[sectionTitle].map(indicator => (
             <div
               key={indicator.slug}
-              className={cx(styles.indicator, layout.noPageBreak, {
-                [styles.textarea]: indicator.type === 'textarea'
-              })}
+              className={cx(
+                styles.indicator,
+                printStyles.indicator,
+                layout.noPageBreak,
+                {
+                  [styles.textarea]: indicator.type === 'textarea'
+                }
+              )}
             >
               {renderIndicator(indicator)}
             </div>

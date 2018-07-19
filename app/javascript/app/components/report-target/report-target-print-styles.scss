@@ -8,5 +8,17 @@
   .summary {
     padding-bottom: 0;
   }
+
+  .indicator {
+    width: 47.5%;
+
+    &:nth-child(odd) {
+      padding-right: 5%;
+    }
+
+    &.textarea {
+      width: 100%;
+    }
+  }
 }
 

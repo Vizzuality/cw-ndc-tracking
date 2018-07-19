@@ -8,7 +8,6 @@ import Waypoint from 'react-waypoint';
 import whiteButtonTheme from 'styles/themes/button/button-white.scss';
 import layout from 'styles/layout';
 import cx from 'classnames';
-import printStyles from './reporting-print-styles.scss';
 import styles from './reporting-styles.scss';
 
 class Reporting extends PureComponent {
@@ -33,12 +32,7 @@ class Reporting extends PureComponent {
             </div>
           }
         />
-        <div
-          className={cx(
-            styles.reportingContentLayout,
-            printStyles.reportingContentLayout
-          )}
-        >
+        <div className={cx(styles.reportingContentLayout)}>
           <ReportMenu
             className={styles.noPrint}
             categories={categories}

@@ -1,7 +1,0 @@
-@import '~styles/layout.scss';
-
-@media print {
-  .reportingContentLayout {
-    @include row($columns: 12);
-  }
-}
