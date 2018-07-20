@@ -1,32 +1,55 @@
 import React, { PureComponent } from 'react';
+import cx from 'classnames';
 import Target from 'components/target';
 import Header from 'components/header';
 import PropTypes from 'prop-types';
 import Search from 'components/search';
+import Button from 'components/button';
 
+import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
 import styles from './planning-styles.scss';
 
 class Planning extends PureComponent {
   render() {
-    const { categories, selectedCategory, handleOnSearch, search } = this.props;
-    const isNotNdcTargetsCategory =
-      categories && selectedCategory && selectedCategory !== 'ndc_targets';
+    const {
+      categories,
+      selectedCategory,
+      handleOnSearch,
+      search,
+      getTargetMetaData,
+      getSelectedCategoryTitle
+    } = this.props;
+    const hasAddTarget =
+      categories &&
+      selectedCategory &&
+      (selectedCategory === 'ndc_targets' ||
+        selectedCategory === 'user_defined_targets');
     return (
       categories && (
         <div className={styles.page}>
           <Header title="Planning" navSections={categories} />
-          {isNotNdcTargetsCategory && (
-            <div className={styles.actionsWrapper}>
-              <div className={styles.actions}>
-                <Search
-                  placeholder="Search something"
-                  value={search}
-                  onChange={handleOnSearch}
-                  className={styles.search}
-                />
-              </div>
+          <div className={styles.actionsWrapper}>
+            <div
+              className={cx(styles.actions, {
+                [styles.doubleAction]: hasAddTarget
+              })}
+            >
+              <Search
+                placeholder={`Filter ${getSelectedCategoryTitle(
+                  categories,
+                  selectedCategory
+                )}`}
+                value={search}
+                onChange={handleOnSearch}
+                className={styles.search}
+              />
+              {hasAddTarget && (
+                <Button theme={yellowButtonTheme} disabled>
+                  Add target
+                </Button>
+              )}
             </div>
-          )}
+          </div>
           <div className={styles.targetsContainer}>
             {categories &&
               selectedCategory &&
@@ -38,7 +61,8 @@ class Planning extends PureComponent {
                     key={target.slug}
                     summary={target.summary}
                     editActionLink={`/planning/${selectedCategory}/${target.slug}`}
-                    infoText="text"
+                    targetType={getTargetMetaData(target, 'ghg_target_type')}
+                    targetYear={getTargetMetaData(target, 'M_TarYr')}
                   />
                 ))}
           </div>
@@ -52,7 +76,9 @@ Planning.propTypes = {
   selectedCategory: PropTypes.string,
   search: PropTypes.string,
   categories: PropTypes.array,
-  handleOnSearch: PropTypes.func
+  handleOnSearch: PropTypes.func,
+  getTargetMetaData: PropTypes.func,
+  getSelectedCategoryTitle: PropTypes.func
 };
 
 export default Planning;

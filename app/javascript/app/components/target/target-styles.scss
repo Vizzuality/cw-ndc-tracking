@@ -18,11 +18,11 @@
 .nameWrapper {
   display: flex;
   align-items: baseline;
-  margin-bottom: 10px;
+  margin-bottom: $card-content-margin;
 }
 
 .name {
-  font-size: 1.375rem; // 22px / 16px
+  font-size: $font-size-big;
   color: $theme-color;
 }
 
@@ -31,7 +31,23 @@
 }
 
 .summary {
+  margin-bottom: $card-content-margin;
+}
+
+.metadataItem {
+  display: inline-block;
+  padding-right: 45px;
+}
+
+.summary,
+.metadataValue {
   color: $theme-color;
+}
+
+.metadataTitle {
+  color: $dark-gray;
+  font-size: $font-size-sm;
+  margin-bottom: 5px;
 }
 
 .buttonContainer {

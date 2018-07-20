@@ -50,8 +50,12 @@ const Target = ({
       ) : (
         <Fragment>
           <ProgressBar progress={reportedPercentage} />
-          <Button theme={yellowButtonTheme} onClick={() => true}>
-            Report
+          <Button theme={yellowButtonTheme} link={editActionLink}>
+            {reportedPercentage > 0 && reportedPercentage < 100 ? (
+              'Continue tracking'
+            ) : (
+              'Report'
+            )}
           </Button>
         </Fragment>
       )}

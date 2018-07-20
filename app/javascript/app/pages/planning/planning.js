@@ -27,9 +27,24 @@ class PlanningContainer extends PureComponent {
       updateUrlParam({ name: 'search', value: query });
     };
 
+    function getTargetMetaData(target, slug) {
+      if (!target || !target.indicators) return null;
+      const targetMetaDataField = target.indicators.find(
+        ind => ind.slug === slug
+      );
+      return targetMetaDataField && targetMetaDataField.values[0].value;
+    }
+
+    function getSelectedCategoryTitle(categories, selectedCategory) {
+      if (!categories || !selectedCategory) return null;
+      return categories.find(c => c.slug === selectedCategory).title;
+    }
+
     return createElement(PlanningComponent, {
       ...this.props,
-      handleOnSearch
+      handleOnSearch,
+      getTargetMetaData,
+      getSelectedCategoryTitle
     });
   }
 }

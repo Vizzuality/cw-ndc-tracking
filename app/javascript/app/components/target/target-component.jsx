@@ -17,16 +17,35 @@ const Target = ({
   summary,
   editActionLink,
   handleRemoveAction,
-  infoText
+  infoText,
+  targetType,
+  targetYear,
+  summaryOnTooltip
 }) => (
   <div className={theme.borderStyles}>
     <div className={theme.wrapper}>
       <div className={theme.infoContainer}>
         <div className={styles.nameWrapper}>
           <span className={theme.name}>{title}</span>
-          {infoText && <InfoIcon text={infoText} className={styles.infoIcon} />}
+          {summary &&
+          summaryOnTooltip && (
+          <InfoIcon text={infoText} className={styles.infoIcon} />
+            )}
         </div>
-        {summary && <p className={theme.summary}>{summary}</p>}
+        {summary &&
+        !summaryOnTooltip && <p className={theme.summary}>{summary}</p>}
+        {targetType && (
+          <div className={styles.metadataItem}>
+            <p className={styles.metadataTitle}>Target type</p>
+            <p className={styles.metadataValue}>{targetType}</p>
+          </div>
+        )}
+        {targetYear && (
+          <div className={styles.metadataItem}>
+            <p className={styles.metadataTitle}>Target year</p>
+            <p className={styles.metadataValue}>{targetYear}</p>
+          </div>
+        )}
       </div>
       <div className={theme.buttonContainer}>
         {editActionLink && (
@@ -50,12 +69,14 @@ Target.propTypes = {
   theme: PropTypes.object,
   title: PropTypes.string,
   infoText: PropTypes.string,
-  summary: PropTypes.string
+  summary: PropTypes.string,
+  targetType: PropTypes.string,
+  targetYear: PropTypes.string,
+  summaryOnTooltip: PropTypes.bool
 };
 
 Target.defaultProps = {
-  hasRemoveAction: false,
-  hasEditAction: false
+  summaryOnTooltip: false
 };
 
 export default themr('Target', styles)(Target);
