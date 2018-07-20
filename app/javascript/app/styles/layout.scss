@@ -121,9 +121,3 @@ $grid-padding-gutters: $gutter-padding;
     white-space: pre-wrap;
   }
 }
-
-.breakPage {
-  @media only print {
-    page-break-before: always;
-  }
-}

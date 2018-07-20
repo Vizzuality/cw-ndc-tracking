@@ -77,13 +77,7 @@ class ReportTarget extends PureComponent {
           <div className={styles.summary}>{target.summary}</div>
           {renderSections()}
           {separator && (
-            <div
-              className={cx(
-                printStyles.separator,
-                styles.separator,
-                layout.breakPage
-              )}
-            />
+            <div className={cx(printStyles.separator, styles.separator)} />
           )}
         </div>
       )
