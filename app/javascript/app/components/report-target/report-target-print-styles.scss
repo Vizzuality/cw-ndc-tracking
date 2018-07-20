@@ -9,6 +9,12 @@
     padding-bottom: 0;
   }
 
+  .trackingHeader {
+    padding: 10px;
+    background-color: $dark-gray !important;
+    color: $theme-color !important;
+  }
+
   .indicator {
     width: 47.5%;
 

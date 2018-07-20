@@ -16,7 +16,7 @@ class Nav extends PureComponent {
     const { actions, className, navSections } = this.props;
     return (
       <div className={cx(styles.navbarContainer, printStyles.navbarContainer)}>
-        <nav className={cx(styles.navbar, className)}>
+        <nav className={cx(styles.navbar, printStyles.navbar, className)}>
           <div className={cx(styles.navMenu)}>
             <div className={styles.logoContainer}>
               <Icon className={styles.logo} icon={cwLogo} />

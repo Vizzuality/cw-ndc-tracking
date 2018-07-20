@@ -31,7 +31,11 @@ class ReportTarget extends PureComponent {
     return (
       <div key={sectionTitle} className={styles[sectionTitle]}>
         {sectionTitle === 'tracking' && (
-          <div className={styles.trackingHeader}>{target.year}</div>
+          <div
+            className={cx(styles.trackingHeader, printStyles.trackingHeader)}
+          >
+            {target.year}
+          </div>
         )}
         <div className={styles.section}>
           {target[sectionTitle].map(indicator => (
