@@ -28,10 +28,16 @@ class TrackingContainer extends PureComponent {
     };
     const handleYearChange = year => year; // TODO: Update year;
 
+    function getSelectedCategoryTitle(categories, selectedCategory) {
+      if (!categories || !selectedCategory) return null;
+      return categories.find(c => c.slug === selectedCategory).title;
+    }
+
     return createElement(TrackingComponent, {
       ...this.props,
       handleOnSearch,
-      handleYearChange
+      handleYearChange,
+      getSelectedCategoryTitle
     });
   }
 }
