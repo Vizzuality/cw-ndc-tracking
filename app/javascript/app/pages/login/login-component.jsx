@@ -17,9 +17,13 @@ class Login extends Component {
       email: null
     };
   }
-
   render() {
     const { dispatch, handleLoginThunk } = this.props;
+    const { email, password } = this.state;
+    const handleLogin = () => dispatch(handleLoginThunk(password, email));
+    const handleKeyUp = e => {
+      if (e.key === 'Enter' && password && email) handleLogin();
+    };
     return (
       <div className={styles.wrapper}>
         <div className={styles.logoContainer}>
@@ -32,6 +36,7 @@ class Login extends Component {
           placeholder="Please add your email"
           onChange={value => this.setState({ email: value })}
           onBlur={value => this.setState({ email: value })}
+          handleKeyUp={handleKeyUp}
         />
         <Input
           label="Password"
@@ -39,12 +44,9 @@ class Login extends Component {
           placeholder="Please add your password"
           onChange={value => this.setState({ password: value })}
           onBlur={value => this.setState({ password: value })}
+          handleKeyUp={handleKeyUp}
         />
-        <Button
-          onClick={() =>
-            dispatch(handleLoginThunk(this.state.password, this.state.email))}
-          theme={yellowButtonTheme}
-        >
+        <Button onClick={handleLogin} theme={yellowButtonTheme}>
           Login
         </Button>
       </div>
