@@ -2,6 +2,7 @@ import { createElement, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setUser, navigateToLogin } from '../../pages/login/login-actions';
+import { logout } from '../../services/login.service';
 import Component from './nav-component';
 
 const mapStateToProps = state => ({
@@ -11,10 +12,14 @@ const mapStateToProps = state => ({
 class NavContainer extends PureComponent {
   handleLogout = () => {
     const { dispatch } = this.props;
-    dispatch(setUser({}));
-    localStorage.setItem('CWTTT', '');
-    localStorage.setItem('user', '');
-    dispatch(navigateToLogin());
+    logout().then(ok => {
+      if (ok) {
+        dispatch(setUser({}));
+        localStorage.setItem('CWTTT', '');
+        localStorage.setItem('user', '');
+        dispatch(navigateToLogin());
+      }
+    });
   };
 
   render() {
