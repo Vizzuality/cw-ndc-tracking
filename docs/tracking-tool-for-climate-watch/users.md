@@ -32,3 +32,20 @@ curl "http://localhost:3000/api/v1/sections" -H "Content-Type: application/json"
 ## Authorisation
 
 Authorisation is implemented using CanCan gem. Admin users can manage all objects in the system, API users have the permissions restricted to objects they "own" (e.g. their user record).
+
+## User self-registration
+
+Users can create non-admin accounts in the system themselves. They need to fill in their name, email and password.
+
+```
+curl "http://localhost:3000/users" -X POST -d '{"user": {"email":"user1@example.com", "password":"password", "name":"Jan Kowalski", "is_admin":true}}' -H "Content-Type: application/json" -H "Accept: application/json"
+```
+
+Note that any other parameters will not be let through, so trying to make yourself an admin in this way won't work.
+
+The response includes the authentication token:
+
+```
+{"id":7,"name":"Jan Kowalski","email":"user1@example.com","is_admin":false,"created_at":"2018-07-24T11:31:48.506Z","updated_at":"2018-07-24T11:31:48.506Z","country_iso_code":"XXX","authentication_token":"cs-SQLMyXFHeUUmzmgAY"}
+```
+
