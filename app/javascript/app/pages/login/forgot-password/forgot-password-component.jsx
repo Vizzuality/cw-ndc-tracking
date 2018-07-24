@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import Icon from 'components/icon';
 import Input from 'components/input';
 import Button from 'components/button';
 import cwLogo from 'assets/cw-logo.svg';
 import { NavLink } from 'redux-first-router-link';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
-import { FORGOT_PASSWORD } from 'router';
-import styles from './login-styles.scss';
+import { LOGIN } from 'router';
+import styles from '../login-styles.scss';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      password: null,
       email: null
     };
   }
 
   render() {
-    const { dispatch, handleLoginThunk, notice } = this.props;
+    const { dispatch, handleForgotPasswordClick } = this.props;
     return (
       <div className={styles.wrapper}>
-        {notice && <div className={styles.notice}>{notice}</div>}
         <div className={styles.logoContainer}>
           <Icon className={styles.logo} icon={cwLogo} />
           <div className={styles.logoText}>NDC IMPLEMENTATION TRACKER</div>
@@ -34,27 +33,19 @@ class Login extends Component {
           onChange={value => this.setState({ email: value })}
           onBlur={value => this.setState({ email: value })}
         />
-        <Input
-          label="Password"
-          inputType="password"
-          placeholder="Please add your password"
-          onChange={value => this.setState({ password: value })}
-          onBlur={value => this.setState({ password: value })}
-        />
         <Button
-          onClick={() =>
-            dispatch(handleLoginThunk(this.state.password, this.state.email))}
+          onClick={() => dispatch(handleForgotPasswordClick(this.state.email))}
           theme={yellowButtonTheme}
         >
-          Login
+          Send me reset password instructions
         </Button>
         <NavLink
           to={{
-            type: FORGOT_PASSWORD
+            type: LOGIN
           }}
           className={styles.link}
         >
-          Forgot your password?
+          Log in
         </NavLink>
       </div>
     );
@@ -63,8 +54,7 @@ class Login extends Component {
 
 Login.propTypes = {
   dispatch: PropTypes.func,
-  handleLoginThunk: PropTypes.func,
-  notice: PropTypes.string
+  handleForgotPasswordClick: PropTypes.func
 };
 
 export default Login;
