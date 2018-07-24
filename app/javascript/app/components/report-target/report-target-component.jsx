@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import capitalize from 'lodash/capitalize';
 
+import layout from 'styles/layout';
+import printStyles from './report-target-print-styles.scss';
 import styles from './report-target-styles.scss';
 
 class ReportTarget extends PureComponent {
@@ -10,9 +12,11 @@ class ReportTarget extends PureComponent {
   renderSection(sectionTitle) {
     const renderIndicator = indicator => (
       <Fragment>
-        <div className={styles.title}>{indicator.title}</div>
+        <div className={cx(styles.title, layout.noPageBreak)}>
+          {indicator.title}
+        </div>
         {indicator.values.map(v => (
-          <div key={v.label} className={styles.value}>
+          <div key={v.label} className={cx(styles.value, layout.noPageBreak)}>
             {v.label !== 'Value' && v.value && `${v.label}: `}
             <span
               dangerouslySetInnerHTML={{ __html: v.value }} // eslint-disable-line
@@ -27,15 +31,24 @@ class ReportTarget extends PureComponent {
     return (
       <div key={sectionTitle} className={styles[sectionTitle]}>
         {sectionTitle === 'tracking' && (
-          <div className={styles.trackingHeader}>{target.year}</div>
+          <div
+            className={cx(styles.trackingHeader, printStyles.trackingHeader)}
+          >
+            {target.year}
+          </div>
         )}
         <div className={styles.section}>
           {target[sectionTitle].map(indicator => (
             <div
               key={indicator.slug}
-              className={cx(styles.indicator, {
-                [styles.textarea]: indicator.type === 'textarea'
-              })}
+              className={cx(
+                styles.indicator,
+                printStyles.indicator,
+                layout.noPageBreak,
+                {
+                  [styles.textarea]: indicator.type === 'textarea'
+                }
+              )}
             >
               {renderIndicator(indicator)}
             </div>
@@ -58,10 +71,14 @@ class ReportTarget extends PureComponent {
     return (
       target && (
         <div key={target.title} className={styles.target} id={id}>
-          <div className={styles.targetName}>{capitalize(target.title)}</div>
+          <div className={cx(styles.targetName, printStyles.targetName)}>
+            {capitalize(target.title)}
+          </div>
           <div className={styles.summary}>{target.summary}</div>
           {renderSections()}
-          {separator && <div className={styles.separator} />}
+          {separator && (
+            <div className={cx(printStyles.separator, styles.separator)} />
+          )}
         </div>
       )
     );

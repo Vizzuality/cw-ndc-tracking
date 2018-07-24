@@ -1,0 +1,34 @@
+@import '~styles/layout.scss';
+
+@media only print {
+  .targetName {
+    padding-bottom: 0;
+  }
+
+  .summary {
+    padding-bottom: 0;
+  }
+
+  .trackingHeader {
+    padding: 10px;
+    background-color: $dark-gray !important;
+    color: $theme-color !important;
+  }
+
+  .indicator {
+    width: 47.5%;
+
+    &:nth-child(odd) {
+      padding-right: 5%;
+    }
+
+    &.textarea {
+      width: 100%;
+    }
+  }
+
+  .separator {
+    padding-bottom: 10px !important;
+    border-bottom: none !important;
+  }
+}

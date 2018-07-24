@@ -9,7 +9,9 @@
 }
 
 .navbar {
-  @include row($columns: (10,2));
+  @media not print {
+    @include row($columns: (10,2));
+  }
 }
 
 .navMenu {

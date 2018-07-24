@@ -1,0 +1,8 @@
+@import '~styles/layout.scss';
+
+@media only print {
+  .navbarContainer {
+    box-shadow: none;
+    position: relative;
+  }
+}

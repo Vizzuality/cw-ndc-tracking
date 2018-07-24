@@ -130,3 +130,11 @@ html {
 *:focus {
   outline: none;
 }
+
+@media only print {
+  * {
+    position: relative !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

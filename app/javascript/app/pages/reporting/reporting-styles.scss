@@ -5,7 +5,9 @@
 }
 
 .reportingContentLayout {
-  @include row($columns: (4,8));
+  @media not print {
+    @include row($columns: (4,8));
+  }
 
   > :first-child {
     padding-right: $gutter-padding;

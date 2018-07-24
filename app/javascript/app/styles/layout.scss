@@ -107,3 +107,17 @@ $grid-padding-gutters: $gutter-padding;
     *zoom: 1;
   }
 }
+
+.noPrint {
+  @media only print {
+    display: none;
+  }
+}
+
+.noPageBreak {
+  @media only print {
+    page-break-inside: avoid;
+    position: relative;
+    white-space: pre-wrap;
+  }
+}
