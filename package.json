@@ -5,7 +5,7 @@
     "start": "./bin/webpack-dev-server",
     "reinstall": "rm -rf ./node_modules && npm install",
     "precommit": "lint-staged",
-    "lint": "eslint --ext js --ext jsx .",
+    "lint": "eslint --ext js --ext jsx . --fix",
     "generate": "plop --plopfile app/javascript/generators/plopfile.js component",
     "generate:page": "plop --plopfile app/javascript/generators/plopfile.js page",
     "test": "jest"
@@ -66,7 +66,7 @@
     "compression-webpack-plugin": "1.0.0",
     "css-loader": "0.28.7",
     "directory-named-webpack-plugin": "2.2.3",
-    "eslint": "4.14.0",
+    "eslint": "5.2.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-config-vizzuality": "1.0.5",
     "eslint-import-resolver-webpack": "0.8.3",

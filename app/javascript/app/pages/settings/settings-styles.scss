@@ -1,0 +1,9 @@
+@import '~styles/layout.scss';
+
+.wrapper {
+  @include row();
+
+  > * {
+    @include xy-gutters( $gutter-position: ('top', 'bottom'), $gutters: $gutter-padding);
+  }
+}

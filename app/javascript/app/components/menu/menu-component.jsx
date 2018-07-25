@@ -28,13 +28,14 @@ class Menu extends PureComponent {
   }
 
   renderLink(option) {
+    const { handleCloseMenu } = this.props;
     if (option.path) {
       return (
         <NavLink
           to={option.path}
           className={styles.link}
           activeClassName={styles.active}
-          onClick={this.handleCloseMenu}
+          onClick={handleCloseMenu}
         >
           {this.renderInsideLink(option)}
         </NavLink>
@@ -52,7 +53,7 @@ class Menu extends PureComponent {
         className={styles.link}
         target={option.target || '_blank'}
         href={option.link}
-        onClick={this.handleCloseMenu}
+        onClick={handleCloseMenu}
       >
         {this.renderInsideLink(option)}
       </a>
