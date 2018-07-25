@@ -1,8 +1,7 @@
-import { PLANNING } from 'router';
-
-// Action types
-const SET_USER = 'SET_USER';
+import { PLANNING, LOGIN } from 'router';
+import { createAction } from 'redux-actions';
 
 // Action creators
-export const setUser = data => ({ type: SET_USER, payload: data });
+export const setUser = createAction('SET_USER');
 export const navigateToPlanning = () => ({ type: PLANNING });
+export const navigateToLogin = () => ({ type: LOGIN });

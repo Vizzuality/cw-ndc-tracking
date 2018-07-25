@@ -1,4 +1,4 @@
-import { sections } from '../../mocks/sections';
+import { sections } from 'mocks/sections';
 import { parseCategories } from './reporting-selectors';
 
 export const parsedCategories = [

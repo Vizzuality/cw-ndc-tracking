@@ -1,2 +1,2 @@
 export const setUser = (state = {}, action) =>
-  (action.type === 'SET_USER' ? action.payload : state);
+  (action.type === 'SET_USER' ? { ...state, data: action.payload } : state);
