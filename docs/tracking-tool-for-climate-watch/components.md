@@ -9,6 +9,7 @@
 * [Input](#input)
 * [Indicator](#indicator)
 * [Input](#input)
+* [Menu](#menu)
 * [Nav](#nav)
 * [NavLinks](#navLinks)
 * [Progress Bar](#progressbar)
@@ -322,6 +323,42 @@ This button its supposed to show a tooltip when hovered. Remember to add the ```
 - [react-css-themr](https://github.com/javivelasco/react-css-themr)
 - [lodash/debounce](https://www.npmjs.com/package/lodash.debounce)
 - [classnames](https://www.npmjs.com/package/classnames)
+
+## Menu
+
+> ![](/../assets/components/menu.png)
+
+```
+  <Menu
+    options={menuOptions}
+    icon={menuIcon}
+    title={'User Name'}
+  />
+```
+
+#### Props
+- className: string,
+- options: array  // from container (Options can have: )
+- icon: file
+- title: string
+- reverse: boolean
+- positionRight: boolean
+- buttonClassName: string
+- currentPathname: string
+- succesfulActions: PropTypes.array
+- open: PropTypes.bool
+- toggleOpen: PropTypes.func.isRequired
+- handleCloseMenu: PropTypes.func.isRequired
+
+#### Dependencies
+
+- [classnames](https://github.com/JedWatson/classnames)
+
+- [Icon](#icon)
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+- [lodash/includes](https://lodash.com/docs/4.17.5#includes)
+- [tj/react-click-outside](https://github.com/tj/react-click-outside)
+- checkIcon and arrow icons from assets
 
 ## Nav
 

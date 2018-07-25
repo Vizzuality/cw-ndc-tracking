@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import Icon from 'components/icon';
 import NavLinks from 'components/nav-links';
+import UserMenu from 'components/user-menu';
 
 import cwLogo from 'assets/cw-logo.svg';
 import navBarTheme from 'styles/themes/nav-links/nav-links-nav-bar.scss';
@@ -13,7 +14,7 @@ import printStyles from './nav-print-styles.scss';
 
 class Nav extends PureComponent {
   render() {
-    const { actions, className, navSections } = this.props;
+    const { className, navSections } = this.props;
     return (
       <div className={cx(styles.navbarContainer, printStyles.navbarContainer)}>
         <nav className={cx(styles.navbar, printStyles.navbar, className)}>
@@ -28,15 +29,9 @@ class Nav extends PureComponent {
               navSections={navSections}
             />
           </div>
-          {actions && (
-            <div className={cx(styles.navActions)}>
-              {actions.map(action => (
-                <div key={action.name} className={styles.link}>
-                  {action.name}
-                </div>
-              ))}
-            </div>
-          )}
+          <div className={cx(styles.navActions)}>
+            <UserMenu className={styles.link} name={'User name'} />
+          </div>
         </nav>
       </div>
     );
@@ -45,8 +40,7 @@ class Nav extends PureComponent {
 
 Nav.propTypes = {
   className: PropTypes.string,
-  navSections: PropTypes.array.isRequired,
-  actions: PropTypes.array
+  navSections: PropTypes.array.isRequired
 };
 
 Nav.defaultProps = {

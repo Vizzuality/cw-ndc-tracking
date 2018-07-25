@@ -21,7 +21,6 @@
 
 .navActions {
   display: flex;
-  border-left: 1px solid $border-color;
 
   .link {
     color: $dark-gray;
@@ -29,7 +28,7 @@
     text-transform: uppercase;
     font-weight: $font-weight-bold;
     letter-spacing: $letter-spacing-medium;
-    margin: 18px 0 0 20px;
+    padding: 23px 0 0 20px;
   }
 }
 
