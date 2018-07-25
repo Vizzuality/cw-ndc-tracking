@@ -338,7 +338,15 @@ This button its supposed to show a tooltip when hovered. Remember to add the ```
 
 #### Props
 - className: string,
-- options: array  // from container (Options can have: )
+- options: array  // from container. Option objects can have:
+  {
+    icon,
+    path (Navlink path inside the application),
+    label,
+    target ('parent', ...),
+    link (regular link outside the application),
+    action (function triggered)
+  }
 - icon: file
 - title: string
 - reverse: boolean
