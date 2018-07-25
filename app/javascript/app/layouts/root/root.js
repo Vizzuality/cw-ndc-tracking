@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { DEFAULT_TARGET } from '../../constants/defaults';
+import { DEFAULT_TARGET } from 'constants/defaults';
 
 import Component from './root-component';
 

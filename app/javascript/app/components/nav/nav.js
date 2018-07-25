@@ -1,8 +1,8 @@
 import { createElement, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setUser, navigateToLogin } from '../../pages/login/login-actions';
-import { logout } from '../../services/login.service';
+import { logout } from 'services/login.service';
+import { setUser, navigateToLogin } from 'pages/login/login-actions';
 import Component from './nav-component';
 
 const mapStateToProps = state => ({
@@ -10,6 +10,16 @@ const mapStateToProps = state => ({
 });
 
 class NavContainer extends PureComponent {
+  constructor() {
+    super();
+    this.actions = [
+      {
+        name: 'Logout',
+        onClick: this.handleLogout
+      }
+    ];
+  }
+
   handleLogout = () => {
     const { dispatch } = this.props;
     logout().then(ok => {
@@ -23,16 +33,9 @@ class NavContainer extends PureComponent {
   };
 
   render() {
-    const actions = [
-      {
-        name: 'Logout',
-        onClick: this.handleLogout
-      }
-    ];
-
     return createElement(Component, {
       ...this.props,
-      actions
+      actions: this.actions
     });
   }
 }
