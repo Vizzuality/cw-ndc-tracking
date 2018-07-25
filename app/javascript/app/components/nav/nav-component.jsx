@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { LOGIN } from 'router';
 
 import Icon from 'components/icon';
 import NavLinks from 'components/nav-links';
@@ -13,7 +14,8 @@ import printStyles from './nav-print-styles.scss';
 
 class Nav extends PureComponent {
   render() {
-    const { actions, className, navSections } = this.props;
+    const { actions, className, navSections, location } = this.props;
+    if (location && location.type === LOGIN) return null;
     return (
       <div className={cx(styles.navbarContainer, printStyles.navbarContainer)}>
         <nav className={cx(styles.navbar, printStyles.navbar, className)}>
@@ -31,9 +33,13 @@ class Nav extends PureComponent {
           {actions && (
             <div className={cx(styles.navActions)}>
               {actions.map(action => (
-                <div key={action.name} className={styles.link}>
+                <button
+                  key={action.name}
+                  onClick={action.onClick}
+                  className={styles.link}
+                >
                   {action.name}
-                </div>
+                </button>
               ))}
             </div>
           )}
@@ -46,6 +52,7 @@ class Nav extends PureComponent {
 Nav.propTypes = {
   className: PropTypes.string,
   navSections: PropTypes.array.isRequired,
+  location: PropTypes.object,
   actions: PropTypes.array
 };
 
