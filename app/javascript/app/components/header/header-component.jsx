@@ -9,7 +9,8 @@ import styles from './header-styles.scss';
 const Header = ({ title, actions, navSections, backButton }) => (
   <div
     className={cx(styles.header, layout.noPrint, {
-      [styles.noSections]: !navSections
+      [styles.noSections]: !navSections,
+      [styles[`background${title}`]]: !navSections
     })}
   >
     <div
