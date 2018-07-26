@@ -1,0 +1,15 @@
+@import '~styles/layout.scss';
+
+.actionFooterWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $gutter-padding 0 20px;
+  background-color: $light-gray;
+  border-top: 2px solid $border-color;
+}
+
+.actionFooter {
+  @include row($columns: 2);
+}
