@@ -5,6 +5,10 @@
   padding-top: 34px;
   margin-bottom: $gutter-padding;
   background-color: $light-gray;
+
+  &.noSections {
+    margin-bottom: 0;
+  }
 }
 
 .headerLayout {

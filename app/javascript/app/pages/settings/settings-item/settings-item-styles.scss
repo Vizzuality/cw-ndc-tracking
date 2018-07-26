@@ -1,0 +1,20 @@
+@import '~styles/layout.scss';
+
+.borderWrapper {
+  border-top: 1px solid $border-color;
+}
+
+.item {
+  @include row($columns: (7, 3));
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  > :nth-child(2) {
+    @include column-offset(2, $gutters: true);
+  }
+}
+
+.description {
+  margin-top: $gutter-padding;
+}

@@ -5,6 +5,7 @@ import restoreScroll from 'redux-first-router-restore-scroll';
 
 import Login from 'pages/login';
 import Settings from 'pages/settings';
+import EditSettings from 'pages/edit-settings';
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
@@ -20,6 +21,7 @@ const history = createHistory();
 export const HOME = 'location/HOME';
 export const LOGIN = 'location/LOGIN';
 export const SETTINGS = 'location/SETTINGS';
+export const EDIT_SETTINGS = 'location/EDIT_SETTINGS';
 export const PLANNING = 'location/PLANNING';
 export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
@@ -77,6 +79,13 @@ export const routes = {
   [SETTINGS]: {
     path: '/settings',
     component: Settings,
+    thunk: (dispatch, getState) => {
+      getSectionsThunk(dispatch, getState, true);
+    }
+  },
+  [EDIT_SETTINGS]: {
+    path: '/settings/:page',
+    component: EditSettings,
     thunk: (dispatch, getState) => {
       getSectionsThunk(dispatch, getState, true);
     }
