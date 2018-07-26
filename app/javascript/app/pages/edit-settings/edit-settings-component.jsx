@@ -4,19 +4,17 @@ import Input from 'components/input';
 import ActionFooter from 'components/action-footer';
 import PropTypes from 'prop-types';
 import styles from './edit-settings-styles.scss';
+import EditInput from './edit-input';
 
 class EditSettings extends PureComponent {
   render() {
-    const { handleSubmit, handleValueChange, fields, page } = this.props;
+    const { handleSubmit, handleValueChange, fields } = this.props;
     return (
       <div className={styles.page}>
         <Header title="Settings" className={styles.header} />
-        <div className={styles.wrapper}>
-          <h2 className={styles.title}>Edit {page}</h2>
-          {fields.map(i => (
+        {fields.map(i => (
+          <EditInput key={i.slug} name={i.label} description={i.description}>
             <Input
-              key={i.slug}
-              label={i.label}
               inputType={i.type}
               placeholder={i.placeholder}
               onChange={value =>
@@ -24,8 +22,8 @@ class EditSettings extends PureComponent {
               onBlur={value =>
                 handleValueChange('password_confirmation', value)}
             />
-          ))}
-        </div>
+          </EditInput>
+        ))}
         <ActionFooter onActionClick={handleSubmit} />
       </div>
     );
@@ -35,8 +33,7 @@ class EditSettings extends PureComponent {
 EditSettings.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleValueChange: PropTypes.func.isRequired,
-  fields: PropTypes.array,
-  page: PropTypes.string
+  fields: PropTypes.array
 };
 
 export default EditSettings;

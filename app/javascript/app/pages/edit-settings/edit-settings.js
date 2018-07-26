@@ -30,14 +30,15 @@ const mapStateToProps = ({ user, location }) => {
         placeholder: 'Your current password'
       },
       {
-        label: "New password (Leave it blank if you don't want to change it)",
+        label: 'New password',
+        description: "Leave it blank if you don't want to change it",
         slug: 'password',
         type: 'password',
         placeholder: 'Add a new password'
       },
       {
-        label:
-          'Confirm Password (We need your current password to confirm your changes)',
+        label: 'Confirm Password',
+        description: 'We need your current password to confirm your changes',
         slug: 'password_confirmation',
         type: 'password',
         placeholder: 'Confirm your new password'
@@ -46,8 +47,7 @@ const mapStateToProps = ({ user, location }) => {
   };
   return {
     user,
-    fields: page ? fields[page] : [],
-    page
+    fields: page ? fields[page] : []
   };
 };
 
