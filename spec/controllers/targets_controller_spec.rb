@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::TargetsController, type: :controller do
   include_context 'report with categories'
-  login_user(@api_user)
+  login_api_user
 
   describe 'GET index' do
     it 'renders basic properties for each target' do
