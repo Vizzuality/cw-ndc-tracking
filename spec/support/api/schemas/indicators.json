@@ -61,7 +61,7 @@
             },
             "value": {
               "$id": "http://example.com/example.json/items/properties/values/items/properties/value",
-              "type": "string",
+              "type": ["string", "null"],
               "title": "The Value Schema ",
               "default": "",
               "examples": [
