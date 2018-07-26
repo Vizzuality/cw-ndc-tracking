@@ -32,7 +32,11 @@ class Nav extends PureComponent {
             />
           </div>
           <div className={cx(styles.navActions)}>
-            <UserMenu className={styles.link} name={'User name'} />
+            <UserMenu
+              className={styles.link}
+              name={'User name'}
+              buttonClassName={styles.userButton}
+            />
           </div>
         </nav>
       </div>

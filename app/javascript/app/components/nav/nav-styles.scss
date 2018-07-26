@@ -28,9 +28,11 @@
     text-transform: uppercase;
     font-weight: $font-weight-bold;
     letter-spacing: $letter-spacing-medium;
-    padding: 23px 0 0 18px;
-    cursor: pointer;
   }
+}
+
+.userButton {
+  padding: 23px 0 22px 18px;
 }
 
 .logoContainer {
