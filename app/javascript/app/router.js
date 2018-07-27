@@ -72,11 +72,13 @@ export const routes = {
   },
   [LOGIN]: {
     path: '/login',
-    component: Login
+    component: Login,
+    noNav: true
   },
   [SIGN_UP]: {
     path: '/sign-up',
-    component: SignUp
+    component: SignUp,
+    noNav: true
   },
   [HOME]: {
     path: '/',

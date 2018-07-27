@@ -5,8 +5,8 @@ import { logout } from 'services/login.service';
 import { setUser, navigateToLogin } from 'pages/login/login-actions';
 import Component from './nav-component';
 
-const mapStateToProps = state => ({
-  location: state.location
+const mapStateToProps = ({ location }) => ({
+  hideNav: location && location.routesMap[location.type].noNav
 });
 
 class NavContainer extends PureComponent {
