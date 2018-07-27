@@ -55,6 +55,13 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       request.headers.merge! headers
     end
 
+    describe 'GET profile' do
+      it "retrieves current user's profile information" do
+        get :profile
+        expect(@response).to match_response_schema('user_profile')
+      end
+    end
+
     describe 'PUT update' do
       it 'updates name when current password not provided' do
         new_name = 'NEW NAME'
