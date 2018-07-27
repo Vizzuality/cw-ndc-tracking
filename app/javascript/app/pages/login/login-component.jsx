@@ -18,9 +18,8 @@ class Login extends Component {
       email: null
     };
   }
-
   render() {
-    const { dispatch, handleLoginThunk, notice } = this.props;
+    const { handleKeyUp, handleSubmit, handleSetValue, notice } = this.props;
     return (
       <div className={styles.wrapper}>
         {notice && <div className={styles.notice}>{notice}</div>}
@@ -32,21 +31,19 @@ class Login extends Component {
           label="Email"
           inputType="text"
           placeholder="Please add your email"
-          onChange={value => this.setState({ email: value })}
-          onBlur={value => this.setState({ email: value })}
+          onChange={value => handleSetValue('email', value)}
+          onBlur={value => handleSetValue('email', value)}
+          handleKeyUp={handleKeyUp}
         />
         <Input
           label="Password"
           inputType="password"
           placeholder="Please add your password"
-          onChange={value => this.setState({ password: value })}
-          onBlur={value => this.setState({ password: value })}
+          onChange={value => handleSetValue('password', value)}
+          onBlur={value => handleSetValue('password', value)}
+          handleKeyUp={handleKeyUp}
         />
-        <Button
-          onClick={() =>
-            dispatch(handleLoginThunk(this.state.password, this.state.email))}
-          theme={yellowButtonTheme}
-        >
+        <Button onClick={handleSubmit} theme={yellowButtonTheme}>
           Login
         </Button>
         <NavLink
@@ -64,8 +61,9 @@ class Login extends Component {
 
 Login.propTypes = {
   notice: PropTypes.string,
-  dispatch: PropTypes.func,
-  handleLoginThunk: PropTypes.func
+  handleKeyUp: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleSetValue: PropTypes.func.isRequired
 };
 
 export default Login;

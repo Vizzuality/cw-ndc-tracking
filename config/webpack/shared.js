@@ -64,7 +64,10 @@ module.exports = {
     alias: {
       app: 'app',
       components: 'app/components',
-      routes: 'app/routes'
+      pages: 'app/pages',
+      routes: 'app/routes',
+      mocks: 'app/mocks',
+      services: 'app/services'
     }
   },
 
