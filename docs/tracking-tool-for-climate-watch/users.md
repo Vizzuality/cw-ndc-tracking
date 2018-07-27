@@ -1,8 +1,8 @@
 # User Management
 
-Users and Admins are stored in a single `users` table. Admin users are differentiated by having the `is_admin` flag set.
+Users, Trusted users and Admins are stored in a single `users` table. They are differentiated by having the `status` flag set to ADMIN, TRUSTED or USER respectively.
 
-Users and Admins can be managed via an admin tool powered by ActiveAdmin at `/admin`.
+Users can be managed via an admin tool powered by ActiveAdmin at `/admin`.
 
 ## Authentication
 

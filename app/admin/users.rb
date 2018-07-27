@@ -5,7 +5,7 @@ ActiveAdmin.register User do
     params = [
       :email, :first_name, :last_name, :password, :password_confirmation
     ]
-    params += [:is_admin, :country_iso_code] if current_user.is_admin?
+    params += [:status, :country_iso_code] if current_user.is_admin?
     params
   end
 
@@ -16,11 +16,11 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :country_iso_code
-    column :is_admin
+    column :status
     actions
   end
 
-  filter :is_admin
+  filter :status, as: :select
   filter :country_iso_code, as: :select
 
   form do |f|
@@ -29,7 +29,7 @@ ActiveAdmin.register User do
       f.input :last_name, as: :string
       f.input :email
       f.input :country_iso_code if current_user.is_admin?
-      f.input :is_admin if current_user.is_admin?
+      f.input :status, as: :select, collection: User::STATUSES if current_user.is_admin?
     end
     f.submit
   end
@@ -48,7 +48,7 @@ ActiveAdmin.register User do
       row :last_name
       row :email
       row :country_iso_code
-      row :is_admin
+      row :status
     end
   end
 end
