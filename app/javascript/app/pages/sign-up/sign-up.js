@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { signUp } from 'services/login.service';
 import errorMessages from 'utils/user-validation';
+import isEmpty from 'lodash/isEmpty';
 import { navigateToLogin } from './sign-up-actions';
 import Component from './sign-up-component';
 
@@ -66,8 +67,8 @@ class SignUpContainer extends PureComponent {
   handleSignUpThunk() {
     const { user } = this.state;
     const { dispatch } = this.props;
-    signUp(user).then(ok => {
-      if (ok) {
+    signUp(user).then(response => {
+      if (!response.errors) {
         dispatch(
           navigateToLogin({
             notice: 'Welcome! You have signed up successfully'
@@ -75,7 +76,7 @@ class SignUpContainer extends PureComponent {
         );
       } else {
         this.setState({
-          errors: ['The email you entered has already been registered']
+          errors: response.errors
         });
       }
     });
@@ -85,7 +86,7 @@ class SignUpContainer extends PureComponent {
     const { user } = this.state;
     const validationErrors = errorMessages(user);
     this.setState({ errors: validationErrors });
-    if (validationErrors.length === 0) {
+    if (isEmpty(validationErrors)) {
       this.handleSignUpThunk();
     }
   }

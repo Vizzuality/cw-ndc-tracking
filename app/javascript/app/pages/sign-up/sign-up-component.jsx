@@ -8,13 +8,13 @@ import Input from 'components/input';
 import Button from 'components/button';
 import cwLogo from 'assets/cw-logo.svg';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
+import startCase from 'lodash/startCase';
 import styles from './sign-up-styles.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SignUp extends Component {
   render() {
     const { handleValueChange, handleSubmit, fields, errors } = this.props;
-    const hasErrors = errors && errors.length > 0;
     return (
       <div className={cx(styles.wrapper, { [styles.withAlert]: alert })}>
         <div className={styles.logoContainer}>
@@ -34,12 +34,17 @@ class SignUp extends Component {
         <Button onClick={handleSubmit} theme={yellowButtonTheme}>
           Sign Up
         </Button>
-        {hasErrors &&
-          errors.map(errorMessage => (
-            <div className={styles.alert} key={errorMessage}>
-              {errorMessage}
-            </div>
-          ))}
+        {errors &&
+          Object.keys(errors).map(fieldErrors =>
+            errors[fieldErrors].map(errorMessage => (
+              <div
+                className={styles.alert}
+                key={`${fieldErrors}${errorMessage}`}
+              >
+                {startCase(fieldErrors)}: {errorMessage}
+              </div>
+            ))
+          )}
         <NavLink
           to={{
             type: LOGIN
@@ -57,7 +62,7 @@ SignUp.propTypes = {
   handleValueChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   fields: PropTypes.array,
-  errors: PropTypes.array
+  errors: PropTypes.object
 };
 
 export default SignUp;

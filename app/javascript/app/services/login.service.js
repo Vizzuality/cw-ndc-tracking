@@ -30,9 +30,8 @@ export async function signUp(user) {
       'Content-Type': 'application/json',
       Accept: 'application/json'
     })
-  }).then(function (response) {
-    if (response.ok) return true;
-    if (response.status === 422) return false;
+  }).then(response => {
+    if (response.ok || response.status === 422) return response.json();
     throw Error(response.statusText);
   });
 }
