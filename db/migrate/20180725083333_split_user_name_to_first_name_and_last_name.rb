@@ -9,6 +9,7 @@ class SplitUserNameToFirstNameAndLastName < ActiveRecord::Migration[5.1]
         u.first_name = name_parts.join(' ')
       else
         u.first_name = '(empty)'
+        u.last_name = u.name
       end
       u.save
     end
