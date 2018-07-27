@@ -2,7 +2,9 @@ ActiveAdmin.register User do
   config.clear_action_items!
 
   permit_params do
-    params = [:email, :name, :password, :password_confirmation]
+    params = [
+      :email, :first_name, :last_name, :password, :password_confirmation
+    ]
     params += [:is_admin, :country_iso_code] if current_user.is_admin?
     params
   end
@@ -13,7 +15,8 @@ ActiveAdmin.register User do
     column :is_admin
     column :country_iso_code
     column :email
-    column :name
+    column :first_name
+    column :last_name
     column :invitation_sent_at
     column :invitation_accepted_at
     actions
@@ -30,7 +33,8 @@ ActiveAdmin.register User do
         f.input :country_iso_code
       end
       f.input :email
-      f.input :name
+      f.input :first_name, as: :string
+      f.input :last_name, as: :string
     end
     f.submit
   end
