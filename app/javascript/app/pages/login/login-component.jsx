@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { NavLink } from 'redux-first-router-link';
+import { SIGN_UP } from 'router';
 import Icon from 'components/icon';
 import Input from 'components/input';
 import Button from 'components/button';
@@ -19,9 +20,10 @@ class Login extends Component {
   }
 
   render() {
-    const { dispatch, handleLoginThunk } = this.props;
+    const { dispatch, handleLoginThunk, notice } = this.props;
     return (
       <div className={styles.wrapper}>
+        {notice && <div className={styles.notice}>{notice}</div>}
         <div className={styles.logoContainer}>
           <Icon className={styles.logo} icon={cwLogo} />
           <div className={styles.logoText}>NDC IMPLEMENTATION TRACKER</div>
@@ -47,12 +49,21 @@ class Login extends Component {
         >
           Login
         </Button>
+        <NavLink
+          to={{
+            type: SIGN_UP
+          }}
+          className={styles.link}
+        >
+          Sign Up
+        </NavLink>
       </div>
     );
   }
 }
 
 Login.propTypes = {
+  notice: PropTypes.string,
   dispatch: PropTypes.func,
   handleLoginThunk: PropTypes.func
 };

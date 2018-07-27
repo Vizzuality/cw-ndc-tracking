@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import restoreScroll from 'redux-first-router-restore-scroll';
 
 import Login from 'pages/login';
+import SignUp from 'pages/sign-up';
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
@@ -18,6 +19,7 @@ const history = createHistory();
 
 export const HOME = 'location/HOME';
 export const LOGIN = 'location/LOGIN';
+export const SIGN_UP = 'location/SIGN_UP';
 export const PLANNING = 'location/PLANNING';
 export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
@@ -71,6 +73,10 @@ export const routes = {
   [LOGIN]: {
     path: '/login',
     component: Login
+  },
+  [SIGN_UP]: {
+    path: '/sign-up',
+    component: SignUp
   },
   [HOME]: {
     path: '/',

@@ -11,7 +11,9 @@ const handleLoginThunk = (password, email) => dispatch =>
     dispatch(navigateToPlanning());
   });
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  notice:
+    state.location && state.location.payload && state.location.payload.notice,
   handleLoginThunk
 });
 
