@@ -1,4 +1,4 @@
-## User Management
+# User Management
 
 Users and Admins are stored in a single `users` table. Admin users are differentiated by having the `is_admin` flag set.
 
@@ -47,6 +47,25 @@ The response includes the authentication token:
 
 ```
 {"id":10,"email":"user1@example.com","is_admin":false,"created_at":"2018-07-25T13:11:09.601Z","updated_at":"2018-07-25T13:11:09.601Z","country_iso_code":"XXX","authentication_token":"Lb-JxeLLavPXxtmuP1Jf","first_name":"John","last_name":"Doe"}
+```
+
+## Retrieving logged in user's profile information
+
+```
+curl "http://localhost:3000/users/profile" -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: esred_jpGyCLryWxL2T3"
+```
+
+```
+{
+   "id":2,
+   "email":"user@example.com",
+   "is_admin":false,
+   "created_at":"2018-05-06T11:11:35.521Z",
+   "updated_at":"2018-07-27T12:49:56.842Z",
+   "country_iso_code":"BRA",
+   "authentication_token":"esred_jpGyCLryWxL2T3",
+   "name":"new name"
+}
 ```
 
 ## Updating logged in user's profile information
