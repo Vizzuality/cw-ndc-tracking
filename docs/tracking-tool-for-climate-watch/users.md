@@ -49,3 +49,25 @@ The response includes the authentication token:
 {"id":10,"email":"user1@example.com","is_admin":false,"created_at":"2018-07-25T13:11:09.601Z","updated_at":"2018-07-25T13:11:09.601Z","country_iso_code":"XXX","authentication_token":"Lb-JxeLLavPXxtmuP1Jf","first_name":"John","last_name":"Doe"}
 ```
 
+## Updating logged in user's profile information
+
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"email":"user@example.com", "name":"new name"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: esred_jpGyCLryWxL2T3"
+```
+
+## Updating logged in user's password
+
+It requires providing the current password. This will fail:
+
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"email":"user@example.com", "password":"new password"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: esred_jpGyCLryWxL2T3"
+```
+
+```
+{"errors":{"current_password":["can't be blank"]}}
+```
+
+This will work:
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"password":"new password", "current_password": "password123"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: esred_jpGyCLryWxL2T3"
+```
