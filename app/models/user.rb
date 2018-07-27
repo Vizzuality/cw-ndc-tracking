@@ -6,8 +6,7 @@ class User < ApplicationRecord
          :recoverable,
          :registerable,
          :rememberable,
-         :validatable,
-         :invitable
+         :validatable
 
   validates :country_iso_code, presence: true, length: {is: 3}
 end

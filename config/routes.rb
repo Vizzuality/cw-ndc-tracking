@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    invitations: 'users/invitations'
+    registrations: 'users/registrations'
   }.merge(ActiveAdmin::Devise.config)
 
   devise_scope :user do
