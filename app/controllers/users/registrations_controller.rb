@@ -7,7 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :authenticate_scope!, if: :json_request?
   acts_as_token_authentication_handler_for User,
                                            fallback: :exception,
-                                           if: :json_request?
+                                           if: :json_request?,
+                                           except: [:new, :create, :cancel]
 
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
