@@ -5,12 +5,20 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     login_api_user
 
     describe 'PUT update' do
-      it 'updates name when current password not provided' do
+      it 'updates name' do
         new_name = 'NEW NAME'
         expect {
           put :update, params: {user: {first_name: new_name}}
           @api_user.reload
         }.to change(@api_user, :first_name).to(new_name)
+      end
+
+      it 'updates organisation' do
+        new_organisation = 'NEW ORGANISATION'
+        expect {
+          put :update, params: {user: {organisation: new_organisation}}
+          @api_user.reload
+        }.to change(@api_user, :organisation).to(new_organisation)
       end
 
       it 'updates password when current password provided' do
@@ -63,12 +71,20 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     end
 
     describe 'PUT update' do
-      it 'updates name when current password not provided' do
+      it 'updates name' do
         new_name = 'NEW NAME'
         expect {
           put :update, params: {user: {first_name: new_name}}
           @api_user.reload
         }.to change(@api_user, :first_name).to(new_name)
+      end
+
+      it 'updates organisation' do
+        new_organisation = 'NEW ORGANISATION'
+        expect {
+          put :update, params: {user: {organisation: new_organisation}}
+          @api_user.reload
+        }.to change(@api_user, :organisation).to(new_organisation)
       end
 
       it 'updates password when current password provided' do

@@ -34,7 +34,11 @@ curl "http://localhost:3000/users/sign_in" -X POST -d '{"user": {"email":"user@e
    "authentication_token":"N37yhaWqyszDyHvBBxXX",
    "first_name":"API user",
    "last_name":"Brazil",
-   "status":"USER"
+   "status":"USER",
+   "organisation":null,
+   "sector":null,
+   "data_usage":null,
+   "tester":false
 }
 ```
 
@@ -95,7 +99,11 @@ When the request is successful, the response includes the authentication token:
    "authentication_token":"nsoLo8nCFCDB1JWk3YPx",
    "first_name":"John",
    "last_name":"Doe",
-   "status":"USER"
+   "status":"USER",
+   "organisation":null,
+   "sector":null,
+   "data_usage":null,
+   "tester":false
 }
 ```
 
@@ -115,14 +123,18 @@ curl "http://localhost:3000/users/profile" -H "Content-Type: application/json" -
    "authentication_token":"N37yhaWqyszDyHvBBxXX",
    "first_name":"API user",
    "last_name":"Brazil",
-   "status":"USER"
+   "status":"USER",
+   "organisation":null,
+   "sector":null,
+   "data_usage":null,
+   "tester":false
 }
 ```
 
 ## Updating logged in user's profile information
 
 ```
-curl "http://localhost:3000/users" -X PUT -d '{"user": {"first_name":"new name"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"first_name":"new name", "organisation":"new organisation"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
 ```
 
 ## Updating logged in user's password
