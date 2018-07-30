@@ -3,9 +3,18 @@ ActiveAdmin.register User do
 
   permit_params do
     params = [
-      :email, :first_name, :last_name, :password, :password_confirmation
+      :first_name,
+      :last_name,
+      :email,
+      :country_iso_code,
+      :organisation,
+      :sector,
+      :data_usage,
+      :tester,
+      :password,
+      :password_confirmation
     ]
-    params += [:status, :country_iso_code] if current_user.is_admin?
+    params += [:status] if current_user.is_admin?
     params
   end
 
@@ -16,19 +25,30 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :country_iso_code
+    column :organisation
+    column :sector
+    column :data_usage
+    column :tester
     column :status
     actions
   end
 
   filter :status, as: :select
   filter :country_iso_code, as: :select
+  filter :organisation, as: :select
+  filter :sector, as: :select
+  filter :tester
 
   form do |f|
     f.inputs 'User Details' do
       f.input :first_name, as: :string
       f.input :last_name, as: :string
       f.input :email
-      f.input :country_iso_code if current_user.is_admin?
+      f.input :country_iso_code
+      f.input :organisation, as: :string
+      f.input :sector, as: :string
+      f.input :data_usage
+      f.input :tester
       f.input :status, as: :select, collection: User::STATUSES if current_user.is_admin?
     end
     f.submit
@@ -48,6 +68,10 @@ ActiveAdmin.register User do
       row :last_name
       row :email
       row :country_iso_code
+      row :organisation
+      row :sector
+      row :data_usage
+      row :tester
       row :status
     end
   end
