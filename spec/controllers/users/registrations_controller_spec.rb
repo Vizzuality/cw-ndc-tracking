@@ -8,9 +8,9 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       it 'updates name when current password not provided' do
         new_name = 'NEW NAME'
         expect {
-          put :update, params: {user: {name: new_name}}
+          put :update, params: {user: {first_name: new_name}}
           @api_user.reload
-        }.to change(@api_user, :name).to(new_name)
+        }.to change(@api_user, :first_name).to(new_name)
       end
 
       it 'updates password when current password provided' do
@@ -66,9 +66,9 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       it 'updates name when current password not provided' do
         new_name = 'NEW NAME'
         expect {
-          put :update, params: {user: {name: new_name}}
+          put :update, params: {user: {first_name: new_name}}
           @api_user.reload
-        }.to change(@api_user, :name).to(new_name)
+        }.to change(@api_user, :first_name).to(new_name)
       end
 
       it 'updates password when current password provided' do
