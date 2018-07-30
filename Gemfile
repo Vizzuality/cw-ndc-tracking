@@ -31,7 +31,6 @@ gem 'uglifier', '~> 3.1.5'
 gem 'activeadmin'
 # Use devise for authentication
 gem 'devise'
-gem 'devise_invitable'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'cancancan', '~> 2.0'
 

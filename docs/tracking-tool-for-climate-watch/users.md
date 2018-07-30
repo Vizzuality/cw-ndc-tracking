@@ -4,8 +4,6 @@ Users and Admins are stored in a single `users` table. Admin users are different
 
 Users and Admins can be managed via an admin tool powered by ActiveAdmin at `/admin`.
 
-Users are added to the system by invitation from an Admin; the system sends them a link which takes them to a page where they can set their password.
-
 ## Authentication
 
 Users and Admins can be authenticated by email and password using either the ActiveAdmin html form, or a json request which returns their authentication token. Further API calls need to include user's email and token.
