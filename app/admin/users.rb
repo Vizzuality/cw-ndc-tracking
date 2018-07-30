@@ -1,22 +1,15 @@
 ActiveAdmin.register User do
   config.clear_action_items!
 
-  permit_params do
-    params = [
-      :first_name,
-      :last_name,
-      :email,
-      :country_iso_code,
-      :organisation,
-      :sector,
-      :data_usage,
-      :tester,
-      :password,
-      :password_confirmation
-    ]
-    params += [:status] if current_user.is_admin?
-    params
-  end
+  permit_params :first_name,
+                :last_name,
+                :email,
+                :country_iso_code,
+                :organisation,
+                :sector,
+                :data_usage,
+                :tester,
+                :status
 
   index do
     selectable_column
