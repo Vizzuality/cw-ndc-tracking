@@ -2,7 +2,7 @@ import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { signUp } from 'services/login.service';
-import errorMessages from 'utils/user-validation';
+import errorMessages from 'utils/sign-up-validation';
 import isEmpty from 'lodash/isEmpty';
 import { navigateTo, LOGIN } from 'router';
 import Component from './sign-up-component';

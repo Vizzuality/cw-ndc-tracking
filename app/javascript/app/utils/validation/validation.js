@@ -3,8 +3,8 @@ import validateEmail from './email-validation';
 import validatePassword from './password-validation';
 import validatePasswordConfirmation from './password-confirmation-validation';
 
-export const allFieldsRequired = user => ({
-  condition: validateAllFieldsRequired(user),
+export const allFieldsRequired = (user, required) => ({
+  condition: validateAllFieldsRequired(user, required),
   field: 'all',
   errorMessage: 'All fields are required'
 });

@@ -15,7 +15,8 @@ export async function editUser(user) {
       'X-User-token': userToken
     })
   }).then(response => {
-    if (response.ok) return true;
+    if (response.ok) return {};
+    if (response.status === 422) return response.json();
     throw Error(response.statusText);
   });
 }

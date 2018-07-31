@@ -1,0 +1,9 @@
+@import '~styles/layout.scss';
+
+.alertContainer {
+  padding-left: $gutter-padding;
+}
+
+.alert {
+  color: red;
+}

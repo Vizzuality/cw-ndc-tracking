@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import { editUser } from 'services/user.service';
 import { setUser } from 'pages/login/login-actions';
 import { navigateTo, SETTINGS } from 'router';
+import {
+  editDataErrorMessages,
+  editPasswordErrorMessages
+} from 'utils/edit-settings-validation';
+import isEmpty from 'lodash/isEmpty';
 import Component from './edit-settings-component';
 
 const mapStateToProps = ({ user, location }) => {
@@ -14,19 +19,22 @@ const mapStateToProps = ({ user, location }) => {
         label: 'First name',
         slug: 'first_name',
         type: 'text',
-        placeholder: 'Edit your name'
+        placeholder: 'Edit your name',
+        required: true
       },
       {
         label: 'Last name',
         slug: 'last_name',
         type: 'text',
-        placeholder: 'Edit your last name'
+        placeholder: 'Edit your last name',
+        required: true
       },
       {
         label: 'Email',
         slug: 'email',
         type: 'text',
-        placeholder: 'Edit your email'
+        placeholder: 'Edit your email',
+        required: true
       }
     ],
     password: [
@@ -34,25 +42,29 @@ const mapStateToProps = ({ user, location }) => {
         label: 'Current password',
         slug: 'current_password',
         type: 'password',
-        placeholder: 'Your current password'
+        placeholder: 'Your current password',
+        required: true
       },
       {
         label: 'New password',
         slug: 'password',
         type: 'password',
-        placeholder: 'Add a new password'
+        placeholder: 'Add a new password',
+        required: true
       },
       {
         label: 'Confirm Password',
         slug: 'password_confirmation',
         type: 'password',
-        placeholder: 'Confirm your new password'
+        placeholder: 'Confirm your new password',
+        required: true
       }
     ]
   };
   return {
     user: user && user.data,
-    fields: page ? fields[page] : []
+    fields: page ? fields[page] : [],
+    page
   };
 };
 
@@ -67,7 +79,8 @@ class EditSettingsContainer extends PureComponent {
         password: '',
         current_password: '',
         password_confirmation: ''
-      }
+      },
+      errors: {}
     };
     this.userFieldsInitialized = false;
   }
@@ -77,6 +90,23 @@ class EditSettingsContainer extends PureComponent {
     if (!this.userFieldsInitialized && userProp) {
       this.initializeUserFields();
     }
+  }
+
+  getFieldsToValidate() {
+    const { user } = this.state;
+    const { fields } = this.props;
+    const fieldsToValidate = {};
+    Object.keys(user).forEach(f => {
+      if (fields.map(i => i.slug).includes(f)) {
+        fieldsToValidate[f] = user[f];
+      }
+    });
+    return fieldsToValidate;
+  }
+
+  handleValueChange(field, value) {
+    const { user } = this.state;
+    this.setState({ user: { ...user, [field]: value } });
   }
 
   initializeUserFields() {
@@ -91,14 +121,18 @@ class EditSettingsContainer extends PureComponent {
     this.userFieldsInitialized = true;
   }
 
-  handleValueChange(field, value) {
-    const { user } = this.state;
-    this.setState({ user: { ...user, [field]: value } });
-  }
-
   handleSubmit() {
-    // TODO: Add validation
-    this.handleEditUser();
+    const { fields, page } = this.props;
+    const validationFunction =
+      page === 'info' ? editDataErrorMessages : editPasswordErrorMessages;
+    const validationErrors = validationFunction(
+      this.getFieldsToValidate(),
+      fields.filter(f => f.required).map(f => f.slug)
+    );
+    this.setState({ errors: validationErrors });
+    if (isEmpty(validationErrors)) {
+      this.handleEditUser();
+    }
   }
 
   handleEditUser() {
@@ -109,28 +143,33 @@ class EditSettingsContainer extends PureComponent {
     Object.keys(user).forEach(k => {
       if (!user[k]) delete changedUserFields[k];
     });
-    editUser(changedUserFields).then(ok => {
-      if (ok) {
+    editUser(changedUserFields).then(response => {
+      if (!response.errors) {
         dispatch(setUser({ ...prevUser, ...changedUserFields }));
         dispatch(navigateTo(SETTINGS));
+      } else {
+        this.setState({ errors: response.errors });
       }
     });
   }
 
   render() {
-    const { user } = this.state;
+    const { user, errors } = this.state;
     return createElement(Component, {
       ...this.props,
       handleValueChange: this.handleValueChange.bind(this),
       handleSubmit: this.handleSubmit.bind(this),
-      user
+      user,
+      errors
     });
   }
 }
 
 EditSettingsContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  user: PropTypes.object
+  fields: PropTypes.array,
+  user: PropTypes.object,
+  page: PropTypes.string
 };
 
 export default connect(mapStateToProps, null)(EditSettingsContainer);

@@ -8,7 +8,13 @@ import EditInput from './edit-input';
 
 class EditSettings extends PureComponent {
   render() {
-    const { handleSubmit, handleValueChange, fields, user } = this.props;
+    const {
+      handleSubmit,
+      handleValueChange,
+      fields,
+      user,
+      errors
+    } = this.props;
     return (
       <div className={styles.page}>
         <Header title="Settings" className={styles.header} />
@@ -17,9 +23,11 @@ class EditSettings extends PureComponent {
             <Input
               inputType={i.type}
               placeholder={i.placeholder}
+              errorMessages={(errors[i.slug] || []).concat(errors.all || [])}
               value={user[i.slug]}
               onChange={value => handleValueChange(i.slug, value)}
               onBlur={value => handleValueChange(i.slug, value)}
+              required
             />
           </EditInput>
         ))}
@@ -33,7 +41,8 @@ EditSettings.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleValueChange: PropTypes.func.isRequired,
   user: PropTypes.object,
-  fields: PropTypes.array
+  fields: PropTypes.array,
+  errors: PropTypes.object
 };
 
 export default EditSettings;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import cx from 'classnames';
 import { themr } from 'react-css-themr';
+import ErrorMessages from 'components/error-messages';
 
 import styles from './input-styles.scss';
 
@@ -57,7 +58,9 @@ class Input extends Component {
       placeholder,
       label,
       unit,
-      onBlur
+      required,
+      onBlur,
+      errorMessages
     } = this.props;
     const inputProps = {
       ref: el => {
@@ -67,14 +70,16 @@ class Input extends Component {
       className: cx(styles.input, className, theme.input, {
         [theme.textArea]: inputType === 'textarea',
         [theme.notApplicable]: notApplicable && value === '',
-        [theme.disabled]: disabled
+        [theme.disabled]: disabled,
+        [theme.error]: errorMessages.length > 0
       }),
       onChange: e => this.handleChange(e.target.value),
       onBlur: () => onBlur(value),
       value,
       onKeyUp: handleKeyUp,
       placeholder: notApplicable ? 'n/a' : placeholder,
-      disabled
+      disabled,
+      required
     };
     const labelProp = label ? { id: label } : {};
     const input =
@@ -95,6 +100,7 @@ class Input extends Component {
         ) : (
           input
         )}
+        <ErrorMessages errors={errorMessages} />
       </Fragment>
     );
   }
@@ -117,9 +123,11 @@ Input.propTypes = {
     'email'
   ]),
   disabled: PropTypes.bool,
+  required: PropTypes.bool,
   notApplicable: PropTypes.bool,
   label: PropTypes.string,
-  unit: PropTypes.string
+  unit: PropTypes.string,
+  errorMessages: PropTypes.array
 };
 
 Input.defaultProps = {
