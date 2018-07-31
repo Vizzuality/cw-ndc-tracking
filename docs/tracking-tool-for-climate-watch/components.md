@@ -7,7 +7,6 @@
 * [Header](#header)
 * [Icon](#icon)
 * [InfoButton](#infobutton)
-* [Input](#input)
 * [Indicator](#indicator)
 * [Input](#input)
 * [Menu](#menu)
@@ -340,6 +339,8 @@ This button its supposed to show a tooltip when hovered. Remember to add the ```
 - notApplicable: bool, // Grey by default and updates to normal when filled
 - label: string, // optional
 - unit: string  // optional
+- errorMessages: PropTypes.array // Error messages related to that field. When they exist the alert styles is applied
+
 
 #### Dependencies
 

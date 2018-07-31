@@ -24,6 +24,7 @@ class EditSettings extends PureComponent {
               inputType={i.type}
               placeholder={i.placeholder}
               errorMessages={(errors[i.slug] || []).concat(errors.all || [])}
+              className={styles.alertContainer}
               value={user[i.slug]}
               onChange={value => handleValueChange(i.slug, value)}
               onBlur={value => handleValueChange(i.slug, value)}

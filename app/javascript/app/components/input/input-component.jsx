@@ -71,7 +71,7 @@ class Input extends Component {
         [theme.textArea]: inputType === 'textarea',
         [theme.notApplicable]: notApplicable && value === '',
         [theme.disabled]: disabled,
-        [theme.error]: errorMessages.length > 0
+        [theme.error]: errorMessages && errorMessages.length > 0
       }),
       onChange: e => this.handleChange(e.target.value),
       onBlur: () => onBlur(value),
@@ -100,7 +100,7 @@ class Input extends Component {
         ) : (
           input
         )}
-        <ErrorMessages errors={errorMessages} />
+        <ErrorMessages errors={errorMessages} className={className} />
       </Fragment>
     );
   }

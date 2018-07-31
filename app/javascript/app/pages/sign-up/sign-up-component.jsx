@@ -27,6 +27,9 @@ class SignUp extends Component {
             label={i.label}
             inputType={i.type}
             placeholder={i.placeholder}
+            errorMessages={
+              errors && (errors[i.slug] || []).concat(errors.all || [])
+            }
             onChange={value => handleValueChange(i.slug, value)}
             onBlur={value => handleValueChange(i.slug, value)}
           />
