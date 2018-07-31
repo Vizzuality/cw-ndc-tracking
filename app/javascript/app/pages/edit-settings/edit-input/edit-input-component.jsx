@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import styles from './edit-input-styles.scss';
 
-const EditInput = ({ name, description, children }) => (
+const EditInput = ({ name, children }) => (
   <div className={styles.borderWrapper}>
-    <div
-      className={cx(styles.inputWrapper, {
-        [styles.withDescription]: description
-      })}
-    >
+    <div className={styles.inputWrapper}>
       <div className={styles.name}>{name}</div>
-      {description && <div className={styles.description}>{description}</div>}
       {children}
     </div>
   </div>
@@ -19,7 +13,6 @@ const EditInput = ({ name, description, children }) => (
 
 EditInput.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string,
   children: PropTypes.node.isRequired
 };
 

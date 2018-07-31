@@ -17,8 +17,4 @@
   > :nth-child(2) {
     @include column-offset(2, $gutters: true);
   }
-
-  &.withDescription {
-    @include row($columns: (3, 6, 3));
-  }
 }

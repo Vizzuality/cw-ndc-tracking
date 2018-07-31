@@ -13,7 +13,7 @@ class EditSettings extends PureComponent {
       <div className={styles.page}>
         <Header title="Settings" className={styles.header} />
         {fields.map(i => (
-          <EditInput key={i.slug} name={i.label} description={i.description}>
+          <EditInput key={i.slug} name={i.label}>
             <Input
               inputType={i.type}
               placeholder={i.placeholder}
