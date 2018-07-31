@@ -13,7 +13,7 @@ RSpec.describe Api::V1::SectionsController, type: :controller do
     end
   end
   context 'when logged in' do
-    login_user(@api_user)
+    login_api_user
 
     describe 'GET index' do
       it 'renders title and slug for each section' do

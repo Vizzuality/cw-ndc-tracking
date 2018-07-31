@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 import { setUser, navigateToPlanning } from './login-actions';
 import Component from './login-component';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  notice:
+    state.location && state.location.payload && state.location.payload.notice
+});
 
 class LoginContainer extends PureComponent {
   constructor() {

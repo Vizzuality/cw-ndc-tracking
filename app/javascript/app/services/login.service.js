@@ -1,5 +1,6 @@
 const { BASE_URL } = process.env;
 const LOGIN_URL = `${BASE_URL}/users/sign_in`;
+const SIGNUP_URL = `${BASE_URL}/users`;
 const LOGOUT_URL = `${BASE_URL}/users/sign_out`;
 
 export async function login(password, email) {
@@ -17,6 +18,20 @@ export async function login(password, email) {
     })
   }).then(function (response) {
     if (response.ok) return response.json();
+    throw Error(response.statusText);
+  });
+}
+
+export async function signUp(user) {
+  return fetch(SIGNUP_URL, {
+    method: 'POST',
+    body: JSON.stringify({ user }),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    })
+  }).then(response => {
+    if (response.ok || response.status === 422) return response.json();
     throw Error(response.statusText);
   });
 }
