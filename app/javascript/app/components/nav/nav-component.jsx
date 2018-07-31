@@ -14,7 +14,7 @@ import printStyles from './nav-print-styles.scss';
 
 class Nav extends PureComponent {
   render() {
-    const { className, navSections, hideNav } = this.props;
+    const { className, navSections, hideNav, userName } = this.props;
     return hideNav ? null : (
       <div className={cx(styles.navbarContainer, printStyles.navbarContainer)}>
         <nav className={cx(styles.navbar, printStyles.navbar, className)}>
@@ -32,7 +32,7 @@ class Nav extends PureComponent {
           <div className={cx(styles.navActions)}>
             <UserMenu
               className={styles.link}
-              name={'User name'}
+              name={userName}
               buttonClassName={styles.userButton}
             />
           </div>
@@ -44,6 +44,7 @@ class Nav extends PureComponent {
 
 Nav.propTypes = {
   className: PropTypes.string,
+  userName: PropTypes.string,
   navSections: PropTypes.array.isRequired,
   hideNav: PropTypes.bool
 };

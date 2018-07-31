@@ -14,6 +14,7 @@ import EditTarget from 'pages/edit-target';
 
 import { getSectionsThunk } from './providers/sections.provider';
 import { getIndicatorsThunk } from './providers/indicators.provider';
+import { getUserThunk } from './providers/user.provider';
 
 import { DEFAULT_TARGET } from './constants/defaults';
 
@@ -42,13 +43,17 @@ export const routes = {
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState);
+    }
   },
   [PLANNING]: {
     label: 'Planning',
     path: '/planning',
     component: Planning,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState);
       push(`/planning/${DEFAULT_TARGET}`);
     }
@@ -57,13 +62,17 @@ export const routes = {
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState);
+    }
   },
   [TRACKING]: {
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState);
       push(`/tracking/${DEFAULT_TARGET}`);
     }
@@ -73,6 +82,7 @@ export const routes = {
     path: '/reporting',
     component: Reporting,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState, true);
     }
   },
@@ -90,6 +100,7 @@ export const routes = {
     path: '/settings',
     component: Settings,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState, true);
     }
   },
@@ -97,6 +108,7 @@ export const routes = {
     path: '/settings/:page',
     component: EditSettings,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState, true);
     }
   },
@@ -107,12 +119,20 @@ export const routes = {
   [PLANNING_TARGET_EDIT]: {
     path: '/planning/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(
+      getUserThunk,
+      getSectionsThunk,
+      getIndicatorsThunk
+    )
   },
   [TRACKING_TARGET_EDIT]: {
     path: '/tracking/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(
+      getUserThunk,
+      getSectionsThunk,
+      getIndicatorsThunk
+    )
   },
   [NOT_FOUND]: {
     path: '/404',

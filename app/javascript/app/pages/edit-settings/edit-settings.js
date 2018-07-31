@@ -11,10 +11,16 @@ const mapStateToProps = ({ user, location }) => {
   const fields = {
     info: [
       {
-        label: 'Name',
-        slug: 'name',
+        label: 'First name',
+        slug: 'first_name',
         type: 'text',
         placeholder: 'Edit your name'
+      },
+      {
+        label: 'Last name',
+        slug: 'last_name',
+        type: 'text',
+        placeholder: 'Edit your last name'
       },
       {
         label: 'Email',
@@ -47,24 +53,44 @@ const mapStateToProps = ({ user, location }) => {
     ]
   };
   return {
-    user,
+    user: user && user.data,
     fields: page ? fields[page] : []
   };
 };
 
 class EditSettingsContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-    const { user } = this.props;
+  constructor() {
+    super();
     this.state = {
       user: {
-        name: user.name || null,
-        email: user.email || null,
-        password: null,
-        current_password: null,
-        password_confirmation: null
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        current_password: '',
+        password_confirmation: ''
       }
     };
+    this.userFieldsInitialized = false;
+  }
+
+  componentDidUpdate() {
+    const { user: userProp } = this.props;
+    if (!this.userFieldsInitialized && userProp) {
+      this.initializeUserFields();
+    }
+  }
+
+  initializeUserFields() {
+    const { user } = this.state;
+    const { user: userProp } = this.props;
+    const fieldsToUpdate = ['first_name', 'last_name', 'email'];
+    const updatedFields = {};
+    fieldsToUpdate.forEach(field => {
+      updatedFields[field] = (userProp && userProp[field]) || '';
+    });
+    this.setState({ user: { ...user, ...updatedFields } });
+    this.userFieldsInitialized = true;
   }
 
   handleValueChange(field, value) {
@@ -94,10 +120,12 @@ class EditSettingsContainer extends PureComponent {
   }
 
   render() {
+    const { user } = this.state;
     return createElement(Component, {
       ...this.props,
       handleValueChange: this.handleValueChange.bind(this),
-      handleSubmit: this.handleSubmit.bind(this)
+      handleSubmit: this.handleSubmit.bind(this),
+      user
     });
   }
 }

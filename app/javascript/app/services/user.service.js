@@ -1,10 +1,11 @@
 const { BASE_URL } = process.env;
-const URL = `${BASE_URL}/users`;
+const EDIT_URL = `${BASE_URL}/users`;
+const GET_URL = `${BASE_URL}/users/profile`;
 const userEmail = localStorage.getItem('user');
 const userToken = localStorage.getItem('CWTTT');
 
 export async function editUser(user) {
-  return fetch(URL, {
+  return fetch(EDIT_URL, {
     method: 'PUT',
     body: JSON.stringify(user),
     headers: new Headers({
@@ -15,6 +16,21 @@ export async function editUser(user) {
     })
   }).then(response => {
     if (response.ok) return true;
+    throw Error(response.statusText);
+  });
+}
+
+export async function getUser() {
+  return fetch(GET_URL, {
+    method: 'GET',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-User-Email': userEmail,
+      'X-User-token': userToken
+    })
+  }).then(response => {
+    if (response.ok) return response.json();
     throw Error(response.statusText);
   });
 }

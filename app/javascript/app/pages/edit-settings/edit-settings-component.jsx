@@ -8,7 +8,7 @@ import EditInput from './edit-input';
 
 class EditSettings extends PureComponent {
   render() {
-    const { handleSubmit, handleValueChange, fields } = this.props;
+    const { handleSubmit, handleValueChange, fields, user } = this.props;
     return (
       <div className={styles.page}>
         <Header title="Settings" className={styles.header} />
@@ -17,6 +17,7 @@ class EditSettings extends PureComponent {
             <Input
               inputType={i.type}
               placeholder={i.placeholder}
+              value={user[i.slug]}
               onChange={value => handleValueChange(i.slug, value)}
               onBlur={value => handleValueChange(i.slug, value)}
             />
@@ -31,6 +32,7 @@ class EditSettings extends PureComponent {
 EditSettings.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleValueChange: PropTypes.func.isRequired,
+  user: PropTypes.object,
   fields: PropTypes.array
 };
 
