@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe InitialiseReport, type: :service do
-  include_context 'api user'
+  init_api_user
 
   describe '#call' do
     let(:service) {

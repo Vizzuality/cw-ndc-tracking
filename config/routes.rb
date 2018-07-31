@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }.merge(ActiveAdmin::Devise.config)
 
+  devise_scope :user do
+    get '/users/profile', action: 'profile', controller: 'users/registrations'
+  end
+
   ActiveAdmin.routes(self)
 
   namespace :api do

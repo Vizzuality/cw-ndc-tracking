@@ -70,7 +70,7 @@
             },
             "summary": {
               "$id": "http://example.com/example.json/items/properties/targets/items/properties/summary",
-              "type": "string",
+              "type": ["string", "null"],
               "title": "The Summary Schema ",
               "default": "",
               "examples": [
@@ -165,7 +165,7 @@
                         },
                         "value": {
                           "$id": "http://example.com/example.json/items/properties/targets/items/properties/indicators/items/properties/values/items/properties/value",
-                          "type": "null",
+                          "type": ["string", "null"],
                           "title": "The Value Schema ",
                           "default": null,
                           "examples": [
