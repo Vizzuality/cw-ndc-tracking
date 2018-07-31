@@ -1,6 +1,6 @@
 import { PureComponent, createElement } from 'react';
 import { connect } from 'react-redux';
-import { SETTINGS } from 'app/router';
+import { navigateTo, LOGIN, SETTINGS } from 'router';
 import { logout } from 'services/login.service';
 import { PropTypes } from 'prop-types';
 import * as actions from './logout-actions';
@@ -29,13 +29,13 @@ class UserMenuContainer extends PureComponent {
   }
 
   handleLoginThunk() {
-    const { dispatch, setUser, navigateToLogin } = this.props;
+    const { dispatch, setUser } = this.props;
     logout().then(ok => {
       if (ok) {
         dispatch(setUser({}));
         localStorage.setItem('CWTTT', '');
         localStorage.setItem('user', '');
-        dispatch(navigateToLogin());
+        dispatch(navigateTo(LOGIN));
       }
     });
   }
@@ -50,8 +50,7 @@ class UserMenuContainer extends PureComponent {
 
 UserMenuContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  setUser: PropTypes.func.isRequired,
-  navigateToLogin: PropTypes.func.isRequired
+  setUser: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserMenuContainer);

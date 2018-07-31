@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { login } from 'services/login.service';
 import { createElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { setUser, navigateToPlanning } from './login-actions';
+import { navigateTo, PLANNING } from 'app/router';
+import { setUser } from './login-actions';
 import Component from './login-component';
 
 const mapStateToProps = state => ({
@@ -40,7 +41,7 @@ class LoginContainer extends PureComponent {
       dispatch(setUser(data));
       localStorage.setItem('CWTTT', data.authentication_token);
       localStorage.setItem('user', data.email);
-      dispatch(navigateToPlanning());
+      dispatch(navigateTo(PLANNING));
     });
   }
 

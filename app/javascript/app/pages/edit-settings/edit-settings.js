@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { editUser } from 'services/user.service';
-import { setUser } from 'pages/login/login-reducers';
+import { setUser } from 'pages/login/login-actions';
+import { navigateTo, SETTINGS } from 'router';
 import Component from './edit-settings-component';
 
 const mapStateToProps = ({ user, location }) => {
@@ -79,8 +80,16 @@ class EditSettingsContainer extends PureComponent {
   handleEditUser() {
     const { dispatch } = this.props;
     const { user } = this.state;
-    editUser(user).then(function (data) {
-      dispatch(setUser(data));
+    const { user: prevUser } = this.props;
+    const changedUserFields = user;
+    Object.keys(user).forEach(k => {
+      if (!user[k]) delete changedUserFields[k];
+    });
+    editUser(changedUserFields).then(ok => {
+      if (ok) {
+        dispatch(setUser({ ...prevUser, ...changedUserFields }));
+        dispatch(navigateTo(SETTINGS));
+      }
     });
   }
 

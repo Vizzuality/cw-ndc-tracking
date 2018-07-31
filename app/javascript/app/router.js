@@ -17,6 +17,8 @@ import { getIndicatorsThunk } from './providers/indicators.provider';
 
 import { DEFAULT_TARGET } from './constants/defaults';
 
+export const navigateTo = (route, payload) => ({ type: route, payload });
+
 const history = createHistory();
 
 export const HOME = 'location/HOME';

@@ -17,10 +17,8 @@ class EditSettings extends PureComponent {
             <Input
               inputType={i.type}
               placeholder={i.placeholder}
-              onChange={value =>
-                handleValueChange('password_confirmation', value)}
-              onBlur={value =>
-                handleValueChange('password_confirmation', value)}
+              onChange={value => handleValueChange(i.slug, value)}
+              onBlur={value => handleValueChange(i.slug, value)}
             />
           </EditInput>
         ))}

@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { signUp } from 'services/login.service';
 import errorMessages from 'utils/user-validation';
 import isEmpty from 'lodash/isEmpty';
-import { navigateToLogin } from './sign-up-actions';
+import { navigateTo, LOGIN } from 'router';
 import Component from './sign-up-component';
 
 const mapStateToProps = () => {
@@ -70,7 +70,7 @@ class SignUpContainer extends PureComponent {
     signUp(user).then(response => {
       if (!response.errors) {
         dispatch(
-          navigateToLogin({
+          navigateTo(LOGIN, {
             notice: 'Welcome! You have signed up successfully'
           })
         );
