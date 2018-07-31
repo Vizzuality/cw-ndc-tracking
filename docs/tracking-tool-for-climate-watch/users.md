@@ -4,8 +4,6 @@ Users and Admins are stored in a single `users` table. Admin users are different
 
 Users and Admins can be managed via an admin tool powered by ActiveAdmin at `/admin`.
 
-Users are added to the system by invitation from an Admin; the system sends them a link which takes them to a page where they can set their password.
-
 ## Authentication
 
 Users and Admins can be authenticated by email and password using either the ActiveAdmin html form, or a json request which returns their authentication token. Further API calls need to include user's email and token.
@@ -32,3 +30,20 @@ curl "http://localhost:3000/api/v1/sections" -H "Content-Type: application/json"
 ## Authorisation
 
 Authorisation is implemented using CanCan gem. Admin users can manage all objects in the system, API users have the permissions restricted to objects they "own" (e.g. their user record).
+
+## User self-registration
+
+Users can create non-admin accounts in the system themselves. They need to fill in their name, email and password.
+
+```
+curl "http://localhost:3000/users" -X POST -d '{"user": {"email":"user1@example.com", "password":"password", "first_name":"John", "last_name": "Doe"}}' -H "Content-Type: application/json" -H "Accept: application/json"
+```
+
+Note that any other parameters will not be let through, so e.g. trying to make yourself an admin in this way won't work.
+
+The response includes the authentication token:
+
+```
+{"id":10,"email":"user1@example.com","is_admin":false,"created_at":"2018-07-25T13:11:09.601Z","updated_at":"2018-07-25T13:11:09.601Z","country_iso_code":"XXX","authentication_token":"Lb-JxeLLavPXxtmuP1Jf","first_name":"John","last_name":"Doe"}
+```
+
