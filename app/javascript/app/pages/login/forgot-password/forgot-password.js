@@ -5,7 +5,7 @@ import { navigateToLogin } from './forgot-password-actions';
 
 const handleForgotPasswordClick = email => dispatch => {
   requestNewPassword(email).then(ok => {
-    if (ok) dispatch(navigateToLogin({ notice: 'The email has been sent' }));
+    if (ok) dispatch(navigateToLogin());
   });
 };
 

@@ -34,6 +34,7 @@ export async function requestNewPassword(email) {
         Accept: 'application/json'
       })
     }).then(response => {
+      // Paranoid mode in Devise returns a 201 even if the email is not found in the db
       if (response.ok) return true;
       throw Error(response.statusText);
     });
