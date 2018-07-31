@@ -109,7 +109,13 @@ Input.propTypes = {
   theme: PropTypes.object,
   handleKeyUp: PropTypes.func,
   onBlur: PropTypes.func,
-  inputType: PropTypes.oneOf(['textarea', 'number', 'text', 'password']),
+  inputType: PropTypes.oneOf([
+    'textarea',
+    'number',
+    'text',
+    'password',
+    'email'
+  ]),
   disabled: PropTypes.bool,
   notApplicable: PropTypes.bool,
   label: PropTypes.string,
