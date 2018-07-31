@@ -7,7 +7,7 @@ const userToken = localStorage.getItem('CWTTT');
 export async function editUser(user) {
   return fetch(EDIT_URL, {
     method: 'PUT',
-    body: JSON.stringify(user),
+    body: JSON.stringify({ user }),
     headers: new Headers({
       'Content-Type': 'application/json',
       Accept: 'application/json',
