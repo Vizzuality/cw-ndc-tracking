@@ -13,7 +13,7 @@ export async function editUser(user) {
       'X-User-Email': userEmail,
       'X-User-token': userToken
     })
-  }).then(function (response) {
+  }).then(response => {
     if (response.ok) return true;
     throw Error(response.statusText);
   });
