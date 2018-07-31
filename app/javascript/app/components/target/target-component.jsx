@@ -29,8 +29,8 @@ const Target = ({
           <span className={theme.name}>{title}</span>
           {summary &&
           summaryOnTooltip && (
-          <InfoIcon text={infoText} className={styles.infoIcon} />
-            )}
+            <InfoIcon text={infoText} className={styles.infoIcon} />
+          )}
         </div>
         {summary &&
         !summaryOnTooltip && <p className={theme.summary}>{summary}</p>}

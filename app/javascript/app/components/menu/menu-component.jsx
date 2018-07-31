@@ -28,7 +28,7 @@ class Menu extends PureComponent {
   }
 
   renderLink(option) {
-    const { handleCloseMenu } = this.props;
+    const { handleCloseMenu, handleActionClick } = this.props;
     if (option.path) {
       return (
         <NavLink
@@ -42,10 +42,7 @@ class Menu extends PureComponent {
       );
     }
     return option.action ? (
-      <button
-        className={styles.link}
-        onClick={() => this.handleActionClick(option)}
-      >
+      <button className={styles.link} onClick={() => handleActionClick(option)}>
         {this.renderInsideLink(option, true)}
       </button>
     ) : (
@@ -130,6 +127,7 @@ Menu.propTypes = {
   open: PropTypes.bool,
   toggleOpen: PropTypes.func.isRequired,
   handleCloseMenu: PropTypes.func.isRequired,
+  handleActionClick: PropTypes.func.isRequired,
   className: PropTypes.string
 };
 

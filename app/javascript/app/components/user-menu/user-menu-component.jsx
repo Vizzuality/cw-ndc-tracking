@@ -7,13 +7,14 @@ import userIcon from 'assets/icons/user.svg';
 class UserMenu extends PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { userMenuOptions, className, name } = this.props;
+    const { userMenuOptions, className, name, buttonClassName } = this.props;
     return (
       <Menu
         options={userMenuOptions}
         icon={userIcon}
         className={className}
         title={name}
+        buttonClassName={buttonClassName}
       />
     );
   }
@@ -22,6 +23,7 @@ class UserMenu extends PureComponent {
 UserMenu.propTypes = {
   userMenuOptions: PropTypes.array,
   className: PropTypes.string,
+  buttonClassName: PropTypes.string,
   name: PropTypes.string
 };
 

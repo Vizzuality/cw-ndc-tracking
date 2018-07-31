@@ -1,5 +1,6 @@
 # Components
 
+* [ActionFooter](#actionfooter)
 * [BackButton](#backbutton)
 * [Button](#button)
 * [Dropdown](#dropdown)
@@ -22,6 +23,28 @@ The components used in the page are documented here with some basic information 
 - Use example
 - Props
 - Dependencies
+
+## Action Footer
+
+> ![](../assets/components/action-footer.png)
+
+```
+  <ActionFooter
+    onActionClick={handleSubmit}
+  />
+```
+
+#### Props
+- onActionClick: func.isRequired
+- actionTitle: string.isRequired
+- disabled: boolean
+
+#### Dependencies
+
+- [redux-first-router-link](https://github.com/faceyspacey/redux-first-router-link)
+
+- [Button](#button)
+- Yellow and transparent button themes
 
 ## BackButton
 

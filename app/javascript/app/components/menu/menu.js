@@ -29,10 +29,12 @@ class MenuContainer extends PureComponent {
 
   handleActionClick(option) {
     option.action();
-    const updatedActions = uniq(
-      this.state.succesfulActions.concat(option.label)
-    );
-    this.setState({ succesfulActions: updatedActions });
+    if (this) {
+      const updatedActions = uniq(
+        this.state.succesfulActions.concat(option.label)
+      );
+      this.setState({ succesfulActions: updatedActions });
+    }
   }
 
   handleClickOutside() {

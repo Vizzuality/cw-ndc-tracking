@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { editUser } from 'services/user.service';
-import { setUser } from 'services/login.service';
+import { setUser } from 'pages/login/login-reducers';
 import Component from './settings-component';
 
-const mapStateToProps = user => ({ user });
+const mapStateToProps = state => ({ user: state.user });
 
 class SettingsContainer extends PureComponent {
   constructor(props) {
