@@ -1,4 +1,4 @@
-## User Management
+# User Management
 
 Users and Admins are stored in a single `users` table. Admin users are differentiated by having the `is_admin` flag set.
 
@@ -10,21 +10,51 @@ Users and Admins can be authenticated by email and password using either the Act
 
 ```
 curl "http://localhost:3000/api/v1/sections" -H "Content-Type: application/json" -H "Accept: application/json"
-{"error":"You need to sign in or sign up before continuing."}
+```
+
+```
+{
+   "error":"You need to sign in or sign up before continuing."
+}
 ```
 
 To sign in and retrieve the token:
 
 ```
 curl "http://localhost:3000/users/sign_in" -X POST -d '{"user": {"email":"user@example.com", "password":"password"}}' -H "Content-Type: application/json" -H "Accept: application/json"
-{"id":2,"name":"API user Brazil","email":"user@example.com","is_admin":false,"created_at":"2018-04-26T09:41:54.655Z","updated_at":"2018-04-26T09:41:54.655Z","country_iso_code":"BR","authentication_token":"xTHm1Fmy8ffYEsquKAVM"}
+```
+
+```
+{
+   "id":2,
+   "email":"user@example.com",
+   "is_admin":false,
+   "created_at":"2018-07-30T09:36:44.058Z",
+   "updated_at":"2018-07-30T09:36:44.058Z",
+   "country_iso_code":"BRA",
+   "authentication_token":"N37yhaWqyszDyHvBBxXX",
+   "first_name":"API user",
+   "last_name":"Brazil"
+}
 ```
 
 An authenticated API call:
 
 ```
-curl "http://localhost:3000/api/v1/sections" -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: xTHm1Fmy8ffYEsquKAVM"
-[{"title":"Planning","slug":"planning"},{"title":"Tracking","slug":"tracking"}]
+curl "http://localhost:3000/api/v1/sections" -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+```
+
+```
+[
+   {
+      "title":"Planning",
+      "slug":"planning"
+   },
+   {
+      "title":"Tracking",
+      "slug":"tracking"
+   }
+]
 ```
 
 ## Authorisation
@@ -41,9 +71,79 @@ curl "http://localhost:3000/users" -X POST -d '{"user": {"email":"user1@example.
 
 Note that any other parameters will not be let through, so e.g. trying to make yourself an admin in this way won't work.
 
-The response includes the authentication token:
+When the request is not successful the response has 422 code and payload includes an explanation of the error.
 
 ```
-{"id":10,"email":"user1@example.com","is_admin":false,"created_at":"2018-07-25T13:11:09.601Z","updated_at":"2018-07-25T13:11:09.601Z","country_iso_code":"XXX","authentication_token":"Lb-JxeLLavPXxtmuP1Jf","first_name":"John","last_name":"Doe"}
+{
+   "errors":{
+      "email":[
+         "has already been taken"
+      ]
+   }
+}
 ```
 
+When the request is successful, the response includes the authentication token:
+
+```
+{
+   "id":3,
+   "email":"user1@example.com",
+   "is_admin":false,
+   "created_at":"2018-07-30T09:38:27.869Z",
+   "updated_at":"2018-07-30T09:38:27.869Z",
+   "country_iso_code":"XXX",
+   "authentication_token":"nsoLo8nCFCDB1JWk3YPx",
+   "first_name":"John",
+   "last_name":"Doe"
+}
+```
+
+## Retrieving logged in user's profile information
+
+```
+curl "http://localhost:3000/users/profile" -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+```
+
+```
+{
+   "id":2,
+   "email":"user@example.com",
+   "is_admin":false,
+   "created_at":"2018-07-30T09:36:44.058Z",
+   "updated_at":"2018-07-30T09:36:44.058Z",
+   "country_iso_code":"BRA",
+   "authentication_token":"N37yhaWqyszDyHvBBxXX",
+   "first_name":"API user",
+   "last_name":"Brazil"
+}
+```
+
+## Updating logged in user's profile information
+
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"first_name":"new name"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+```
+
+## Updating logged in user's password
+
+It requires providing the current password. This will fail:
+
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"email":"user@example.com", "password":"new password"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+```
+
+```
+{
+   "errors":{
+      "current_password":[
+         "can't be blank"
+      ]
+   }
+}
+```
+
+This will work:
+```
+curl "http://localhost:3000/users" -X PUT -d '{"user": {"password":"new password", "current_password": "password"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
+```

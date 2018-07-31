@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }.merge(ActiveAdmin::Devise.config)
 
+  devise_scope :user do
+    get '/users/profile', action: 'profile', controller: 'users/registrations'
+  end
+
   ActiveAdmin.routes(self)
 
   namespace :api do

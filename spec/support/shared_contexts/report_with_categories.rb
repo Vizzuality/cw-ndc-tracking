@@ -1,5 +1,5 @@
 RSpec.shared_context 'report with categories' do
-  include_context 'api user'
+  init_api_user
   include_context 'sections'
 
   before(:each) {
