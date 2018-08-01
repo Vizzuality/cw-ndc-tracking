@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Menu from 'components/menu';
 import userIcon from 'assets/icons/user.svg';
-// import styles from './user-menu-styles.scss';
 
 class UserMenu extends PureComponent {
   // eslint-disable-line react/prefer-stateless-function

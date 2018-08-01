@@ -7,7 +7,8 @@ class ErrorMessages extends PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   render() {
     const { errors, className } = this.props;
-    return errors && errors.length > 0 ? (
+    const hasErrors = errors && errors.length > 0;
+    return hasErrors ? (
       <div className={cx(styles.alertContainer, className)}>
         {errors.map(errorMessage => (
           <div className={cx(styles.alert)} key={`${errorMessage}`}>

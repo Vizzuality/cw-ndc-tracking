@@ -14,14 +14,12 @@ class Menu extends PureComponent {
 
   renderInsideLink(option, withAction = false) {
     const { succesfulActions } = this.props;
+    const actionSuccesful =
+      option.icon && (withAction && succesfulActions.includes(option.label));
+    const icon = actionSuccesful ? checkIcon : option.icon;
     return (
       <div className={styles.documentLink} key={option.label}>
-        {option.icon &&
-          (withAction && succesfulActions.includes(option.label) ? (
-            <Icon icon={checkIcon} className={styles.icon} />
-          ) : (
-            <Icon icon={option.icon} className={styles.icon} />
-          ))}
+        {option.icon && <Icon icon={icon} className={styles.icon} />}
         <span className={styles.title}>{option.label}</span>
       </div>
     );
