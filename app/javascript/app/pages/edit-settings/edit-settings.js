@@ -141,7 +141,7 @@ class EditSettingsContainer extends PureComponent {
     const { user: prevUser } = this.props;
     const changedUserFields = user;
     Object.keys(user).forEach(k => {
-      if (!user[k]) delete changedUserFields[k];
+      if (!user[k] || user[k] === prevUser[k]) delete changedUserFields[k];
     });
     editUser(changedUserFields).then(response => {
       if (!response.errors) {
