@@ -3,7 +3,7 @@ import { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { editUser } from 'services/user.service';
 import { setUser } from 'pages/login/login-actions';
-import { navigateTo, SETTINGS } from 'router';
+import { navigateTo, SETTINGS, LOGIN } from 'router';
 import {
   editDataErrorMessages,
   editPasswordErrorMessages
@@ -146,7 +146,13 @@ class EditSettingsContainer extends PureComponent {
     editUser(changedUserFields).then(response => {
       if (!response.errors) {
         dispatch(setUser({ ...prevUser, ...changedUserFields }));
-        dispatch(navigateTo(SETTINGS));
+        if (changedUserFields.email) {
+          dispatch(
+            navigateTo(LOGIN, { notice: 'Please login with your new email' })
+          );
+        } else {
+          dispatch(navigateTo(SETTINGS));
+        }
       } else {
         this.setState({ errors: response.errors });
       }
