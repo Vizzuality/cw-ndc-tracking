@@ -17,7 +17,7 @@ export async function login(password, email) {
       Accept: 'application/json'
     })
   }).then(function (response) {
-    if (response.ok) return response.json();
+    if (response.ok || response.status === 401) return response.json();
     throw Error(response.statusText);
   });
 }

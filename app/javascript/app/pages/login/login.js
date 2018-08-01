@@ -16,7 +16,8 @@ class LoginContainer extends PureComponent {
     super();
     this.state = {
       password: null,
-      email: null
+      email: null,
+      errorMessage: ''
     };
   }
 
@@ -37,20 +38,26 @@ class LoginContainer extends PureComponent {
   handleLoginThunk() {
     const { dispatch } = this.props;
     const { password, email } = this.state;
-    login(password, email).then(data => {
-      dispatch(setUser(data));
-      localStorage.setItem('CWTTT', data.authentication_token);
-      localStorage.setItem('user', data.email);
-      dispatch(navigateTo(PLANNING));
+    login(password, email).then(response => {
+      if (!response.error) {
+        dispatch(setUser(response));
+        localStorage.setItem('CWTTT', response.authentication_token);
+        localStorage.setItem('user', response.email);
+        dispatch(navigateTo(PLANNING));
+      } else {
+        this.setState({ errorMessage: response.error });
+      }
     });
   }
 
   render() {
+    const { errorMessage } = this.state;
     return createElement(Component, {
       ...this.props,
       handleSetValue: this.handleSetValue.bind(this),
       handleKeyUp: this.handleKeyUp,
-      handleSubmit: this.handleSubmit
+      handleSubmit: this.handleSubmit,
+      errorMessage
     });
   }
 }
