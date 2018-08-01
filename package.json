@@ -32,7 +32,7 @@
     "react-click-outside": "github:tj/react-click-outside",
     "react-css-themr": "^2.1.2",
     "react-dom": "16.2.0",
-    "react-dom-factories": "^1.0.2",
+    "react-dom-factories": "1.0.2",
     "react-redux": "5.0.5",
     "react-selectize": "^3.0.1",
     "react-stickynode": "^1.4.1",
