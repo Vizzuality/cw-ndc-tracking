@@ -3,7 +3,7 @@ import { login } from 'services/login.service';
 import { createElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { navigateTo, PLANNING } from 'app/router';
-import { setUser } from './login-actions';
+import { setUser } from 'providers/user.provider';
 import Component from './login-component';
 
 const mapStateToProps = state => ({

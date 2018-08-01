@@ -14,12 +14,15 @@ export async function getUserThunk(dispatch, getState) {
 }
 
 // Action creator
+export const deleteUser = createAction('DELETE_USER');
 export const setUser = createAction('SET_USER');
 export const setUserLoading = createAction('SET_USER_LOADING');
 
 // Reducer
 export default (state = {}, action) => {
   switch (action.type) {
+    case 'DELETE_USER':
+      return { ...state, data: null };
     case 'SET_USER':
       return { ...state, data: action.payload };
     case 'SET_USER_LOADING':

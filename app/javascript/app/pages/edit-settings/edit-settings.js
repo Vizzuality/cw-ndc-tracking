@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { editUser } from 'services/user.service';
-import { setUser } from 'pages/login/login-actions';
+import { setUser } from 'providers/user.provider';
 import { navigateTo, SETTINGS, LOGIN } from 'router';
 import {
   editDataErrorMessages,
