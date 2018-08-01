@@ -4,8 +4,7 @@ import { apiGet, apiPatch } from '../services/api.service';
 export default store => next => action => {
   const isApiAction = action.type === 'API';
   const isUserLoggedIn =
-    store.getState().user.email ||
-    (localStorage.getItem('user') && localStorage.getItem('CWTTT'));
+    localStorage.getItem('user') && localStorage.getItem('CWTTT');
   if (isApiAction) {
     if (!isUserLoggedIn) {
       store.dispatch({ type: LOGIN });
