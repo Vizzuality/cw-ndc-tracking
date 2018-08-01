@@ -6,8 +6,19 @@ import styles from './settings-styles.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Settings extends PureComponent {
-  render() {
+  renderUser() {
     const { user } = this.props;
+    return (
+      user && (
+        <div>
+          <div>{`${user.first_name} ${user.last_name}`}</div>
+          <div>{user.email}</div>
+        </div>
+      )
+    );
+  }
+
+  render() {
     return (
       <div className={styles.page}>
         <Header title="Settings" className={styles.header} />
@@ -16,12 +27,7 @@ class Settings extends PureComponent {
             title={'Personal info'}
             editActionLink={'/settings/info'}
           >
-            {user && (
-              <div>
-                <div>{`${user.first_name} ${user.last_name}`}</div>
-                <div>{user.email}</div>
-              </div>
-            )}
+            {this.renderUser()}
           </SettingsItem>
           <SettingsItem
             title={'Password'}
