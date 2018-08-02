@@ -21,6 +21,7 @@
 
 .navActions {
   display: flex;
+  justify-content: flex-end;
 
   .link {
     color: $dark-gray;
