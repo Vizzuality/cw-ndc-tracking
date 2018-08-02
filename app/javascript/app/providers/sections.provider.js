@@ -1,4 +1,4 @@
-import { apiActionCreator, get } from '../services/api.service';
+import { apiActionCreator, get } from 'services/api.service';
 
 const path =
   'sections?includes[]=categories&includes[]=targets&includes[]=indicators';

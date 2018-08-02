@@ -147,3 +147,10 @@ This will work:
 ```
 curl "http://localhost:3000/users" -X PUT -d '{"user": {"password":"new password", "current_password": "password"}}' -H "Content-Type: application/json" -H "Accept: application/json" -H "X-User-Email: user@example.com" -H "X-User-Token: N37yhaWqyszDyHvBBxXX"
 ```
+
+## Requesting forgotten password reset
+
+
+```
+curl "http://localhost:3000/users/password" -X POST -d '{"user": {"email":"user2@example.com"}}' -H "Content-Type: application/json" -H "Accept: application/json"
+```

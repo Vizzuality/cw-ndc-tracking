@@ -5,6 +5,7 @@ import restoreScroll from 'redux-first-router-restore-scroll';
 
 import Login from 'pages/login';
 import Settings from 'pages/settings';
+import ForgotPassword from 'pages/login/forgot-password';
 import SignUp from 'pages/sign-up';
 import EditSettings from 'pages/edit-settings';
 import Planning from 'pages/planning';
@@ -25,6 +26,7 @@ const history = createHistory();
 export const HOME = 'location/HOME';
 export const LOGIN = 'location/LOGIN';
 export const SETTINGS = 'location/SETTINGS';
+export const FORGOT_PASSWORD = 'location/FORGOT_PASSWORD';
 export const SIGN_UP = 'location/SIGN_UP';
 export const EDIT_SETTINGS = 'location/EDIT_SETTINGS';
 export const PLANNING = 'location/PLANNING';
@@ -111,6 +113,10 @@ export const routes = {
       getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState, true);
     }
+  },
+  [FORGOT_PASSWORD]: {
+    path: '/forgot-password',
+    component: ForgotPassword
   },
   [HOME]: {
     path: '/',
