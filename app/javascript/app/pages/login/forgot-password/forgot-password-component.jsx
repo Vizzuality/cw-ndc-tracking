@@ -16,10 +16,15 @@ class Login extends Component {
     this.state = {
       email: null
     };
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+  }
+
+  handleEmailChange(value) {
+    this.setState({ email: value });
   }
 
   render() {
-    const { dispatch, handleForgotPasswordClick } = this.props;
+    const { handleForgotPasswordClick } = this.props;
     return (
       <div className={styles.wrapper}>
         <div className={styles.logoContainer}>
@@ -30,11 +35,11 @@ class Login extends Component {
           label="Email"
           inputType="text"
           placeholder="Please add your email"
-          onChange={value => this.setState({ email: value })}
-          onBlur={value => this.setState({ email: value })}
+          onChange={this.handleEmailChange}
+          onBlur={this.handleEmailChange}
         />
         <Button
-          onClick={() => dispatch(handleForgotPasswordClick(this.state.email))}
+          onClick={() => handleForgotPasswordClick(this.state.email)}
           theme={yellowButtonTheme}
         >
           Send me reset password instructions
@@ -53,7 +58,6 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  dispatch: PropTypes.func,
   handleForgotPasswordClick: PropTypes.func
 };
 

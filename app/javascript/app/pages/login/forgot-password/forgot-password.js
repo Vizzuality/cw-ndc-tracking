@@ -3,14 +3,12 @@ import { requestNewPassword } from 'services/login.service';
 import Component from './forgot-password-component';
 import { navigateToLogin } from './forgot-password-actions';
 
-const handleForgotPasswordClick = email => dispatch => {
+const handleForgotPasswordClick = email => {
   requestNewPassword(email).then(ok => {
-    if (ok) dispatch(navigateToLogin());
+    if (ok) navigateToLogin();
   });
 };
 
-const mapStateToProps = () => ({
-  handleForgotPasswordClick
-});
+const mapDispatchToProps = () => ({ handleForgotPasswordClick });
 
-export default connect(mapStateToProps)(Component);
+export default connect(null, mapDispatchToProps)(Component);
