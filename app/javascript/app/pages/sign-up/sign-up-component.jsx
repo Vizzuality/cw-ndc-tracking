@@ -8,7 +8,6 @@ import Input from 'components/input';
 import Button from 'components/button';
 import cwLogo from 'assets/cw-logo.svg';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
-import ErrorMessages from 'components/error-messages';
 import styles from './sign-up-styles.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -37,7 +36,6 @@ class SignUp extends Component {
         <Button onClick={handleSubmit} theme={yellowButtonTheme}>
           Sign Up
         </Button>
-        <ErrorMessages errors={errors} className={styles.alert} />
         <NavLink
           to={{
             type: LOGIN
