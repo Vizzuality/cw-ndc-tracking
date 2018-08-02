@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestNewPassword } from '../../../services/login.service';
+import { requestNewPassword } from 'services/login.service';
 import Component from './forgot-password-component';
 import { navigateToLogin } from './forgot-password-actions';
 

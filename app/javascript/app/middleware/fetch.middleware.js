@@ -1,5 +1,5 @@
 import { LOGIN } from 'router';
-import { apiGet, apiPatch } from '../services/api.service';
+import { apiGet, apiPatch } from 'services/api.service';
 
 export default store => next => action => {
   const isApiAction = action.type === 'API';

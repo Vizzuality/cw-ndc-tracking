@@ -1,4 +1,4 @@
-import { apiActionCreator, get, patch } from '../services/api.service';
+import { apiActionCreator, get, patch } from 'services/api.service';
 
 export async function getIndicatorsThunk(dispatch, getState) {
   const section = getState().location.pathname.split('/')[1];
