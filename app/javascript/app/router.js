@@ -116,7 +116,8 @@ export const routes = {
   },
   [FORGOT_PASSWORD]: {
     path: '/forgot-password',
-    component: ForgotPassword
+    component: ForgotPassword,
+    noNav: true
   },
   [HOME]: {
     path: '/',
