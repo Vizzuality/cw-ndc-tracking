@@ -1,5 +1,5 @@
 import { PLANNING, LOGIN } from 'router';
-import { createAction } from 'redux-actions';
+import { createAction } from 'redux-tools';
 
 // Action creators
 export const setUser = createAction('SET_USER');

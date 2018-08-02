@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from 'services/login.service';
 import { setUser, navigateToLogin } from 'pages/login/login-actions';
+import { LOGIN, FORGOT_PASSWORD } from 'router';
 import Component from './nav-component';
 
 const mapStateToProps = ({ location }) => ({
@@ -18,6 +19,7 @@ class NavContainer extends PureComponent {
         onClick: this.handleLogout
       }
     ];
+    this.blacklist = [LOGIN, FORGOT_PASSWORD];
   }
 
   handleLogout = () => {
@@ -33,14 +35,19 @@ class NavContainer extends PureComponent {
   };
 
   render() {
-    return createElement(Component, {
-      ...this.props,
-      actions: this.actions
-    });
+    const { location } = this.props;
+    const hideNav = location && this.blacklist.includes(location.type);
+    return hideNav
+      ? null
+      : createElement(Component, {
+        ...this.props,
+        actions: this.actions
+      });
   }
 }
 
 NavContainer.propTypes = {
+  location: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 
