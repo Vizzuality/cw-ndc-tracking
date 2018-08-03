@@ -3,18 +3,12 @@ const { API_URL } = process.env;
 export const get = 'GET';
 export const patch = 'PATCH';
 
-const getToken = (getState, localStorage) =>
-  getState().user.authentication_token || localStorage.getItem('CWTTT');
-
-const getEmail = (getState, localStorage) =>
-  getState().user.email || localStorage.getItem('user');
-
 const getHeaders = (getState, localStorage) =>
   new Headers({
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    'X-User-Email': getEmail(getState, localStorage),
-    'X-User-Token': getToken(getState, localStorage)
+    'X-User-Email': localStorage.getItem('user'),
+    'X-User-Token': localStorage.getItem('CWTTT')
   });
 
 export const apiGet = (endpoint, getState) => {

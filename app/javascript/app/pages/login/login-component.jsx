@@ -18,7 +18,13 @@ class Login extends Component {
     };
   }
   render() {
-    const { handleKeyUp, handleSubmit, handleSetValue, notice } = this.props;
+    const {
+      handleKeyUp,
+      handleSubmit,
+      handleSetValue,
+      notice,
+      errorMessage
+    } = this.props;
     return (
       <div className={styles.wrapper}>
         {notice && <div className={styles.notice}>{notice}</div>}
@@ -45,6 +51,9 @@ class Login extends Component {
         <Button onClick={handleSubmit} theme={yellowButtonTheme}>
           Login
         </Button>
+        {errorMessage && (
+          <div className={styles.errorMessage}>{errorMessage}</div>
+        )}
         <NavLink
           to={{
             type: SIGN_UP
@@ -67,6 +76,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
+  errorMessage: PropTypes.string,
   notice: PropTypes.string,
   handleKeyUp: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,

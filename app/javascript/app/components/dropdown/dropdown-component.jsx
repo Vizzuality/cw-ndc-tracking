@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ReactSelectize, SimpleSelect } from 'react-selectize'; // eslint-disable-line
+import { SimpleSelect } from 'react-selectize'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import Icon from 'components/icon';
 import { themr } from 'react-css-themr';
@@ -11,6 +11,11 @@ import theme from 'styles/themes/dropdown/react-selectize.scss';
 import styles from './dropdown-styles.scss';
 
 class Dropdown extends PureComponent {
+  constructor() {
+    super();
+    this.selectorElement = null;
+  }
+
   componentDidUpdate() {
     this.selectorElement.highlightFirstSelectableOption();
   }

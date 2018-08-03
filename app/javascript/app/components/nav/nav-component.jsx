@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import Icon from 'components/icon';
 import NavLinks from 'components/nav-links';
+import UserMenu from 'components/user-menu';
 
 import cwLogo from 'assets/cw-logo.svg';
 import navBarTheme from 'styles/themes/nav-links/nav-links-nav-bar.scss';
@@ -13,7 +14,7 @@ import printStyles from './nav-print-styles.scss';
 
 class Nav extends PureComponent {
   render() {
-    const { actions, className, navSections, hideNav } = this.props;
+    const { className, navSections, hideNav, userName } = this.props;
     return hideNav ? null : (
       <div className={cx(styles.navbarContainer, printStyles.navbarContainer)}>
         <nav className={cx(styles.navbar, printStyles.navbar, className)}>
@@ -28,19 +29,13 @@ class Nav extends PureComponent {
               navSections={navSections}
             />
           </div>
-          {actions && (
-            <div className={cx(styles.navActions)}>
-              {actions.map(action => (
-                <button
-                  key={action.name}
-                  onClick={action.onClick}
-                  className={styles.link}
-                >
-                  {action.name}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className={styles.navActions}>
+            <UserMenu
+              className={styles.link}
+              name={userName}
+              buttonClassName={styles.userButton}
+            />
+          </div>
         </nav>
       </div>
     );
@@ -49,9 +44,9 @@ class Nav extends PureComponent {
 
 Nav.propTypes = {
   className: PropTypes.string,
+  userName: PropTypes.string,
   navSections: PropTypes.array.isRequired,
-  hideNav: PropTypes.bool,
-  actions: PropTypes.array
+  hideNav: PropTypes.bool
 };
 
 Nav.defaultProps = {

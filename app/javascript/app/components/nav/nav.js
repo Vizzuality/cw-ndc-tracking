@@ -1,14 +1,19 @@
-import { createElement, PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { logout } from 'services/login.service';
 import { setUser, navigateToLogin } from 'pages/login/login-actions';
 import { LOGIN, FORGOT_PASSWORD } from 'router';
 import Component from './nav-component';
 
-const mapStateToProps = ({ location }) => ({
-  hideNav: location && location.routesMap[location.type].noNav
-});
+const mapStateToProps = ({ user, location }) => {
+  const userName =
+    user && user.data && `${user.data.first_name} ${user.data.last_name}`;
+  return {
+    hideNav: location && location.routesMap[location.type].noNav,
+    userName
+  };
+};
 
 class NavContainer extends PureComponent {
   constructor() {
@@ -51,4 +56,4 @@ NavContainer.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, null)(NavContainer);
+export default connect(mapStateToProps, null)(Component);

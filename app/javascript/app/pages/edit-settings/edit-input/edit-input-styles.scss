@@ -1,0 +1,20 @@
+@import '~styles/layout.scss';
+
+.borderWrapper {
+  border-bottom: 1px solid $border-color;
+}
+
+.name {
+  font-size: $font-size-big;
+}
+
+.inputWrapper {
+  @include row($columns: (7, 3));
+
+  padding-top: $gutter-padding;
+  padding-bottom: $gutter-padding;
+
+  > :nth-child(2) {
+    @include column-offset(2, $gutters: true);
+  }
+}

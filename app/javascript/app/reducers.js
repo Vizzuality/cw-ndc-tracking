@@ -6,7 +6,7 @@ import sections from './providers/sections.provider';
 import categories from './providers/categories.provider';
 import targets from './providers/targets.provider';
 import indicators from './providers/indicators.provider';
-import { setUser } from './pages/login/login-reducers';
+import user from './providers/user.provider';
 
 export default combineReducers({
   location: router.reducer,
@@ -14,5 +14,5 @@ export default combineReducers({
   categories,
   targets,
   indicators,
-  user: setUser
+  user
 });

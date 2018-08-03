@@ -4,8 +4,10 @@ import queryString from 'query-string';
 import restoreScroll from 'redux-first-router-restore-scroll';
 
 import Login from 'pages/login';
+import Settings from 'pages/settings';
 import ForgotPassword from 'pages/login/forgot-password';
 import SignUp from 'pages/sign-up';
+import EditSettings from 'pages/edit-settings';
 import Planning from 'pages/planning';
 import Tracking from 'pages/tracking';
 import Reporting from 'pages/reporting';
@@ -13,15 +15,20 @@ import EditTarget from 'pages/edit-target';
 
 import { getSectionsThunk } from './providers/sections.provider';
 import { getIndicatorsThunk } from './providers/indicators.provider';
+import { getUserThunk } from './providers/user.provider';
 
 import { DEFAULT_TARGET } from './constants/defaults';
+
+export const navigateTo = (route, payload) => ({ type: route, payload });
 
 const history = createHistory();
 
 export const HOME = 'location/HOME';
 export const LOGIN = 'location/LOGIN';
+export const SETTINGS = 'location/SETTINGS';
 export const FORGOT_PASSWORD = 'location/FORGOT_PASSWORD';
 export const SIGN_UP = 'location/SIGN_UP';
+export const EDIT_SETTINGS = 'location/EDIT_SETTINGS';
 export const PLANNING = 'location/PLANNING';
 export const PLANNING_CATEGORY = 'location/PLANNING_CATEGORY';
 export const TRACKING = 'location/TRACKING';
@@ -38,13 +45,17 @@ export const routes = {
     label: 'Planning',
     path: '/planning/:category',
     component: Planning,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState);
+    }
   },
   [PLANNING]: {
     label: 'Planning',
     path: '/planning',
     component: Planning,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState);
       push(`/planning/${DEFAULT_TARGET}`);
     }
@@ -53,13 +64,17 @@ export const routes = {
     label: 'Tracking',
     path: '/tracking/:category',
     component: Tracking,
-    thunk: dispatchPreFetchThunks(getSectionsThunk)
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState);
+    }
   },
   [TRACKING]: {
     label: 'Tracking',
     path: '/tracking',
     component: Tracking,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState);
       push(`/tracking/${DEFAULT_TARGET}`);
     }
@@ -69,6 +84,7 @@ export const routes = {
     path: '/reporting',
     component: Reporting,
     thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
       getSectionsThunk(dispatch, getState, true);
     }
   },
@@ -82,9 +98,26 @@ export const routes = {
     component: SignUp,
     noNav: true
   },
+  [SETTINGS]: {
+    path: '/settings',
+    component: Settings,
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState, true);
+    }
+  },
+  [EDIT_SETTINGS]: {
+    path: '/settings/:page',
+    component: EditSettings,
+    thunk: (dispatch, getState) => {
+      getUserThunk(dispatch, getState);
+      getSectionsThunk(dispatch, getState, true);
+    }
+  },
   [FORGOT_PASSWORD]: {
     path: '/forgot-password',
-    component: ForgotPassword
+    component: ForgotPassword,
+    noNav: true
   },
   [HOME]: {
     path: '/',
@@ -93,12 +126,20 @@ export const routes = {
   [PLANNING_TARGET_EDIT]: {
     path: '/planning/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(
+      getUserThunk,
+      getSectionsThunk,
+      getIndicatorsThunk
+    )
   },
   [TRACKING_TARGET_EDIT]: {
     path: '/tracking/:category/:target',
     component: EditTarget,
-    thunk: dispatchPreFetchThunks(getSectionsThunk, getIndicatorsThunk)
+    thunk: dispatchPreFetchThunks(
+      getUserThunk,
+      getSectionsThunk,
+      getIndicatorsThunk
+    )
   },
   [NOT_FOUND]: {
     path: '/404',

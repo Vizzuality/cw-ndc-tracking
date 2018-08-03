@@ -8,7 +8,6 @@ import Input from 'components/input';
 import Button from 'components/button';
 import cwLogo from 'assets/cw-logo.svg';
 import yellowButtonTheme from 'styles/themes/button/button-yellow.scss';
-import startCase from 'lodash/startCase';
 import styles from './sign-up-styles.scss';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -27,6 +26,9 @@ class SignUp extends Component {
             label={i.label}
             inputType={i.type}
             placeholder={i.placeholder}
+            errorMessages={
+              errors && (errors[i.slug] || []).concat(errors.all || [])
+            }
             onChange={value => handleValueChange(i.slug, value)}
             onBlur={value => handleValueChange(i.slug, value)}
           />
@@ -34,17 +36,6 @@ class SignUp extends Component {
         <Button onClick={handleSubmit} theme={yellowButtonTheme}>
           Sign Up
         </Button>
-        {errors &&
-          Object.keys(errors).map(fieldErrors =>
-            errors[fieldErrors].map(errorMessage => (
-              <div
-                className={styles.alert}
-                key={`${fieldErrors}${errorMessage}`}
-              >
-                {startCase(fieldErrors)}: {errorMessage}
-              </div>
-            ))
-          )}
         <NavLink
           to={{
             type: LOGIN
