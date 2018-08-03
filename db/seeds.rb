@@ -11,7 +11,7 @@ if Rails.env.development?
     email: 'admin@example.com',
     first_name: 'Admin',
     last_name: 'User',
-    is_admin: true,
+    status: User::ADMIN,
     password: 'password',
     password_confirmation: 'password'
   )
@@ -20,7 +20,7 @@ if Rails.env.development?
     first_name: 'API user',
     last_name: 'Brazil',
     country_iso_code: 'BRA',
-    is_admin: false,
+    status: User::USER,
     password: 'password',
     password_confirmation: 'password'
   )
