@@ -1,8 +1,8 @@
 # User Management
 
-Users and Admins are stored in a single `users` table. Admin users are differentiated by having the `is_admin` flag set.
+Users, Trusted users and Admins are stored in a single `users` table. They are differentiated by having the `status` flag set to ADMIN, TRUSTED or USER respectively.
 
-Users and Admins can be managed via an admin tool powered by ActiveAdmin at `/admin`.
+Users can be managed via an admin tool powered by ActiveAdmin at `/admin`.
 
 ## Authentication
 
@@ -28,13 +28,13 @@ curl "http://localhost:3000/users/sign_in" -X POST -d '{"user": {"email":"user@e
 {
    "id":2,
    "email":"user@example.com",
-   "is_admin":false,
    "created_at":"2018-07-30T09:36:44.058Z",
    "updated_at":"2018-07-30T09:36:44.058Z",
    "country_iso_code":"BRA",
    "authentication_token":"N37yhaWqyszDyHvBBxXX",
    "first_name":"API user",
-   "last_name":"Brazil"
+   "last_name":"Brazil",
+   "status":"USER"
 }
 ```
 
@@ -89,13 +89,13 @@ When the request is successful, the response includes the authentication token:
 {
    "id":3,
    "email":"user1@example.com",
-   "is_admin":false,
    "created_at":"2018-07-30T09:38:27.869Z",
    "updated_at":"2018-07-30T09:38:27.869Z",
    "country_iso_code":"XXX",
    "authentication_token":"nsoLo8nCFCDB1JWk3YPx",
    "first_name":"John",
-   "last_name":"Doe"
+   "last_name":"Doe",
+   "status":"USER"
 }
 ```
 
@@ -109,13 +109,13 @@ curl "http://localhost:3000/users/profile" -H "Content-Type: application/json" -
 {
    "id":2,
    "email":"user@example.com",
-   "is_admin":false,
    "created_at":"2018-07-30T09:36:44.058Z",
    "updated_at":"2018-07-30T09:36:44.058Z",
    "country_iso_code":"BRA",
    "authentication_token":"N37yhaWqyszDyHvBBxXX",
    "first_name":"API user",
-   "last_name":"Brazil"
+   "last_name":"Brazil",
+   "status":"USER"
 }
 ```
 

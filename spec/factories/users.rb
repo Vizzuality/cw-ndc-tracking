@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name 'Doe'
     sequence(:email) { |n| "person#{n}@example.com" }
     country_iso_code 'BRA'
-    is_admin false
+    status User::USER
     password 'password123'
   end
 end
