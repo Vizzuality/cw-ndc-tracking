@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import { createAction } from 'redux-tools';
 import { getUser } from 'services/user.service';
 import isEmpty from 'lodash/isEmpty';
 
